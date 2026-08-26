@@ -1,0 +1,63 @@
+# F3 — PLANO
+
+Você está na F3. Seu objetivo é gerar a árvore de sprints/fases/tasks. Nesta fase você não escreve código de implementação.
+
+## Pré-requisitos verificáveis
+
+- `docs/<slug>/00-DECISOES.md` existe.
+- **Nenhum PENDENTE bloqueante** em `00-DECISOES.md`. Se houver, PARE: liste os PENDENTEs, diga o que cada um trava e pergunte só o necessário para resolvê-los (isso é resolução de pendência da F2, não uma nova entrevista). Só gere o plano com todos os bloqueantes resolvidos.
+- Se `00-DECISOES.md` não existe, a F2 não aconteceu: diga "Falta a F2 (descoberta). Vou executá-la primeiro." e execute `references/02-descoberta.md`.
+
+Se este é um retorno da F5 (auditoria com achado ALTA), leia `00-AUDITORIA.md` antes de regerar: cada achado ALTA e MÉDIA deve ser endereçado na nova versão do plano.
+
+## Passo 1 — Desenhar a árvore
+
+Com a base (`base/`) e as decisões (`00-DECISOES.md`) na mão, desenhe Sprints → Fases → Tasks.
+
+**Regra estrutural obrigatória:** a sprint-01 entrega a capacidade de testar — configuração, client/conexões, harness de teste, fixtures — e NÃO funcionalidade de negócio. Sem isso, o TDD das sprints seguintes não é executável.
+
+**Regra de granularidade:** se `teste_integracao` e `teste_funcional` de uma task não cabem em uma frase cada, a task está grande demais — quebre em duas ou mais.
+
+**Paralelismo declarado:** para CADA task, declare `paralelizavel` e `depende_de`; para CADA fase, declare com qual outra fase pode rodar em paralelo (ou "nenhuma"). A execução nunca decidirá isso — se você não declarar, é sequencial.
+
+**Sem decisão humana em execução:** se ao planejar você encontrar algo que exigiria decisão humana durante a execução, transforme em decisão AGORA: pergunte ao usuário na hora, registre a resposta como nova linha D-NN em `00-DECISOES.md` e só então continue o plano. Esta é a única pergunta permitida na F3.
+
+## Passo 2 — Escrever os arquivos
+
+Para cada sprint N, crie `docs/<slug>/sprint-NN/` com três arquivos, usando os templates (caminhos relativos à raiz da skill):
+
+- `sprint.md` — de `assets/TEMPLATE-sprint.md`: objetivo, fases, critério de saída, riscos conhecidos.
+- `fases.md` — de `assets/TEMPLATE-fases.md`: por fase, objetivo, tasks que a compõem, critério de saída, com qual outra fase pode rodar em paralelo.
+- `tasks.md` — de `assets/TEMPLATE-tasks.md`: um bloco por task com TODOS os campos do contrato (`id`, `titulo`, `objetivo`, `arquivos`, `teste_integracao`, `teste_funcional`, `criterio_aceite`, `depende_de`, `paralelizavel`, `status`).
+
+Convenções:
+
+- `id` no formato `T-NN.MM` (NN = sprint, MM = sequencial dentro da sprint).
+- `status` inicial de toda task: `pendente`.
+- `criterio_aceite` é verificável, binário e sem adjetivo. "Endpoint responde 200 com o campo `total`" serve; "endpoint funciona bem" não serve.
+- `arquivos` lista caminhos relativos à raiz do repositório, separados em "cria:" e "altera:".
+- Nada no plano pode contradizer a base sem uma decisão D-NN que justifique.
+
+## Passo 3 — Verificação própria antes de encerrar
+
+Antes de declarar a F3 concluída, confira você mesmo:
+
+- [ ] Toda task tem os 10 campos do contrato preenchidos.
+- [ ] Nenhum `depende_de` aponta para id inexistente; não há ciclo de dependência.
+- [ ] Toda task com `paralelizavel: true` não escreve nos mesmos arquivos de outra task paralela da mesma janela.
+- [ ] A sprint-01 é de capacidade de testar, não de negócio.
+- [ ] Nenhuma task depende de decisão humana em execução.
+- [ ] Cada teste de cada task cabe em uma frase.
+
+## Critério de saída da fase
+
+- [ ] `sprint-01/` (e demais sprints) existem com `sprint.md`, `fases.md` e `tasks.md` completos.
+- [ ] Checklist do Passo 3 toda atendida.
+
+## Quando o critério não é atendido
+
+Corrija o plano você mesmo, nesta fase, antes de encerrar — a F3 é o lugar de mexer no plano. Não deixe para a F5 achar o que você já sabe que está errado.
+
+## Ao terminar
+
+Anuncie: "F3 concluída. Plano em `docs/<slug>/sprint-*/` (N sprints, M tasks)." Siga para a F4 lendo `references/04-orquestrador.md`.
