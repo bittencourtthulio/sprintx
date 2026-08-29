@@ -64,6 +64,7 @@ Antes de declarar a F3 concluída, confira você mesmo:
 - [ ] A sprint-01 é de capacidade de testar, não de negócio.
 - [ ] Nenhuma task depende de decisão humana em execução.
 - [ ] Cada teste de cada task cabe em uma frase.
+- [ ] Nenhuma task tem pior caso plausível maior que quatro vezes o melhor caso plausível (senão, quebre-a agora — a F3.5 se recusaria a estimá-la).
 
 ## Critério de saída da fase
 
@@ -74,6 +75,20 @@ Antes de declarar a F3 concluída, confira você mesmo:
 
 Corrija o plano você mesmo, nesta fase, antes de encerrar — a F3 é o lugar de mexer no plano. Não deixe para a F5 achar o que você já sabe que está errado.
 
+## O plano é o insumo da F3.5 (estimativa)
+
+O plano pronto — tasks granulares, com `depende_de` e `paralelizavel` declarados — é exatamente o insumo de que a estimativa precisa. É por isso que a F3.5 (`references/07-estimativa.md`) só roda depois desta fase: estimar antes de existir task é chute com aparência de método.
+
+A F3.5 é **opcional** e não é pré-requisito da F4. Você não a executa aqui, e a ausência de estimativa não impede nada. Duas obrigações práticas recaem sobre a F3:
+
+**Portão de compreensão — antecipe-o aqui.** Ao desenhar cada task, pergunte-se qual seria o esforço no caso bom plausível (`o`) e no caso ruim plausível (`p`). **Se `p` superar quatro vezes `o`, a task está mal compreendida e deve ser quebrada AINDA NA F3**, antes de encerrar a fase. Uma faixa em que o pior caso é mais de quatro vezes o melhor não é incerteza sobre esforço: é falta de entendimento sobre o que a task é — e a F3.5 se recusa a estimar uma task assim, devolvendo-a para cá. Quebrar agora custa minutos; descobrir na estimativa custa um retorno de fase.
+
+Esse teste é irmão da regra de granularidade (se os dois testes não cabem em uma frase cada, quebre) e não a substitui: aplique os dois.
+
+**Não estime aqui.** Não escreva horas, faixas, prazos nem datas em `sprint.md`, `fases.md` ou `tasks.md`. Nenhum campo do contrato da task carrega esforço, e o plano não é o lugar de número de esforço. A estimativa vive exclusivamente em `docs/<slug>/00-ESTIMATIVA.md`, gravado pela F3.5.
+
 ## Ao terminar
 
 Anuncie: "F3 concluída. Plano em `docs/<slug>/sprint-*/` (N sprints, M tasks)." Siga para a F4 lendo `references/04-orquestrador.md`.
+
+Se o usuário pediu estimativa (ou acionou `/sprintx-estimar`), rode antes a F3.5 lendo `references/07-estimativa.md` e só então siga para a F4. Sem esse pedido, vá direto para a F4 — a F3.5 nunca é executada por conta própria e nunca bloqueia a passagem.

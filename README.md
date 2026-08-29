@@ -63,11 +63,14 @@ A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da m
 
 O método é uma máquina de estados estritamente sequencial. A skill sempre sabe em que fase está inspecionando o que já existe em disco — você nunca precisa dizer "estou na fase X".
 
+A elas se soma uma única fase **opcional**, a F3.5 (estimativa), que roda entre a F3 e a F4 apenas quando você pede — e cuja ausência nunca impede nada.
+
 | Fase | Nome | O que faz |
 |---|---|---|
 | **F1** | Ingestão | Constrói a base de conhecimento antes de qualquer plano — documentação oficial de ferramentas de terceiro (modo externo) ou o código/contratos existentes (modo interno). Nada de invenção: o que a fonte não afirma vira `NÃO DOCUMENTADO`. |
 | **F2** | Descoberta | A única fase em que a IA pergunta — e nela é obrigada a perguntar, em blocos de até 5 perguntas, esperando resposta entre eles. Cobre escopo, arquitetura, dados, observabilidade, erros, segredos e definição de pronto. Sai um `00-DECISOES.md` com cada decisão rastreável. |
 | **F3** | Plano | Gera a árvore de sprints, fases e tasks com todos os contratos preenchidos. Bloqueia se sobrar pendência não resolvida. A primeira sprint sempre entrega a capacidade de testar (config, client, harness, fixtures) antes de qualquer funcionalidade de negócio. |
+| **F3.5** | Estimativa *(opcional)* | Converte o plano pronto em **faixa de esforço** — nunca número único, nunca prazo de calendário. Três pontos por task, agregados por PERT com variâncias em quadratura, separando esforço total (o que se cobra) de caminho crítico (o que limita o calendário). Sai com premissas, invalidadores observáveis e nível de confiança. Só roda a pedido, e nunca bloqueia a F4. |
 | **F4** | Orquestrador | Gera o `ORQUESTRADOR.md` — o mapa de execução, escrito para quem abre o repositório sem saber nada: rota de execução, paralelismo, caminho crítico, ferramentas, agentes, regras de autonomia e como retomar uma sessão interrompida. |
 | **F5** | Auditoria | A IA vira auditora do próprio plano e não corrige nada — só aponta. Verifica tasks sem teste, testes fracos, critérios subjetivos, dependências circulares, paralelismo falso e mais. Dá um veredito único: pronto para execução autônoma, SIM ou NÃO. |
 | **F6** | Execução | Lê o orquestrador e implementa até o fim, sob as regras de autonomia. Escreve o teste antes do código, atualiza o status de cada task, e entrega um relatório final com o que foi concluído, os bloqueios e a saída da suíte de testes. |
@@ -144,6 +147,7 @@ Ou usar os comandos de atalho para pilotar fase a fase:
 | `/sprintx-base <feature>` | Roda a F1 — ingestão |
 | `/sprintx-descoberta <feature>` | Roda a F2 — entrevista de descoberta |
 | `/sprintx-sprints <feature>` | Roda a F3 — gera o plano |
+| `/sprintx-estimar <feature>` | Roda a F3.5 — estima o esforço do plano em faixa *(opcional)* |
 | `/sprintx-orquestrador <feature>` | Roda a F4 — gera o mapa de execução |
 | `/sprintx-auditoria <feature>` | Roda a F5 — audita o plano gerado |
 | `/sprintx-executar <feature>` | Roda a F6 — executa o plano até o fim |
@@ -154,7 +158,7 @@ Todo o trabalho de cada feature fica em `docs/<slug-da-feature>/` na raiz do seu
 
 ## O que fica em disco
 
-Todo arquivo de estado carrega frontmatter YAML legível por máquina (**expx-schema v1**), para que um painel de operação leia o andamento sem depender da prosa. Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são os mesmos da [runx](https://github.com/bittencourtthulio/runx), com os mesmos campos e enums — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a runx acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
+Todo arquivo de estado carrega frontmatter YAML legível por máquina (**expx-schema v1**), para que um painel de operação leia o andamento sem depender da prosa. Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são os mesmos da [runx](https://github.com/bittencourtthulio/runx), com os mesmos campos e enums — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a runx acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. A sprintx tem ainda dois kinds próprios da camada de estimativa: `estimativa` (a faixa de um trabalho) e `estimativa_historico` (o esforço real acumulado do projeto, que calibra as estimativas seguintes). Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
 
 ```
 docs/<slug-da-feature>/
@@ -162,6 +166,7 @@ docs/<slug-da-feature>/
   00-DECISOES.md        uma linha por decisão tomada no planejamento
   00-BLOQUEIOS.md        bloqueios registrados durante a execução
   00-AUDITORIA.md        relatório e veredito da F5
+  00-ESTIMATIVA.md       faixa de esforço, premissas e invalidadores (só se a F3.5 rodar)
   base/
     00-INDICE.md
     00-LACUNAS.md
@@ -171,6 +176,9 @@ docs/<slug-da-feature>/
     fases.md
     tasks.md
   sprint-02/ ...
+
+docs/estimativas/
+  HISTORICO.md         esforço real acumulado do projeto inteiro, que calibra as estimativas seguintes
 ```
 
 ## Estrutura deste repositório
@@ -182,7 +190,7 @@ install.sh                      instalador para Claude Code e OpenCode
   skills/sprintx/
     SKILL.md                    a skill em si — princípio, contratos, regras, máquina de estados
     DECISOES-DA-SKILL.md        decisões de design tomadas ao construir esta skill
-    references/                 roteiro operacional detalhado de cada uma das 6 fases
+    references/                 roteiro operacional detalhado de cada fase (as 6 + a F3.5 opcional)
       00-schema.md              contrato expx-schema v1 do frontmatter dos arquivos de estado
     assets/                     templates preenchíveis usados pelas fases
   commands/

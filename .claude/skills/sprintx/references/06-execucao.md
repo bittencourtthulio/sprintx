@@ -24,7 +24,8 @@ Para CADA task, nesta ordem:
 3. Implemente até os dois testes passarem (verde). Rode a suíte relevante inteira, não só os testes novos.
 4. Assuma os três papéis do ORQUESTRADOR, em sequência: implementador (passos 2–3), revisor de testes (o teste falharia com implementação errada?), auditor de aceite (o `criterio_aceite` é verdade agora? verifique de fato, não presuma).
 5. Só então marque `status: concluida` em `tasks.md`, acrescentando na linha da task: data (obtenha com `date +%Y-%m-%d` do sistema) e resultado da suíte (ex.: `2026-08-26 · suíte: 42 passed, 0 failed`).
-6. Critério de aceite não atendido ou teste não passando: a task NÃO é concluída. Não existe "concluído com ressalva".
+6. **Registre o esforço real da task**, em horas de trabalho focado, na mesma linha (ex.: `2026-08-26 · suíte: 42 passed, 0 failed · real: 3,5 h`). O real cobre o que a task de fato custou — escrever os dois testes, implementar, rodar a suíte e verificar o critério de aceite — e NÃO inclui reunião, revisão de código, deploy nem ida e volta com o cliente. Isso alimenta a calibração das estimativas futuras (ver "Passo 4"); anote no momento de concluir, não reconstrua de memória no fim do trabalho.
+7. Critério de aceite não atendido ou teste não passando: a task NÃO é concluída. Não existe "concluído com ressalva".
 
 **Frontmatter (obrigatório) — o YAML e a prosa andam juntos.** Cada arquivo de estado que
 você tocar na F6 é gravado com o frontmatter do contrato expx-schema v1
@@ -59,7 +60,27 @@ Surgiu dúvida nova, decisão não coberta pelo plano, pré-requisito faltando (
 - Sprint só é dada como concluída quando seu critério de saída em `sprint.md` é verdade.
 - Critério não atendido = não avança para a próxima fase/sprint; trate como bloqueio se não houver task que o resolva.
 
-## Passo 3 — Relatório final
+## Passo 3 — Atualizar o histórico de esforço
+
+Ao fim do trabalho (tudo concluído, ou nada mais executável), atualize `docs/estimativas/HISTORICO.md` a partir de `assets/TEMPLATE-HISTORICO.md` (`kind: estimativa_historico`, contrato em `references/00-schema.md`). Este é o único arquivo da skill que é **apendado**, nunca sobrescrito: entrada de trabalho anterior não se apaga nem se reescreve. Se o arquivo não existir, crie-o a partir do template.
+
+Uma entrada por task **concluída**, com: `trabalho_id`, `task_id`, `tipo_task`, `area`, `sinais`, `estimado_min`, `estimado_max`, `estimado_media`, `real` e `desvio`. Task `bloqueada` não entra — ela não tem real completo a registrar.
+
+**O desvio.** Se `docs/<slug>/00-ESTIMATIVA.md` existe, cada entrada traz o estimado daquela task e o desvio entre estimado e real:
+
+```
+desvio_task = real / estimado_media          # estimado_media = (o + 4m + p) / 6
+```
+
+`1,0` é o alvo; `1,4` significa que levou 40% a mais que o previsto.
+
+Se a F3.5 não rodou (não existe `00-ESTIMATIVA.md`), registre o real mesmo assim, com `estimado_min`, `estimado_max`, `estimado_media` e `desvio` em `null`: o real continua alimentando a comparabilidade por tipo e área nas estimativas futuras.
+
+**Recalcule a tabela de calibração por tipo** ao acrescentar as entradas: para cada `tipo_task`, `desvio_medio` é a média dos `desvio_task` de todas as entradas encerradas daquele tipo, e `fator_ativo` é `true` a partir de 3 entradas. Esse desvio é o que vira fator de correção nas estimativas seguintes — e ele é sempre declarado na saída da estimativa, nunca embutido em silêncio (`references/07-estimativa.md`).
+
+Se houve estimativa, inclua no relatório final (Passo 4) uma linha por sprint com estimado × real e o desvio, para que a divergência fique visível junto com as demais.
+
+## Passo 4 — Relatório final
 
 Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um relatório com exatamente estas seções:
 
@@ -74,4 +95,6 @@ Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um
 - [ ] `tasks.md` atualizado com data e resultado de suíte em cada task concluída.
 - [ ] Em todo arquivo de estado tocado, o frontmatter está válido e coerente com a prosa: `status`, `concluida_em`, `suite` e `atualizado_em` refletem o estado real (`references/00-schema.md`).
 - [ ] Se o trabalho inteiro foi entregue, `ORQUESTRADOR.md` teve `estagio`, `status`, `concluido_em` e `atualizado_em` reescritos; sprints e fases concluídas tiveram `status` atualizado em `sprint.md` e `fases.md`.
+- [ ] Toda task concluída tem o esforço real registrado em `tasks.md`.
+- [ ] `docs/estimativas/HISTORICO.md` recebeu uma entrada por task concluída, com o desvio calculado (ou `null` quando não houve estimativa), e a tabela de calibração por tipo foi recalculada.
 - [ ] Relatório final entregue com as 4 seções.

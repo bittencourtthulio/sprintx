@@ -42,11 +42,12 @@ copy_skill() {
   say "skill    -> $dst/sprintx/"
 }
 
-# Copia os 7 commands. $2 = 1 remove 'argument-hint:' (OpenCode nao suporta o campo)
+# Copia os commands. $2 = 1 remove 'argument-hint:' (OpenCode nao suporta o campo)
 copy_commands() {
-  local dst="$1" strip="${2:-0}" f base
+  local dst="$1" strip="${2:-0}" f base n=0
   run "mkdir -p '$dst'"
   for f in "$CMD_SRC"/sprintx*.md; do
+    n=$((n + 1))
     base="$(basename "$f")"
     if [ "$strip" = 1 ]; then
       run "grep -v '^argument-hint:' '$f' > '$dst/$base'"
@@ -54,7 +55,7 @@ copy_commands() {
       run "cp '$f' '$dst/$base'"
     fi
   done
-  say "commands -> $dst/ (7 arquivos)"
+  say "commands -> $dst/ ($n arquivos)"
 }
 
 echo

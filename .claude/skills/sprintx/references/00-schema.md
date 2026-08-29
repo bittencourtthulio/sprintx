@@ -50,6 +50,9 @@ Valem para todo arquivo que leva frontmatter:
 | `status` (task) | `pendente` \| `em_andamento` \| `concluida` \| `bloqueada` |
 | `suite` | `verde` \| `vermelha` \| `nao_executada` |
 | `severidade` | `alta` \| `media` \| `baixa` |
+| `confianca` | `alta` \| `media` \| `baixa` |
+| `tipo_task` | `config` \| `client` \| `dominio` \| `persistencia` \| `api` \| `ui` \| `integracao_externa` \| `teste` \| `infra` \| `refatoracao` |
+| `metodo_agregacao` | `pert_quadratura` |
 
 Atenção a duas distinções que o painel trata como coisas diferentes:
 
@@ -253,6 +256,101 @@ areas:
 - `arquivo` é o nome do arquivo dentro de `base/`, sem diretório.
 - `lacunas` é o número de lacunas daquela área registradas em `base/00-LACUNAS.md` (`0` se nenhuma).
 
+### `00-ESTIMATIVA.md` → `kind: estimativa`
+
+Gravado pela F3.5 (fase opcional). Um por trabalho; reexecutar a F3.5 sobrescreve o arquivo.
+
+```yaml
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: estimativa
+trabalho_id: exportacao-csv-relatorios
+gerada_em: 2026-08-29
+atualizado_em: 2026-08-29
+unidade: h
+esforco_total_min: 78
+esforco_total_max: 121
+caminho_critico_min: 41
+caminho_critico_max: 63
+confianca: media
+confianca_motivo: Sem historico comparavel no projeto e uma lacuna nao bloqueante na base
+fator_correcao_aplicado: null
+metodo_agregacao: pert_quadratura
+tasks_estimadas: 11
+premissas: [Credenciais de sandbox emitidas antes da sprint-02]
+invalidadores: [O cliente pedir suporte a mais de um formato de arquivo alem de CSV]
+nao_incluido: [Reuniao e alinhamento, Revisao de codigo, Deploy, Correcao pos-entrega]
+tasks_a_quebrar: [T-03.04]
+---
+```
+
+Regras duras deste kind:
+
+- `unidade` é sempre `h` (hora de trabalho focado). A skill estima ESFORÇO, nunca prazo de
+  calendário: não existe campo de data de entrega, e nenhum valor deste kind é um dia, uma
+  semana ou uma sprint de calendário.
+- **Número único é proibido.** `esforco_total_min < esforco_total_max` e
+  `caminho_critico_min < caminho_critico_max`, sempre. Os quatro são números (horas), nunca
+  strings com unidade embutida.
+- `esforco_total_*` cobre TODAS as tasks estimadas (paralelas ou não); `caminho_critico_*`
+  cobre apenas a cadeia de dependências mais longa. Os dois são normalmente diferentes — é o
+  paralelismo declarado no plano que os separa.
+- `fator_correcao_aplicado` é `null` quando não houve calibração; um número (ex.: `1.25`)
+  quando um desvio histórico foi aplicado. Nunca `1.0` para disfarçar ausência de histórico.
+- `confianca` segue o enum `confianca`; `confianca_motivo` é uma linha derivada dos sinais.
+  Sem `docs/estimativas/HISTORICO.md`, `confianca` nunca é `alta`.
+- `premissas`, `invalidadores` e `nao_incluido` são listas de strings de uma linha e não são
+  vazias. `tasks_a_quebrar` lista ids `T-NN.MM` de tasks que NÃO foram estimadas e NÃO entram
+  nos totais; `[]` quando nenhuma.
+- `tasks_estimadas` é a contagem de tasks que entraram nos totais — não inclui as de
+  `tasks_a_quebrar`.
+
+### `docs/estimativas/HISTORICO.md` → `kind: estimativa_historico`
+
+Arquivo do PROJETO, não de um trabalho: acumula entradas de todos os trabalhos e vive fora de
+`docs/<slug>/`. É o único arquivo da skill que é **apendado**, nunca sobrescrito.
+
+```yaml
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: estimativa_historico
+trabalho_id: null
+atualizado_em: 2026-08-29
+unidade: h
+entradas:
+  - trabalho_id: exportacao-csv-relatorios
+    task_id: T-01.01
+    tipo_task: config
+    area: configuracao de ambiente
+    sinais: [arquivo_novo_isolado]
+    estimado_min: 2
+    estimado_max: 4
+    estimado_media: 3
+    real: 3.5
+    desvio: 1.17
+    registrado_em: 2026-08-29
+calibracao:
+  - tipo_task: config
+    entradas: 4
+    desvio_medio: 1.15
+    fator_ativo: true
+---
+```
+
+Regras duras deste kind:
+
+- `trabalho_id` do cabeçalho comum é `null` — a chave existe (regra 6), mas o arquivo não
+  pertence a um trabalho. O `trabalho_id` de cada linha vive dentro de `entradas:`.
+- `tipo_task` segue o enum `tipo_task`; `sinais` é a lista dos sinais declarados na estimativa
+  (`[]` se nenhum).
+- `estimado_min`, `estimado_max`, `estimado_media` e `desvio` são `null` quando o trabalho
+  rodou sem a F3.5; `real` é sempre preenchido.
+- `desvio` é `real / estimado_media`. `fator_ativo` só é `true` com 3 ou mais entradas
+  encerradas daquele tipo.
+- `calibracao` é `[]` enquanto não houver entrada suficiente para calcular desvio por tipo.
+
 ### Arquivos SEM frontmatter
 
 Não recebem frontmatter, porque o painel não os lê individualmente:
@@ -285,4 +383,5 @@ Antes de dar por gravado qualquer arquivo de estado:
 - [ ] Nenhum acento em chave ou em valor de enum.
 - [ ] Datas em `AAAA-MM-DD`; `atualizado_em` reescrito nesta gravação.
 - [ ] Em `kind: tasks`, toda task tem `teste_integracao` e `teste_funcional` não vazios.
+- [ ] Em `kind: estimativa`, `min` e `max` sao diferentes (numero unico e proibido) e nenhum valor e data de calendario.
 - [ ] Nenhum caminho absoluto em nenhum valor.

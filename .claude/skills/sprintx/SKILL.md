@@ -15,7 +15,9 @@ Todo o esforço vai para o planejamento. A execução é autônoma porque a ambi
 
 As seis fases são estritamente sequenciais e a skill nunca pula fase:
 
-F1 INGESTÃO → F2 DESCOBERTA → F3 PLANO → F4 ORQUESTRADOR → F5 AUDITORIA → F6 EXECUÇÃO
+F1 INGESTÃO → F2 DESCOBERTA → F3 PLANO → *(F3.5 ESTIMATIVA — opcional)* → F4 ORQUESTRADOR → F5 AUDITORIA → F6 EXECUÇÃO
+
+A **F3.5 ESTIMATIVA é a única fase opcional** do método e é a única exceção à sequencialidade estrita: ela roda entre a F3 e a F4, sobre o plano pronto, **apenas quando o usuário pede estimativa**. Não é pré-requisito de nada: a ausência de `00-ESTIMATIVA.md` NUNCA impede a passagem para a F4, e a F5 não a audita nem a exige. Se o usuário não pediu estimativa, siga da F3 direto para a F4. A F3.5 nunca bloqueia o fluxo, nunca altera o plano e pode ser rodada depois, sobre um plano já auditado, sem invalidar nada.
 
 Antes de agir, descubra em que fase está inspecionando o disco em `docs/<slug-da-feature>/`:
 
@@ -27,6 +29,8 @@ Antes de agir, descubra em que fase está inspecionando o disco em `docs/<slug-d
 | `sprint-01/` existe, `ORQUESTRADOR.md` não | F4 |
 | `ORQUESTRADOR.md` existe, sem auditoria aprovada | F5 |
 | Auditoria aprovada: `00-AUDITORIA.md` existe e contém `VEREDITO: SIM` | F6 |
+
+A F3.5 não aparece na tabela porque não é um estado da máquina: ela é um desvio opcional a partir da F3, disparado por pedido do usuário (ou pelo comando `/sprintx-estimar`), e o disco continua indicando F4 com ou sem `00-ESTIMATIVA.md`.
 
 Se o usuário pedir uma fase adiantada, explique o que falta e execute a fase pendente em vez de obedecer fora de ordem. Ao entrar em uma fase, leia o arquivo dela em `references/` (tabela abaixo) antes de qualquer ação — e somente o da fase atual.
 
@@ -74,15 +78,18 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 15. Proibido escrever código de implementação em qualquer fase antes da F6.
 16. Use sempre caminhos relativos; nunca escreva caminhos absolutos em nenhum artefato.
 17. Todo arquivo de estado é gravado com o frontmatter do contrato expx-schema v1, descrito em `references/00-schema.md`. Arquivo de estado sem frontmatter válido é considerado não entregue. Ao abrir uma pasta de trabalho que já existe e cujos arquivos não têm frontmatter, acrescente o frontmatter na próxima vez que gravar aquele arquivo, inferindo os valores da prosa existente; nunca reescreva em massa nem migre pastas que não vai tocar.
+18. Estimativa sai sempre como faixa, com premissas, invalidadores e nível de confiança. Número único é proibido.
+19. Estimativa é esforço, nunca prazo de calendário. A conversão em data é decisão humana.
 
 ## Fases → arquivos da skill
 
 | Fase | Roteiro operacional | Templates usados |
 |---|---|---|
-| Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F4, F6) | — |
+| Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F3.5, F4, F6) | — |
 | F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md`, `assets/TEMPLATE-base-indice.md`, `assets/TEMPLATE-BLOQUEIOS.md` |
 | F2 DESCOBERTA | `references/02-descoberta.md` | `assets/TEMPLATE-DECISOES.md` |
 | F3 PLANO | `references/03-plano.md` | `assets/TEMPLATE-sprint.md`, `assets/TEMPLATE-fases.md`, `assets/TEMPLATE-tasks.md` |
+| F3.5 ESTIMATIVA (opcional) | `references/07-estimativa.md` | `assets/TEMPLATE-ESTIMATIVA.md`, `assets/TEMPLATE-HISTORICO.md` |
 | F4 ORQUESTRADOR | `references/04-orquestrador.md` | `assets/TEMPLATE-ORQUESTRADOR.md` |
 | F5 AUDITORIA | `references/05-auditoria.md` | — |
 | F6 EXECUÇÃO | `references/06-execucao.md` | — |
