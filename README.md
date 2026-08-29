@@ -100,7 +100,7 @@ O que essa camada faz de diferente:
 - **Task que não se entende não se estima.** Se o pessimista passa de quatro vezes o otimista, a task não é incerta — é mal compreendida. A skill manda quebrá-la e a deixa fora dos totais.
 - **Invalidadores observáveis.** "Mudança de escopo" não é invalidador. "O cliente pedir suporte a mais de um formato de arquivo além de CSV" é: alguém consegue olhar e dizer se aconteceu.
 - **O que não está incluído vem escrito.** Reunião, revisão de código, ida e volta com o cliente, deploy, correção pós-entrega, treinamento. Se for para incluir, entra como item próprio — nunca diluído nas tasks.
-- **Aprende com o que aconteceu.** Ao concluir cada task, a F6 registra o esforço real em `docs/estimativas/HISTORICO.md`. O desvio entre estimado e real por tipo de task vira fator de correção nas estimativas seguintes — sempre visível na saída, nunca embutido em silêncio.
+- **Aprende com o que aconteceu.** Ao concluir cada task, a F6 registra o esforço real em `docs/sprintx/estimativas/HISTORICO.md`. O desvio entre estimado e real por tipo de task vira fator de correção nas estimativas seguintes — sempre visível na saída, nunca embutido em silêncio.
 
 A F3.5 é a única fase opcional do método e não altera o plano. Sem `HISTORICO.md`, a confiança nunca passa de MÉDIA e a saída diz que não há base de calibração no projeto.
 
@@ -183,32 +183,36 @@ Ou usar os comandos de atalho para pilotar fase a fase:
 
 Cada comando recusa rodar fora de ordem: se você pedir `/sprintx-sprints` sem ter feito a ingestão, ele te diz o que falta e executa a fase pendente primeiro.
 
-Todo o trabalho de cada feature fica em `docs/<slug-da-feature>/` na raiz do seu repositório — plano, decisões, bloqueios e o histórico de tudo o que foi decidido e por quê.
+Todo o trabalho de cada feature fica em `docs/sprintx/features/<slug-da-feature>/` na raiz do seu repositório — plano, decisões, bloqueios e o histórico de tudo o que foi decidido e por quê.
 
 ## O que fica em disco
 
 Todo arquivo de estado carrega frontmatter YAML legível por máquina (**expx-schema v1**), para que um painel de operação leia o andamento sem depender da prosa. Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são os mesmos da [runx](https://github.com/bittencourtthulio/runx), com os mesmos campos e enums — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a runx acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. A sprintx tem ainda dois kinds próprios da camada de estimativa: `estimativa` (a faixa de um trabalho) e `estimativa_historico` (o esforço real acumulado do projeto, que calibra as estimativas seguintes). Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
 
 ```
-docs/<slug-da-feature>/
-  ORQUESTRADOR.md      mapa e porta de entrada da execução
-  00-DECISOES.md        uma linha por decisão tomada no planejamento
-  00-BLOQUEIOS.md        bloqueios registrados durante a execução
-  00-AUDITORIA.md        relatório e veredito da F5
-  00-ESTIMATIVA.md       faixa de esforço, premissas e invalidadores (só se a F3.5 rodar)
-  base/
-    00-INDICE.md
-    00-LACUNAS.md
-    <um arquivo por recurso/área estudada>.md
-  sprint-01/
-    sprint.md
-    fases.md
-    tasks.md
-  sprint-02/ ...
-
-docs/estimativas/
-  HISTORICO.md         esforço real acumulado do projeto inteiro, que calibra as estimativas seguintes
+docs/sprintx/
+  features/
+    <slug-da-feature>/
+      ORQUESTRADOR.md      mapa e porta de entrada da execução
+      00-DECISOES.md       uma linha por decisão tomada no planejamento
+      00-BLOQUEIOS.md      bloqueios registrados durante a execução
+      00-AUDITORIA.md      relatório e veredito da F5
+      00-ESTIMATIVA.md     faixa de esforço, premissas e invalidadores (só se a F3.5 rodar)
+      base/
+        00-INDICE.md
+        00-LACUNAS.md
+        <um arquivo por recurso/área estudada>.md
+      sprint-01/
+        sprint.md
+        fases.md
+        tasks.md
+      sprint-02/ ...
+    <outra-feature>/ ...        cada feature isolada na sua pasta
+  estimativas/
+    HISTORICO.md           esforço real do projeto inteiro, que calibra as estimativas seguintes
 ```
+
+Tudo da skill fica sob `docs/sprintx/`, separado da documentação normal do projeto. As features ficam isoladas em `features/`; o histórico de esforço fica fora delas, porque atravessa o projeto inteiro.
 
 ## Estrutura deste repositório
 

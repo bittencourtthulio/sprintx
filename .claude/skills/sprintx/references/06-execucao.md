@@ -4,12 +4,12 @@ Você está na F6. A partir de agora você implementa até o fim, sob as regras 
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/00-AUDITORIA.md` existe e contém `VEREDITO: SIM`.
+- `docs/sprintx/features/<slug>/00-AUDITORIA.md` existe e contém `VEREDITO: SIM`.
 - Se contém `VEREDITO: NÃO`, volte para a F3. Se não existe, falta a F5: diga qual fase falta e execute-a primeiro.
 
 ## Passo 1 — Carregar o mapa
 
-Leia `docs/<slug>/ORQUESTRADOR.md` inteiro e siga a ordem de leitura que ele define. Ele é a fonte da rota, do paralelismo, do caminho crítico, das ferramentas e da definição de pronto. Em caso de conflito entre a sua memória da conversa e o ORQUESTRADOR, vale o ORQUESTRADOR.
+Leia `docs/sprintx/features/<slug>/ORQUESTRADOR.md` inteiro e siga a ordem de leitura que ele define. Ele é a fonte da rota, do paralelismo, do caminho crítico, das ferramentas e da definição de pronto. Em caso de conflito entre a sua memória da conversa e o ORQUESTRADOR, vale o ORQUESTRADOR.
 
 Se está retomando uma sessão interrompida, siga a seção "Como retomar" do ORQUESTRADOR: status em cada `tasks.md` + `00-BLOQUEIOS.md` dizem onde você parou.
 
@@ -48,7 +48,7 @@ painel de operação lê o YAML, não a prosa.
 
 Surgiu dúvida nova, decisão não coberta pelo plano, pré-requisito faltando (segredo inexistente, serviço fora do ar, dependência quebrada):
 
-1. Registre em `docs/<slug>/00-BLOQUEIOS.md`: `B-NN | task | descrição do bloqueio | o que destravaria`.
+1. Registre em `docs/sprintx/features/<slug>/00-BLOQUEIOS.md`: `B-NN | task | descrição do bloqueio | o que destravaria`.
 2. Marque a task como `status: bloqueada` em `tasks.md`.
    Ao registrar o bloqueio, grave também o frontmatter `kind: bloqueios` de `00-BLOQUEIOS.md` (novo item em `bloqueios:` com `id`, `task`, `aberto_em` com a data do sistema, `resolvido_em: null` e `descricao` em uma linha) e reescreva `atualizado_em`. Formato em `references/00-schema.md`. A task muda para `bloqueada` no frontmatter e na prosa de `tasks.md`.
 3. Pule para a próxima task paralelizável cujas dependências estão satisfeitas.
@@ -62,11 +62,11 @@ Surgiu dúvida nova, decisão não coberta pelo plano, pré-requisito faltando (
 
 ## Passo 3 — Atualizar o histórico de esforço
 
-Ao fim do trabalho (tudo concluído, ou nada mais executável), atualize `docs/estimativas/HISTORICO.md` a partir de `assets/TEMPLATE-HISTORICO.md` (`kind: estimativa_historico`, contrato em `references/00-schema.md`). Este é o único arquivo da skill que é **apendado**, nunca sobrescrito: entrada de trabalho anterior não se apaga nem se reescreve. Se o arquivo não existir, crie-o a partir do template.
+Ao fim do trabalho (tudo concluído, ou nada mais executável), atualize `docs/sprintx/estimativas/HISTORICO.md` a partir de `assets/TEMPLATE-HISTORICO.md` (`kind: estimativa_historico`, contrato em `references/00-schema.md`). Este é o único arquivo da skill que é **apendado**, nunca sobrescrito: entrada de trabalho anterior não se apaga nem se reescreve. Se o arquivo não existir, crie-o a partir do template.
 
 Uma entrada por task **concluída**, com: `trabalho_id`, `task_id`, `tipo_task`, `area`, `sinais`, `estimado_min`, `estimado_max`, `estimado_media`, `real` e `desvio`. Task `bloqueada` não entra — ela não tem real completo a registrar.
 
-**O desvio.** Se `docs/<slug>/00-ESTIMATIVA.md` existe, cada entrada traz o estimado daquela task e o desvio entre estimado e real:
+**O desvio.** Se `docs/sprintx/features/<slug>/00-ESTIMATIVA.md` existe, cada entrada traz o estimado daquela task e o desvio entre estimado e real:
 
 ```
 desvio_task = real / estimado_media          # estimado_media = (o + 4m + p) / 6
@@ -96,5 +96,5 @@ Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um
 - [ ] Em todo arquivo de estado tocado, o frontmatter está válido e coerente com a prosa: `status`, `concluida_em`, `suite` e `atualizado_em` refletem o estado real (`references/00-schema.md`).
 - [ ] Se o trabalho inteiro foi entregue, `ORQUESTRADOR.md` teve `estagio`, `status`, `concluido_em` e `atualizado_em` reescritos; sprints e fases concluídas tiveram `status` atualizado em `sprint.md` e `fases.md`.
 - [ ] Toda task concluída tem o esforço real registrado em `tasks.md`.
-- [ ] `docs/estimativas/HISTORICO.md` recebeu uma entrada por task concluída, com o desvio calculado (ou `null` quando não houve estimativa), e a tabela de calibração por tipo foi recalculada.
+- [ ] `docs/sprintx/estimativas/HISTORICO.md` recebeu uma entrada por task concluída, com o desvio calculado (ou `null` quando não houve estimativa), e a tabela de calibração por tipo foi recalculada.
 - [ ] Relatório final entregue com as 4 seções.

@@ -1,10 +1,10 @@
 # F4 — ORQUESTRADOR
 
-Você está na F4. Seu objetivo é gerar `docs/<slug>/ORQUESTRADOR.md` — o arquivo-mapa, a porta de entrada da execução. Escreva-o para quem abriu o repositório agora e não sabe nada: nem do projeto, nem do método, nem desta conversa.
+Você está na F4. Seu objetivo é gerar `docs/sprintx/features/<slug>/ORQUESTRADOR.md` — o arquivo-mapa, a porta de entrada da execução. Escreva-o para quem abriu o repositório agora e não sabe nada: nem do projeto, nem do método, nem desta conversa.
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/sprint-01/` existe com `sprint.md`, `fases.md` e `tasks.md`.
+- `docs/sprintx/features/<slug>/sprint-01/` existe com `sprint.md`, `fases.md` e `tasks.md`.
 - Se não existe, a F3 não aconteceu: diga "Falta a F3 (plano). Vou executá-la primeiro." e execute `references/03-plano.md`.
 
 ## Passo único — Gerar ORQUESTRADOR.md
@@ -12,7 +12,7 @@ Você está na F4. Seu objetivo é gerar `docs/<slug>/ORQUESTRADOR.md` — o arq
 Use `assets/TEMPLATE-ORQUESTRADOR.md` (caminho relativo à raiz da skill). O arquivo tem exatamente estas seções, nesta ordem:
 
 1. **Objetivo** — o que esta feature entrega, em NO MÁXIMO 5 linhas.
-2. **Mapa e ordem de leitura** — todos os arquivos de `docs/<slug>/` e em que ordem um executor deve lê-los (este arquivo primeiro; depois `00-DECISOES.md`; depois `base/00-INDICE.md`; depois cada `sprint-NN/` na ordem).
+2. **Mapa e ordem de leitura** — todos os arquivos de `docs/sprintx/features/<slug>/` e em que ordem um executor deve lê-los (este arquivo primeiro; depois `00-DECISOES.md`; depois `base/00-INDICE.md`; depois cada `sprint-NN/` na ordem).
 3. **Rota de execução** — a sequência de sprints e fases, marcando explicitamente: o que roda em paralelo com o quê, e qual é o caminho crítico (a cadeia de dependências que define a duração total). Derive tudo de `fases.md` e dos `depende_de` das tasks — não invente paralelismo que o plano não declarou.
 4. **Ferramentas** — MCPs e SDKs necessários; comandos exatos de teste, lint e typecheck do projeto; onde ficam os segredos (nome da variável e local — NUNCA o valor).
 5. **Agentes** — os três papéis: *implementador* (escreve teste e código da task), *revisor de testes* (confere que o teste falharia com implementação errada), *auditor de aceite* (confere o critério de aceite antes de marcar concluída). Explique como um agente único assume os três papéis em sequência dentro de cada task quando não há múltiplos agentes disponíveis.
@@ -38,7 +38,7 @@ frontmatter `kind: orquestrador` do contrato expx-schema v1, descrito em
 
 ## Critério de saída da fase
 
-- [ ] `ORQUESTRADOR.md` existe em `docs/<slug>/` com as 8 seções, na ordem, todas preenchidas.
+- [ ] `ORQUESTRADOR.md` existe em `docs/sprintx/features/<slug>/` com as 8 seções, na ordem, todas preenchidas.
 - [ ] A seção Objetivo tem no máximo 5 linhas.
 - [ ] A rota de execução cobre todas as sprints e fases do plano e marca o caminho crítico.
 - [ ] Nenhum segredo com valor; nenhum caminho absoluto.
@@ -50,4 +50,4 @@ Complete a seção faltante antes de encerrar. Se uma informação de Ferramenta
 
 ## Ao terminar
 
-Anuncie: "F4 concluída. `docs/<slug>/ORQUESTRADOR.md` gerado. Próxima fase: F5 AUDITORIA." Siga para a F5 lendo `references/05-auditoria.md`.
+Anuncie: "F4 concluída. `docs/sprintx/features/<slug>/ORQUESTRADOR.md` gerado. Próxima fase: F5 AUDITORIA." Siga para a F5 lendo `references/05-auditoria.md`.

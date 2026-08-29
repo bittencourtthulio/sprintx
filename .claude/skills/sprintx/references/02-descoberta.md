@@ -4,8 +4,8 @@ Você está na F2 — a ÚNICA fase de todo o método em que você pergunta ao u
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/base/` existe e tem pelo menos `00-INDICE.md`.
-- `docs/<slug>/00-DECISOES.md` não existe (ou existe com PENDENTEs a resolver — reexecução para resolvê-los).
+- `docs/sprintx/features/<slug>/base/` existe e tem pelo menos `00-INDICE.md`.
+- `docs/sprintx/features/<slug>/00-DECISOES.md` não existe (ou existe com PENDENTEs a resolver — reexecução para resolvê-los).
 
 Se `base/` não existe, a F1 não aconteceu: diga "Falta a F1 (ingestão). Vou executá-la primeiro." e execute `references/01-ingestao.md`.
 
@@ -33,7 +33,7 @@ Monte perguntas cobrindo, no mínimo, estes sete eixos:
 
 ## Passo 3 — Registrar as decisões
 
-Crie `docs/<slug>/00-DECISOES.md` usando `assets/TEMPLATE-DECISOES.md`. Uma linha por decisão:
+Crie `docs/sprintx/features/<slug>/00-DECISOES.md` usando `assets/TEMPLATE-DECISOES.md`. Uma linha por decisão:
 
 ```
 D-01 | decisão | alternativa descartada | motivo
@@ -76,4 +76,4 @@ Se o usuário parou de responder no meio, registre o que já foi decidido, marqu
 
 ## Ao terminar
 
-Anuncie: "F2 concluída. N decisões e M pendências em `docs/<slug>/00-DECISOES.md`." Se houver PENDENTE bloqueante, diga quais e avise que a F3 está travada por eles. Caso contrário, siga para a F3 lendo `references/03-plano.md`.
+Anuncie: "F2 concluída. N decisões e M pendências em `docs/sprintx/features/<slug>/00-DECISOES.md`." Se houver PENDENTE bloqueante, diga quais e avise que a F3 está travada por eles. Caso contrário, siga para a F3 lendo `references/03-plano.md`.

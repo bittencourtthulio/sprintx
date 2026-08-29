@@ -4,7 +4,7 @@ Você está na F5. Você agora é AUDITORA do plano, não autora. Você NÃO cor
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/ORQUESTRADOR.md` existe.
+- `docs/sprintx/features/<slug>/ORQUESTRADOR.md` existe.
 - Se não existe, a F4 não aconteceu: diga "Falta a F4 (orquestrador). Vou executá-la primeiro." e execute `references/04-orquestrador.md`.
 
 ## Passo 1 — Reler tudo com olhos de auditora
@@ -27,7 +27,7 @@ Para cada task, fase e sprint, procure:
 
 ## Passo 3 — Escrever o relatório
 
-Crie (ou sobrescreva, se é uma reauditoria) `docs/<slug>/00-AUDITORIA.md` com:
+Crie (ou sobrescreva, se é uma reauditoria) `docs/sprintx/features/<slug>/00-AUDITORIA.md` com:
 
 1. Cabeçalho: `# Auditoria — <slug>` e a data.
 2. A tabela de achados, exatamente neste formato:

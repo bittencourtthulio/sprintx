@@ -19,11 +19,11 @@ F1 INGESTÃO → F2 DESCOBERTA → F3 PLANO → *(F3.5 ESTIMATIVA — opcional)*
 
 A **F3.5 ESTIMATIVA é a única fase opcional** do método e é a única exceção à sequencialidade estrita: ela roda entre a F3 e a F4, sobre o plano pronto, **apenas quando o usuário pede estimativa**. Não é pré-requisito de nada: a ausência de `00-ESTIMATIVA.md` NUNCA impede a passagem para a F4, e a F5 não a audita nem a exige. Se o usuário não pediu estimativa, siga da F3 direto para a F4. A F3.5 nunca bloqueia o fluxo, nunca altera o plano e pode ser rodada depois, sobre um plano já auditado, sem invalidar nada.
 
-Antes de agir, descubra em que fase está inspecionando o disco em `docs/<slug-da-feature>/`:
+Antes de agir, descubra em que fase está inspecionando o disco em `docs/sprintx/features/<slug-da-feature>/`:
 
 | Estado do disco | Fase atual |
 |---|---|
-| `docs/<slug>/base/` não existe | F1 |
+| `docs/sprintx/features/<slug>/base/` não existe | F1 |
 | `base/` existe, `00-DECISOES.md` não | F2 |
 | `00-DECISOES.md` existe, `sprint-01/` não | F3 |
 | `sprint-01/` existe, `ORQUESTRADOR.md` não | F4 |
@@ -96,9 +96,21 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 
 Os caminhos acima são relativos à raiz desta skill. O detalhe operacional de cada fase mora exclusivamente no reference correspondente; leia-o apenas quando a fase chegar.
 
-## Onde fica `docs/<slug>/`
+## Onde fica `docs/sprintx/features/<slug>/`
 
-`docs/<slug>/` é sempre ancorado na raiz do repositório Git mais próxima do diretório de trabalho atual (o diretório que contém `.git/`). Em um monorepo sem `.git` visível no diretório de trabalho, suba diretórios até encontrar a raiz do repositório; se não houver `.git` em nenhum ancestral, use a raiz do diretório de trabalho atual. Nunca crie `docs/<slug>/` dentro de um pacote/workspace individual sem antes checar se já existe um `docs/` na raiz do repositório — se existir, use-o.
+Todo artefato desta skill vive sob `docs/sprintx/`, nunca solto em `docs/`. A estrutura é fixa:
+
+```
+docs/sprintx/
+  features/<slug-da-feature>/    um diretório por feature, com a estrutura completa
+  estimativas/HISTORICO.md       esforço real do projeto inteiro (atravessa features)
+```
+
+`docs/sprintx/` é sempre ancorado na raiz do repositório Git mais próxima do diretório de trabalho atual (o diretório que contém `.git/`). Em um monorepo sem `.git` visível no diretório de trabalho, suba diretórios até encontrar a raiz do repositório; se não houver `.git` em nenhum ancestral, use a raiz do diretório de trabalho atual. Nunca crie `docs/sprintx/` dentro de um pacote/workspace individual sem antes checar se já existe um `docs/` na raiz do repositório — se existir, crie `sprintx/` dentro dele.
+
+O prefixo `docs/sprintx/` mantém a documentação da skill agrupada e separada da documentação normal do projeto, que continua em `docs/`. `features/` isola as features umas das outras; `estimativas/` fica fora de `features/` porque o histórico é do projeto, não de uma feature.
+
+**Pastas em formato antigo.** Se você encontrar uma feature em `docs/<slug>/` (formato anterior, sem o prefixo), trabalhe nela onde está: a máquina de estados detecta a fase pelo conteúdo, não pelo caminho. Não mova pastas por conta própria — mover é decisão do usuário, e uma migração silenciosa quebraria links e histórico do repositório dele. Features novas sempre nascem em `docs/sprintx/features/<slug>/`.
 
 ## Como derivar o `<slug-da-feature>`
 
@@ -107,7 +119,7 @@ A partir do que o usuário disse, gere o slug assim:
 1. Pegue o nome essencial da feature (substantivos que a identificam, sem verbos de pedido como "quero", "adicionar por favor").
 2. Converta para minúsculas e remova acentos (ç → c, ã → a, é → e, ...).
 3. Substitua espaços e separadores por hífen; remova qualquer caractere fora de `a-z`, `0-9` e `-`; colapse hifens repetidos.
-4. Se já existir `docs/<slug>/` compatível com o pedido, reutilize esse slug — é a mesma feature em andamento.
+4. Se já existir `docs/sprintx/features/<slug>/` compatível com o pedido, reutilize esse slug — é a mesma feature em andamento.
 5. Se o pedido for ambíguo, proponha um slug em uma linha ("Vou usar o slug `x-y-z`.") e siga em frente sem esperar confirmação.
 
 Exemplo: "adicionar exportação de relatório em CSV" → `exportacao-relatorio-csv`.

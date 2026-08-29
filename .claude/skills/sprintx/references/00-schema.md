@@ -73,7 +73,7 @@ kind: <o kind do arquivo>
 trabalho_id: <slug da feature>
 ```
 
-`trabalho_id` é sempre o `<slug-da-feature>` — o mesmo nome da pasta `docs/<slug>/`.
+`trabalho_id` é sempre o `<slug-da-feature>` — o mesmo nome da pasta `docs/sprintx/features/<slug>/`.
 
 ## Os kinds que a sprintx produz
 
@@ -299,17 +299,17 @@ Regras duras deste kind:
 - `fator_correcao_aplicado` é `null` quando não houve calibração; um número (ex.: `1.25`)
   quando um desvio histórico foi aplicado. Nunca `1.0` para disfarçar ausência de histórico.
 - `confianca` segue o enum `confianca`; `confianca_motivo` é uma linha derivada dos sinais.
-  Sem `docs/estimativas/HISTORICO.md`, `confianca` nunca é `alta`.
+  Sem `docs/sprintx/estimativas/HISTORICO.md`, `confianca` nunca é `alta`.
 - `premissas`, `invalidadores` e `nao_incluido` são listas de strings de uma linha e não são
   vazias. `tasks_a_quebrar` lista ids `T-NN.MM` de tasks que NÃO foram estimadas e NÃO entram
   nos totais; `[]` quando nenhuma.
 - `tasks_estimadas` é a contagem de tasks que entraram nos totais — não inclui as de
   `tasks_a_quebrar`.
 
-### `docs/estimativas/HISTORICO.md` → `kind: estimativa_historico`
+### `docs/sprintx/estimativas/HISTORICO.md` → `kind: estimativa_historico`
 
 Arquivo do PROJETO, não de um trabalho: acumula entradas de todos os trabalhos e vive fora de
-`docs/<slug>/`. É o único arquivo da skill que é **apendado**, nunca sobrescrito.
+`docs/sprintx/features/<slug>/`. É o único arquivo da skill que é **apendado**, nunca sobrescrito.
 
 ```yaml
 ---

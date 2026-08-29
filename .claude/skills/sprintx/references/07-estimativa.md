@@ -19,15 +19,15 @@ Você nunca escreve "entrega em 12 dias", "duas semanas", "fica pronto na sexta"
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/sprint-01/` existe com `sprint.md`, `fases.md` e `tasks.md` — a F3 aconteceu.
+- `docs/sprintx/features/<slug>/sprint-01/` existe com `sprint.md`, `fases.md` e `tasks.md` — a F3 aconteceu.
 - Se não existe, o plano não existe: diga "Falta a F3 (plano). Não dá para estimar antes de existir task." e execute `references/03-plano.md` primeiro. Estimar antes de existir task é chute com aparência de método.
-- `docs/<slug>/base/` e `docs/<slug>/00-DECISOES.md` existem (você vai ler as lacunas e as decisões para derivar sinais e confiança).
+- `docs/sprintx/features/<slug>/base/` e `docs/sprintx/features/<slug>/00-DECISOES.md` existem (você vai ler as lacunas e as decisões para derivar sinais e confiança).
 
-Leia, antes de estimar: cada `sprint-NN/tasks.md`, cada `sprint-NN/fases.md`, `base/00-LACUNAS.md`, `00-DECISOES.md` e — se existir — `docs/estimativas/HISTORICO.md`.
+Leia, antes de estimar: cada `sprint-NN/tasks.md`, cada `sprint-NN/fases.md`, `base/00-LACUNAS.md`, `00-DECISOES.md` e — se existir — `docs/sprintx/estimativas/HISTORICO.md`.
 
 ## Passo 1 — Consultar o histórico de calibração
 
-Se `docs/estimativas/HISTORICO.md` existe, leia-o **antes** de estimar qualquer task. Ele é a única fonte de calibração real do projeto.
+Se `docs/sprintx/estimativas/HISTORICO.md` existe, leia-o **antes** de estimar qualquer task. Ele é a única fonte de calibração real do projeto.
 
 Para cada task que você vai estimar, procure no histórico entradas comparáveis por, nesta ordem de prioridade:
 
@@ -44,7 +44,7 @@ Com menos de 3 entradas do tipo, o desvio é ruído: **não** aplique fator, e d
 **Sem `HISTORICO.md`:** estime mesmo assim. Duas obrigações:
 
 - a confiança fica **no máximo `media`** (nunca `alta`), qualquer que seja o resto dos sinais;
-- a saída diz explicitamente, em uma linha própria: "Não há base de calibração neste projeto: `docs/estimativas/HISTORICO.md` não existe. As faixas vêm de julgamento sobre o plano, sem desvio histórico para corrigi-las."
+- a saída diz explicitamente, em uma linha própria: "Não há base de calibração neste projeto: `docs/sprintx/estimativas/HISTORICO.md` não existe. As faixas vêm de julgamento sobre o plano, sem desvio histórico para corrigi-las."
 - `fator_correcao_aplicado: null` no frontmatter.
 
 ## Passo 2 — Classificar cada task por tipo
@@ -248,7 +248,7 @@ Nunca escreva "para subir, é preciso mais informação". Isso não é uma açã
 
 ## Passo 8 — Gravar a estimativa
 
-Grave em `docs/<slug>/00-ESTIMATIVA.md`, a partir de `assets/TEMPLATE-ESTIMATIVA.md`.
+Grave em `docs/sprintx/features/<slug>/00-ESTIMATIVA.md`, a partir de `assets/TEMPLATE-ESTIMATIVA.md`.
 
 É um arquivo de estado: leva frontmatter `kind: estimativa` do contrato **expx-schema v1**. Leia `references/00-schema.md` antes de gravar e siga-o para os campos e enums. Pontos que esta fase costuma errar:
 
@@ -281,7 +281,7 @@ A saída na conversa espelha o arquivo. Nesta ordem:
 
 Isto acontece quando a F6 termina, não agora — mas o roteiro mora aqui, porque é a F3.5 que dá sentido ao dado.
 
-Ao fim de um trabalho, `docs/estimativas/HISTORICO.md` recebe uma linha por task concluída, a partir de `assets/TEMPLATE-HISTORICO.md` (`kind: estimativa_historico`), com: `trabalho_id`, `task_id`, `tipo_task`, `area`, `sinais`, `estimado_min`, `estimado_max`, `real` e `desvio`.
+Ao fim de um trabalho, `docs/sprintx/estimativas/HISTORICO.md` recebe uma linha por task concluída, a partir de `assets/TEMPLATE-HISTORICO.md` (`kind: estimativa_historico`), com: `trabalho_id`, `task_id`, `tipo_task`, `area`, `sinais`, `estimado_min`, `estimado_max`, `real` e `desvio`.
 
 O **desvio** de uma task é calculado contra a média PERT que a originou:
 
@@ -314,11 +314,11 @@ Se o trabalho não teve estimativa (a F3.5 não rodou), registre o real mesmo as
 
 ## Critério de saída da fase
 
-- [ ] `docs/<slug>/00-ESTIMATIVA.md` existe, com frontmatter válido e as seções do template preenchidas.
+- [ ] `docs/sprintx/features/<slug>/00-ESTIMATIVA.md` existe, com frontmatter válido e as seções do template preenchidas.
 - [ ] Checklist de verificação toda atendida.
 
 ## Ao terminar
 
-Anuncie: "F3.5 concluída. Estimativa em `docs/<slug>/00-ESTIMATIVA.md`: esforço total `min–max h`, caminho crítico `min–max h`, confiança `<nivel>`."
+Anuncie: "F3.5 concluída. Estimativa em `docs/sprintx/features/<slug>/00-ESTIMATIVA.md`: esforço total `min–max h`, caminho crítico `min–max h`, confiança `<nivel>`."
 
 Siga para a F4 lendo `references/04-orquestrador.md`.

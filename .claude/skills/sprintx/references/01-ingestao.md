@@ -5,16 +5,16 @@ Você está na F1. Seu único objetivo é construir a base de conhecimento antes
 ## Pré-requisitos verificáveis
 
 - O slug da feature está definido (derive-o pelas regras do SKILL.md; se ambíguo, proponha e siga).
-- `docs/<slug>/base/` não existe, ou existe incompleta (reexecução para complementar).
+- `docs/sprintx/features/<slug>/base/` não existe, ou existe incompleta (reexecução para complementar).
 
-Se `docs/<slug>/base/` já existe completa e `00-DECISOES.md` também existe, a F1 já passou: anuncie a fase real detectada pela máquina de estados e execute-a em vez desta.
+Se `docs/sprintx/features/<slug>/base/` já existe completa e `00-DECISOES.md` também existe, a F1 já passou: anuncie a fase real detectada pela máquina de estados e execute-a em vez desta.
 
 ## Passo 1 — Scaffold
 
-Crie, se ainda não existirem:
+Crie, se ainda não existirem (os diretórios intermediários `docs/sprintx/` e `docs/sprintx/features/` fazem parte da criação e nascem junto):
 
 ```
-docs/<slug>/
+docs/sprintx/features/<slug>/
   00-BLOQUEIOS.md      apenas o título "# Bloqueios" e a linha "Nenhum bloqueio registrado." — será preenchido na execução
   base/
     00-INDICE.md       título + lista (vazia por enquanto) dos arquivos da base
@@ -84,4 +84,4 @@ Continue ingerindo até atender. Se uma fonte externa está inacessível (docs f
 
 ## Ao terminar
 
-Anuncie: "F1 concluída. Base de conhecimento em `docs/<slug>/base/` (N arquivos, M lacunas). Próxima fase: F2 DESCOBERTA — vou te entrevistar em blocos de até 5 perguntas." Em seguida, se a sessão continuar, entre na F2 lendo `references/02-descoberta.md`.
+Anuncie: "F1 concluída. Base de conhecimento em `docs/sprintx/features/<slug>/base/` (N arquivos, M lacunas). Próxima fase: F2 DESCOBERTA — vou te entrevistar em blocos de até 5 perguntas." Em seguida, se a sessão continuar, entre na F2 lendo `references/02-descoberta.md`.

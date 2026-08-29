@@ -30,8 +30,8 @@ tasks_a_quebrar: [{{T-NN.MM}}]
 {{Se a confiança for BAIXA, esta é a PRIMEIRA linha do documento, antes de qualquer número:}}
 {{**Confiança BAIXA. Para subir: <ação específica, verificável, curta, nomeando o artefato>.**}}
 
-{{Se não existir `docs/estimativas/HISTORICO.md`, esta linha vem em seguida:}}
-{{**Não há base de calibração neste projeto:** `docs/estimativas/HISTORICO.md` não existe. As faixas vêm de julgamento sobre o plano, sem desvio histórico para corrigi-las. Por isso a confiança não passa de MÉDIA.}}
+{{Se não existir `docs/sprintx/estimativas/HISTORICO.md`, esta linha vem em seguida:}}
+{{**Não há base de calibração neste projeto:** `docs/sprintx/estimativas/HISTORICO.md` não existe. As faixas vêm de julgamento sobre o plano, sem desvio histórico para corrigi-las. Por isso a confiança não passa de MÉDIA.}}
 
 ## Faixa
 
@@ -119,7 +119,7 @@ O que esta faixa deliberadamente não cobre:
 
 ## Calibração
 
-- Histórico consultado: {{`docs/estimativas/HISTORICO.md` (N entradas) | "não existe neste projeto"}}
+- Histórico consultado: {{`docs/sprintx/estimativas/HISTORICO.md` (N entradas) | "não existe neste projeto"}}
 - Fator de correção aplicado: {{ex.: "1,25× nas tasks de tipo `integracao_externa`, vindo de um desvio médio de 1,25 em 4 entradas encerradas" | "nenhum"}}
 
 O fator de correção é sempre visível. Fator embutido em silêncio é indistinguível de número inventado.

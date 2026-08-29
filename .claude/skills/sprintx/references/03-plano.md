@@ -4,7 +4,7 @@ Você está na F3. Seu objetivo é gerar a árvore de sprints/fases/tasks. Nesta
 
 ## Pré-requisitos verificáveis
 
-- `docs/<slug>/00-DECISOES.md` existe.
+- `docs/sprintx/features/<slug>/00-DECISOES.md` existe.
 - **Nenhum PENDENTE bloqueante** em `00-DECISOES.md`. Se houver, PARE: liste os PENDENTEs, diga o que cada um trava e pergunte só o necessário para resolvê-los (isso é resolução de pendência da F2, não uma nova entrevista). Só gere o plano com todos os bloqueantes resolvidos.
 - Se `00-DECISOES.md` não existe, a F2 não aconteceu: diga "Falta a F2 (descoberta). Vou executá-la primeiro." e execute `references/02-descoberta.md`.
 
@@ -24,7 +24,7 @@ Com a base (`base/`) e as decisões (`00-DECISOES.md`) na mão, desenhe Sprints 
 
 ## Passo 2 — Escrever os arquivos
 
-Para cada sprint N, crie `docs/<slug>/sprint-NN/` com três arquivos, usando os templates (caminhos relativos à raiz da skill):
+Para cada sprint N, crie `docs/sprintx/features/<slug>/sprint-NN/` com três arquivos, usando os templates (caminhos relativos à raiz da skill):
 
 - `sprint.md` — de `assets/TEMPLATE-sprint.md`: objetivo, fases, critério de saída, riscos conhecidos.
 - `fases.md` — de `assets/TEMPLATE-fases.md`: por fase, objetivo, tasks que a compõem, critério de saída, com qual outra fase pode rodar em paralelo.
@@ -85,10 +85,10 @@ A F3.5 é **opcional** e não é pré-requisito da F4. Você não a executa aqui
 
 Esse teste é irmão da regra de granularidade (se os dois testes não cabem em uma frase cada, quebre) e não a substitui: aplique os dois.
 
-**Não estime aqui.** Não escreva horas, faixas, prazos nem datas em `sprint.md`, `fases.md` ou `tasks.md`. Nenhum campo do contrato da task carrega esforço, e o plano não é o lugar de número de esforço. A estimativa vive exclusivamente em `docs/<slug>/00-ESTIMATIVA.md`, gravado pela F3.5.
+**Não estime aqui.** Não escreva horas, faixas, prazos nem datas em `sprint.md`, `fases.md` ou `tasks.md`. Nenhum campo do contrato da task carrega esforço, e o plano não é o lugar de número de esforço. A estimativa vive exclusivamente em `docs/sprintx/features/<slug>/00-ESTIMATIVA.md`, gravado pela F3.5.
 
 ## Ao terminar
 
-Anuncie: "F3 concluída. Plano em `docs/<slug>/sprint-*/` (N sprints, M tasks)." Siga para a F4 lendo `references/04-orquestrador.md`.
+Anuncie: "F3 concluída. Plano em `docs/sprintx/features/<slug>/sprint-*/` (N sprints, M tasks)." Siga para a F4 lendo `references/04-orquestrador.md`.
 
 Se o usuário pediu estimativa (ou acionou `/sprintx-estimar`), rode antes a F3.5 lendo `references/07-estimativa.md` e só então siga para a F4. Sem esse pedido, vá direto para a F4 — a F3.5 nunca é executada por conta própria e nunca bloqueia a passagem.

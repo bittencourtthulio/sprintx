@@ -25,7 +25,7 @@ calibracao:
 ---
 
 > Substitua TODOS os marcadores `{{...}}`. Roteiro operacional em `references/07-estimativa.md`.
-> Este arquivo é do PROJETO, não de um trabalho: vive em `docs/estimativas/HISTORICO.md` e acumula entradas de todos os trabalhos. Por isso `trabalho_id` no cabeçalho é `null` — o `trabalho_id` de cada linha vive dentro de `entradas:`.
+> Este arquivo é do PROJETO, não de um trabalho: vive em `docs/sprintx/estimativas/HISTORICO.md` e acumula entradas de todos os trabalhos. Por isso `trabalho_id` no cabeçalho é `null` — o `trabalho_id` de cada linha vive dentro de `entradas:`.
 > Este é o único arquivo da skill que é APENDADO, nunca sobrescrito. Trabalho novo acrescenta entradas; entrada antiga não se apaga nem se reescreve.
 
 # Histórico de esforço — calibração das estimativas
