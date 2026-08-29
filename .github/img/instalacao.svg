@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330" role="img" aria-label="Topologia da instalacao: no escopo global a skill e instalada uma unica vez em ~/.claude/skills e o OpenCode a auto-carrega; no escopo de projeto nao existe essa ponte e a skill e copiada para .claude e para .opencode">
+  <defs>
+    <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/>
+    </marker>
+    <marker id="bg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2da44e"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+
+    <!-- ============ GLOBAL ============ -->
+    <text x="16" y="24" font-size="13" font-weight="700" fill="#8b949e">--global</text>
+    <text x="92" y="24" font-size="12" fill="#8b949e">a skill existe UMA vez e serve aos dois</text>
+
+    <rect x="16" y="38" width="848" height="108" rx="10" fill="none" stroke="#2da44e" stroke-width="1.2" stroke-dasharray="4 4" opacity=".7"/>
+
+    <rect x="40" y="66" width="196" height="54" rx="8" fill="none" stroke="#2da44e" stroke-width="2"/>
+    <text x="138" y="88" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5" fill="#2da44e">~/.claude/skills/</text>
+    <text x="138" y="106" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5" font-weight="700" fill="#2da44e">sprintx/</text>
+
+    <line x1="236" y1="82" x2="404" y2="82" stroke="#8b949e" stroke-width="1.6" marker-end="url(#b)"/>
+    <text x="320" y="76" text-anchor="middle" font-size="10.5" fill="#8b949e">lê direto</text>
+
+    <line x1="236" y1="104" x2="404" y2="104" stroke="#2da44e" stroke-width="1.8" marker-end="url(#bg)"/>
+    <text x="320" y="120" text-anchor="middle" font-size="10.5" font-weight="600" fill="#2da44e">auto-carrega (external skill)</text>
+
+    <rect x="410" y="60" width="150" height="30" rx="6" fill="none" stroke="#8b949e" stroke-width="1.6"/>
+    <text x="485" y="80" text-anchor="middle" font-size="12" fill="#8b949e">Claude Code</text>
+
+    <rect x="410" y="96" width="150" height="30" rx="6" fill="none" stroke="#2da44e" stroke-width="1.6"/>
+    <text x="485" y="116" text-anchor="middle" font-size="12" fill="#2da44e">OpenCode</text>
+
+    <text x="590" y="74" font-size="11" fill="#8b949e">comandos espelhados:</text>
+    <text x="590" y="92" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10.5" fill="#8b949e">~/.claude/commands/</text>
+    <text x="590" y="110" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="10.5" fill="#8b949e">~/.config/opencode/command/</text>
+
+    <!-- ============ PROJETO ============ -->
+    <text x="16" y="188" font-size="13" font-weight="700" fill="#8b949e">projeto</text>
+    <text x="92" y="188" font-size="12" fill="#8b949e">não existe a ponte — a skill é copiada para os dois</text>
+
+    <rect x="16" y="202" width="848" height="108" rx="10" fill="none" stroke="#8b949e" stroke-width="1.2" stroke-dasharray="4 4" opacity=".55"/>
+
+    <rect x="40" y="230" width="196" height="54" rx="8" fill="none" stroke="#8b949e" stroke-width="1.6"/>
+    <text x="138" y="252" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5" font-weight="700" fill="#8b949e">install.sh</text>
+    <text x="138" y="270" text-anchor="middle" font-size="11" fill="#8b949e">copia a fonte única</text>
+
+    <line x1="236" y1="243" x2="404" y2="230" stroke="#8b949e" stroke-width="1.6" marker-end="url(#b)"/>
+    <line x1="236" y1="271" x2="404" y2="284" stroke="#8b949e" stroke-width="1.6" marker-end="url(#b)"/>
+
+    <rect x="410" y="212" width="290" height="36" rx="6" fill="none" stroke="#8b949e" stroke-width="1.6"/>
+    <text x="424" y="235" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8b949e">.claude/skills/sprintx/ + commands/</text>
+
+    <rect x="410" y="266" width="290" height="36" rx="6" fill="none" stroke="#8b949e" stroke-width="1.6"/>
+    <text x="424" y="289" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11" fill="#8b949e">.opencode/skills/sprintx/ + command/</text>
+
+    <text x="716" y="235" font-size="11.5" fill="#8b949e">Claude Code</text>
+    <text x="716" y="289" font-size="11.5" fill="#8b949e">OpenCode</text>
+  </g>
+</svg>

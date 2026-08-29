@@ -1,10 +1,44 @@
 # sprint^x
 
-**sprint^x** (lê-se "sprint elevado a x", escreve-se `sprintx` em código e nomes de arquivo) é uma skill para [Claude Code](https://claude.com/claude-code) que implementa um método de planejamento e execução de features onde **todo o esforço vai para o planejamento** — a execução é autônoma porque a ambiguidade já foi eliminada antes de escrever a primeira linha de código.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/hero.svg" alt="sprint^x — todo o esforço vai para o planejamento; a execução é autônoma" width="760">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Claude%20Code-compat%C3%ADvel-2da44e?style=flat-square" alt="Compatível com Claude Code">
+  <img src="https://img.shields.io/badge/OpenCode-compat%C3%ADvel-2da44e?style=flat-square" alt="Compatível com OpenCode">
+  <img src="https://img.shields.io/badge/expx--schema-v1-8b949e?style=flat-square" alt="Contrato expx-schema v1">
+  <img src="https://img.shields.io/badge/licen%C3%A7a-MIT-8b949e?style=flat-square" alt="Licença MIT">
+</p>
+
+**sprint^x** (lê-se "sprint elevado a x", escreve-se `sprintx` em código e nomes de arquivo) é uma skill para [Claude Code](https://claude.com/claude-code) e [OpenCode](https://opencode.ai) que implementa um método de planejamento e execução de features onde **todo o esforço vai para o planejamento** — a execução é autônoma porque a ambiguidade já foi eliminada antes de escrever a primeira linha de código.
 
 > Uma pergunta feita durante a execução é sempre uma falha da fase de planejamento.
 
 Criada pela [Expx (Exponencial)](https://github.com/bittencourtthulio) e aberta para qualquer pessoa usar em qualquer projeto.
+
+## Build e Run
+
+O método Expx tem duas metades, irmãs e com a mesma disciplina de engenharia:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/buildrun.svg" alt="sprintx (Build) vai de F1 a F6, disparado por uma feature nova; runx (Run) vai de E1 a E5, disparado por uma ocorrência em produção; as duas compartilham os mesmos contratos" width="900">
+</p>
+
+| | **sprintx** (Build) | **[runx](https://github.com/bittencourtthulio/runx)** (Run) |
+|---|---|---|
+| **Gatilho** | feature nova, planejada do zero | ocorrência num sistema em produção |
+| **Entrada** | uma ideia, um requisito | um chamado, ticket ou relato de cliente |
+| **Estágios** | F1…F6 (ingestão → execução) | E1…E5 (investigação → relatório) |
+| **Saída** | a feature entregue | a ocorrência encerrada, com dois relatórios |
+
+As duas compartilham **exatamente** os mesmos contratos: base de conhecimento antes de qualquer plano, hierarquia sprint → fase → task, TDD obrigatório com no mínimo dois testes por task, critério de aceite verificável em toda transição, paralelismo declarado no plano e execução autônoma guiada por um arquivo orquestrador.
+
+**Muda o gatilho e o tamanho. Nunca o rigor.**
+
+> Precisa sustentar o que já está em produção — bug, ajuste, chamado de cliente? Essa é a outra metade: **[runx](https://github.com/bittencourtthulio/runx)**.
+
+---
 
 ## Por que existir
 
@@ -17,7 +51,15 @@ A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da m
 - **Paralelismo declarado no plano**, nunca decidido pelo agente em tempo de execução.
 - **Execução que nunca para** — dúvida nova durante a execução vira bloqueio registrado, não uma pergunta. O agente pula para a próxima task paralelizável e segue.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/task.svg" alt="Anatomia de uma task: os dez campos obrigatórios do contrato, e o ciclo TDD em que o teste vem antes do código" width="900">
+</p>
+
 ## As seis fases
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/fases.svg" alt="Máquina de estados: F1 a F5 formam o planejamento; a F5 libera a F6 com VEREDITO SIM, e um achado ALTA devolve o fluxo para a F3" width="900">
+</p>
 
 O método é uma máquina de estados estritamente sequencial. A skill sempre sabe em que fase está inspecionando o que já existe em disco — você nunca precisa dizer "estou na fase X".
 
@@ -32,36 +74,61 @@ O método é uma máquina de estados estritamente sequencial. A skill sempre sab
 
 ## Instalação
 
-### Opção 1 — copiar a skill para o seu projeto
-
-Copie as pastas `.claude/skills/sprintx/` e `.claude/commands/` deste repositório para a raiz do seu projeto:
+Um instalador só, que configura **os dois harnesses de uma vez** — Claude Code e OpenCode:
 
 ```bash
-git clone https://github.com/bittencourtthulio/sprintx.git /tmp/sprintx
-cp -r /tmp/sprintx/.claude/skills/sprintx /caminho/do/seu/projeto/.claude/skills/
-cp /tmp/sprintx/.claude/commands/sprintx*.md /caminho/do/seu/projeto/.claude/commands/
+git clone https://github.com/bittencourtthulio/sprintx.git
+cd sprintx
+./install.sh --global      # todos os seus projetos
 ```
 
-Se o seu projeto ainda não tem `.claude/skills/` ou `.claude/commands/`, crie as pastas antes de copiar.
-
-### Opção 2 — copiar só a skill (sem os comandos de atalho)
-
-Se você prefere sempre invocar por descrição em vez de comando, basta a pasta da skill:
+Ou instalar apenas no projeto atual:
 
 ```bash
-cp -r /tmp/sprintx/.claude/skills/sprintx /caminho/do/seu/projeto/.claude/skills/
+./install.sh               # instala no diretório atual
+./install.sh /caminho/do/projeto
 ```
 
-O Claude Code já reconhece e dispara a skill automaticamente quando você descreve algo que quer construir, integrar ou mudar no sistema — não precisa digitar `sprintx` no pedido.
+| Flag | Efeito |
+|---|---|
+| `--global` | Instala para todos os projetos (em vez do projeto atual) |
+| `--claude` | Só Claude Code |
+| `--opencode` | Só OpenCode |
+| `--dry-run` | Mostra o que faria, sem escrever nada |
 
-### Opção 3 — instalação global (todos os seus projetos)
+Rodar de novo atualiza no lugar — o instalador é idempotente.
 
-Copie para o diretório de skills do usuário em vez do projeto:
+### O que vai para onde
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/instalacao.svg" alt="No escopo global a skill fica só em ~/.claude/skills e o OpenCode a auto-carrega; no escopo de projeto ela é copiada para .claude e .opencode" width="900">
+</p>
+
+**Instalação global.** O OpenCode carrega automaticamente as skills de `~/.claude/skills/` (ele as chama de *external skills*), então a skill é instalada **uma única vez** e serve aos dois — sem cópia duplicada para sair do ar:
+
+```
+~/.claude/skills/sprintx/          a skill (lida pelo Claude Code E pelo OpenCode)
+~/.claude/commands/sprintx*.md     comandos do Claude Code
+~/.config/opencode/command/sprintx*.md   comandos do OpenCode
+```
+
+**Instalação de projeto.** Aqui não existe essa ponte entre os dois, então a skill é copiada para os dois lugares:
+
+```
+.claude/skills/sprintx/     +  .claude/commands/sprintx*.md
+.opencode/skills/sprintx/   +  .opencode/command/sprintx*.md
+```
+
+### Instalação manual
+
+Se preferir copiar à mão, a skill é a mesma pasta nos dois harnesses — só o destino muda:
 
 ```bash
-cp -r /tmp/sprintx/.claude/skills/sprintx ~/.claude/skills/
-cp /tmp/sprintx/.claude/commands/sprintx*.md ~/.claude/commands/
+cp -R .claude/skills/sprintx  ~/.claude/skills/           # Claude Code + OpenCode (global)
+cp -R .claude/skills/sprintx  meu-projeto/.opencode/skills/   # OpenCode (projeto)
 ```
+
+Os comandos do OpenCode são os mesmos do Claude Code sem a linha `argument-hint:`, que o OpenCode não usa.
 
 ## Como usar
 
@@ -87,6 +154,8 @@ Todo o trabalho de cada feature fica em `docs/<slug-da-feature>/` na raiz do seu
 
 ## O que fica em disco
 
+Todo arquivo de estado carrega frontmatter YAML legível por máquina (**expx-schema v1**), para que um painel de operação leia o andamento sem depender da prosa. Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são os mesmos da [runx](https://github.com/bittencourtthulio/runx), com os mesmos campos e enums — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a runx acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
+
 ```
 docs/<slug-da-feature>/
   ORQUESTRADOR.md      mapa e porta de entrada da execução
@@ -107,20 +176,42 @@ docs/<slug-da-feature>/
 ## Estrutura deste repositório
 
 ```
+install.sh                      instalador para Claude Code e OpenCode
+.github/img/                    diagramas SVG do README
 .claude/
   skills/sprintx/
     SKILL.md                    a skill em si — princípio, contratos, regras, máquina de estados
     DECISOES-DA-SKILL.md        decisões de design tomadas ao construir esta skill
     references/                 roteiro operacional detalhado de cada uma das 6 fases
+      00-schema.md              contrato expx-schema v1 do frontmatter dos arquivos de estado
     assets/                     templates preenchíveis usados pelas fases
   commands/
     sprintx*.md                 atalhos de comando para cada fase
+.opencode/
+  command/sprintx*.md           os mesmos comandos, no formato do OpenCode
 ```
 
-## Empacotamento futuro
+A pasta `.claude/skills/sprintx/` é a **fonte única** da skill: ela não cita `.claude` em lugar nenhum e usa só caminhos relativos à própria raiz, por isso o mesmo conteúdo funciona sem alteração nos dois harnesses. O `.opencode/command/` é gerado a partir de `.claude/commands/`.
 
-Esta skill não usa nenhum caminho absoluto e não depende de nenhum prefixo de plugin — a pasta inteira pode ser movida ou empacotada como plugin sem quebrar nada.
+## Compatibilidade
+
+Esta skill não usa nenhum caminho absoluto, não cita `.claude` no corpo e não depende de nenhum prefixo de plugin — a pasta inteira pode ser movida, empacotada como plugin ou instalada em qualquer um dos dois harnesses sem quebrar nada.
+
+| | Claude Code | OpenCode |
+|---|---|---|
+| Skill (global) | `~/.claude/skills/sprintx/` | a mesma pasta, auto-carregada |
+| Skill (projeto) | `.claude/skills/sprintx/` | `.opencode/skills/sprintx/` |
+| Comandos (global) | `~/.claude/commands/` | `~/.config/opencode/command/` |
+| Comandos (projeto) | `.claude/commands/` | `.opencode/command/` |
+| Disparo automático por descrição | sim | sim |
+| `$ARGUMENTS` nos comandos | sim | sim |
+
+Verificado no OpenCode v1.18.23.
 
 ## Licença
 
 MIT — use, copie e adapte livremente.
+
+---
+
+<sub>sprintx é a metade Build do método Expx (Exponencial). A metade Run é a skill <a href="https://github.com/bittencourtthulio/runx">runx</a>.</sub>

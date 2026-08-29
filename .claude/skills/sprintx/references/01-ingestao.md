@@ -21,6 +21,14 @@ docs/<slug>/
     00-LACUNAS.md      título + "Nenhuma lacuna registrada."
 ```
 
+**Frontmatter (obrigatório).** `00-BLOQUEIOS.md` (`kind: bloqueios`, com `bloqueios: []`) e
+`base/00-INDICE.md` (`kind: base_indice`) são arquivos de estado: grave-os já com o
+frontmatter do contrato expx-schema v1. O formato exato de cada um está em
+`references/00-schema.md` — leia-o antes de gravar. `base/00-LACUNAS.md` e os arquivos de
+recurso da base NÃO levam frontmatter.
+Use `assets/TEMPLATE-BLOQUEIOS.md` e `assets/TEMPLATE-base-indice.md` (caminhos relativos à
+raiz da skill) como ponto de partida desses dois arquivos.
+
 ## Passo 2 — Detectar o modo
 
 Decida pelo que o usuário descreveu:
@@ -60,6 +68,7 @@ Use `assets/TEMPLATE-base-recurso.md` (caminho relativo à raiz da skill). Todo 
 - **Proibido escrever código de implementação.** Trechos citados da fonte ou do código existente são permitidos; código novo, não.
 - O que você procurou e não encontrou vai para `base/00-LACUNAS.md`, uma linha por lacuna, com onde procurou.
 - Cada arquivo criado entra em `base/00-INDICE.md` com uma linha de resumo.
+- Ao atualizar `base/00-INDICE.md`, reescreva também a lista `areas:` do frontmatter (uma entrada por arquivo da base, com `lacunas` contando as lacunas daquela área) e o campo `atualizado_em`. Formato em `references/00-schema.md`.
 
 ## Critério de saída da fase
 
@@ -67,6 +76,7 @@ Use `assets/TEMPLATE-base-recurso.md` (caminho relativo à raiz da skill). Todo 
 - [ ] `00-INDICE.md` lista todos os arquivos da base.
 - [ ] `00-LACUNAS.md` registra tudo que não foi encontrado (ou declara que não há lacunas).
 - [ ] Nenhum campo inventado; todo número referenciado.
+- [ ] `00-BLOQUEIOS.md` e `base/00-INDICE.md` têm frontmatter válido conforme `references/00-schema.md`.
 
 ## Quando o critério não é atendido
 

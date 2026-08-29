@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" width="760" height="190" role="img" aria-label="sprint elevado a x: todo o esforco vai para o planejamento, a execucao e autonoma. Uma pergunta feita durante a execucao e sempre uma falha da fase de planejamento.">
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+    <text x="380" y="72" text-anchor="middle" font-size="58" font-weight="800" fill="#2da44e" letter-spacing="-1.5">
+      sprint<tspan font-size="34" dy="-18" fill="#8b949e">x</tspan>
+    </text>
+
+    <text x="380" y="104" text-anchor="middle" font-size="13.5" fill="#8b949e">todo o esforço vai para o planejamento — a execução é autônoma</text>
+
+    <line x1="250" y1="126" x2="510" y2="126" stroke="#8b949e" stroke-width="1" opacity=".4"/>
+
+    <text x="380" y="152" text-anchor="middle" font-size="12.5" font-style="italic" fill="#8b949e">“Uma pergunta feita durante a execução</text>
+    <text x="380" y="170" text-anchor="middle" font-size="12.5" font-style="italic" fill="#8b949e">é sempre uma falha da fase de planejamento.”</text>
+  </g>
+</svg>

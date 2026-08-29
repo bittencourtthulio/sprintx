@@ -1,3 +1,20 @@
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: orquestrador
+trabalho_id: {{slug-da-feature}}
+titulo: {{titulo sem acento, uma linha}}
+tipo_trabalho: {{feature | ocorrencia}}
+tipo_ocorrencia: null
+estagio: {{f1 | f2 | f3 | f4 | f5 | f6}}
+status: {{nao_iniciado | em_andamento | bloqueado | concluido}}
+criado_em: {{AAAA-MM-DD}}
+atualizado_em: {{AAAA-MM-DD}}
+concluido_em: null
+sprints: [{{sprint-01, sprint-02}}]
+caminho_critico: [{{F-01.1, F-01.3}}]
+---
+
 # Orquestrador — {{slug-da-feature}}
 
 > Porta de entrada da execução. Escrito para quem abriu o repositório agora e não sabe nada. Só caminhos relativos; nunca o valor de um segredo.

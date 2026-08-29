@@ -26,12 +26,30 @@ Para CADA task, nesta ordem:
 5. Só então marque `status: concluida` em `tasks.md`, acrescentando na linha da task: data (obtenha com `date +%Y-%m-%d` do sistema) e resultado da suíte (ex.: `2026-08-26 · suíte: 42 passed, 0 failed`).
 6. Critério de aceite não atendido ou teste não passando: a task NÃO é concluída. Não existe "concluído com ressalva".
 
+**Frontmatter (obrigatório) — o YAML e a prosa andam juntos.** Cada arquivo de estado que
+você tocar na F6 é gravado com o frontmatter do contrato expx-schema v1
+(`references/00-schema.md`, leitura obrigatória antes da primeira gravação). Ao atualizar o
+status de uma task, atualize TANTO o frontmatter QUANTO a prosa do bloco — nunca só um dos
+dois. A cada gravação de `tasks.md`:
+
+- `status` da task na lista `tasks:` do frontmatter recebe o mesmo valor que a prosa
+  (`pendente` → `em_andamento` → `concluida`, ou `bloqueada`).
+- `atualizado_em` do arquivo é reescrito com a data do sistema (`date +%Y-%m-%d`).
+- `concluida_em` recebe a data quando a task passa a `concluida`; permanece `null` em
+  qualquer outro status.
+- `suite` recebe `verde` quando a suíte relevante terminou com 0 failed, `vermelha` quando
+  houve falha, e permanece `nao_executada` enquanto a suíte não rodou para aquela task.
+
+Deixar o frontmatter desatualizado em relação à prosa equivale a não ter gravado a task: o
+painel de operação lê o YAML, não a prosa.
+
 ## Regra de bloqueio — nunca parar
 
 Surgiu dúvida nova, decisão não coberta pelo plano, pré-requisito faltando (segredo inexistente, serviço fora do ar, dependência quebrada):
 
 1. Registre em `docs/<slug>/00-BLOQUEIOS.md`: `B-NN | task | descrição do bloqueio | o que destravaria`.
 2. Marque a task como `status: bloqueada` em `tasks.md`.
+   Ao registrar o bloqueio, grave também o frontmatter `kind: bloqueios` de `00-BLOQUEIOS.md` (novo item em `bloqueios:` com `id`, `task`, `aberto_em` com a data do sistema, `resolvido_em: null` e `descricao` em uma linha) e reescreva `atualizado_em`. Formato em `references/00-schema.md`. A task muda para `bloqueada` no frontmatter e na prosa de `tasks.md`.
 3. Pule para a próxima task paralelizável cujas dependências estão satisfeitas.
 4. NUNCA pare para esperar resposta humana. Se não resta nenhuma task executável, encerre com o relatório final — os bloqueios são a pauta do usuário, não uma conversa sua.
 
@@ -54,4 +72,6 @@ Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um
 
 - [ ] Toda task está `concluida` ou `bloqueada` (nenhuma `pendente`/`em_andamento` executável restante).
 - [ ] `tasks.md` atualizado com data e resultado de suíte em cada task concluída.
+- [ ] Em todo arquivo de estado tocado, o frontmatter está válido e coerente com a prosa: `status`, `concluida_em`, `suite` e `atualizado_em` refletem o estado real (`references/00-schema.md`).
+- [ ] Se o trabalho inteiro foi entregue, `ORQUESTRADOR.md` teve `estagio`, `status`, `concluido_em` e `atualizado_em` reescritos; sprints e fases concluídas tiveram `status` atualizado em `sprint.md` e `fases.md`.
 - [ ] Relatório final entregue com as 4 seções.

@@ -48,6 +48,14 @@ PENDENTE-01 | pergunta em aberto | trava: <o que não pode ser planejado sem iss
 
 - Todo PENDENTE é bloqueante por padrão. Só marque `(NÃO BLOQUEANTE)` se o usuário disser explicitamente que o plano pode seguir sem essa resposta, e registre o que acontece se a resposta vier diferente do assumido.
 
+**Frontmatter (obrigatório).** `00-DECISOES.md` é arquivo de estado: grave-o com o
+frontmatter `kind: decisoes` do contrato expx-schema v1, descrito em
+`references/00-schema.md` — leia-o antes de gravar. Cada linha `D-NN` da prosa vira uma
+entrada da lista `decisoes:` com `status: fechada`; cada `PENDENTE-NN` vira uma entrada
+com `status: pendente`, `alternativa_descartada: null`, `motivo: null` e `bloqueante`
+refletindo a regra (todo PENDENTE é `true` por padrão). YAML e prosa dizem a mesma coisa,
+sempre. Reescreva `atualizado_em` a cada gravação.
+
 ## Proibições desta fase
 
 - Não escreva plano, sprint, fase ou task.
@@ -59,6 +67,7 @@ PENDENTE-01 | pergunta em aberto | trava: <o que não pode ser planejado sem iss
 - [ ] Os sete eixos foram perguntados e respondidos (ou registrados como PENDENTE).
 - [ ] Toda lacuna da F1 foi perguntada.
 - [ ] `00-DECISOES.md` existe, com pelo menos uma decisão D-NN, no formato exato.
+- [ ] `00-DECISOES.md` tem frontmatter válido e a lista `decisoes:` cobre todas as linhas D-NN e PENDENTE-NN da prosa.
 - [ ] Contradições com a base foram apontadas ao usuário no momento em que surgiram.
 
 ## Quando o critério não é atendido

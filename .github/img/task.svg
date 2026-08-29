@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-label="Anatomia de uma task: os dez campos obrigatorios do contrato a esquerda, e o ciclo TDD a direita, onde o teste e escrito antes do codigo e a task so e concluida com os dois testes passando e o criterio de aceite verificado">
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+
+    <text x="16" y="24" font-size="12.5" font-weight="700" fill="#8b949e">contrato — 10 campos, nenhum opcional</text>
+
+    <rect x="16" y="38" width="396" height="240" rx="10" fill="none" stroke="#8b949e" stroke-width="1.4"/>
+
+    <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5">
+      <text x="36" y="64" fill="#8b949e">id</text>
+      <text x="36" y="86" fill="#8b949e">titulo</text>
+      <text x="36" y="108" fill="#8b949e">objetivo</text>
+      <text x="36" y="130" fill="#8b949e">arquivos</text>
+      <text x="36" y="152" fill="#2da44e" font-weight="700">teste_integracao</text>
+      <text x="36" y="174" fill="#2da44e" font-weight="700">teste_funcional</text>
+      <text x="36" y="196" fill="#8b949e">criterio_aceite</text>
+      <text x="36" y="218" fill="#8b949e">depende_de</text>
+      <text x="36" y="240" fill="#8b949e">paralelizavel</text>
+      <text x="36" y="262" fill="#8b949e">status</text>
+    </g>
+
+    <g font-size="10.5" fill="#8b949e">
+      <text x="196" y="64">T-01.01</text>
+      <text x="196" y="86">título curto</text>
+      <text x="196" y="108">uma frase</text>
+      <text x="196" y="130">cria: / altera:</text>
+      <text x="196" y="196">binário, sem adjetivo</text>
+      <text x="196" y="218">[ids] ou []</text>
+      <text x="196" y="240">true | false</text>
+      <text x="196" y="262">pendente → concluida</text>
+    </g>
+    <g font-size="10.5" fill="#2da44e">
+      <text x="196" y="152">obrigatório, 1 frase</text>
+      <text x="196" y="174">obrigatório, 1 frase</text>
+    </g>
+
+    <text x="36" y="286" font-size="10.5" fill="#8b949e">Se os dois testes não cabem em uma frase cada, a task está grande demais.</text>
+
+    <!-- ciclo TDD -->
+    <text x="452" y="24" font-size="12.5" font-weight="700" fill="#8b949e">execução da task — sempre nesta ordem</text>
+
+    <rect x="452" y="38" width="432" height="240" rx="10" fill="none" stroke="#8b949e" stroke-width="1.4"/>
+
+    <g>
+      <rect x="476" y="64" width="384" height="38" rx="7" fill="none" stroke="#e5534b" stroke-width="1.7"/>
+      <text x="494" y="82" font-size="11.5" font-weight="700" fill="#e5534b">1 · escreve os dois testes</text>
+      <text x="494" y="96" font-size="10.5" fill="#e5534b">roda e confirma que FALHAM — vermelho</text>
+    </g>
+    <g>
+      <rect x="476" y="114" width="384" height="38" rx="7" fill="none" stroke="#2da44e" stroke-width="1.7"/>
+      <text x="494" y="132" font-size="11.5" font-weight="700" fill="#2da44e">2 · implementa até passarem</text>
+      <text x="494" y="146" font-size="10.5" fill="#2da44e">roda a suíte inteira — verde</text>
+    </g>
+    <g>
+      <rect x="476" y="164" width="384" height="52" rx="7" fill="none" stroke="#8b949e" stroke-width="1.7"/>
+      <text x="494" y="182" font-size="11.5" font-weight="700" fill="#8b949e">3 · os três papéis, em sequência</text>
+      <text x="494" y="196" font-size="10.5" fill="#8b949e">implementador → revisor de testes → auditor de aceite</text>
+      <text x="494" y="210" font-size="10.5" fill="#8b949e">cada papel é um portão: não avança sem fechar o anterior</text>
+    </g>
+    <g>
+      <rect x="476" y="228" width="384" height="34" rx="7" fill="none" stroke="#2da44e" stroke-width="2"/>
+      <text x="494" y="249" font-size="11.5" font-weight="700" fill="#2da44e">4 · status: concluida</text>
+      <text x="852" y="249" text-anchor="end" font-size="10.5" fill="#2da44e">sem "concluído com ressalva"</text>
+    </g>
+
+    <g stroke="#8b949e" stroke-width="1.4" opacity=".8">
+      <line x1="668" y1="102" x2="668" y2="114"/>
+      <line x1="668" y1="152" x2="668" y2="164"/>
+      <line x1="668" y1="216" x2="668" y2="228"/>
+    </g>
+  </g>
+</svg>

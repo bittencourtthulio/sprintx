@@ -26,12 +26,23 @@ Regras de escrita:
 - Nenhum valor de segredo, token ou credencial — só o nome e onde encontrar.
 - Não duplique o conteúdo das tasks aqui; aponte para os arquivos.
 
+**Frontmatter (obrigatório).** `ORQUESTRADOR.md` é arquivo de estado: grave-o com o
+frontmatter `kind: orquestrador` do contrato expx-schema v1, descrito em
+`references/00-schema.md` — leia-o antes de gravar. Ao preencher:
+
+- `estagio` é a fase da máquina de estados em que o trabalho está ao gravar (na F4, `f4`).
+- `sprints` lista as pastas de sprint na ordem (`[sprint-01, sprint-02]`).
+- `caminho_critico` repete, em lista, a mesma cadeia declarada na seção 3 — sem inventar
+  paralelismo nem cadeia que o plano não declarou.
+- `concluido_em` é `null` até a feature inteira estar entregue.
+
 ## Critério de saída da fase
 
 - [ ] `ORQUESTRADOR.md` existe em `docs/<slug>/` com as 8 seções, na ordem, todas preenchidas.
 - [ ] A seção Objetivo tem no máximo 5 linhas.
 - [ ] A rota de execução cobre todas as sprints e fases do plano e marca o caminho crítico.
 - [ ] Nenhum segredo com valor; nenhum caminho absoluto.
+- [ ] `ORQUESTRADOR.md` tem frontmatter `kind: orquestrador` válido conforme `references/00-schema.md`, com `caminho_critico` igual ao da seção 3.
 
 ## Quando o critério não é atendido
 

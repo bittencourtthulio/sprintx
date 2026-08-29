@@ -1,3 +1,17 @@
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: sprint
+trabalho_id: {{slug-da-feature}}
+sprint_id: sprint-{{NN}}
+titulo: {{titulo da sprint, sem acento, uma linha}}
+status: {{nao_iniciado | em_andamento | bloqueado | concluido}}
+criterio_saida: {{criterio de saida em uma linha}}
+fases: [{{F-NN.1, F-NN.2}}]
+riscos: [{{risco em uma linha}}]
+atualizado_em: {{AAAA-MM-DD}}
+---
+
 # Sprint {{NN}} — {{título da sprint}}
 
 ## Objetivo

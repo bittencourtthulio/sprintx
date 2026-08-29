@@ -73,12 +73,14 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 14. Na F5 a IA é auditora: só aponta, nunca corrige; achado de severidade ALTA manda voltar para a F3 — nunca corrigir à mão o arquivo gerado.
 15. Proibido escrever código de implementação em qualquer fase antes da F6.
 16. Use sempre caminhos relativos; nunca escreva caminhos absolutos em nenhum artefato.
+17. Todo arquivo de estado é gravado com o frontmatter do contrato expx-schema v1, descrito em `references/00-schema.md`. Arquivo de estado sem frontmatter válido é considerado não entregue. Ao abrir uma pasta de trabalho que já existe e cujos arquivos não têm frontmatter, acrescente o frontmatter na próxima vez que gravar aquele arquivo, inferindo os valores da prosa existente; nunca reescreva em massa nem migre pastas que não vai tocar.
 
 ## Fases → arquivos da skill
 
 | Fase | Roteiro operacional | Templates usados |
 |---|---|---|
-| F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md` |
+| Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F4, F6) | — |
+| F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md`, `assets/TEMPLATE-base-indice.md`, `assets/TEMPLATE-BLOQUEIOS.md` |
 | F2 DESCOBERTA | `references/02-descoberta.md` | `assets/TEMPLATE-DECISOES.md` |
 | F3 PLANO | `references/03-plano.md` | `assets/TEMPLATE-sprint.md`, `assets/TEMPLATE-fases.md`, `assets/TEMPLATE-tasks.md` |
 | F4 ORQUESTRADOR | `references/04-orquestrador.md` | `assets/TEMPLATE-ORQUESTRADOR.md` |

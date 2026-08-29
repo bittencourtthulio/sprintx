@@ -30,6 +30,21 @@ Para cada sprint N, crie `docs/<slug>/sprint-NN/` com três arquivos, usando os 
 - `fases.md` — de `assets/TEMPLATE-fases.md`: por fase, objetivo, tasks que a compõem, critério de saída, com qual outra fase pode rodar em paralelo.
 - `tasks.md` — de `assets/TEMPLATE-tasks.md`: um bloco por task com TODOS os campos do contrato (`id`, `titulo`, `objetivo`, `arquivos`, `teste_integracao`, `teste_funcional`, `criterio_aceite`, `depende_de`, `paralelizavel`, `status`).
 
+**Frontmatter (obrigatório).** Os três arquivos são arquivos de estado e são gravados com
+o frontmatter do contrato expx-schema v1 — `kind: sprint`, `kind: fases` e `kind: tasks`,
+respectivamente. Leia `references/00-schema.md` antes de gravar e siga-o para os campos e
+os enums. Pontos que a F3 costuma errar:
+
+- Em `kind: tasks`, a lista `tasks:` do frontmatter espelha os blocos da prosa: um item por
+  task, com os mesmos campos do contrato acima, mais `fase` (a fase à qual a task pertence),
+  `concluida_em: null` e `suite: nao_executada` — a F3 nunca executou nada ainda.
+- `teste_integracao` e `teste_funcional` são obrigatórios e não vazios já aqui, na F3.
+  Task gravada sem eles é violação do método, não rascunho.
+- Em `kind: fases`, "roda em paralelo com: nenhuma" na prosa vira `paralela_com: []` com
+  `paralelizavel: false` no YAML.
+- Em `kind: sprint`, `criterio_saida` é o mesmo critério da prosa, resumido em uma linha, e
+  `riscos` é a lista dos riscos conhecidos (`[]` se nenhum).
+
 Convenções:
 
 - `id` no formato `T-NN.MM` (NN = sprint, MM = sequencial dentro da sprint).
@@ -43,6 +58,7 @@ Convenções:
 Antes de declarar a F3 concluída, confira você mesmo:
 
 - [ ] Toda task tem os 10 campos do contrato preenchidos.
+- [ ] Os três arquivos de cada sprint têm frontmatter válido conforme `references/00-schema.md`, e a lista `tasks:` do YAML bate task a task com os blocos da prosa.
 - [ ] Nenhum `depende_de` aponta para id inexistente; não há ciclo de dependência.
 - [ ] Toda task com `paralelizavel: true` não escreve nos mesmos arquivos de outra task paralela da mesma janela.
 - [ ] A sprint-01 é de capacidade de testar, não de negócio.

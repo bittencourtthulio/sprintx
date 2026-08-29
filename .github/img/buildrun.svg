@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" width="900" height="250" role="img" aria-label="As duas metades do metodo Expx: sprintx (Build) vai de F1 a F6, disparado por uma feature nova; runx (Run) vai de E1 a E5, disparado por uma ocorrencia em producao. As duas compartilham os mesmos contratos.">
+  <defs>
+    <marker id="m" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <g font-family="system-ui,-apple-system,Segoe UI,sans-serif">
+
+    <!-- BUILD -->
+    <rect x="16" y="30" width="424" height="128" rx="10" fill="none" stroke="#2da44e" stroke-width="1.6"/>
+    <text x="36" y="56" font-size="14" font-weight="800" fill="#2da44e">sprintx <tspan font-size="11.5" font-weight="600" fill="#8b949e">· Build</tspan></text>
+    <text x="36" y="76" font-size="11" fill="#8b949e">gatilho: feature nova, planejada do zero</text>
+
+    <g font-size="10.5" font-weight="700" fill="#2da44e" text-anchor="middle">
+      <rect x="36" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.3"/><text x="64" y="107">F1</text>
+      <rect x="100" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.3"/><text x="128" y="107">F2</text>
+      <rect x="164" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.3"/><text x="192" y="107">F3</text>
+      <rect x="228" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.3"/><text x="256" y="107">F4</text>
+      <rect x="292" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.3"/><text x="320" y="107">F5</text>
+      <rect x="356" y="90" width="56" height="26" rx="5" fill="none" stroke="#2da44e" stroke-width="1.6"/><text x="384" y="107">F6</text>
+    </g>
+    <text x="36" y="138" font-size="10.5" fill="#8b949e">ingestão → execução · saída: a feature entregue</text>
+
+    <!-- RUN -->
+    <rect x="460" y="30" width="424" height="128" rx="10" fill="none" stroke="#8b949e" stroke-width="1.6"/>
+    <text x="480" y="56" font-size="14" font-weight="800" fill="#8b949e">runx <tspan font-size="11.5" font-weight="600">· Run</tspan></text>
+    <text x="480" y="76" font-size="11" fill="#8b949e">gatilho: ocorrência num sistema em produção</text>
+
+    <g font-size="10.5" font-weight="700" fill="#8b949e" text-anchor="middle">
+      <rect x="480" y="90" width="68" height="26" rx="5" fill="none" stroke="#8b949e" stroke-width="1.3"/><text x="514" y="107">E1</text>
+      <rect x="556" y="90" width="68" height="26" rx="5" fill="none" stroke="#8b949e" stroke-width="1.3"/><text x="590" y="107">E2</text>
+      <rect x="632" y="90" width="68" height="26" rx="5" fill="none" stroke="#8b949e" stroke-width="1.3"/><text x="666" y="107">E3</text>
+      <rect x="708" y="90" width="68" height="26" rx="5" fill="none" stroke="#8b949e" stroke-width="1.3"/><text x="742" y="107">E4</text>
+      <rect x="784" y="90" width="68" height="26" rx="5" fill="none" stroke="#8b949e" stroke-width="1.6"/><text x="818" y="107">E5</text>
+    </g>
+    <text x="480" y="138" font-size="10.5" fill="#8b949e">investigação → relatório · saída: a ocorrência encerrada</text>
+
+    <!-- base compartilhada -->
+    <line x1="228" y1="158" x2="228" y2="180" stroke="#8b949e" stroke-width="1.3" marker-end="url(#m)"/>
+    <line x1="672" y1="158" x2="672" y2="180" stroke="#8b949e" stroke-width="1.3" marker-end="url(#m)"/>
+
+    <rect x="16" y="182" width="868" height="52" rx="10" fill="none" stroke="#8b949e" stroke-width="1.4" stroke-dasharray="5 4"/>
+    <text x="450" y="203" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8b949e">os mesmos contratos, os mesmos kinds do expx-schema</text>
+    <text x="450" y="221" text-anchor="middle" font-size="10.5" fill="#8b949e">base antes do plano · sprint → fase → task · TDD com 2 testes por task · aceite verificável · paralelismo declarado · expx-schema v1</text>
+  </g>
+</svg>
