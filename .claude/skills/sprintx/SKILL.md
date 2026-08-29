@@ -86,6 +86,7 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 | Fase | Roteiro operacional | Templates usados |
 |---|---|---|
 | Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F3.5, F4, F6) | — |
+| Todas as que gravam transição | `references/08-rastro.md` — formato do rastro de eventos, lido pelo painel | — |
 | F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md`, `assets/TEMPLATE-base-indice.md`, `assets/TEMPLATE-BLOQUEIOS.md` |
 | F2 DESCOBERTA | `references/02-descoberta.md` | `assets/TEMPLATE-DECISOES.md` |
 | F3 PLANO | `references/03-plano.md` | `assets/TEMPLATE-sprint.md`, `assets/TEMPLATE-fases.md`, `assets/TEMPLATE-tasks.md` |
@@ -95,6 +96,45 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 | F6 EXECUÇÃO | `references/06-execucao.md` | — |
 
 Os caminhos acima são relativos à raiz desta skill. O detalhe operacional de cada fase mora exclusivamente no reference correspondente; leia-o apenas quando a fase chegar.
+
+## Hooks e agentes
+
+Toda regra inviolável desta skill é, sozinha, uma instrução que o modelo pode esquecer numa execução longa. Hook é script determinístico: roda sempre, porque quem executa é o harness, não o modelo. Agente roda em contexto próprio e com ferramentas restritas.
+
+**Hooks e agentes não criam regra nova.** Eles garantem regras que já existem acima. Nada do método muda por causa deles.
+
+### Os hooks
+
+Todo hook de método **nasce em modo `aviso`** e só é promovido a `bloqueio` depois de rodar sem falso positivo — guiado pela lista de `regra_violada` que o painel acumulou. A razão é prática: hook que dá falso positivo é desinstalado, e junto com ele vão os que funcionavam. Os hooks de segurança são a exceção e nascem em `bloqueio`.
+
+O modo de cada hook vive em `.expx/hooks.json`, e é lá que se promove.
+
+| Hook | Evento | Modo inicial | O que faz |
+|---|---|---|---|
+| `escopo-da-task` | `PreToolUse` (escrita) | `aviso` | Compara o arquivo editado com o campo `arquivos` da task em andamento. Fora da lista, avisa |
+| `task-so-fecha-verde` | `PreToolUse` (`tasks.md`) | `aviso` | Barra `status: concluida` quando `suite` não é `verde` ou falta `teste_integracao`/`teste_funcional` |
+| `sem-placeholder-no-plano` | `PostToolUse` (plano) | `aviso` | Acha marcador `{{...}}` de template não substituído |
+| `tdd-teste-antes` | `PostToolUse` (escrita) | `aviso` | Avisa quando a implementação nasce antes do teste. **Inativo sem `CONVENCOES.md`** — não chuta onde o teste deveria estar |
+| `segredo` | `PreToolUse` (escrita) | `bloqueio` | Barra segredo com forma reconhecível indo para arquivo versionado |
+| `git-perigoso` | `PreToolUse` (Bash) | `bloqueio` | Barra operação de versionamento irreversível durante a execução autônoma |
+
+Hook de método falha **aberta**: se ele quebra, o trabalho segue. Hook de segurança falha **fechada**.
+
+### Os agentes
+
+Os agentes de veredito têm **acesso somente de leitura**. É isso que transforma "aponta, não corrige" de instrução em impossibilidade técnica.
+
+| Agente | Fase | Ferramentas | Papel |
+|---|---|---|---|
+| `auditor-plano` | F5 | leitura | Fura o plano antes de virar código, sem ter visto o raciocínio que o gerou |
+| `revisor-testes` | F5 e F6 | leitura | Responde a uma pergunta só: esse teste passaria com a implementação errada? |
+| `investigador` | F1 (opcional) | leitura | Monta a base em contexto próprio, para não consumir o contexto principal |
+
+Quando o agente não existe no harness em uso, a fase roda como sempre rodou — a skill nunca fica bloqueada por falta de agente.
+
+### O rastro
+
+Hooks e skill gravam os eventos em `docs/eventos/<trabalho_id>.jsonl`, formato em `references/08-rastro.md`. É o que dá ao painel a linha do tempo do trabalho, quem fez o quê, e a duração real por task — esta última alimentando a calibração da F3.5, sem ninguém anotar nada.
 
 ## Onde fica `docs/sprintx/features/<slug>/`
 

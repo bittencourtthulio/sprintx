@@ -1,29 +1,55 @@
-# sprint^x
+<div align="center">
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/hero.svg" alt="sprint^x — todo o esforço vai para o planejamento; a execução é autônoma" width="760">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/banner-light.svg">
+  <img alt="sprintx — a metade Build do metodo Expx" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/banner-light.svg" width="100%">
+</picture>
+
+<p>
+  <img alt="harness: Claude Code" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-claude.svg">
+  <img alt="harness: OpenCode" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-opencode.svg">
+  <img alt="fases F1 a F6" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-fases.svg">
+  <img alt="TDD obrigatorio" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-tdd.svg">
+  <img alt="schema expx v1" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-schema.svg">
+  <img alt="docs pt-BR" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-lang.svg">
+  <img alt="licenca MIT" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-license.svg">
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Claude%20Code-compat%C3%ADvel-2da44e?style=flat-square" alt="Compatível com Claude Code">
-  <img src="https://img.shields.io/badge/OpenCode-compat%C3%ADvel-2da44e?style=flat-square" alt="Compatível com OpenCode">
-  <img src="https://img.shields.io/badge/expx--schema-v1-8b949e?style=flat-square" alt="Contrato expx-schema v1">
-  <img src="https://img.shields.io/badge/licen%C3%A7a-MIT-8b949e?style=flat-square" alt="Licença MIT">
-</p>
+<strong>A metade Build do método Expx</strong> — a skill de planejamento e execução<br>
+de features novas para <a href="https://claude.com/claude-code">Claude Code</a> e <a href="https://opencode.ai">OpenCode</a>.
 
-**sprint^x** (lê-se "sprint elevado a x", escreve-se `sprintx` em código e nomes de arquivo) é uma skill para [Claude Code](https://claude.com/claude-code) e [OpenCode](https://opencode.ai) que implementa um método de planejamento e execução de features onde **todo o esforço vai para o planejamento** — a execução é autônoma porque a ambiguidade já foi eliminada antes de escrever a primeira linha de código.
+</div>
 
+`sprintx` (lê-se "sprint elevado a x") pega uma ideia e a leva até a feature entregue, passando por seis fases obrigatórias: ingestão da base de conhecimento, descoberta com entrevista, plano em sprints/fases/tasks, orquestrador, auditoria do próprio plano e execução autônoma.
+
+> **Todo o esforço vai para o planejamento; a execução é autônoma porque a ambiguidade já foi eliminada.**
 > Uma pergunta feita durante a execução é sempre uma falha da fase de planejamento.
 
-Criada pela [Expx (Exponencial)](https://github.com/bittencourtthulio) e aberta para qualquer pessoa usar em qualquer projeto.
+---
+
+## O ecossistema Expx
+
+O método Expx é um conjunto de skills que se compõem, instaladas e mantidas pelo CLI [`expxdev`](https://github.com/bittencourtthulio/expxdev).
+
+| Peça | Papel | Relação com a `sprintx` |
+|---|---|---|
+| **[expxdev](https://github.com/bittencourtthulio/expxdev)** | o CLI: instala, atualiza e diagnostica o ecossistema, e sobe o painel de operação | é quem instala esta skill (`npx expxdev init`) |
+| **sprintx** *(este repositório)* | **Build** — feature nova, F1…F6 | — |
+| **[runx](https://github.com/bittencourtthulio/runx)** | **Run** — ocorrência em produção, E1…E5 | skill irmã; mesmos contratos, gatilho diferente |
+| **[legadox](https://github.com/bittencourtthulio/legadox)** | **camada** de segurança para código legado | endurece as fases da `sprintx` quando existe `PERFIL.md` |
+| **[stackx](https://github.com/bittencourtthulio/stackx)** | **camada** de convenções do repositório | a `sprintx` lê o `CONVENCOES.md` antes de planejar e de escrever código |
+| **[mergex](https://github.com/bittencourtthulio/mergex)** | entrega: branch, commit por task, PR e pacote de QA | abre a branch no início da F6 e entrega ao fim dela |
+
+**Camadas** (`legadox`, `stackx`) sozinhas não fazem nada — elas modificam o comportamento da `sprintx` e da `runx`. A ausência de qualquer irmã nunca quebra o fluxo desta skill: insumo que não existe vira aviso do que falta, nunca invenção.
+
+Detalhes do ecossistema inteiro no [README do expxdev](https://github.com/bittencourtthulio/expxdev).
+
+---
 
 ## Build e Run
 
 O método Expx tem duas metades, irmãs e com a mesma disciplina de engenharia:
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/buildrun.svg" alt="sprintx (Build) vai de F1 a F6, disparado por uma feature nova; runx (Run) vai de E1 a E5, disparado por uma ocorrência em produção; as duas compartilham os mesmos contratos" width="900">
-</p>
 
 | | **sprintx** (Build) | **[runx](https://github.com/bittencourtthulio/runx)** (Run) |
 |---|---|---|
@@ -42,9 +68,9 @@ As duas compartilham **exatamente** os mesmos contratos: base de conhecimento an
 
 ## Por que existir
 
-A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da mesma forma: o plano é vago o suficiente para o agente ter que decidir coisas sozinho no meio da implementação, ou parar e perguntar — o que quebra a autonomia que você queria ter comprado. O sprint^x resolve isso tratando o planejamento como o produto principal:
+A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da mesma forma: o plano é vago o suficiente para o agente ter que decidir coisas sozinho no meio da implementação, ou parar e perguntar — o que quebra a autonomia que você queria ter comprado. A `sprintx` resolve isso tratando o planejamento como o produto principal:
 
-- **Hierarquia clara** — Sprint contém Fases, Fase contém Tasks, cada nível em seu próprio arquivo.
+- **Hierarquia clara** — sprint contém fases, fase contém tasks, cada nível em seu próprio arquivo.
 - **Contrato obrigatório por task** — toda task declara objetivo, arquivos tocados, teste de integração, teste funcional, critério de aceite verificável, dependências e se pode rodar em paralelo.
 - **TDD como regra, não como sugestão** — o teste é escrito antes da implementação; task só é concluída quando os dois testes passam.
 - **Portões de aceite em toda transição** — task → task, task → fase, fase → sprint. Critério não atendido, não avança.
@@ -52,33 +78,170 @@ A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da m
 - **Execução que nunca para** — dúvida nova durante a execução vira bloqueio registrado, não uma pergunta. O agente pula para a próxima task paralelizável e segue.
 - **Estimativa honesta, quando você pede** — o mesmo plano granular vira faixa de esforço com premissas e invalidadores explícitos. Nunca número único, nunca prazo de calendário.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/task.svg" alt="Anatomia de uma task: os dez campos obrigatórios do contrato, e o ciclo TDD em que o teste vem antes do código" width="900">
-</p>
+---
+
+## Compatibilidade
+
+`sprintx` funciona em **Claude Code** e em **OpenCode**, a partir da mesma fonte. Os arquivos da skill são idênticos nos dois — o que muda é apenas onde eles ficam:
+
+| | Claude Code | OpenCode |
+|---|---|---|
+| Skill (projeto) | `.claude/skills/sprintx/` | `.opencode/skills/sprintx/` |
+| Comandos (projeto) | `.claude/commands/` | `.opencode/command/` |
+| Skill (global) | `~/.claude/skills/sprintx/` | a mesma pasta, auto-carregada |
+| Comandos (global) | `~/.claude/commands/` | `~/.config/opencode/command/` |
+| Agentes (projeto) | `.claude/agents/` | `.opencode/agent/` |
+| Restrição de ferramentas do agente | `tools:` | `permission: { edit: deny }` |
+| Hooks | `.claude/settings.json` | `.opencode/plugin/*.ts` |
+| Hook bloquear a ação | `exit 2` | lançar exceção |
+| Hook avisar sem bloquear | JSON no stdout | anexado ao resultado da ferramenta |
+
+No escopo global o OpenCode carrega automaticamente as skills de `~/.claude/skills/` (ele as chama de *external skills*), então a skill é instalada **uma única vez** e serve aos dois. No escopo de projeto essa ponte não existe, e a skill é copiada para os dois lugares.
+
+Os dois harnesses descobrem a skill do mesmo jeito — pelo `name` e pela `description` do frontmatter, carregando o corpo sob demanda — e os dois aceitam `$ARGUMENTS` nos comandos. Por isso um único conjunto de arquivos atende aos dois sem fork e sem condicional. Verificado no OpenCode v1.18.23 — inclusive os hooks, testados de ponta a ponta nos dois harnesses.
+
+Já os **hooks** divergem de mecanismo, e é a única parte com fork. A lógica mora **uma vez só**, em `.claude/hooks/*.sh`; o plugin do OpenCode é uma ponte que a invoca e traduz a saída. O modo `aviso` é a lacuna real de paridade: o `tool.execute.before` do OpenCode só sabe passar em silêncio ou bloquear, então o aviso é anexado ao resultado da ferramenta, sempre prefixado para o modelo não confundi-lo com a saída do comando.
+
+---
+
+## Hooks e agentes
+
+Toda regra do método é, sozinha, uma instrução que o modelo pode esquecer na task 14 de uma execução autônoma. **Hook é script determinístico: quem executa é o harness, não o modelo.** Agente roda em contexto próprio, com ferramentas restritas.
+
+Hooks e agentes **não criam regra nova** — eles garantem regras que já existem.
+
+| Hook | Quando | Modo inicial | O que garante |
+|---|---|---|---|
+| `escopo-da-task` | antes de escrever | aviso | Não tocar no que não está na task |
+| `task-so-fecha-verde` | antes de fechar task | aviso | Task só fecha com suíte verde e os dois testes |
+| `sem-placeholder-no-plano` | após escrever o plano | aviso | Nenhum `{{marcador}}` de template sobrando |
+| `tdd-teste-antes` | após escrever código | aviso | Teste antes da implementação |
+| `segredo` | antes de escrever | **bloqueio** | Segredo não vai para arquivo versionado |
+| `git-perigoso` | antes de rodar Bash | **bloqueio** | Nada irreversível durante a execução autônoma |
+
+**Todo hook de método nasce em `aviso`.** Hook que dá falso positivo é desinstalado, e junto com ele vão os que funcionavam — então a promoção a `bloqueio` só acontece depois de evidência de uso real:
+
+```bash
+.claude/hooks/doctor.sh                            # modo de cada hook + violações acumuladas
+.claude/hooks/doctor.sh promover escopo-da-task    # só depois de conferir os falsos positivos
+```
+
+Os agentes de veredito têm **somente leitura**, o que transforma "aponta, não corrige" de promessa em impossibilidade técnica:
+
+| Agente | Fase | Papel |
+|---|---|---|
+| `auditor-plano` | F5 | Fura o plano sem ter visto o raciocínio que o gerou |
+| `revisor-testes` | F5 e F6 | Esse teste passaria com a implementação errada? |
+| `investigador` | F1 (opcional) | Monta a base em contexto próprio |
+
+Hooks e skill gravam um rastro append-only em `docs/eventos/<slug>.jsonl` (ignorado pelo versionador). Dele sai a linha do tempo do trabalho, quem fez o quê — e a **duração real por task sem ninguém anotar nada**, que alimenta a calibração da estimativa. Com um cuidado: tempo de parede não é esforço, então o valor entra como `duracao_observada`, nunca como `real`, e a calibração usa mediana.
+
+---
+
+## Instalação
+
+### Pelo CLI do método (recomendado)
+
+```bash
+npx expxdev init
+```
+
+O `init` busca a `sprintx` na versão publicada, empacota como plugin local e configura o harness. Os comandos ficam com namespace no Claude Code (`/expx:sprintx-sprints`) e sem namespace no OpenCode (`/sprintx-sprints`).
+
+### Pelo instalador do repositório
+
+Monta a estrutura **dos dois harnesses de uma vez**:
+
+```bash
+git clone https://github.com/bittencourtthulio/sprintx.git
+cd sprintx
+./install.sh
+```
+
+Isso cria `.claude/` **e** `.opencode/` no projeto atual. Para deixar disponível em todos os seus projetos:
+
+```bash
+./install.sh --global
+```
+
+| Flag | Efeito |
+|---|---|
+| *(nenhuma)* | instala nos dois harnesses, no projeto atual |
+| `--global` | instala no diretório global do usuário, não no projeto |
+| `--claude` | só Claude Code |
+| `--opencode` | só OpenCode |
+| `--dry-run` | mostra o que faria, sem escrever nada |
+
+As flags combinam: `./install.sh --global --opencode` instala só o OpenCode, só no global. Rodar de novo atualiza no lugar — o instalador é idempotente.
+
+### Instalação manual
+
+A skill é a mesma pasta nos dois harnesses — só o destino muda:
+
+```bash
+# Claude Code + OpenCode (global)
+cp -R .claude/skills/sprintx  ~/.claude/skills/
+
+# OpenCode (projeto)
+cp -R .claude/skills/sprintx  meu-projeto/.opencode/skills/
+```
+
+Os comandos do OpenCode são os mesmos do Claude Code sem a linha `argument-hint:`, que o OpenCode não usa. Reinicie a sessão do seu harness para a skill ser carregada.
+
+---
+
+## Uso
+
+### O jeito mais simples
+
+Descreva o que quer construir. **Não é preciso dizer `sprintx`, "plano" nem "sprint"** — a skill dispara sozinha ao reconhecer a descrição de algo a ser construído:
+
+```
+Quero adicionar exportação de relatório em CSV nessa tela.
+```
+
+### Comandos
+
+| Comando | O que faz |
+|---|---|
+| `/sprintx <feature>` | detecta a fase atual e continua de onde parou |
+| `/sprintx-base <feature>` | **F1** — ingestão, constrói a base de conhecimento |
+| `/sprintx-descoberta <feature>` | **F2** — entrevista de descoberta |
+| `/sprintx-sprints <feature>` | **F3** — gera o plano de sprints, fases e tasks |
+| `/sprintx-estimar <feature>` | **F3.5** — estima o esforço do plano em faixa *(opcional)* |
+| `/sprintx-orquestrador <feature>` | **F4** — gera o mapa de execução |
+| `/sprintx-auditoria <feature>` | **F5** — audita o plano gerado |
+| `/sprintx-executar <feature>` | **F6** — executa o plano até o fim |
+
+Os comandos de fase **recusam execução fora de ordem**: peça o plano sem a ingestão feita e a skill diz o que falta e executa a fase pendente.
+
+---
 
 ## As seis fases
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/fases.svg" alt="Máquina de estados: F1 a F5 formam o planejamento; a F5 libera a F6 com VEREDITO SIM, e um achado ALTA devolve o fluxo para a F3" width="900">
-</p>
+```
+F1 INGESTÃO → F2 DESCOBERTA → F3 PLANO → [F3.5 ESTIMATIVA] → F4 ORQUESTRADOR → F5 AUDITORIA → F6 EXECUÇÃO
+```
 
-O método é uma máquina de estados estritamente sequencial. A skill sempre sabe em que fase está inspecionando o que já existe em disco — você nunca precisa dizer "estou na fase X".
+Estritamente sequenciais. A skill descobre onde está **inspecionando o disco**, não perguntando — você nunca precisa dizer "estou na fase X".
 
 A elas se soma uma única fase **opcional**, a F3.5 (estimativa), que roda entre a F3 e a F4 apenas quando você pede — e cuja ausência nunca impede nada.
 
 | Fase | Nome | O que faz |
 |---|---|---|
-| **F1** | Ingestão | Constrói a base de conhecimento antes de qualquer plano — documentação oficial de ferramentas de terceiro (modo externo) ou o código/contratos existentes (modo interno). Nada de invenção: o que a fonte não afirma vira `NÃO DOCUMENTADO`. |
+| **F1** | Ingestão | Constrói a base de conhecimento antes de qualquer plano — documentação oficial de ferramentas de terceiro (modo externo) ou o código e contratos existentes (modo interno). Nada de invenção: o que a fonte não afirma vira `NÃO DOCUMENTADO`. |
 | **F2** | Descoberta | A única fase em que a IA pergunta — e nela é obrigada a perguntar, em blocos de até 5 perguntas, esperando resposta entre eles. Cobre escopo, arquitetura, dados, observabilidade, erros, segredos e definição de pronto. Sai um `00-DECISOES.md` com cada decisão rastreável. |
 | **F3** | Plano | Gera a árvore de sprints, fases e tasks com todos os contratos preenchidos. Bloqueia se sobrar pendência não resolvida. A primeira sprint sempre entrega a capacidade de testar (config, client, harness, fixtures) antes de qualquer funcionalidade de negócio. |
-| **F3.5** | Estimativa *(opcional)* | Converte o plano pronto em **faixa de esforço** — nunca número único, nunca prazo de calendário. Três pontos por task, agregados por PERT com variâncias em quadratura, separando esforço total (o que se cobra) de caminho crítico (o que limita o calendário). Sai com premissas, invalidadores observáveis e nível de confiança. Só roda a pedido, e nunca bloqueia a F4. |
+| **F3.5** | Estimativa *(opcional)* | Converte o plano pronto em **faixa de esforço** — nunca número único, nunca prazo de calendário. Só roda a pedido, e nunca bloqueia a F4. |
 | **F4** | Orquestrador | Gera o `ORQUESTRADOR.md` — o mapa de execução, escrito para quem abre o repositório sem saber nada: rota de execução, paralelismo, caminho crítico, ferramentas, agentes, regras de autonomia e como retomar uma sessão interrompida. |
-| **F5** | Auditoria | A IA vira auditora do próprio plano e não corrige nada — só aponta. Verifica tasks sem teste, testes fracos, critérios subjetivos, dependências circulares, paralelismo falso e mais. Dá um veredito único: pronto para execução autônoma, SIM ou NÃO. |
-| **F6** | Execução | Lê o orquestrador e implementa até o fim, sob as regras de autonomia. Escreve o teste antes do código, atualiza o status de cada task, e entrega um relatório final com o que foi concluído, os bloqueios e a saída da suíte de testes. |
+| **F5** | Auditoria | A IA vira auditora do próprio plano e não corrige nada — só aponta. Verifica tasks sem teste, testes fracos, critérios subjetivos, dependências circulares, paralelismo falso e mais. Veredito único: pronto para execução autônoma, SIM ou NÃO. |
+| **F6** | Execução | Lê o orquestrador e implementa até o fim, sob as regras de autonomia. Escreve o teste antes do código, atualiza o status de cada task, e entrega um relatório final com o que foi concluído, os bloqueios e a saída da suíte. |
+
+---
 
 ## Orçar sem chutar
 
-Uma software house vive de orçar, e a maior parte das estimativas erra por não ter insumo: sem tasks granulares, com dependências e paralelismo declarados, estimar é chute com aparência de método. O plano do sprint^x já é esse insumo — a **F3.5** é a camada opcional que o converte em faixa de esforço.
+Uma software house vive de orçar, e a maior parte das estimativas erra por não ter insumo: sem tasks granulares, com dependências e paralelismo declarados, estimar é chute com aparência de método. O plano da `sprintx` já é esse insumo — a **F3.5** é a camada opcional que o converte em faixa de esforço.
 
 Rode `/sprintx-estimar <feature>` sobre um plano pronto. Sai um `00-ESTIMATIVA.md` assim:
 
@@ -104,90 +267,37 @@ O que essa camada faz de diferente:
 
 A F3.5 é a única fase opcional do método e não altera o plano. Sem `HISTORICO.md`, a confiança nunca passa de MÉDIA e a saída diz que não há base de calibração no projeto.
 
-## Instalação
+---
 
-Um instalador só, que configura **os dois harnesses de uma vez** — Claude Code e OpenCode:
+## Os contratos
 
-```bash
-git clone https://github.com/bittencourtthulio/sprintx.git
-cd sprintx
-./install.sh --global      # todos os seus projetos
-```
+### Task
 
-Ou instalar apenas no projeto atual:
+Toda task declara, obrigatoriamente:
 
-```bash
-./install.sh               # instala no diretório atual
-./install.sh /caminho/do/projeto
-```
-
-| Flag | Efeito |
+| Campo | Conteúdo |
 |---|---|
-| `--global` | Instala para todos os projetos (em vez do projeto atual) |
-| `--claude` | Só Claude Code |
-| `--opencode` | Só OpenCode |
-| `--dry-run` | Mostra o que faria, sem escrever nada |
+| `id` | T-NN.MM |
+| `titulo` | título curto |
+| `objetivo` | uma frase |
+| `arquivos` | criados e alterados |
+| `teste_integracao` | o que valida, contra o quê |
+| `teste_funcional` | o que valida, com qual entrada e saída |
+| `criterio_aceite` | verificável, binário, sem adjetivo |
+| `depende_de` | [ids] ou [] |
+| `paralelizavel` | true \| false |
+| `status` | pendente \| em_andamento \| concluida \| bloqueada |
 
-Rodar de novo atualiza no lugar — o instalador é idempotente.
+**Fase:** objetivo, tasks que a compõem, critério de saída, com qual outra fase pode rodar em paralelo.
+**Sprint:** objetivo, fases, critério de saída, riscos conhecidos.
 
-### O que vai para onde
+**Granularidade:** se os dois testes de uma task não cabem em uma frase cada, a task está grande demais — quebrar.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/instalacao.svg" alt="No escopo global a skill fica só em ~/.claude/skills e o OpenCode a auto-carrega; no escopo de projeto ela é copiada para .claude e .opencode" width="900">
-</p>
+---
 
-**Instalação global.** O OpenCode carrega automaticamente as skills de `~/.claude/skills/` (ele as chama de *external skills*), então a skill é instalada **uma única vez** e serve aos dois — sem cópia duplicada para sair do ar:
+## Estrutura em disco
 
-```
-~/.claude/skills/sprintx/          a skill (lida pelo Claude Code E pelo OpenCode)
-~/.claude/commands/sprintx*.md     comandos do Claude Code
-~/.config/opencode/command/sprintx*.md   comandos do OpenCode
-```
-
-**Instalação de projeto.** Aqui não existe essa ponte entre os dois, então a skill é copiada para os dois lugares:
-
-```
-.claude/skills/sprintx/     +  .claude/commands/sprintx*.md
-.opencode/skills/sprintx/   +  .opencode/command/sprintx*.md
-```
-
-### Instalação manual
-
-Se preferir copiar à mão, a skill é a mesma pasta nos dois harnesses — só o destino muda:
-
-```bash
-cp -R .claude/skills/sprintx  ~/.claude/skills/           # Claude Code + OpenCode (global)
-cp -R .claude/skills/sprintx  meu-projeto/.opencode/skills/   # OpenCode (projeto)
-```
-
-Os comandos do OpenCode são os mesmos do Claude Code sem a linha `argument-hint:`, que o OpenCode não usa.
-
-## Como usar
-
-A forma mais simples é descrever o que você quer construir normalmente — a skill dispara sozinha:
-
-> "Quero adicionar exportação de relatório em CSV nessa tela"
-
-Ou usar os comandos de atalho para pilotar fase a fase:
-
-| Comando | Faz o quê |
-|---|---|
-| `/sprintx <feature>` | Detecta a fase atual e continua de onde parou |
-| `/sprintx-base <feature>` | Roda a F1 — ingestão |
-| `/sprintx-descoberta <feature>` | Roda a F2 — entrevista de descoberta |
-| `/sprintx-sprints <feature>` | Roda a F3 — gera o plano |
-| `/sprintx-estimar <feature>` | Roda a F3.5 — estima o esforço do plano em faixa *(opcional)* |
-| `/sprintx-orquestrador <feature>` | Roda a F4 — gera o mapa de execução |
-| `/sprintx-auditoria <feature>` | Roda a F5 — audita o plano gerado |
-| `/sprintx-executar <feature>` | Roda a F6 — executa o plano até o fim |
-
-Cada comando recusa rodar fora de ordem: se você pedir `/sprintx-sprints` sem ter feito a ingestão, ele te diz o que falta e executa a fase pendente primeiro.
-
-Todo o trabalho de cada feature fica em `docs/sprintx/features/<slug-da-feature>/` na raiz do seu repositório — plano, decisões, bloqueios e o histórico de tudo o que foi decidido e por quê.
-
-## O que fica em disco
-
-Todo arquivo de estado carrega frontmatter YAML legível por máquina (**expx-schema v1**), para que um painel de operação leia o andamento sem depender da prosa. Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são os mesmos da [runx](https://github.com/bittencourtthulio/runx), com os mesmos campos e enums — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a runx acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. A sprintx tem ainda dois kinds próprios da camada de estimativa: `estimativa` (a faixa de um trabalho) e `estimativa_historico` (o esforço real acumulado do projeto, que calibra as estimativas seguintes). Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
+Tudo da skill fica sob `docs/sprintx/`, separado da documentação normal do projeto. As features ficam isoladas em `features/`; o histórico de esforço fica fora delas, porque atravessa o projeto inteiro.
 
 ```
 docs/sprintx/
@@ -207,47 +317,89 @@ docs/sprintx/
         fases.md
         tasks.md
       sprint-02/ ...
-    <outra-feature>/ ...        cada feature isolada na sua pasta
+    <outra-feature>/ ...   cada feature isolada na sua pasta
   estimativas/
     HISTORICO.md           esforço real do projeto inteiro, que calibra as estimativas seguintes
 ```
 
-Tudo da skill fica sob `docs/sprintx/`, separado da documentação normal do projeto. As features ficam isoladas em `features/`; o histórico de esforço fica fora delas, porque atravessa o projeto inteiro.
+---
 
-## Estrutura deste repositório
+## expx-schema v1
+
+Todo arquivo de estado carrega um **frontmatter YAML legível por máquina**, para que um painel de operação leia o andamento das features sem depender de prosa.
+
+```yaml
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: tasks
+trabalho_id: exportacao-csv
+sprint_id: sprint-01
+atualizado_em: 2026-08-29
+tasks:
+  - id: T-01.01
+    titulo: Client de exportacao com fixture de dados
+    fase: F-01.1
+    status: concluida
+    objetivo: Ter a capacidade de testar antes de qualquer regra de negocio
+    arquivos:
+      cria: [src/export/client.ts, src/export/client.test.ts]
+      altera: []
+    teste_integracao: A tela chama o client e recebe o arquivo montado
+    teste_funcional: exportarCsv([]) retorna cabecalho e nenhuma linha
+    criterio_aceite: Os dois testes passam e a suite inteira fica verde
+    depende_de: []
+    paralelizavel: false
+    concluida_em: 2026-08-29
+    suite: verde
+---
+```
+
+O painel apenas **lê**; a skill continua sendo a única a escrever. A máquina lê o YAML, a pessoa lê a prosa abaixo dele.
+
+Os kinds `orquestrador`, `sprint`, `fases`, `tasks`, `bloqueios` e `base_indice` são **idênticos campo por campo** aos da [`runx`](https://github.com/bittencourtthulio/runx) — o campo `expx_tool` (`sprintx` | `runx`) diz qual das duas escreveu. A única diferença é na task: a `runx` acrescenta `teste_regressao`, que só faz sentido quando existe um comportamento errado a provar. A `sprintx` tem ainda dois kinds próprios da camada de estimativa: `estimativa` e `estimativa_historico`. Contrato completo em [`references/00-schema.md`](.claude/skills/sprintx/references/00-schema.md).
+
+---
+
+## Estrutura do repositório
 
 ```
-install.sh                      instalador para Claude Code e OpenCode
-.github/img/                    diagramas SVG do README
 .claude/
   skills/sprintx/
     SKILL.md                    a skill em si — princípio, contratos, regras, máquina de estados
     DECISOES-DA-SKILL.md        decisões de design tomadas ao construir esta skill
-    references/                 roteiro operacional detalhado de cada fase (as 6 + a F3.5 opcional)
+    references/
       00-schema.md              contrato expx-schema v1 do frontmatter dos arquivos de estado
-    assets/                     templates preenchíveis usados pelas fases
+      08-rastro.md              contrato expx-eventos v1 do rastro append-only
+      <uma por fase>            roteiro operacional detalhado (as 6 + a F3.5 opcional)
+    assets/
+      TEMPLATE-*.md             templates preenchíveis usados pelas fases
   commands/
     sprintx*.md                 atalhos de comando para cada fase
+  hooks/
+    doctor.sh                   modo de cada hook e violações acumuladas
+    comum/                      rastro, segredo, git — não específicos da sprintx
+    sprintx/                    escopo-da-task, task-so-fecha-verde, tdd, placeholder
+  agents/
+    auditor-plano.md            F5 em contexto separado, somente leitura
+    revisor-testes.md           o teste passaria com a implementação errada?
+    investigador.md             auxiliar opcional da F1
+  settings.json                 registra os hooks no Claude Code
+.expx/
+  hooks.json                    o modo (aviso/bloqueio) de cada hook
 .opencode/
   command/sprintx*.md           os mesmos comandos, no formato do OpenCode
+  agent/                        os mesmos agentes, no formato do OpenCode
+  plugin/sprintx.ts             ponte que invoca os mesmos scripts de .claude/hooks/
+.github/assets/                 banner e badges do README
+install.sh                      instalador para Claude Code e OpenCode
 ```
 
 A pasta `.claude/skills/sprintx/` é a **fonte única** da skill: ela não cita `.claude` em lugar nenhum e usa só caminhos relativos à própria raiz, por isso o mesmo conteúdo funciona sem alteração nos dois harnesses. O `.opencode/command/` é gerado a partir de `.claude/commands/`.
 
-## Compatibilidade
+O `SKILL.md` é a porta de entrada e fica enxuto. O detalhe operacional de cada fase mora no `reference` correspondente, lido **só quando a fase chega** — mantendo o contexto pequeno.
 
-Esta skill não usa nenhum caminho absoluto, não cita `.claude` no corpo e não depende de nenhum prefixo de plugin — a pasta inteira pode ser movida, empacotada como plugin ou instalada em qualquer um dos dois harnesses sem quebrar nada.
-
-| | Claude Code | OpenCode |
-|---|---|---|
-| Skill (global) | `~/.claude/skills/sprintx/` | a mesma pasta, auto-carregada |
-| Skill (projeto) | `.claude/skills/sprintx/` | `.opencode/skills/sprintx/` |
-| Comandos (global) | `~/.claude/commands/` | `~/.config/opencode/command/` |
-| Comandos (projeto) | `.claude/commands/` | `.opencode/command/` |
-| Disparo automático por descrição | sim | sim |
-| `$ARGUMENTS` nos comandos | sim | sim |
-
-Verificado no OpenCode v1.18.23.
+---
 
 ## Licença
 
@@ -255,4 +407,12 @@ MIT — use, copie e adapte livremente.
 
 ---
 
-<sub>sprintx é a metade Build do método Expx (Exponencial). A metade Run é a skill <a href="https://github.com/bittencourtthulio/runx">runx</a>.</sub>
+<div align="center">
+<sub>Parte do método <strong>Expx</strong> ·
+<a href="https://github.com/bittencourtthulio/expxdev">expxdev</a> ·
+sprintx ·
+<a href="https://github.com/bittencourtthulio/runx">runx</a> ·
+<a href="https://github.com/bittencourtthulio/legadox">legadox</a> ·
+<a href="https://github.com/bittencourtthulio/stackx">stackx</a> ·
+<a href="https://github.com/bittencourtthulio/mergex">mergex</a></sub>
+</div>

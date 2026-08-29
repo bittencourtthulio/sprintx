@@ -1,0 +1,30 @@
+{
+  "expx_hooks": 1,
+  "_leia": "O modo de cada hook. 'aviso' registra no rastro e nao bloqueia; 'bloqueio' barra a acao. Todo hook de metodo NASCE em aviso e so e promovido depois de semanas sem falso positivo, guiado pela lista de regra_violada do painel. Os hooks de seguranca nascem em bloqueio e nao devem ser rebaixados.",
+  "hooks": {
+    "segredo": {
+      "modo": "bloqueio",
+      "tipo": "seguranca"
+    },
+    "git-perigoso": {
+      "modo": "bloqueio",
+      "tipo": "seguranca"
+    },
+    "escopo-da-task": {
+      "modo": "aviso",
+      "tipo": "metodo"
+    },
+    "task-so-fecha-verde": {
+      "modo": "aviso",
+      "tipo": "metodo"
+    },
+    "sem-placeholder-no-plano": {
+      "modo": "aviso",
+      "tipo": "metodo"
+    },
+    "tdd-teste-antes": {
+      "modo": "aviso",
+      "tipo": "metodo"
+    }
+  }
+}

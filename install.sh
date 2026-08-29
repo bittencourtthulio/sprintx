@@ -6,6 +6,7 @@
 #   ./install.sh --claude     só Claude Code
 #   ./install.sh --opencode   só OpenCode
 #   ./install.sh --dry-run    mostra o que faria, sem escrever nada
+#   ./install.sh --sem-hooks  nao instala hooks nem agentes (so a skill e os commands)
 #
 # Idempotente: rodar de novo atualiza os arquivos no lugar.
 set -euo pipefail
@@ -13,8 +14,12 @@ set -euo pipefail
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_SRC="$SRC/.claude/skills/sprintx"
 CMD_SRC="$SRC/.claude/commands"
+HOOKS_SRC="$SRC/.claude/hooks"
+AGENTS_SRC="$SRC/.claude/agents"
+PLUGIN_SRC="$SRC/.opencode/plugin"
+OCAGENT_SRC="$SRC/.opencode/agent"
 
-SCOPE="project"; DO_CLAUDE=1; DO_OPENCODE=1; DRY=0; DEST=""
+SCOPE="project"; DO_CLAUDE=1; DO_OPENCODE=1; DRY=0; DEST=""; DO_HOOKS=1
 while [ $# -gt 0 ]; do
   case "$1" in
     --global)   SCOPE="global" ;;
@@ -22,6 +27,7 @@ while [ $# -gt 0 ]; do
     --claude)   DO_OPENCODE=0 ;;
     --opencode) DO_CLAUDE=0 ;;
     --dry-run)  DRY=1 ;;
+    --sem-hooks) DO_HOOKS=0 ;;
     -h|--help)  sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *)          DEST="$1" ;;
   esac
@@ -58,6 +64,61 @@ copy_commands() {
   say "commands -> $dst/ ($n arquivos)"
 }
 
+# Copia hooks + agentes do Claude Code e mescla os hooks no settings.json.
+# A MESCLA e a parte delicada: settings.json e arquivo do usuario. Nunca
+# sobrescrevemos — so acrescentamos o bloco "hooks" quando ele nao existe,
+# e avisamos quando ja existe, para o usuario decidir.
+copy_hooks_claude() {
+  local root="$1" cfg="$1/.claude/settings.json"
+  run "mkdir -p '$root/.claude'"
+  run "rm -rf '$root/.claude/hooks' '$root/.claude/agents'"
+  run "cp -R '$HOOKS_SRC' '$root/.claude/hooks'"
+  run "cp -R '$AGENTS_SRC' '$root/.claude/agents'"
+  run "chmod +x '$root/.claude/hooks'/*/*.sh"
+  say "hooks    -> $root/.claude/hooks/"
+  say "agentes  -> $root/.claude/agents/"
+
+  # .expx/hooks.json guarda o modo de cada hook. Nunca sobrescreve: o modo
+  # de um hook ja promovido a bloqueio e decisao do usuario.
+  if [ ! -f "$root/.expx/hooks.json" ]; then
+    run "mkdir -p '$root/.expx'"
+    run "cp '$SRC/.expx/hooks.json' '$root/.expx/hooks.json'"
+    say "modos    -> $root/.expx/hooks.json (todos os de metodo em 'aviso')"
+  else
+    say "modos    -> $root/.expx/hooks.json ja existe, preservado"
+  fi
+
+  if [ ! -f "$cfg" ]; then
+    run "cp '$SRC/.claude/settings.json' '$cfg'"
+    say "settings -> $cfg (criado)"
+  elif grep -q '"hooks"' "$cfg" 2>/dev/null; then
+    say "settings -> $cfg JA TEM bloco 'hooks': nao foi tocado."
+    say "            Para ativar, mescle a mao o bloco de:"
+    say "            $SRC/.claude/settings.json"
+  else
+    say "settings -> $cfg existe sem bloco 'hooks'."
+    say "            Para ativar, acrescente o bloco de:"
+    say "            $SRC/.claude/settings.json"
+  fi
+}
+
+copy_hooks_opencode() {
+  local root="$1"
+  run "mkdir -p '$root/.opencode/plugin' '$root/.opencode/agent'"
+  run "cp '$PLUGIN_SRC'/sprintx.ts '$root/.opencode/plugin/sprintx.ts'"
+  run "cp '$OCAGENT_SRC'/*.md '$root/.opencode/agent/'"
+  say "plugin   -> $root/.opencode/plugin/sprintx.ts (auto-carregado)"
+  say "agentes  -> $root/.opencode/agent/"
+  # O plugin invoca os scripts de .claude/hooks/. Em instalacao so-OpenCode
+  # eles precisam existir mesmo assim.
+  if [ ! -d "$root/.claude/hooks" ]; then
+    run "mkdir -p '$root/.claude'"
+    run "cp -R '$HOOKS_SRC' '$root/.claude/hooks'"
+    run "chmod +x '$root/.claude/hooks'/*/*.sh"
+    say "hooks    -> $root/.claude/hooks/ (usados pelo plugin do OpenCode)"
+  fi
+}
+
 echo
 echo "sprintx — instalando (escopo: $SCOPE)"
 echo
@@ -77,6 +138,24 @@ if [ "$SCOPE" = "global" ]; then
     say "skill    -> auto-carregada de ~/.claude/skills/sprintx (nao duplicada)"
     echo
   fi
+  if [ "$DO_HOOKS" = 1 ]; then
+    echo "Agentes (globais)"
+    [ "$DO_CLAUDE" = 1 ] && {
+      run "mkdir -p '$HOME/.claude/agents'"
+      run "cp '$AGENTS_SRC'/*.md '$HOME/.claude/agents/'"
+      say "agentes  -> ~/.claude/agents/"
+    }
+    [ "$DO_OPENCODE" = 1 ] && {
+      run "mkdir -p '$HOME/.config/opencode/agent'"
+      run "cp '$OCAGENT_SRC'/*.md '$HOME/.config/opencode/agent/'"
+      say "agentes  -> ~/.config/opencode/agent/"
+    }
+    echo
+    say "Hooks NAO sao instalados no escopo global: eles leem o plano do"
+    say "projeto (tasks.md) e gravam o rastro na raiz dele. Rode"
+    say "./install.sh dentro de cada projeto que for usar os hooks."
+    echo
+  fi
 else
   ROOT="${DEST:-$PWD}"
   [ -d "$ROOT" ] || { echo "erro: destino nao existe: $ROOT" >&2; exit 1; }
@@ -84,6 +163,7 @@ else
     echo "Claude Code ($ROOT/.claude)"
     copy_skill "$ROOT/.claude/skills"
     copy_commands "$ROOT/.claude/commands" 0
+    [ "$DO_HOOKS" = 1 ] && copy_hooks_claude "$ROOT"
     echo
   fi
   if [ "$DO_OPENCODE" = 1 ]; then
@@ -91,6 +171,7 @@ else
     echo "OpenCode ($ROOT/.opencode)"
     copy_skill "$ROOT/.opencode/skills"
     copy_commands "$ROOT/.opencode/command" 1
+    [ "$DO_HOOKS" = 1 ] && copy_hooks_opencode "$ROOT"
     echo
   fi
 fi

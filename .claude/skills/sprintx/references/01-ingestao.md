@@ -29,6 +29,12 @@ recurso da base NÃO levam frontmatter.
 Use `assets/TEMPLATE-BLOQUEIOS.md` e `assets/TEMPLATE-base-indice.md` (caminhos relativos à
 raiz da skill) como ponto de partida desses dois arquivos.
 
+**O rastro no `.gitignore`.** Garanta a linha `docs/eventos/` no `.gitignore` da raiz do
+repositório — acrescente-a se não existir, e não faça nada se já existir. O rastro de
+eventos (`references/08-rastro.md`) é local da máquina de quem executou, cresce rápido e o
+painel roda local; versioná-lo por acidente traz conflito de merge em arquivo append-only,
+que é chato de resolver. Quem quiser rastro compartilhado troca isso conscientemente.
+
 ## Passo 2 — Detectar o modo
 
 Decida pelo que o usuário descreveu:

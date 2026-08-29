@@ -7,11 +7,23 @@ Você está na F5. Você agora é AUDITORA do plano, não autora. Você NÃO cor
 - `docs/sprintx/features/<slug>/ORQUESTRADOR.md` existe.
 - Se não existe, a F4 não aconteceu: diga "Falta a F4 (orquestrador). Vou executá-la primeiro." e execute `references/04-orquestrador.md`.
 
-## Passo 1 — Reler tudo com olhos de auditora
+## Passo 1 — Delegar ao agente `auditor-plano`
+
+**Se o agente `auditor-plano` estiver disponível, a auditoria é dele.** Você gerou o plano (ou está no mesmo contexto de quem gerou), e autor e auditor no mesmo contexto tendem a concordar consigo mesmos. O agente não viu o raciocínio da F3: ele lê só os arquivos.
+
+O `auditor-plano` tem **somente ferramentas de leitura**. É isso que torna "aponta, não corrige" impossível de violar — não uma promessa, uma impossibilidade técnica.
+
+Passe a ele o caminho da feature e peça a tabela de achados e o veredito, no formato do Passo 4. Acione também o agente `revisor-testes` sobre as tasks: ele responde à pergunta que mais escapa — *esse teste passaria mesmo com a implementação errada?* — e devolve `solido` ou `fraco` por task. Todo `fraco` vira um achado da tabela (item 2 da lista do Passo 3); a severidade é sua.
+
+Grave no rastro o `veredito_emitido` com `agente: auditor-plano` (formato em `references/08-rastro.md`).
+
+Se o agente não estiver disponível neste harness, faça a auditoria você mesma, seguindo os Passos 3 e 4 — e sabendo que a regra "só aponta, nunca corrige" volta a depender da sua disciplina.
+
+## Passo 2 — Reler tudo com olhos de auditora
 
 Leia, nesta ordem: `ORQUESTRADOR.md`, `00-DECISOES.md`, `base/00-INDICE.md` (e os arquivos da base que ele lista), cada `sprint-NN/sprint.md`, `fases.md` e `tasks.md`.
 
-## Passo 2 — Verificar cada item desta lista
+## Passo 3 — Verificar cada item desta lista
 
 Para cada task, fase e sprint, procure:
 
@@ -25,7 +37,7 @@ Para cada task, fase e sprint, procure:
 8. **Pré-requisito externo não declarado** — segredo, conta, permissão, serviço ou dado que a execução vai precisar e que nenhum arquivo declara.
 9. **Base ignorada** — qualquer limite, cota, erro conhecido ou risco registrado em `base/` que o plano não trata; qualquer contradição entre o plano e a base sem decisão D-NN que a justifique.
 
-## Passo 3 — Escrever o relatório
+## Passo 4 — Escrever o relatório
 
 Crie (ou sobrescreva, se é uma reauditoria) `docs/sprintx/features/<slug>/00-AUDITORIA.md` com:
 
@@ -58,6 +70,7 @@ Achado ALTA manda voltar para a F3 — o plano é REGERADO por quem o gerou, end
 
 - [ ] `00-AUDITORIA.md` existe com tabela (ou "Nenhum achado.") e a linha `VEREDITO:` no formato exato.
 - [ ] Nenhum arquivo do plano foi alterado nesta fase.
+- [ ] O `veredito_emitido` foi gravado no rastro, com o `agente` que o emitiu.
 
 ## Quando o veredito é NÃO
 

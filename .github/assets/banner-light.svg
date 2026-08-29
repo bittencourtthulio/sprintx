@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="250" viewBox="0 0 1000 250" role="img" aria-label="sprintx — a metade Build do metodo Expx">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a7f37"/><stop offset="100%" stop-color="#1a7f37" stop-opacity="0.5"/>
+    </linearGradient>
+    <pattern id="p" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26 0H0v26" fill="none" stroke="#f6f8fa" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="250" rx="14" fill="#ffffff"/>
+  <rect width="1000" height="250" rx="14" fill="url(#p)"/>
+  <rect x="0" y="0" width="6" height="250" rx="3" fill="url(#g)"/>
+
+  <text x="56" y="98" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="64" font-weight="700" fill="#1f2328">sprintx</text>
+  <rect x="350" y="62" width="123" height="30" rx="15" fill="none" stroke="#1a7f37" stroke-width="1.5"/>
+  <text x="411" y="82" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="13.5" fill="#1a7f37">metodo Expx</text>
+
+  <text x="57" y="134" font-family="-apple-system,Segoe UI,Roboto,sans-serif" font-size="17" fill="#59636e">Planejamento e execucao autonoma de features novas</text>
+
+  <g font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="11.5">
+    <rect x="56" y="162" width="97" height="34" rx="8" fill="#eaeef2"/>
+    <text x="104" y="184" text-anchor="middle" fill="#1f2328">F1 ingestao</text>
+    <rect x="163" y="162" width="111" height="34" rx="8" fill="#eaeef2"/>
+    <text x="218" y="184" text-anchor="middle" fill="#1f2328">F2 descoberta</text>
+    <rect x="284" y="162" width="77" height="34" rx="8" fill="#eaeef2"/>
+    <text x="322" y="184" text-anchor="middle" fill="#1f2328">F3 plano</text>
+    <rect x="371" y="162" width="125" height="34" rx="8" fill="#eaeef2"/>
+    <text x="433" y="184" text-anchor="middle" fill="#1f2328">F4 orquestrador</text>
+    <rect x="506" y="162" width="104" height="34" rx="8" fill="#eaeef2"/>
+    <text x="558" y="184" text-anchor="middle" fill="#1f2328">F5 auditoria</text>
+    <rect x="620" y="162" width="97" height="34" rx="8" fill="#eaeef2"/>
+    <text x="668" y="184" text-anchor="middle" fill="#1f2328">F6 execucao</text>
+  </g>
+  <g stroke="#1a7f37" stroke-width="1.5" fill="none" opacity="0.7">
+    <path d="M156 179h6"/><path d="M277 179h6"/><path d="M364 179h6"/><path d="M499 179h6"/><path d="M613 179h6"/>
+  </g>
+
+  <text x="944" y="218" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="12" fill="#59636e">Claude Code  +  OpenCode</text>
+</svg>
