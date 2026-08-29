@@ -50,6 +50,7 @@ A maioria dos fluxos "planeje e depois implemente" para agentes de IA falha da m
 - **Portões de aceite em toda transição** — task → task, task → fase, fase → sprint. Critério não atendido, não avança.
 - **Paralelismo declarado no plano**, nunca decidido pelo agente em tempo de execução.
 - **Execução que nunca para** — dúvida nova durante a execução vira bloqueio registrado, não uma pergunta. O agente pula para a próxima task paralelizável e segue.
+- **Estimativa honesta, quando você pede** — o mesmo plano granular vira faixa de esforço com premissas e invalidadores explícitos. Nunca número único, nunca prazo de calendário.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/img/task.svg" alt="Anatomia de uma task: os dez campos obrigatórios do contrato, e o ciclo TDD em que o teste vem antes do código" width="900">
@@ -74,6 +75,34 @@ A elas se soma uma única fase **opcional**, a F3.5 (estimativa), que roda entre
 | **F4** | Orquestrador | Gera o `ORQUESTRADOR.md` — o mapa de execução, escrito para quem abre o repositório sem saber nada: rota de execução, paralelismo, caminho crítico, ferramentas, agentes, regras de autonomia e como retomar uma sessão interrompida. |
 | **F5** | Auditoria | A IA vira auditora do próprio plano e não corrige nada — só aponta. Verifica tasks sem teste, testes fracos, critérios subjetivos, dependências circulares, paralelismo falso e mais. Dá um veredito único: pronto para execução autônoma, SIM ou NÃO. |
 | **F6** | Execução | Lê o orquestrador e implementa até o fim, sob as regras de autonomia. Escreve o teste antes do código, atualiza o status de cada task, e entrega um relatório final com o que foi concluído, os bloqueios e a saída da suíte de testes. |
+
+## Orçar sem chutar
+
+Uma software house vive de orçar, e a maior parte das estimativas erra por não ter insumo: sem tasks granulares, com dependências e paralelismo declarados, estimar é chute com aparência de método. O plano do sprint^x já é esse insumo — a **F3.5** é a camada opcional que o converte em faixa de esforço.
+
+Rode `/sprintx-estimar <feature>` sobre um plano pronto. Sai um `00-ESTIMATIVA.md` assim:
+
+```
+Confiança BAIXA. Para subir: ler a documentação de webhooks do gateway
+e registrar base/gateway-webhooks.md, fechando a lacuna L-02.
+
+Esforço total    58–66 h    todo o trabalho a fazer — é o que se cobra
+Caminho crítico  35–42 h    a cadeia mais longa — é o que limita o calendário
+```
+
+Dois números diferentes, e a diferença explicada: as tasks paralelizáveis somam no total sem alongar a cadeia crítica. Nenhuma quantidade de gente entrega abaixo de 35 h, mas alguém precisa fazer as 58–66 h.
+
+O que essa camada faz de diferente:
+
+- **Faixa, nunca número único.** Número único vira compromisso, e compromisso construído sobre incerteza é dívida. Toda estimativa sai com premissas, invalidadores e nível de confiança.
+- **Esforço, nunca prazo.** A unidade é a hora de trabalho focado. Converter em data depende de agenda, feriado, férias e ida e volta com o cliente — variáveis que a skill não conhece e não finge conhecer. A conversão é decisão humana.
+- **Agregação que não superestima.** Três pontos por task (otimista, provável, pessimista), agregados por PERT com variâncias somadas em quadratura. Somar os pessimistas supõe que tudo dá errado ao mesmo tempo; a quadratura faz o intervalo crescer menos que a soma linear. O método está documentado e é reproduzível à mão.
+- **Task que não se entende não se estima.** Se o pessimista passa de quatro vezes o otimista, a task não é incerta — é mal compreendida. A skill manda quebrá-la e a deixa fora dos totais.
+- **Invalidadores observáveis.** "Mudança de escopo" não é invalidador. "O cliente pedir suporte a mais de um formato de arquivo além de CSV" é: alguém consegue olhar e dizer se aconteceu.
+- **O que não está incluído vem escrito.** Reunião, revisão de código, ida e volta com o cliente, deploy, correção pós-entrega, treinamento. Se for para incluir, entra como item próprio — nunca diluído nas tasks.
+- **Aprende com o que aconteceu.** Ao concluir cada task, a F6 registra o esforço real em `docs/estimativas/HISTORICO.md`. O desvio entre estimado e real por tipo de task vira fator de correção nas estimativas seguintes — sempre visível na saída, nunca embutido em silêncio.
+
+A F3.5 é a única fase opcional do método e não altera o plano. Sem `HISTORICO.md`, a confiança nunca passa de MÉDIA e a saída diz que não há base de calibração no projeto.
 
 ## Instalação
 
