@@ -35,6 +35,17 @@ eventos (`references/08-rastro.md`) é local da máquina de quem executou, cresc
 painel roda local; versioná-lo por acidente traz conflito de merge em arquivo append-only,
 que é chato de resolver. Quem quiser rastro compartilhado troca isso conscientemente.
 
+Na mesma passada, garanta também a linha `.expx/estado.json` no `.gitignore` — o arquivo que a
+barra de status lê (`references/09-estado.md`), pela mesma razão: é estado da máquina de quem
+está trabalhando, reescrito a cada transição. Se `.expx/` não existe no projeto, não crie nada
+e não acrescente a linha: não há o que ignorar.
+
+**O estado da barra — abertura do trabalho.** Com o scaffold no disco, grave `.expx/estado.json`
+com `trabalho: <slug>`, `ferramenta: sprintx`, `titulo_curto` (a feature em até 30 caracteres),
+`fase: f1`, `task: null`, `tasks_concluidas: 0`, `tasks_total: 0` e `bloqueios: 0`, seguindo
+`references/09-estado.md` — leitura e gravação atômica, preservando os campos dos outros donos.
+Se `.expx/` não existir, siga sem gravar, sem erro e sem aviso.
+
 ## Passo 2 — Detectar o modo
 
 Decida pelo que o usuário descreveu:
@@ -111,4 +122,4 @@ Continue ingerindo até atender. Se uma fonte externa está inacessível (docs f
 
 ## Ao terminar
 
-Anuncie: "F1 concluída. Base de conhecimento em `docs/sprintx/features/<slug>/base/` (N arquivos, M lacunas). Próxima fase: F2 DESCOBERTA — vou te entrevistar em blocos de até 5 perguntas." Em seguida, se a sessão continuar, entre na F2 lendo `references/02-descoberta.md`.
+Anuncie: "F1 concluída. Base de conhecimento em `docs/sprintx/features/<slug>/base/` (N arquivos, M lacunas). Próxima fase: F2 DESCOBERTA — vou te entrevistar em blocos de até 5 perguntas." Grave `fase: f2` em `.expx/estado.json` (`references/09-estado.md`). Em seguida, se a sessão continuar, entre na F2 lendo `references/02-descoberta.md`.

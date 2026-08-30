@@ -19,6 +19,8 @@ F1 INGESTÃO → F2 DESCOBERTA → F3 PLANO → *(F3.5 ESTIMATIVA — opcional)*
 
 A **F3.5 ESTIMATIVA é a única fase opcional** do método e é a única exceção à sequencialidade estrita: ela roda entre a F3 e a F4, sobre o plano pronto, **apenas quando o usuário pede estimativa**. Não é pré-requisito de nada: a ausência de `00-ESTIMATIVA.md` NUNCA impede a passagem para a F4, e a F5 não a audita nem a exige. Se o usuário não pediu estimativa, siga da F3 direto para a F4. A F3.5 nunca bloqueia o fluxo, nunca altera o plano e pode ser rodada depois, sobre um plano já auditado, sem invalidar nada.
 
+Toda transição desta máquina — entrar numa fase, abrir ou fechar uma task, registrar ou resolver bloqueio, concluir o trabalho — atualiza também `.expx/estado.json`, o arquivo de exibição que a barra de status lê (`references/09-estado.md`). Ele é **derivado e descartável**: a fase continua sendo detectada pelo disco, como na tabela abaixo, e nunca por ele. Se `.expx/` não existir no projeto, a skill segue sem gravar, sem erro e sem aviso.
+
 Antes de agir, descubra em que fase está inspecionando o disco em `docs/sprintx/features/<slug-da-feature>/`:
 
 | Estado do disco | Fase atual |
@@ -88,6 +90,7 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 |---|---|---|
 | Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F3.5, F4, F6) | — |
 | Todas as que gravam transição | `references/08-rastro.md` — formato do rastro de eventos, lido pelo painel | — |
+| Todas as que gravam transição | `references/09-estado.md` — contrato `expx-estado` v1: o `.expx/estado.json` que a barra de status lê | — |
 | F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md`, `assets/TEMPLATE-base-indice.md`, `assets/TEMPLATE-BLOQUEIOS.md` |
 | F2 DESCOBERTA | `references/02-descoberta.md` | `assets/TEMPLATE-DECISOES.md` |
 | F3 PLANO | `references/03-plano.md` | `assets/TEMPLATE-sprint.md`, `assets/TEMPLATE-fases.md`, `assets/TEMPLATE-tasks.md` |

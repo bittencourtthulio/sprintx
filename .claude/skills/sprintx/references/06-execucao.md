@@ -13,19 +13,25 @@ Leia `docs/sprintx/features/<slug>/ORQUESTRADOR.md` inteiro e siga a ordem de le
 
 Se está retomando uma sessão interrompida, siga a seção "Como retomar" do ORQUESTRADOR: status em cada `tasks.md` + `00-BLOQUEIOS.md` dizem onde você parou.
 
+**O estado da barra.** Ao carregar o mapa, grave `fase: f6` em `.expx/estado.json`
+(`references/09-estado.md`). Numa retomada, aproveite e reconcilie os contadores com o que o
+disco diz de verdade — `tasks_total`, `tasks_concluidas` e `bloqueios` — porque a sessão
+anterior pode ter morrido entre a gravação de `tasks.md` e a do estado. O disco é a verdade; o
+`estado.json` é a cópia para exibição.
+
 ## Passo 2 — Executar task a task
 
 Ordem: sprints em ordem numérica; dentro da sprint, a rota do ORQUESTRADOR. Só execute em paralelo o que o plano declarou paralelizável. Uma task só começa quando todas em `depende_de` estão `concluida`.
 
 Para CADA task, nesta ordem:
 
-1. Marque `status: em_andamento` em `tasks.md` e grave `task_iniciada` no rastro (`references/08-rastro.md`).
+1. Marque `status: em_andamento` em `tasks.md` e grave `task_iniciada` no rastro (`references/08-rastro.md`). Grave `task: T-NN.MM` em `.expx/estado.json` (`references/09-estado.md`).
 2. **Escreva o teste de integração e o teste funcional ANTES de qualquer código de implementação**, exatamente como a task os descreve. Rode-os e confirme que falham (vermelho).
 3. Implemente até os dois testes passarem (verde). Rode a suíte relevante inteira, não só os testes novos.
 4. Assuma os três papéis do ORQUESTRADOR, em sequência: implementador (passos 2–3), revisor de testes, auditor de aceite (o `criterio_aceite` é verdade agora? verifique de fato, não presuma).
 
    **O papel de revisor de testes é do agente `revisor-testes`, quando ele existir neste harness.** Acione-o sobre a task que está fechando: ele lê os testes e responde `solido` ou `fraco`, com o motivo em uma linha. Um `fraco` significa que o teste passaria com a implementação errada — e teste fraco é pior que teste ausente, porque produz suíte verde e falsa confiança. Task com teste `fraco` NÃO fecha: corrija o teste até ele discriminar, e só então siga. Sem o agente disponível, faça você mesma a pergunta, com o mesmo rigor.
-5. Só então marque `status: concluida` em `tasks.md` e grave `task_concluida` no rastro, acrescentando na linha da task: data (obtenha com `date +%Y-%m-%d` do sistema) e resultado da suíte (ex.: `2026-08-26 · suíte: 42 passed, 0 failed`).
+5. Só então marque `status: concluida` em `tasks.md` e grave `task_concluida` no rastro, acrescentando na linha da task: data (obtenha com `date +%Y-%m-%d` do sistema) e resultado da suíte (ex.: `2026-08-26 · suíte: 42 passed, 0 failed`). Em seguida grave em `.expx/estado.json` (`references/09-estado.md`) o novo `tasks_concluidas` e o campo `task`: o id da próxima task que você vai abrir, ou `null` se não houver próxima.
 6. **Registre o esforço real da task**, em horas de trabalho focado, na mesma linha (ex.: `2026-08-26 · suíte: 42 passed, 0 failed · real: 3,5 h`). O real cobre o que a task de fato custou — escrever os dois testes, implementar, rodar a suíte e verificar o critério de aceite — e NÃO inclui reunião, revisão de código, deploy nem ida e volta com o cliente. Isso alimenta a calibração das estimativas futuras (ver "Passo 4"); anote no momento de concluir, não reconstrua de memória no fim do trabalho.
 7. Critério de aceite não atendido ou teste não passando: a task NÃO é concluída. Não existe "concluído com ressalva".
 
@@ -51,7 +57,7 @@ painel de operação lê o YAML, não a prosa.
 Surgiu dúvida nova, decisão não coberta pelo plano, pré-requisito faltando (segredo inexistente, serviço fora do ar, dependência quebrada):
 
 1. Registre em `docs/sprintx/features/<slug>/00-BLOQUEIOS.md`: `B-NN | task | descrição do bloqueio | o que destravaria`.
-2. Marque a task como `status: bloqueada` em `tasks.md` e grave `task_bloqueada` no rastro.
+2. Marque a task como `status: bloqueada` em `tasks.md` e grave `task_bloqueada` no rastro, e grave `bloqueios` em `.expx/estado.json` com a nova contagem de bloqueios **abertos** (`references/09-estado.md`). Um bloqueio resolvido depois diminui essa contagem, na mesma gravação em que `resolvido_em` deixa de ser `null`.
    Ao registrar o bloqueio, grave também o frontmatter `kind: bloqueios` de `00-BLOQUEIOS.md` (novo item em `bloqueios:` com `id`, `task`, `aberto_em` com a data do sistema, `resolvido_em: null` e `descricao` em uma linha) e reescreva `atualizado_em`. Formato em `references/00-schema.md`. A task muda para `bloqueada` no frontmatter e na prosa de `tasks.md`.
 3. Pule para a próxima task paralelizável cujas dependências estão satisfeitas.
 4. NUNCA pare para esperar resposta humana. Se não resta nenhuma task executável, encerre com o relatório final — os bloqueios são a pauta do usuário, não uma conversa sua.
@@ -140,6 +146,16 @@ gravado do mesmo jeito, com o que de fato foi entregue: `arquivos_alterados` tra
 concluídas, e os bloqueios abertos são o `risco_residual`. Um fechamento parcial registrado
 vale mais que um fechamento perfeito que nunca aconteceu.
 
+**Por último, feche o trabalho no estado da barra.** Com o `FECHAMENTO.md` gravado, grave
+`.expx/estado.json` com `trabalho: null`, `fase: null` e `task: null`
+(`references/09-estado.md`). `tasks_concluidas` e `tasks_total` ficam como estão: são o placar
+do que foi entregue, e a barra continua mostrando `4/9` depois do fim, o que é exatamente a
+informação útil. `bloqueios` fica com a contagem dos que continuaram abertos. O arquivo
+continua existindo — fechar trabalho não é apagar o estado.
+
+Este é o último passo do trabalho, e é o mais dispensável de todos: se `.expx/` não existir, ou
+se a gravação falhar, o trabalho está entregue do mesmo jeito. Registre no rastro e siga.
+
 ## Passo 4 — Relatório final
 
 Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um relatório com exatamente estas seções:
@@ -163,3 +179,4 @@ quais módulos ele declara — é assim que o usuário sabe que a feature entrou
 - [ ] `ORQUESTRADOR.md` teve `arquivos_alterados` agregado (união sem repetição dos `arquivos` das tasks concluídas) e `modulo_afetado` conferido contra o que a execução de fato tocou.
 - [ ] `FECHAMENTO.md` existe em `docs/sprintx/features/<slug>/` com frontmatter `kind: fechamento` válido e a prosa correspondente abaixo dele.
 - [ ] Relatório final entregue com as 4 seções.
+- [ ] `.expx/estado.json` fechou o trabalho (`trabalho`, `fase` e `task` em `null`), ou `.expx/` não existe no projeto, ou a falha de gravação está registrada no rastro. Este item **nunca impede** a fase de ser dada como concluída: o arquivo é de exibição, e sua ausência é inofensiva.

@@ -119,6 +119,21 @@ Se a F4 ainda não rodou (o `ORQUESTRADOR.md` não existe), leve estes valores p
 a F4 os grava ao criar o arquivo. Se o orquestrador já existe (retorno da F5, replanejamento),
 reescreva os campos e o `atualizado_em`.
 
+## Passo 2.2 — Gravar o total de tasks no estado da barra
+
+Com as tasks escritas, o plano tem um número que a barra de status precisa e que só existe a
+partir de agora: **quantas tasks o trabalho tem no total**. Conte todas as tasks de todas as
+sprints e grave `tasks_total` em `.expx/estado.json`, seguindo `references/09-estado.md`.
+
+Grave também `fase: f3`, se a fase ainda não estiver registrada lá. `tasks_concluidas` fica
+como está (`0`, nesta altura) — nenhuma task foi executada.
+
+Se o plano for regerado (retorno da F5), reescreva `tasks_total` com a nova contagem: um plano
+que ganhou ou perdeu tasks muda o denominador que a barra mostra.
+
+Se `.expx/` não existir, siga sem gravar, sem erro e sem aviso — a ausência do diretório
+significa que o CLI não instalou o ecossistema neste projeto, e nada do plano depende disso.
+
 ## Passo 3 — Verificação própria antes de encerrar
 
 Antes de declarar a F3 concluída, confira você mesmo:
@@ -132,6 +147,7 @@ Antes de declarar a F3 concluída, confira você mesmo:
 - [ ] Cada teste de cada task cabe em uma frase.
 - [ ] Nenhuma task tem pior caso plausível maior que quatro vezes o melhor caso plausível (senão, quebre-a agora — a F3.5 se recusaria a estimá-la).
 - [ ] `modulo_afetado` e `palavras_chave` estão derivados (Passo 2.1), em minúscula e sem acento, prontos para o `ORQUESTRADOR.md` — ou já gravados nele, se ele existir.
+- [ ] `tasks_total` foi gravado em `.expx/estado.json` com o número de tasks do plano (Passo 2.2), ou `.expx/` não existe no projeto.
 
 ## Critério de saída da fase
 
@@ -157,5 +173,7 @@ Esse teste é irmão da regra de granularidade (se os dois testes não cabem em 
 ## Ao terminar
 
 Anuncie: "F3 concluída. Plano em `docs/sprintx/features/<slug>/sprint-*/` (N sprints, M tasks)." Siga para a F4 lendo `references/04-orquestrador.md`.
+
+Grave a fase de destino em `.expx/estado.json` (`references/09-estado.md`): `fase: f4` ao seguir direto para a F4, ou `fase: f3.5` se o usuário pediu estimativa e a F3.5 vai rodar antes.
 
 Se o usuário pediu estimativa (ou acionou `/sprintx-estimar`), rode antes a F3.5 lendo `references/07-estimativa.md` e só então siga para a F4. Sem esse pedido, vá direto para a F4 — a F3.5 nunca é executada por conta própria e nunca bloqueia a passagem.

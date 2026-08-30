@@ -58,3 +58,5 @@ Complete a seção faltante antes de encerrar. Se uma informação de Ferramenta
 ## Ao terminar
 
 Anuncie: "F4 concluída. `docs/sprintx/features/<slug>/ORQUESTRADOR.md` gerado. Próxima fase: F5 AUDITORIA." Siga para a F5 lendo `references/05-auditoria.md`.
+
+Grave `fase: f5` em `.expx/estado.json` (`references/09-estado.md`).

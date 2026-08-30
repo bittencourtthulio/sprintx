@@ -76,6 +76,10 @@ Achado ALTA manda voltar para a F3 — o plano é REGERADO por quem o gerou, end
 
 Anuncie os achados ALTA, volte para a F3 (`references/03-plano.md`) levando `00-AUDITORIA.md` como entrada, regere o plano, refaça a F4 se o ORQUESTRADOR for afetado, e reaudite. Repita o ciclo até `VEREDITO: SIM`.
 
+Grave `fase: f3` em `.expx/estado.json` ao voltar (`references/09-estado.md`): a barra mostra onde o trabalho está agora, e ele voltou para o plano.
+
 ## Ao terminar com VEREDITO: SIM
 
 Anuncie: "F5 concluída. VEREDITO: SIM — plano pronto para execução autônoma. N achados MÉDIA/BAIXA registrados em `00-AUDITORIA.md`." Siga para a F6 lendo `references/06-execucao.md` (ou pare aqui se o usuário pediu só o planejamento).
+
+Grave `fase: f6` em `.expx/estado.json` (`references/09-estado.md`) ao entrar na execução. Se o usuário pediu só o planejamento e o trabalho para aqui, mantenha `fase: f5` — o trabalho continua aberto na auditoria, e só a conclusão da F6 zera `trabalho`, `fase` e `task`.

@@ -77,3 +77,5 @@ Se o usuário parou de responder no meio, registre o que já foi decidido, marqu
 ## Ao terminar
 
 Anuncie: "F2 concluída. N decisões e M pendências em `docs/sprintx/features/<slug>/00-DECISOES.md`." Se houver PENDENTE bloqueante, diga quais e avise que a F3 está travada por eles. Caso contrário, siga para a F3 lendo `references/03-plano.md`.
+
+Grave `fase: f3` em `.expx/estado.json` (`references/09-estado.md`) ao passar para a F3. Se a F3 ficou travada por PENDENTE bloqueante, mantenha `fase: f2` — a barra mostra onde o trabalho está, não onde ele deveria estar.

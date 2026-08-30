@@ -321,4 +321,4 @@ Se o trabalho não teve estimativa (a F3.5 não rodou), registre o real mesmo as
 
 Anuncie: "F3.5 concluída. Estimativa em `docs/sprintx/features/<slug>/00-ESTIMATIVA.md`: esforço total `min–max h`, caminho crítico `min–max h`, confiança `<nivel>`."
 
-Siga para a F4 lendo `references/04-orquestrador.md`.
+Grave `fase: f4` em `.expx/estado.json` (`references/09-estado.md`) e siga para a F4 lendo `references/04-orquestrador.md`.
