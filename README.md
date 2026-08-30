@@ -16,6 +16,16 @@
   <img alt="licenca MIT" src="https://raw.githubusercontent.com/bittencourtthulio/sprintx/main/.github/assets/badge-license.svg">
 </p>
 
+<p>
+  <a href="https://bittencourtthulio.github.io/expxdev/#sprintx"><strong>📘 Documentação do método</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://bittencourtthulio.github.io/expxdev/#sprintx">Fases F1–F6</a>
+  &nbsp;·&nbsp;
+  <a href="https://bittencourtthulio.github.io/expxdev/#ecossistema">O ecossistema</a>
+  &nbsp;·&nbsp;
+  <a href="https://bittencourtthulio.github.io/expxdev/#schema">Contratos</a>
+</p>
+
 <strong>A metade Build do método Expx</strong> — a skill de planejamento e execução<br>
 de features novas para <a href="https://claude.com/claude-code">Claude Code</a> e <a href="https://opencode.ai">OpenCode</a>.
 
