@@ -17,7 +17,13 @@ método Expx (ocorrências em produção, estágios E1–E5). Os kinds `orquestr
 `expx_tool` (`sprintx` | `runx`) diz qual das duas gravou o arquivo, e é por isso que o enum tem os
 dois valores. A runx acrescenta na task o campo `teste_regressao` (prova o comportamento errado antes
 do fix) e tem kinds próprios do ciclo dela (`ocorrencia`, `causa_raiz`, `qa`, `relatorio_tecnico`,
-`relatorio_uso`, `relatorios_indice`); a sprintx tem o `decisoes`.
+`relatorio_uso`, `relatorios_indice`); a sprintx tem o `decisoes` e o `fechamento`.
+
+O `fechamento` da sprintx e o `relatorio_tecnico` da runx cumprem o mesmo papel no índice — dizer
+o que o trabalho entregou, em que módulo e em que arquivos —, mas são kinds distintos, cada um
+com o vocabulário do seu ciclo. Os campos de indexação (`modulo_afetado`, `arquivos_alterados`,
+`palavras_chave`) são os mesmos nos dois lados: é por eles que um índice único enxerga Build e
+Run com a mesma consulta.
 
 **Ao mudar qualquer kind compartilhado, a mudança vale para as duas skills** — um painel que lê as
 duas não pode encontrar o mesmo `kind` com formatos diferentes. Kind exclusivo de uma delas pode
@@ -95,6 +101,9 @@ atualizado_em: 2026-08-29
 concluido_em: null
 sprints: [sprint-01, sprint-02]
 caminho_critico: [F-01.1, F-01.3]
+modulo_afetado: [relatorios, exportacao]
+arquivos_alterados: []
+palavras_chave: [csv, exportacao, relatorio, streaming]
 ---
 ```
 
@@ -102,6 +111,26 @@ caminho_critico: [F-01.1, F-01.3]
 - `caminho_critico` lista ids de fase (`F-NN.M`) e/ou de task (`T-NN.MM`), na ordem da
   cadeia, exatamente como a seção 3 do ORQUESTRADOR os declara.
 - `concluido_em` permanece `null` até o trabalho inteiro estar entregue.
+
+Os três campos de indexação — `modulo_afetado`, `arquivos_alterados` e `palavras_chave` — são
+listas e seguem a regra universal 6: **nunca omita a chave**; vazia é `[]`, jamais ausente.
+
+- `modulo_afetado` lista os módulos que o trabalho toca, em minúscula e sem acento, um termo
+  por módulo (`autenticacao`, não `Autenticação`; `relatorios`, não `Relatórios`). É derivado
+  na F3 a partir dos arquivos declarados nas tasks — as camadas do `CONVENCOES.md` do projeto
+  quando ele existe, a estrutura de pastas quando não (`references/03-plano.md`). É a única
+  das três listas que a F3 já grava preenchida.
+- `arquivos_alterados` é a união, **sem repetição**, dos campos `arquivos` (`cria` + `altera`)
+  de todas as tasks **concluídas** do trabalho. Nasce `[]` na F3 e é preenchido pela F6 ao
+  fechar a última task (`references/06-execucao.md`). Caminhos relativos à raiz do
+  repositório, na mesma forma em que aparecem nas tasks.
+- `palavras_chave` traz até 8 termos que descrevem o trabalho, em minúscula e sem acento.
+  Mais que 8 deixa de discriminar: uma lista que casa com tudo não encontra nada.
+
+Estes três campos existem para que os artefatos da skill sejam **indexáveis por arquivo e por
+módulo** — a pergunta "quem já mexeu neste arquivo e por quê" só tem resposta se alguém tiver
+registrado a resposta. Nenhum deles altera o Contrato da Task nem qualquer regra do método:
+são campos do orquestrador, agregados a partir do que as tasks já declaravam.
 
 ### `sprint-NN/sprint.md` → `kind: sprint`
 
@@ -351,6 +380,57 @@ Regras duras deste kind:
   encerradas daquele tipo.
 - `calibracao` é `[]` enquanto não houver entrada suficiente para calcular desvio por tipo.
 
+### `FECHAMENTO.md` → `kind: fechamento`
+
+Gravado pela F6 ao fechar a última task, em
+`docs/sprintx/features/<slug>/FECHAMENTO.md`. Um por trabalho; reexecutar o fechamento
+sobrescreve o arquivo.
+
+É o equivalente, do lado Build, ao relatório técnico da runx: o registro do que a feature
+entregou, com o módulo, os arquivos e os termos que a tornam encontrável depois. **Sem ele,
+feature nova não entra no índice** — o trabalho continuaria existindo em disco e seria
+invisível para quem perguntasse "quem já mexeu neste arquivo".
+
+```yaml
+---
+expx_schema: 1
+expx_tool: sprintx
+kind: fechamento
+trabalho_id: exportacao-csv-relatorios
+titulo: Exportacao de relatorios em CSV
+tipo_trabalho: feature
+fechado_em: 2026-08-29
+modulo_afetado: [relatorios, exportacao]
+arquivos_alterados: [src/relatorios/exportador.ts, src/relatorios/exportador.test.ts, src/api/rotas/relatorios.ts]
+palavras_chave: [csv, exportacao, relatorio, streaming]
+resumo: Relatorios passam a ser exportados em CSV por streaming, sem carregar tudo em memoria
+decisao_principal: Exportacao assincrona via fila existente, para nao segurar a resposta do usuario
+risco_residual: Limite de linhas do CSV nao foi testado acima de 500 mil registros
+testes_adicionados: 14
+---
+```
+
+Abaixo do frontmatter vai prosa curta com o MESMO conteúdo — resumo, decisão principal e
+risco residual em texto corrido, para quem lê sem parser. O YAML é para a máquina, a prosa é
+para a pessoa, e as duas dizem a mesma coisa (regra universal 7).
+
+Regras duras deste kind:
+
+- `modulo_afetado`, `arquivos_alterados` e `palavras_chave` são **cópia fiel** do que o
+  `ORQUESTRADOR.md` carrega no momento do fechamento. Se divergirem, o orquestrador é a
+  fonte: corrija o fechamento, nunca o contrário.
+- `resumo`, `decisao_principal` e `risco_residual` são strings de UMA linha (regra universal
+  8). `risco_residual` é o que ficou por observar; quando nada ficou, escreva a frase que diz
+  isso (`Nenhum risco residual identificado`), nunca `null` — a chave não é opcional e um
+  fechamento sem análise de risco é um fechamento incompleto, não um fechamento sem risco.
+- `decisao_principal` é a decisão de MAIOR IMPACTO do trabalho, uma só. Normalmente é uma das
+  linhas `D-NN` de `00-DECISOES.md`; quando for, use a mesma redação.
+- `testes_adicionados` é um número (inteiro), a contagem de testes criados pelo trabalho —
+  não a contagem de testes da suíte inteira.
+- `fechado_em` é a data do sistema (`date +%Y-%m-%d`) no dia do fechamento.
+- Este kind não tem `atualizado_em`: o fechamento é um registro de um instante, não um
+  arquivo de estado que evolui. `fechado_em` é a sua data.
+
 ### Arquivos SEM frontmatter
 
 Não recebem frontmatter, porque o painel não os lê individualmente:
@@ -384,4 +464,6 @@ Antes de dar por gravado qualquer arquivo de estado:
 - [ ] Datas em `AAAA-MM-DD`; `atualizado_em` reescrito nesta gravação.
 - [ ] Em `kind: tasks`, toda task tem `teste_integracao` e `teste_funcional` não vazios.
 - [ ] Em `kind: estimativa`, `min` e `max` sao diferentes (numero unico e proibido) e nenhum valor e data de calendario.
+- [ ] Em `kind: orquestrador`, as tres chaves de indexacao (`modulo_afetado`, `arquivos_alterados`, `palavras_chave`) existem — vazias sao `[]`, nunca ausentes — e nao tem acento nem maiuscula.
+- [ ] Em `kind: fechamento`, `arquivos_alterados` nao tem repeticao e bate com o `ORQUESTRADOR.md`.
 - [ ] Nenhum caminho absoluto em nenhum valor.

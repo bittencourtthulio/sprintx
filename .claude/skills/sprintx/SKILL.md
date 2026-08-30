@@ -80,6 +80,7 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 17. Todo arquivo de estado é gravado com o frontmatter do contrato expx-schema v1, descrito em `references/00-schema.md`. Arquivo de estado sem frontmatter válido é considerado não entregue. Ao abrir uma pasta de trabalho que já existe e cujos arquivos não têm frontmatter, acrescente o frontmatter na próxima vez que gravar aquele arquivo, inferindo os valores da prosa existente; nunca reescreva em massa nem migre pastas que não vai tocar.
 18. Estimativa sai sempre como faixa, com premissas, invalidadores e nível de confiança. Número único é proibido.
 19. Estimativa é esforço, nunca prazo de calendário. A conversão em data é decisão humana.
+20. Todo trabalho fecha com `FECHAMENTO.md`, declarando módulo afetado, arquivos alterados e palavras-chave.
 
 ## Fases → arquivos da skill
 
@@ -93,7 +94,7 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 | F3.5 ESTIMATIVA (opcional) | `references/07-estimativa.md` | `assets/TEMPLATE-ESTIMATIVA.md`, `assets/TEMPLATE-HISTORICO.md` |
 | F4 ORQUESTRADOR | `references/04-orquestrador.md` | `assets/TEMPLATE-ORQUESTRADOR.md` |
 | F5 AUDITORIA | `references/05-auditoria.md` | — |
-| F6 EXECUÇÃO | `references/06-execucao.md` | — |
+| F6 EXECUÇÃO | `references/06-execucao.md` | `assets/TEMPLATE-FECHAMENTO.md`, `assets/TEMPLATE-HISTORICO.md` |
 
 Os caminhos acima são relativos à raiz desta skill. O detalhe operacional de cada fase mora exclusivamente no reference correspondente; leia-o apenas quando a fase chegar.
 
@@ -143,8 +144,14 @@ Todo artefato desta skill vive sob `docs/sprintx/`, nunca solto em `docs/`. A es
 ```
 docs/sprintx/
   features/<slug-da-feature>/    um diretório por feature, com a estrutura completa
+    FECHAMENTO.md                gravado ao fim da F6: o que a feature entregou, e onde
   estimativas/HISTORICO.md       esforço real do projeto inteiro (atravessa features)
 ```
+
+O `FECHAMENTO.md` é o que torna a feature encontrável depois — por arquivo, por módulo e por
+palavra-chave (regra inviolável 20). É o equivalente, do lado Build, ao relatório técnico da
+runx; sem ele, um índice dos artefatos do projeto conheceria apenas a manutenção, e metade da
+história do sistema ficaria invisível.
 
 `docs/sprintx/` é sempre ancorado na raiz do repositório Git mais próxima do diretório de trabalho atual (o diretório que contém `.git/`). Em um monorepo sem `.git` visível no diretório de trabalho, suba diretórios até encontrar a raiz do repositório; se não houver `.git` em nenhum ancestral, use a raiz do diretório de trabalho atual. Nunca crie `docs/sprintx/` dentro de um pacote/workspace individual sem antes checar se já existe um `docs/` na raiz do repositório — se existir, crie `sprintx/` dentro dele.
 

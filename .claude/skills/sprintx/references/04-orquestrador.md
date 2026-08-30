@@ -35,6 +35,12 @@ frontmatter `kind: orquestrador` do contrato expx-schema v1, descrito em
 - `caminho_critico` repete, em lista, a mesma cadeia declarada na seção 3 — sem inventar
   paralelismo nem cadeia que o plano não declarou.
 - `concluido_em` é `null` até a feature inteira estar entregue.
+- `modulo_afetado` e `palavras_chave` recebem os valores que a F3 derivou no Passo 2.1 de
+  `references/03-plano.md`. Se a F3 não os deixou prontos, derive-os aqui pelo mesmo critério
+  daquele passo (camadas do `CONVENCOES.md` quando existir; estrutura de pastas quando não),
+  a partir dos `arquivos` das tasks.
+- `arquivos_alterados` nasce `[]` na F4 — nenhuma task foi concluída ainda. Quem o preenche é
+  a F6, ao fechar a última task. A chave existe desde já, vazia, nunca ausente.
 
 ## Critério de saída da fase
 
@@ -43,6 +49,7 @@ frontmatter `kind: orquestrador` do contrato expx-schema v1, descrito em
 - [ ] A rota de execução cobre todas as sprints e fases do plano e marca o caminho crítico.
 - [ ] Nenhum segredo com valor; nenhum caminho absoluto.
 - [ ] `ORQUESTRADOR.md` tem frontmatter `kind: orquestrador` válido conforme `references/00-schema.md`, com `caminho_critico` igual ao da seção 3.
+- [ ] `modulo_afetado` e `palavras_chave` preenchidos (minúscula, sem acento) e `arquivos_alterados: []` presente.
 
 ## Quando o critério não é atendido
 

@@ -56,6 +56,27 @@ Se genuinamente ambíguo, trate como os dois: ingira a documentação externa E 
 2. Leia esses arquivos de verdade — não descreva de memória.
 3. Um arquivo por recurso/área estudada em `base/`, no formato do Passo 4.
 
+## Passo 3.1 — Consultar o `memox` (quando instalado)
+
+Se o `memox` estiver instalado no projeto, consulte-o sobre os arquivos e as áreas que a
+ingestão identificou como tocados pela feature. Ele responde "quem já mexeu neste arquivo e por
+quê" a partir dos artefatos de trabalhos anteriores — features fechadas pela sprintx
+(`FECHAMENTO.md`) e ocorrências fechadas pela runx (relatório técnico).
+
+O que ele devolver **entra na base como contexto histórico**, em arquivo próprio de `base/`, no
+formato do Passo 4, com a **proveniência preservada**: cada afirmação diz de qual trabalho veio
+(`trabalho_id`) e de qual artefato, e a seção "Fonte" aponta para o artefato, não para o
+`memox`. Isso vale como fonte documentada para a regra de "nada de invenção": é registro de
+outro trabalho, não memória sua.
+
+Um risco residual registrado por um trabalho anterior sobre um arquivo que esta feature vai
+tocar é exatamente o tipo de coisa que a base existe para trazer à tona antes do plano.
+
+**A ausência do `memox` nunca bloqueia.** Não instalado, sem resposta, ou sem nada sobre estes
+arquivos: siga para o Passo 4 sem registrar nada. A F1 nunca falha por falta dele, e a falta
+dele não é lacuna — não vai para `00-LACUNAS.md`, porque lacuna é o que a skill procurou na
+fonte e não achou, não uma ferramenta opcional que o projeto não instalou.
+
 ## Passo 4 — Formato de cada arquivo da base
 
 Use `assets/TEMPLATE-base-recurso.md` (caminho relativo à raiz da skill). Todo arquivo tem exatamente estas seções:

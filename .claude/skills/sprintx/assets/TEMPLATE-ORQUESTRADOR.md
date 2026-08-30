@@ -13,6 +13,9 @@ atualizado_em: {{AAAA-MM-DD}}
 concluido_em: null
 sprints: [{{sprint-01, sprint-02}}]
 caminho_critico: [{{F-01.1, F-01.3}}]
+modulo_afetado: [{{modulos, minusculo, sem acento}}]
+arquivos_alterados: []
+palavras_chave: [{{ate 8 termos, minusculo, sem acento}}]
 ---
 
 # Orquestrador — {{slug-da-feature}}

@@ -10,6 +10,31 @@ Você está na F3. Seu objetivo é gerar a árvore de sprints/fases/tasks. Nesta
 
 Se este é um retorno da F5 (auditoria com achado ALTA), leia `00-AUDITORIA.md` antes de regerar: cada achado ALTA e MÉDIA deve ser endereçado na nova versão do plano.
 
+## Passo 0 — Consultar o histórico dos arquivos (quando houver `memox`)
+
+Antes de escrever o plano, se o `memox` estiver instalado no projeto, consulte-o sobre os
+arquivos que o plano pretende tocar. Ele responde "quem já mexeu neste arquivo e por quê" a
+partir dos artefatos de trabalhos anteriores — features fechadas pela sprintx e ocorrências
+fechadas pela runx.
+
+Como a lista de arquivos ainda não existe (é o Passo 2 que a produz), consulte pelos
+**candidatos**: os arquivos e áreas que a base (`base/`) identificou como tocados pela
+feature. Um segundo passe, depois de escrever as tasks, é útil mas não obrigatório.
+
+O que o `memox` devolver **entra na base como contexto histórico**, num arquivo próprio de
+`base/` no formato do Passo 4 da F1, com a **proveniência preservada**: cada afirmação diz de
+qual trabalho veio (`trabalho_id`) e de qual artefato. Isso não é opinião da skill nem
+conhecimento novo — é o que outro trabalho registrou, e o leitor precisa poder voltar à fonte.
+
+Use-o para o que ele é bom: descobrir que um arquivo que você ia tratar como simples já foi
+palco de uma ocorrência, que um módulo tem risco residual registrado, ou que uma decisão que
+você ia tomar já foi tomada (e por quê). Um achado desses vira risco na sprint ou decisão
+`D-NN` — nunca uma alteração silenciosa no plano.
+
+**A ausência do `memox` nunca bloqueia.** Não está instalado, não responde, não conhece os
+arquivos: siga para o Passo 1 sem registrar nada e sem avisar. O plano nunca depende dele —
+o histórico é contexto que melhora o plano, não pré-requisito dele.
+
 ## Passo 1 — Desenhar a árvore
 
 Com a base (`base/`) e as decisões (`00-DECISOES.md`) na mão, desenhe Sprints → Fases → Tasks.
@@ -53,6 +78,47 @@ Convenções:
 - `arquivos` lista caminhos relativos à raiz do repositório, separados em "cria:" e "altera:".
 - Nada no plano pode contradizer a base sem uma decisão D-NN que justifique.
 
+## Passo 2.1 — Derivar o `modulo_afetado` e as `palavras_chave`
+
+Com as tasks escritas, os arquivos que a feature vai tocar estão declarados: eles são a união
+dos campos `arquivos` (`cria` + `altera`) de todas as tasks. A partir deles, derive os módulos
+afetados e registre-os no `ORQUESTRADOR.md` — no campo `modulo_afetado` do frontmatter
+(`kind: orquestrador`, contrato em `references/00-schema.md`).
+
+**Como derivar o módulo de um arquivo, nesta ordem:**
+
+1. **Com `CONVENCOES.md` no projeto** (procure, nesta ordem, em `CONVENCOES.md`,
+   `docs/stackx/CONVENCOES.md` e `.expx/CONVENCOES.md`, na raiz do repositório): use as
+   **camadas que ele declara**. O módulo é o nome da camada à qual o arquivo pertence segundo
+   as convenções do projeto — é a resposta certa porque é a que o projeto já usa para se
+   descrever.
+2. **Sem `CONVENCOES.md`**: use a **estrutura de pastas**, sem chutar. Tome o primeiro
+   segmento significativo do caminho depois da raiz de código, ignorando os invólucros que não
+   são módulo (`src/`, `app/`, `lib/`, `packages/<nome>/src/`, `internal/`, `pkg/`).
+   `src/relatorios/exportador.ts` → `relatorios`; `app/api/rotas/pedidos.ts` → `api`;
+   `packages/core/src/faturamento/calculo.ts` → `faturamento`. Se o caminho não tiver segmento
+   além do arquivo (`main.ts` na raiz), o módulo é `raiz`.
+
+A ausência do `CONVENCOES.md` **nunca é erro e nunca bloqueia**: a estrutura de pastas é uma
+fonte legítima, e é a que todo projeto tem. Este é o mesmo critério do hook `tdd-teste-antes`,
+com uma diferença deliberada: lá, sem convenções, o hook fica inativo, porque adivinhar onde o
+teste mora produz falso positivo que desinstala o hook; aqui a derivação continua, porque a
+pasta de um arquivo é um fato observável, não um palpite.
+
+**Normalize sempre:** minúscula, sem acento, sem plural inventado. `Relatórios` → `relatorios`.
+Módulo repetido entra uma vez só.
+
+**As `palavras_chave`** saem do trabalho em si — o que a feature faz, o domínio que ela toca, a
+tecnologia central. Até 8 termos, minúscula, sem acento. Mais que 8 deixa de discriminar.
+
+`arquivos_alterados` **fica `[]` aqui**: na F3 nenhuma task foi concluída, e o campo agrega
+tasks concluídas. Quem o preenche é a F6, ao fechar a última task. A chave existe já na F3, com
+lista vazia — nunca ausente (regra 6 do contrato).
+
+Se a F4 ainda não rodou (o `ORQUESTRADOR.md` não existe), leve estes valores prontos para ela:
+a F4 os grava ao criar o arquivo. Se o orquestrador já existe (retorno da F5, replanejamento),
+reescreva os campos e o `atualizado_em`.
+
 ## Passo 3 — Verificação própria antes de encerrar
 
 Antes de declarar a F3 concluída, confira você mesmo:
@@ -65,6 +131,7 @@ Antes de declarar a F3 concluída, confira você mesmo:
 - [ ] Nenhuma task depende de decisão humana em execução.
 - [ ] Cada teste de cada task cabe em uma frase.
 - [ ] Nenhuma task tem pior caso plausível maior que quatro vezes o melhor caso plausível (senão, quebre-a agora — a F3.5 se recusaria a estimá-la).
+- [ ] `modulo_afetado` e `palavras_chave` estão derivados (Passo 2.1), em minúscula e sem acento, prontos para o `ORQUESTRADOR.md` — ou já gravados nele, se ele existir.
 
 ## Critério de saída da fase
 

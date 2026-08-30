@@ -90,6 +90,56 @@ Se a F3.5 não rodou (não existe `00-ESTIMATIVA.md`), registre o real mesmo ass
 
 Se houve estimativa, inclua no relatório final (Passo 4) uma linha por sprint com estimado × real e o desvio, para que a divergência fique visível junto com as demais.
 
+## Passo 3.1 — Fechar o trabalho: agregar e gravar o `FECHAMENTO.md`
+
+Ao fechar a **última task** (tudo concluído, ou nada mais executável), o trabalho ainda não
+acabou: falta torná-lo encontrável. Este passo é o que coloca a feature no índice.
+
+**Primeiro, agregue no `ORQUESTRADOR.md`.** Percorra todos os `sprint-NN/tasks.md` do trabalho
+e monte a união dos campos `arquivos` (`cria` + `altera`) de **todas as tasks `concluida`**:
+
+- Task `bloqueada` ou `pendente` **não entra** — ela não alterou arquivo nenhum.
+- **Sem repetição.** O mesmo arquivo tocado por seis tasks aparece UMA vez. Um arquivo que uma
+  task `cria` e outra `altera` também aparece uma vez só: a lista é de arquivos, não de
+  eventos.
+- Caminhos relativos à raiz do repositório, na mesma forma em que aparecem nas tasks. Ordene
+  como preferir; a ordem não é contrato, a ausência de duplicata é.
+
+Grave o resultado em `arquivos_alterados` no frontmatter do `ORQUESTRADOR.md`, e confira que
+`modulo_afetado` continua verdadeiro: se a execução tocou um módulo que o plano não previa
+(uma divergência do Passo 4, seção 4), acrescente-o agora — o campo descreve o que foi feito,
+não o que se pretendia fazer. Reescreva `atualizado_em`, e também `estagio`, `status` e
+`concluido_em`, como o critério de saída desta fase já exige.
+
+**Depois, grave `docs/sprintx/features/<slug>/FECHAMENTO.md`**, a partir de
+`assets/TEMPLATE-FECHAMENTO.md` (`kind: fechamento`, contrato em `references/00-schema.md`). Os três campos de indexação são cópia fiel do que o
+`ORQUESTRADOR.md` acabou de receber. Os quatro campos de conteúdo saem do trabalho que você
+acabou de executar:
+
+- `resumo` — uma linha sobre o que a feature entregou. O que o sistema faz agora que não fazia
+  antes, não o que você fez.
+- `decisao_principal` — a decisão de maior impacto, uma linha. Normalmente uma das linhas
+  `D-NN` de `00-DECISOES.md`; quando for, use a mesma redação. Quando a decisão de maior
+  impacto tiver surgido na execução, é ela que entra.
+- `risco_residual` — o que ficou por observar: limite não testado, bloqueio aberto, caminho
+  que a suíte não cobre. Nada ficou? Escreva a frase que diz isso — a chave nunca é `null`.
+- `testes_adicionados` — quantos testes o trabalho criou (não o tamanho da suíte).
+
+Abaixo do frontmatter, prosa curta com o **mesmo conteúdo**: resumo, decisão principal e risco
+residual em texto corrido, como esta skill já escreve para humano. O YAML e a prosa dizem a
+mesma coisa.
+
+O `FECHAMENTO.md` é o equivalente, do lado Build, ao relatório técnico da runx.
+**Sem ele, feature nova não entra no índice**: um `memox` instalado no projeto conheceria
+apenas as ocorrências, e metade da história do sistema ficaria invisível para o próximo
+trabalho — inclusive para o seu. Não deixe este passo para "depois do relatório": o relatório
+é para o usuário desta sessão, o fechamento é para quem chegar daqui a seis meses.
+
+Se o trabalho terminou com tasks bloqueadas (nada mais executável), o `FECHAMENTO.md` é
+gravado do mesmo jeito, com o que de fato foi entregue: `arquivos_alterados` traz só as tasks
+concluídas, e os bloqueios abertos são o `risco_residual`. Um fechamento parcial registrado
+vale mais que um fechamento perfeito que nunca aconteceu.
+
 ## Passo 4 — Relatório final
 
 Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um relatório com exatamente estas seções:
@@ -99,6 +149,9 @@ Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um
 3. **Saída da suíte** — o resultado da última execução completa da suíte de testes, colado, não resumido de memória.
 4. **Divergências entre o plano e a realidade** — tudo que foi diferente do planejado (arquivo a mais, teste ajustado, limite da base que se comportou diferente), uma linha por divergência.
 
+Ao entregar o relatório, informe também, em uma linha, que o `FECHAMENTO.md` foi gravado e
+quais módulos ele declara — é assim que o usuário sabe que a feature entrou no índice.
+
 ## Critério de saída da fase
 
 - [ ] Toda task está `concluida` ou `bloqueada` (nenhuma `pendente`/`em_andamento` executável restante).
@@ -107,4 +160,6 @@ Ao terminar (tudo concluído, ou nada mais executável), entregue ao usuário um
 - [ ] Se o trabalho inteiro foi entregue, `ORQUESTRADOR.md` teve `estagio`, `status`, `concluido_em` e `atualizado_em` reescritos; sprints e fases concluídas tiveram `status` atualizado em `sprint.md` e `fases.md`.
 - [ ] Toda task concluída tem o esforço real registrado em `tasks.md`.
 - [ ] `docs/sprintx/estimativas/HISTORICO.md` recebeu uma entrada por task concluída, com o desvio calculado (ou `null` quando não houve estimativa), e a tabela de calibração por tipo foi recalculada.
+- [ ] `ORQUESTRADOR.md` teve `arquivos_alterados` agregado (união sem repetição dos `arquivos` das tasks concluídas) e `modulo_afetado` conferido contra o que a execução de fato tocou.
+- [ ] `FECHAMENTO.md` existe em `docs/sprintx/features/<slug>/` com frontmatter `kind: fechamento` válido e a prosa correspondente abaixo dele.
 - [ ] Relatório final entregue com as 4 seções.
