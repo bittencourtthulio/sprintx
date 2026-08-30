@@ -91,6 +91,7 @@ Objetivo, fases, critério de saída, riscos conhecidos.
 | Todas as que gravam arquivo | `references/00-schema.md` — **leitura obrigatória** em qualquer fase que grave arquivo de estado (F1, F2, F3, F3.5, F4, F6) | — |
 | Todas as que gravam transição | `references/08-rastro.md` — formato do rastro de eventos, lido pelo painel | — |
 | Todas as que gravam transição | `references/09-estado.md` — contrato `expx-estado` v1: o `.expx/estado.json` que a barra de status lê | — |
+| F3 e F6 (ao gravar `fases.md` e ao fechar task) | `references/09-diagrama.md` — o bloco Mermaid do grafo de tasks dentro de `fases.md`. Derivado: sua ausência é inofensiva e nunca bloqueia | `assets/TEMPLATE-fases.md` |
 | F1 INGESTÃO | `references/01-ingestao.md` | `assets/TEMPLATE-base-recurso.md`, `assets/TEMPLATE-base-indice.md`, `assets/TEMPLATE-BLOQUEIOS.md` |
 | F2 DESCOBERTA | `references/02-descoberta.md` | `assets/TEMPLATE-DECISOES.md` |
 | F3 PLANO | `references/03-plano.md` | `assets/TEMPLATE-sprint.md`, `assets/TEMPLATE-fases.md`, `assets/TEMPLATE-tasks.md` |

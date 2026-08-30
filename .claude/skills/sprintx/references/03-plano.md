@@ -78,6 +78,18 @@ Convenções:
 - `arquivos` lista caminhos relativos à raiz do repositório, separados em "cria:" e "altera:".
 - Nada no plano pode contradizer a base sem uma decisão D-NN que justifique.
 
+**O diagrama do grafo de tasks (ao gravar `fases.md`).** Com as tasks da sprint escritas, gere
+o bloco Mermaid do grafo de tasks e grave-o dentro do próprio `fases.md`, abaixo do
+frontmatter e acima da prosa das fases. O formato exato, as regras de derivação, o limite de
+25 tasks e os exemplos estão em `references/09-diagrama.md` — leia-o antes de gerar.
+
+O diagrama é **derivado**: ele sai exclusivamente de `id`, `titulo`, `fase`, `depende_de` e
+`status` das tasks, e não acrescenta informação nenhuma ao plano. Se dois desses campos se
+contradisserem (o caso típico: `paralelizavel: true` com `depende_de` não vazio), o diagrama
+**não é gerado** e a contradição é reportada como erro de plano — que aqui, na F3, é para
+corrigir agora, antes de encerrar a fase. Fora isso, a ausência do diagrama é inofensiva e
+nunca impede a F3 de ser concluída.
+
 ## Passo 2.1 — Derivar o `modulo_afetado` e as `palavras_chave`
 
 Com as tasks escritas, os arquivos que a feature vai tocar estão declarados: eles são a união
@@ -148,6 +160,7 @@ Antes de declarar a F3 concluída, confira você mesmo:
 - [ ] Nenhuma task tem pior caso plausível maior que quatro vezes o melhor caso plausível (senão, quebre-a agora — a F3.5 se recusaria a estimá-la).
 - [ ] `modulo_afetado` e `palavras_chave` estão derivados (Passo 2.1), em minúscula e sem acento, prontos para o `ORQUESTRADOR.md` — ou já gravados nele, se ele existir.
 - [ ] `tasks_total` foi gravado em `.expx/estado.json` com o número de tasks do plano (Passo 2.2), ou `.expx/` não existe no projeto.
+- [ ] Cada `fases.md` tem o bloco Mermaid do grafo de tasks conforme `references/09-diagrama.md` — ou a contradição que impediu a geração foi corrigida no plano. Este item não bloqueia a fase: o diagrama é derivado.
 
 ## Critério de saída da fase
 

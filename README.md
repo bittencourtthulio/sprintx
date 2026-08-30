@@ -40,8 +40,10 @@ O método Expx é um conjunto de skills que se compõem, instaladas e mantidas p
 | **[legadox](https://github.com/bittencourtthulio/legadox)** | **camada** de segurança para código legado | endurece as fases da `sprintx` quando existe `PERFIL.md` |
 | **[stackx](https://github.com/bittencourtthulio/stackx)** | **camada** de convenções do repositório | a `sprintx` lê o `CONVENCOES.md` antes de planejar e de escrever código |
 | **[mergex](https://github.com/bittencourtthulio/mergex)** | entrega: branch, commit por task, PR e pacote de QA | abre a branch no início da F6 e entrega ao fim dela |
+| **[memox](https://github.com/bittencourtthulio/MemoX)** | **camada** de memória do projeto | consultada na F1 e na F3, sobre os arquivos que o plano pretende tocar |
+| **[prodx](https://github.com/bittencourtthulio/prodx)** | **camada** de produto: decide **se** há trabalho | roda antes da F1 e entrega o `BRIEFING.md` assinado como entrada dela |
 
-**Camadas** (`legadox`, `stackx`) sozinhas não fazem nada — elas modificam o comportamento da `sprintx` e da `runx`. A ausência de qualquer irmã nunca quebra o fluxo desta skill: insumo que não existe vira aviso do que falta, nunca invenção.
+**Camadas** (`legadox`, `stackx`, `memox`, `prodx`) sozinhas não fazem nada — elas modificam o comportamento da `sprintx` e da `runx`. A `prodx` é a única que roda **antes** de tudo: ela decide *se* há trabalho, e só depois a `sprintx` decide *como* fazê-lo. A ausência de qualquer irmã nunca quebra o fluxo desta skill: insumo que não existe vira aviso do que falta, nunca invenção.
 
 Detalhes do ecossistema inteiro no [README do expxdev](https://github.com/bittencourtthulio/expxdev).
 
