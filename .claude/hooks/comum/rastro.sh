@@ -90,12 +90,24 @@ rastro_trabalho_id() {
 
 # ------------------------------------------------------------------ modo
 
-# Le o modo de um hook em .expx/hooks.json — "aviso" (padrao) ou "bloqueio".
-# Contrato: "O modo vive em .expx/hooks.json, por hook".
-# Hook desconhecido ou arquivo ausente => aviso, que e o padrao conservador.
+# Le o modo de um hook em .expx/hooks.json — "aviso", "bloqueio" ou "desligado".
+# Contrato expx-eventos: "O modo vive em .expx/hooks.json, por hook".
+#
+# Os TRES modos sao obrigatorios. Reconhecer so dois e cair no padrao diante do
+# terceiro faz o hook continuar rodando depois de alguem pedir para desliga-lo.
+#
+# O padrao, quando o arquivo falta ou nao tem a entrada, sai do `tipo`:
+# hook de seguranca nasce em bloqueio e NUNCA e rebaixado por ausencia de
+# configuracao; hook de metodo nasce em aviso. So um "desligado" explicito
+# desliga um hook de seguranca.
+#
+# Uso: rastro_modo <raiz> <hook> [tipo]   — tipo: metodo (padrao) | seguranca
 rastro_modo() {
-  local raiz="$1" hook="$2" cfg="$1/.expx/hooks.json"
-  [ -f "$cfg" ] || { printf 'aviso'; return 0; }
+  local raiz="$1" hook="$2" tipo="${3:-metodo}" cfg="$1/.expx/hooks.json"
+  local padrao='aviso'
+  [ "$tipo" = "seguranca" ] && padrao='bloqueio'
+
+  [ -f "$cfg" ] || { printf '%s' "$padrao"; return 0; }
   local m=""
   if command -v jq >/dev/null 2>&1; then
     m="$(jq -r --arg h "$hook" '.hooks[$h].modo // empty' "$cfg" 2>/dev/null)"
@@ -105,8 +117,8 @@ rastro_modo() {
         | head -1 | sed 's/.*:[[:space:]]*"//; s/"$//')"
   fi
   case "$m" in
-    bloqueio|aviso) printf '%s' "$m" ;;
-    *)              printf 'aviso' ;;
+    bloqueio|aviso|desligado) printf '%s' "$m" ;;
+    *)                       printf '%s' "$padrao" ;;
   esac
 }
 

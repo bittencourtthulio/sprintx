@@ -38,5 +38,9 @@ esac
 
 [ -n "$MOTIVO" ] || exit 0
 
+# Hook de seguranca: o padrao e bloqueio e ausencia de configuracao NAO rebaixa.
+# So um "desligado" explicito desliga.
+[ "$(rastro_modo "$RAIZ" git-perigoso seguranca)" = "desligado" ] && exit 0
+
 rastro_grava "$RAIZ" acao_bloqueada hook bloqueado "git perigoso: $MOTIVO" '[]'
 rastro_bloqueia "sprintx/git-perigoso: comando barrado — $MOTIVO. Durante a execucao autonoma nenhuma operacao de versionamento irreversivel roda sem decisao humana. Se isso e mesmo necessario, pare, registre em 00-BLOQUEIOS.md e deixe para o usuario decidir."

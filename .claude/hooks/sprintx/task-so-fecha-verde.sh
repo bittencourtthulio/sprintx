@@ -64,8 +64,11 @@ PROBLEMAS="$(printf '%s' "$NOVO" | awk '
 RESUMO="$(printf '%s' "$PROBLEMAS" | tr '\n' ';')"
 MSG="sprintx/task-so-fecha-verde: task nao pode ir para concluida assim -> $RESUMO. A regra do metodo e: task so e concluida quando o teste de integracao E o teste funcional passam. Nao existe concluido com ressalva. Rode a suite ate verde, ou marque a task como bloqueada e registre em 00-BLOQUEIOS.md."
 
-MODO="$(rastro_modo "$RAIZ" task-so-fecha-verde)"
+MODO="$(rastro_modo "$RAIZ" task-so-fecha-verde metodo)"
 REL="${ALVO#"$RAIZ"/}"
+
+# Desligado nao roda e nao registra: quem desligou nao quer nem o aviso.
+[ "$MODO" = "desligado" ] && exit 0
 
 if [ "$MODO" = "bloqueio" ]; then
   rastro_grava "$RAIZ" acao_bloqueada hook bloqueado "fechamento invalido: $RESUMO" "[\"$(rastro_json_escape "$REL")\"]"

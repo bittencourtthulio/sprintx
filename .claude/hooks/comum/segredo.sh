@@ -53,5 +53,9 @@ PADROES
 
 [ -n "$ACHADO" ] || exit 0
 
+# Hook de seguranca: o padrao e bloqueio e ausencia de configuracao NAO rebaixa.
+# So um "desligado" explicito desliga.
+[ "$(rastro_modo "$RAIZ" segredo seguranca)" = "desligado" ] && exit 0
+
 rastro_grava "$RAIZ" acao_bloqueada hook bloqueado "segredo detectado ($ACHADO) em $REL" "[\"$(rastro_json_escape "$REL")\"]"
 rastro_bloqueia "sprintx/segredo: isso parece $ACHADO sendo gravado em $REL. Segredo em arquivo versionado nao tem volta. Use variavel de ambiente e referencie por nome, ou grave em um .env ja ignorado pelo versionador. Se for um exemplo/fixture, use um valor claramente falso que nao case com o formato real."
