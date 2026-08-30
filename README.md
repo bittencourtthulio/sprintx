@@ -52,8 +52,9 @@ O método Expx é um conjunto de skills que se compõem, instaladas e mantidas p
 | **[mergex](https://github.com/bittencourtthulio/mergex)** | entrega: branch, commit por task, PR e pacote de QA | abre a branch no início da F6 e entrega ao fim dela |
 | **[memox](https://github.com/bittencourtthulio/MemoX)** | **camada** de memória do projeto | consultada na F1 e na F3, sobre os arquivos que o plano pretende tocar |
 | **[prodx](https://github.com/bittencourtthulio/prodx)** | **camada** de produto: decide **se** há trabalho | roda antes da F1 e entrega o `BRIEFING.md` assinado como entrada dela |
+| **[buildx](https://github.com/bittencourtthulio/buildx)** | orquestra um projeto inteiro, da descrição ao sistema pronto | invoca a `sprintx` uma vez por feature do mapa; quebra a regra 10 — a F2 deixa de entrevistar o humano, a `buildx` responde no lugar dele derivando de `PROJETO.md`, `PREMISSAS.md` e `CONVENCOES.md` e registrando em `00-DECISOES.md` com `respondido_por: buildx`. TDD, regra 4 e auditoria da F5 seguem intactos. É dependência obrigatória dela |
 
-**Camadas** (`legadox`, `stackx`, `memox`, `prodx`) sozinhas não fazem nada — elas modificam o comportamento da `sprintx` e da `runx`. A `prodx` é a única que roda **antes** de tudo: ela decide *se* há trabalho, e só depois a `sprintx` decide *como* fazê-lo. A ausência de qualquer irmã nunca quebra o fluxo desta skill: insumo que não existe vira aviso do que falta, nunca invenção.
+**Camadas** (`legadox`, `stackx`, `memox`, `prodx`) sozinhas não fazem nada — elas modificam o comportamento da `sprintx` e da `runx`. A `prodx` é a única que roda **antes** de tudo: ela decide *se* há trabalho, e só depois a `sprintx` decide *como* fazê-lo. A ausência de qualquer irmã nunca quebra o fluxo desta skill: insumo que não existe vira aviso do que falta, nunca invenção. A `buildx` é a exceção do método: por ficar acima de todas, é a única peça que **depende** de outras — e a `sprintx` é uma delas.
 
 Detalhes do ecossistema inteiro no [README do expxdev](https://github.com/bittencourtthulio/expxdev).
 
@@ -422,6 +423,7 @@ MIT — use, copie e adapte livremente.
 <div align="center">
 <sub>Parte do método <strong>Expx</strong> ·
 <a href="https://github.com/bittencourtthulio/expxdev">expxdev</a> ·
+<a href="https://github.com/bittencourtthulio/buildx">buildx</a> ·
 sprintx ·
 <a href="https://github.com/bittencourtthulio/runx">runx</a> ·
 <a href="https://github.com/bittencourtthulio/legadox">legadox</a> ·
