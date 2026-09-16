@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-label="O ciclo de uma task: contrato, teste antes do código, vermelho, implementação, os dois testes verdes, e só então concluída.">
+<title>O ciclo de uma task na sprintx: contrato, teste antes do código, vermelho, implementação, os dois testes verdes e só então concluída</title>
+<style>
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.s{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.k{fill:#8b949e}.v{fill:#e6edf3}.f{font-size:13px}
+</style>
+
+<!-- cartão -->
+<rect x="0.5" y="0.5" width="999" height="379" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+<!-- ===== ESQUERDA: cartão da task ===== -->
+<rect x="30" y="30" width="370" height="294" rx="10" fill="#161b22" stroke="#30363d"/>
+<text class="m" x="48" y="59" font-size="13" font-weight="600" fill="#3fb950">T-01.03</text>
+
+<!-- badge status: três camadas, uma visível por vez -->
+<g id="tdd-badge-pend">
+  <rect x="258" y="44" width="124" height="22" rx="11" fill="#21262d" stroke="#30363d"/>
+  <text class="m" x="320" y="59" font-size="12" text-anchor="middle" fill="#8b949e">pendente</text>
+  <animate attributeName="opacity" values="1;1;0;0;1;1" keyTimes="0;0.05;0.0501;0.975;0.9751;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+</g>
+<g id="tdd-badge-and" opacity="0">
+  <rect x="258" y="44" width="124" height="22" rx="11" fill="#d29922" fill-opacity="0.14" stroke="#d29922"/>
+  <text class="m" x="320" y="59" font-size="12" text-anchor="middle" fill="#d29922">em_andamento</text>
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.05;0.0501;0.8583;0.8584;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+</g>
+<g id="tdd-badge-conc" opacity="0">
+  <rect x="258" y="44" width="124" height="22" rx="11" fill="#238636" fill-opacity="0.22" stroke="#3fb950"/>
+  <text class="m" x="320" y="59" font-size="12" text-anchor="middle" fill="#3fb950">concluida</text>
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.8583;0.8584;0.975;0.9751;1" calcMode="discrete" dur="12s" repeatCount="indefinite"/>
+</g>
+
+<text class="m" x="48" y="88" font-size="15" font-weight="600" fill="#e6edf3">exportarCsv gera cabeçalho</text>
+<line x1="48" y1="104" x2="382" y2="104" stroke="#30363d"/>
+
+<g class="m f">
+  <text x="48" y="128"><tspan class="k">objetivo: </tspan><tspan class="v">uma frase</tspan></text>
+  <text x="48" y="148" class="k">arquivos:</text>
+  <text x="66" y="168" class="v">cria src/export/csv.ts, csv.test.ts</text>
+  <text x="48" y="188" class="k">teste_integracao:</text>
+  <!-- o valor acompanha o ciclo: neutro → amarelo (escrevendo) → vermelho (②) → verde (④) -->
+  <text x="66" y="208" fill="#e6edf3">a tela recebe o arquivo montado
+    <animate attributeName="fill" values="#e6edf3;#e6edf3;#d29922;#d29922;#f85149;#f85149;#3fb950;#3fb950;#e6edf3;#e6edf3" keyTimes="0;0.05;0.0667;0.1458;0.1583;0.6167;0.6333;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="48" y="228" class="k">teste_funcional:</text>
+  <text x="66" y="248" fill="#e6edf3">exportarCsv([]) → só cabeçalho
+    <animate attributeName="fill" values="#e6edf3;#e6edf3;#d29922;#d29922;#f85149;#f85149;#3fb950;#3fb950;#e6edf3;#e6edf3" keyTimes="0;0.05;0.0667;0.1458;0.1583;0.6667;0.6833;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </text>
+  <text x="48" y="268"><tspan class="k">criterio_aceite: </tspan><tspan fill="#e6edf3">os dois testes passam
+    <animate attributeName="fill" values="#e6edf3;#e6edf3;#3fb950;#3fb950;#e6edf3;#e6edf3" keyTimes="0;0.6917;0.7083;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </tspan></text>
+  <text x="48" y="288"><tspan class="k">depende_de: </tspan><tspan class="v">[T-01.01]</tspan></text>
+  <text x="48" y="308"><tspan class="k">paralelizavel: </tspan><tspan class="v">true</tspan></text>
+</g>
+
+<!-- ===== DIREITA: o ciclo ===== -->
+<text class="s" x="430" y="59" font-size="13" fill="#8b949e" letter-spacing="1.2">CICLO DE UMA TASK · TDD OBRIGATÓRIO</text>
+
+<!-- trilha -->
+<path id="tdd-track" d="M500 104 H910 A30 30 0 0 1 940 134 V226 A30 30 0 0 1 910 256 H510" fill="none" stroke="#30363d" stroke-width="3" stroke-linecap="round"/>
+<path id="tdd-prog" d="M500 104 H910 A30 30 0 0 1 940 134 V226 A30 30 0 0 1 910 256 H510" pathLength="1000" fill="none" stroke="#238636" stroke-width="3" stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000">
+  <animate attributeName="stroke-dashoffset" values="1000;1000;809.3;809.3;638.6;638.6;351.3;351.3;0;0" keyTimes="0;0.075;0.1333;0.275;0.3333;0.5167;0.5917;0.7417;0.8333;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+</path>
+
+<!-- marcador (passa por baixo das estações) -->
+<g id="tdd-marker">
+  <circle r="12" fill="#3fb950" opacity="0.22"/>
+  <circle r="6" fill="#3fb950"/>
+  <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyPoints="0;0;0.1907;0.1907;0.3614;0.3614;0.6487;0.6487;1;1" keyTimes="0;0.075;0.1333;0.275;0.3333;0.5167;0.5917;0.7417;0.8333;1" keySplines="0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1;0.45 0 0.25 1;0 0 1 1">
+    <mpath href="#tdd-track"/>
+  </animateMotion>
+  <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.95;0.975;1" dur="12s" repeatCount="indefinite"/>
+</g>
+
+<!-- ① escreve o teste -->
+<g id="tdd-s1">
+  <circle cx="500" cy="104" r="16" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <circle cx="500" cy="104" r="16" fill="none" stroke="#3fb950" stroke-width="1.5">
+    <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.075;0.1;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <g transform="translate(500 104) rotate(45)" fill="#e6edf3">
+    <rect x="-2.5" y="-9.5" width="5" height="13" rx="1"/>
+    <path d="M-2.5 5.5 L0 10.5 L2.5 5.5 Z"/>
+    <animate attributeName="fill" values="#e6edf3;#e6edf3;#8b949e;#8b949e;#e6edf3" keyTimes="0;0.075;0.1;0.975;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <text class="m" x="500" y="142" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#3fb950" font-weight="600">1</tspan><tspan> escreve o teste</tspan></text>
+</g>
+
+<!-- ② roda: vermelho -->
+<g id="tdd-s2">
+  <g>
+    <circle cx="690" cy="104" r="16" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <circle cx="690" cy="104" r="16" fill="#f85149" stroke="#f85149" stroke-width="1.5" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1333;0.1583;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M684.5 98.5 L695.5 109.5 M695.5 98.5 L684.5 109.5" stroke="#0d1117" stroke-width="2.5" stroke-linecap="round" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1458;0.1583;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+    </path>
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 0;-3 0;3 0;-2 0;0 0;0 0" keyTimes="0;0.1583;0.1708;0.1833;0.1958;0.2083;1" calcMode="spline" keySplines="0 0 1 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <text class="m" x="690" y="142" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#3fb950" font-weight="600">2</tspan><tspan> roda: </tspan><tspan fill="#6e7681">✗<animate attributeName="fill" values="#6e7681;#6e7681;#f85149;#f85149;#6e7681;#6e7681" keyTimes="0;0.1458;0.1583;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/></tspan><tspan> vermelho</tspan></text>
+</g>
+
+<!-- ③ implementa -->
+<g id="tdd-s3">
+  <circle cx="860" cy="104" r="16" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <circle cx="860" cy="104" r="16" fill="none" stroke="#3fb950" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3333;0.35;0.5167;0.5417;1" dur="12s" repeatCount="indefinite"/>
+  </circle>
+  <text class="m" x="860" y="109" font-size="14" font-weight="600" text-anchor="middle" fill="#8b949e">{ }<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.3333;0.35;0.5167;0.5417;1" dur="12s" repeatCount="indefinite"/></text>
+  <text class="m" x="860" y="142" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#3fb950" font-weight="600">3</tspan><tspan> implementa</tspan></text>
+  <!-- mini editor -->
+  <rect x="804" y="156" width="112" height="60" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <circle cx="814" cy="166" r="2.2" fill="#30363d"/><circle cx="822" cy="166" r="2.2" fill="#30363d"/><circle cx="830" cy="166" r="2.2" fill="#30363d"/>
+  <g fill="#21262d">
+    <rect x="814" y="176" width="44" height="4" rx="2"/>
+    <rect x="814" y="186" width="70" height="4" rx="2"/>
+    <rect x="814" y="196" width="56" height="4" rx="2"/>
+    <rect x="814" y="206" width="30" height="4" rx="2"/>
+  </g>
+  <g fill="#3fb950">
+    <rect x="814" y="176" width="0" height="4" rx="2"><animate attributeName="width" values="0;0;44;44" keyTimes="0;0.35;0.375;1" calcMode="spline" keySplines="0 0 1 1;0.3 0 0.5 1;0 0 1 1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="814" y="186" width="0" height="4" rx="2"><animate attributeName="width" values="0;0;70;70" keyTimes="0;0.3833;0.4083;1" calcMode="spline" keySplines="0 0 1 1;0.3 0 0.5 1;0 0 1 1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="814" y="196" width="0" height="4" rx="2"><animate attributeName="width" values="0;0;56;56" keyTimes="0;0.4167;0.4417;1" calcMode="spline" keySplines="0 0 1 1;0.3 0 0.5 1;0 0 1 1" dur="12s" repeatCount="indefinite"/></rect>
+    <rect x="814" y="206" width="0" height="4" rx="2"><animate attributeName="width" values="0;0;30;30" keyTimes="0;0.45;0.475;1" calcMode="spline" keySplines="0 0 1 1;0.3 0 0.5 1;0 0 1 1" dur="12s" repeatCount="indefinite"/></rect>
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+</g>
+
+<!-- ④ roda: os dois verdes -->
+<g id="tdd-s4">
+  <rect x="828" y="240" width="64" height="32" rx="16" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="828" y="240" width="64" height="32" rx="16" fill="none" stroke="#3fb950" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.5917;0.6083;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="845" cy="256" r="9" fill="#21262d" stroke="#30363d"/>
+  <circle cx="875" cy="256" r="9" fill="#21262d" stroke="#30363d"/>
+  <g opacity="0">
+    <circle cx="845" cy="256" r="9" fill="#3fb950"/>
+    <path d="M840.5 256.5 L844 260 L850 253" fill="none" stroke="#0d1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6167;0.6333;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle cx="875" cy="256" r="9" fill="#3fb950"/>
+    <path d="M870.5 256.5 L874 260 L880 253" fill="none" stroke="#0d1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6667;0.6833;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <text class="m" x="860" y="294" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#3fb950" font-weight="600">4</tspan><tspan> roda:</tspan></text>
+  <text class="m" x="860" y="312" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#6e7681">✓<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.6167;0.6333;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/></tspan><tspan> integração </tspan><tspan fill="#6e7681">✓<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.6667;0.6833;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/></tspan><tspan> funcional</tspan></text>
+</g>
+
+<!-- portão: task-so-fecha-verde -->
+<g id="tdd-gate">
+  <text class="m" x="690" y="208" font-size="13" text-anchor="middle" fill="#8b949e">task-so-fecha-verde<animate attributeName="fill" values="#8b949e;#8b949e;#3fb950;#3fb950;#8b949e;#8b949e" keyTimes="0;0.7167;0.7667;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/></text>
+  <!-- barra: abre girando; no reset some por opacidade, volta a 0° invisível e reaparece fechada -->
+  <g>
+    <rect x="687" y="230" width="6" height="52" rx="3" fill="#8b949e"/>
+    <rect x="687" y="230" width="6" height="52" rx="3" fill="#3fb950" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.7167;0.7667;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+    </rect>
+    <animateTransform attributeName="transform" type="rotate" values="0 690 230;0 690 230;95 690 230;95 690 230;0 690 230;0 690 230" keyTimes="0;0.7167;0.7667;0.9917;0.9918;1" calcMode="spline" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;1;0;1" keyTimes="0;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <circle cx="690" cy="230" r="4.5" fill="#21262d" stroke="#8b949e" stroke-width="1.5"/>
+</g>
+
+<!-- ⑤ suite: parcial → status: concluida -->
+<g id="tdd-s5">
+  <circle cx="510" cy="256" r="16" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <path d="M502.5 256.5 L508 262 L518 250.5" fill="none" stroke="#6e7681" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g opacity="0">
+    <circle cx="510" cy="256" r="16" fill="#3fb950" stroke="#3fb950" stroke-width="1.5"/>
+    <path d="M502.5 256.5 L508 262 L518 250.5" fill="none" stroke="#0d1117" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.8333;0.8458;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <text class="m" x="510" y="294" font-size="13" text-anchor="middle" fill="#8b949e"><tspan fill="#3fb950" font-weight="600">5</tspan><tspan> suite: parcial</tspan></text>
+  <text class="m" x="510" y="312" font-size="13" text-anchor="middle" fill="#6e7681">→ status: concluida<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.8583;0.8708;0.9667;0.9917;1" dur="12s" repeatCount="indefinite"/></text>
+</g>
+
+<!-- rodapé -->
+<text class="s" x="30" y="357" font-size="14" fill="#e6edf3">Não existe concluído com ressalva.</text>
+<g id="tdd-selo">
+  <rect x="722" y="342" width="248" height="24" rx="12" fill="#161b22" stroke="#30363d">
+    <animate attributeName="stroke" values="#30363d;#30363d;#8b949e;#8b949e;#30363d;#30363d" keyTimes="0;0.8833;0.9;0.925;0.9417;1" dur="12s" repeatCount="indefinite"/>
+  </rect>
+  <text class="s" x="846" y="358" font-size="13" text-anchor="middle" fill="#8b949e">suíte inteira ao fechar a sprint<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.8833;0.9;0.925;0.9417;1" dur="12s" repeatCount="indefinite"/></text>
+</g>
+</svg>

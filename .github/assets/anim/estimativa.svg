@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340" role="img" aria-label="F3.5: faixa de esforço, nunca número único; esforço, nunca prazo. Esforço total versus caminho crítico.">
+<title>F3.5 Estimativa da sprintx: três pontos por task, PERT e quadratura, faixa de esforço total e de caminho crítico, confiança limitada sem histórico, e número único e prazo riscados</title>
+<style>
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.s{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.k{fill:#8b949e}.v{fill:#e6edf3}.d{fill:#6e7681}
+
+/* ciclo mestre: 12 s. percentuais = t/12. tudo esmaece em 95% e volta ao estado inicial em 99.167% */
+.seg{opacity:0;animation:est-seg 12s ease-out infinite}
+.seg1{animation-name:est-seg1}.seg2{animation-name:est-seg2}.seg3{animation-name:est-seg3}.seg4{animation-name:est-seg4}
+@keyframes est-seg1{0%,4.167%{opacity:0;transform:translateX(-10px)}7.5%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+@keyframes est-seg2{0%,10%{opacity:0;transform:translateX(-10px)}13.333%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+@keyframes est-seg3{0%,15.833%{opacity:0;transform:translateX(-10px)}19.167%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+@keyframes est-seg4{0%,21.667%{opacity:0;transform:translateX(-10px)}25%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+
+/* peças que voam, uma task por vez: T-01.01 3.2–3.9 s · T-01.02 4.2–4.9 s · T-01.03 5.5–6.2 s · T-01.04 6.5–7.2 s
+   as verdes somem no instante do pouso (o preenchimento cresce a partir daí); as azuis das tasks ∥ ficam estacionadas ao lado do rótulo */
+.pc{opacity:0;animation:est-pc 12s linear infinite}
+.f1{animation-name:est-f1}.f2{animation-name:est-f2}.f3{animation-name:est-f3}.f4{animation-name:est-f4}
+.c3{animation-name:est-c3}.c4{animation-name:est-c4}
+@keyframes est-f1{0%,26.2%{opacity:0}26.667%{opacity:1}32.5%{opacity:1}33.333%,100%{opacity:0}}
+@keyframes est-f2{0%,34.5%{opacity:0}35%{opacity:1}40.833%{opacity:1}41.667%,100%{opacity:0}}
+@keyframes est-f3{0%,45.4%{opacity:0}45.833%{opacity:1}51.667%{opacity:1}52.5%,100%{opacity:0}}
+@keyframes est-f4{0%,53.7%{opacity:0}54.167%{opacity:1}60%{opacity:1}60.833%,100%{opacity:0}}
+@keyframes est-c3{0%,45.4%{opacity:0}45.833%{opacity:1}95%{opacity:1}99.167%,100%{opacity:0}}
+@keyframes est-c4{0%,53.7%{opacity:0}54.167%{opacity:1}95%{opacity:1}99.167%,100%{opacity:0}}
+
+/* aparições simples (rótulos, números, nota) */
+.ap{opacity:0;animation:est-ap 12s ease-out infinite}
+.apA{animation-name:est-apA}.apB{animation-name:est-apB}.apC{animation-name:est-apC}.apD{animation-name:est-apD}.apE{animation-name:est-apE}
+@keyframes est-apA{0%,51.667%{opacity:0}54.167%{opacity:1}95%{opacity:1}99.167%,100%{opacity:0}}
+@keyframes est-apB{0%,62.5%{opacity:0}65%{opacity:1}95%{opacity:1}99.167%,100%{opacity:0}}
+@keyframes est-apC{0%,45.833%{opacity:0;transform:translateX(-6px)}48.333%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+@keyframes est-apD{0%,65%{opacity:0;transform:translateX(-6px)}67.5%{opacity:1;transform:translateX(0)}95%{opacity:1;transform:translateX(0)}99.167%,100%{opacity:0;transform:translateX(0)}}
+@keyframes est-apE{0%,74.167%{opacity:0}76.667%{opacity:1}95%{opacity:1}99.167%,100%{opacity:0}}
+
+/* preenchimentos das barras esmaecem no fim do ciclo (largura volta a zero enquanto invisível) */
+.fl{animation:est-fl 12s linear infinite}
+@keyframes est-fl{0%,95%{opacity:1}99.167%,99.9%{opacity:0}100%{opacity:1}}
+
+/* ponteiro de confiança: baixa → média em 8.3–8.9 s; o destaque comuta só quando o ponteiro assenta */
+.ptr{animation:est-ptr 12s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes est-ptr{0%,69.167%{transform:translateX(0);opacity:1}74.167%{transform:translateX(172px);opacity:1}95%{transform:translateX(172px);opacity:1}97%{transform:translateX(172px);opacity:0}97.5%{transform:translateX(0);opacity:0}99.5%,100%{transform:translateX(0);opacity:1}}
+.hiB{animation:est-hiB 12s linear infinite}
+.hiM{opacity:0;animation:est-hiM 12s linear infinite}
+@keyframes est-hiB{0%,74.167%{opacity:1}75.833%{opacity:0}97%{opacity:0}99.5%,100%{opacity:1}}
+@keyframes est-hiM{0%,74.167%{opacity:0}75.833%{opacity:1}97%{opacity:1}99.5%,100%{opacity:0}}
+
+/* carimbos riscados: 9.4 s e 9.8 s */
+.st{opacity:0;animation:est-st 12s cubic-bezier(.2,.9,.3,1.2) infinite}
+.st1{animation-name:est-st1}.st2{animation-name:est-st2}
+@keyframes est-st1{0%,78.333%{opacity:0;transform:scale(1.5)}80.833%{opacity:1;transform:scale(1)}95%{opacity:1;transform:scale(1)}99.167%,100%{opacity:0;transform:scale(1)}}
+@keyframes est-st2{0%,81.667%{opacity:0;transform:scale(1.5)}84.167%{opacity:1;transform:scale(1)}95%{opacity:1;transform:scale(1)}99.167%,100%{opacity:0;transform:scale(1)}}
+</style>
+
+<defs>
+  <!-- marcador ∥ = paralelizável, desenhado (o glifo U+2225 varia entre fontes) -->
+  <g id="est-par" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round"><line x1="0" y1="-9" x2="0" y2="0"/><line x1="4" y1="-9" x2="4" y2="0"/></g>
+</defs>
+
+<!-- cartão -->
+<rect x="0.5" y="0.5" width="999" height="339" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+<!-- título -->
+<text class="s" x="30" y="44" font-size="20" font-weight="600" fill="#e6edf3"><tspan fill="#3fb950">F3.5</tspan> · orçar sem chutar</text>
+<text class="s k" x="30" y="66" font-size="13">faixa, nunca número único · esforço, nunca prazo</text>
+
+<!-- ===== ESQUERDA: tasks com três pontos ===== -->
+<rect x="30" y="84" width="390" height="216" rx="10" fill="#161b22" stroke="#30363d"/>
+<use href="#est-par" x="287" y="104"/>
+<text class="m k" x="402" y="104" font-size="13" text-anchor="end">paralelizável</text>
+
+<g class="m" font-size="12">
+  <!-- T-01.01 (80 px) -->
+  <text x="48" y="128" fill="#e6edf3">T-01.01</text>
+  <line x1="150" y1="124" x2="280" y2="124" stroke="#30363d" stroke-width="2"/>
+  <g class="seg seg1">
+    <text class="k" x="155" y="117" text-anchor="middle">o</text>
+    <text class="k" x="185" y="117" text-anchor="middle">m</text>
+    <text class="k" x="235" y="117" text-anchor="middle">p</text>
+    <line x1="155" y1="124" x2="235" y2="124" stroke="#3fb950" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="155" cy="124" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <circle cx="185" cy="124" r="4" fill="#3fb950"/>
+    <circle cx="235" cy="124" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  </g>
+  <!-- T-01.02 (99 px) -->
+  <text x="48" y="158" fill="#e6edf3">T-01.02</text>
+  <line x1="150" y1="154" x2="280" y2="154" stroke="#30363d" stroke-width="2"/>
+  <g class="seg seg2">
+    <text class="k" x="150" y="147" text-anchor="middle">o</text>
+    <text class="k" x="185" y="147" text-anchor="middle">m</text>
+    <text class="k" x="249" y="147" text-anchor="middle">p</text>
+    <line x1="150" y1="154" x2="249" y2="154" stroke="#3fb950" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="150" cy="154" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <circle cx="185" cy="154" r="4" fill="#3fb950"/>
+    <circle cx="249" cy="154" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  </g>
+  <!-- T-01.03 ∥ (50 px) -->
+  <text x="48" y="188" fill="#e6edf3">T-01.03</text>
+  <use href="#est-par" x="114" y="188"/>
+  <line x1="150" y1="184" x2="280" y2="184" stroke="#30363d" stroke-width="2"/>
+  <g class="seg seg3">
+    <text class="k" x="150" y="177" text-anchor="middle">o</text>
+    <text class="k" x="168" y="177" text-anchor="middle">m</text>
+    <text class="k" x="200" y="177" text-anchor="middle">p</text>
+    <line x1="150" y1="184" x2="200" y2="184" stroke="#3fb950" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="150" cy="184" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <circle cx="168" cy="184" r="4" fill="#3fb950"/>
+    <circle cx="200" cy="184" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  </g>
+  <!-- T-01.04 ∥ (67 px) -->
+  <text x="48" y="218" fill="#e6edf3">T-01.04</text>
+  <use href="#est-par" x="114" y="218"/>
+  <line x1="150" y1="214" x2="280" y2="214" stroke="#30363d" stroke-width="2"/>
+  <g class="seg seg4">
+    <text class="k" x="175" y="207" text-anchor="middle">o</text>
+    <text class="k" x="200" y="207" text-anchor="middle">m</text>
+    <text class="k" x="242" y="207" text-anchor="middle">p</text>
+    <line x1="175" y1="214" x2="242" y2="214" stroke="#3fb950" stroke-width="2" stroke-opacity="0.7"/>
+    <circle cx="175" cy="214" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <circle cx="200" cy="214" r="4" fill="#3fb950"/>
+    <circle cx="242" cy="214" r="3.5" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+  </g>
+</g>
+
+<line x1="48" y1="236" x2="402" y2="236" stroke="#30363d"/>
+<g class="m" font-size="13">
+  <text x="48" y="258"><tspan class="k">média = </tspan><tspan class="v">(o + 4m + p) / 6</tspan></text>
+  <text x="48" y="280"><tspan class="k">σ = </tspan><tspan class="v">√(Σ σ²)</tspan><tspan class="d">  (quadratura, não soma)</tspan></text>
+</g>
+
+<!-- ===== DIREITA: esforço total × caminho crítico (escala ≈ 5,1 px por hora) ===== -->
+<!-- Esforço total: 80 + 99 + 50 + 67 = 296 px = 58 h; faixa até 66 h -->
+<text class="s" x="460" y="104" font-size="14" font-weight="600" fill="#e6edf3">Esforço total</text>
+<text class="s k" x="970" y="104" font-size="13" text-anchor="end">todo o trabalho a fazer — é o que se cobra</text>
+<rect x="460" y="110" width="510" height="20" rx="5" fill="#21262d"/>
+<g class="fl">
+  <rect x="751" y="110" width="0" height="20" rx="5" fill="#3fb950" fill-opacity="0.45">
+    <animate attributeName="width" dur="12s" repeatCount="indefinite" calcMode="spline"
+      values="0;0;46;46;0" keyTimes="0;0.625;0.65;0.9917;1"
+      keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0 0 1 1"/>
+  </rect>
+  <rect x="460" y="110" width="0" height="20" rx="5" fill="#238636">
+    <animate attributeName="width" dur="12s" repeatCount="indefinite" calcMode="spline"
+      values="0;0;80;80;179;179;229;229;296;296;0"
+      keyTimes="0;0.325;0.35;0.4083;0.4333;0.5167;0.5417;0.6;0.625;0.9917;1"
+      keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0 0 1 1"/>
+  </rect>
+</g>
+<text class="m ap apD" x="811" y="125" font-size="15" font-weight="700" fill="#3fb950">58–66 h</text>
+<text class="m k ap apB" x="460" y="150" font-size="13">as quatro somam no total</text>
+
+<!-- Caminho crítico: 80 + 99 = 179 px = 35 h; faixa até 42 h -->
+<text class="s" x="460" y="178" font-size="14" font-weight="600" fill="#e6edf3">Caminho crítico</text>
+<text class="s k" x="970" y="178" font-size="13" text-anchor="end">a cadeia mais longa — é o que limita o calendário</text>
+<rect x="460" y="184" width="510" height="20" rx="5" fill="#21262d"/>
+<g class="fl">
+  <rect x="634" y="184" width="0" height="20" rx="5" fill="#58a6ff" fill-opacity="0.3">
+    <animate attributeName="width" dur="12s" repeatCount="indefinite" calcMode="spline"
+      values="0;0;40;40;0" keyTimes="0;0.4333;0.4583;0.9917;1"
+      keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0 0 1 1"/>
+  </rect>
+  <rect x="460" y="184" width="0" height="20" rx="5" fill="#58a6ff" fill-opacity="0.6">
+    <animate attributeName="width" dur="12s" repeatCount="indefinite" calcMode="spline"
+      values="0;0;80;80;179;179;0"
+      keyTimes="0;0.325;0.35;0.4083;0.4333;0.9917;1"
+      keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0 0 1 1"/>
+  </rect>
+</g>
+<text class="m ap apC" x="688" y="199" font-size="15" font-weight="700" fill="#58a6ff">35–42 h</text>
+<!-- via lateral: as peças ∥ estacionam aqui, fora da barra, ao lado da explicação -->
+<g class="ap apA"><use href="#est-par" x="597" y="224"/><text class="m k" x="611" y="224" font-size="13">paralelas não alongam a cadeia</text></g>
+
+<!-- peças que voam das tasks para as barras. corredor de subida/descida: x 320–450, entre o fim dos trilhos e a barra -->
+<g>
+  <!-- T-01.01: verde para o total, azul para o caminho crítico -->
+  <rect class="pc f1" x="155" y="121" width="80" height="6" rx="3" fill="#3fb950">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C150,0 200,-4 305,-4"
+      keyPoints="0;0;1;1" keyTimes="0;0.2667;0.325;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <rect class="pc f1" x="155" y="121" width="80" height="6" rx="3" fill="#58a6ff">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C160,0 185,70 225,70 L305,70"
+      keyPoints="0;0;1;1" keyTimes="0;0.2667;0.325;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <!-- T-01.02 -->
+  <rect class="pc f2" x="150" y="151" width="99" height="6" rx="3" fill="#3fb950">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C155,0 175,-34 211,-34 L390,-34"
+      keyPoints="0;0;1;1" keyTimes="0;0.35;0.4083;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <rect class="pc f2" x="150" y="151" width="99" height="6" rx="3" fill="#58a6ff">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C155,0 175,40 211,40 L390,40"
+      keyPoints="0;0;1;1" keyTimes="0;0.35;0.4083;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <!-- T-01.03 ∥: verde para o total; azul desvia por baixo da barra e estaciona junto ao rótulo -->
+  <rect class="pc f3" x="150" y="181" width="50" height="6" rx="3" fill="#3fb950">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C150,0 190,-64 240,-64 L489,-64"
+      keyPoints="0;0;1;1" keyTimes="0;0.4583;0.5167;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <rect class="pc c3" x="150" y="181" width="50" height="6" rx="3" fill="#58a6ff">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C150,0 190,35 240,35 L383,35"
+      keyPoints="0;0;1;1" keyTimes="0;0.4583;0.5167;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <!-- T-01.04 ∥ -->
+  <rect class="pc f4" x="175" y="211" width="67" height="6" rx="3" fill="#3fb950">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C140,0 170,-94 215,-94 L514,-94"
+      keyPoints="0;0;1;1" keyTimes="0;0.5417;0.6;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+  <rect class="pc c4" x="175" y="211" width="67" height="6" rx="3" fill="#58a6ff">
+    <animateMotion dur="12s" repeatCount="indefinite" path="M0,0 C150,0 200,5 285,5"
+      keyPoints="0;0;1;1" keyTimes="0;0.5417;0.6;1" calcMode="spline" keySplines="0 0 1 1;0.45 0 0.15 1;0 0 1 1"/>
+  </rect>
+</g>
+
+<!-- medidor de confiança -->
+<text class="s k" x="460" y="250" font-size="13">confiança</text>
+<text class="m k ap apE" x="970" y="250" font-size="12" text-anchor="end">sem HISTORICO.md, nunca passa de média</text>
+<rect x="460" y="256" width="166" height="10" rx="3" fill="#21262d"/>
+<rect x="632" y="256" width="166" height="10" rx="3" fill="#21262d"/>
+<rect x="804" y="256" width="166" height="10" rx="3" fill="#21262d"/>
+<rect class="hiB" x="460" y="256" width="166" height="10" rx="3" fill="#8b949e" fill-opacity="0.35"/>
+<rect class="hiM" x="632" y="256" width="166" height="10" rx="3" fill="#3fb950" fill-opacity="0.45"/>
+<g transform="translate(543,0)">
+  <g class="ptr">
+    <polygon points="-6,281 6,281 0,272" fill="#e6edf3"/>
+  </g>
+</g>
+<g class="m k" font-size="13" text-anchor="middle">
+  <text x="543" y="294">baixa</text>
+  <text x="715" y="294">média</text>
+  <text x="887" y="294">alta</text>
+</g>
+
+<!-- carimbos riscados: número único e prazo são proibidos -->
+<g transform="translate(770,46)">
+  <g class="st st1">
+    <g transform="rotate(-4)">
+      <rect x="-32" y="-12" width="64" height="24" rx="4" fill="#f85149" fill-opacity="0.12" stroke="#f85149" stroke-opacity="0.8"/>
+      <text class="m" x="0" y="5" font-size="13" font-weight="700" text-anchor="middle" fill="#f85149">61 h</text>
+      <line x1="-24" y1="1" x2="24" y2="1" stroke="#f85149" stroke-width="2"/>
+    </g>
+  </g>
+</g>
+<g transform="translate(900,46)">
+  <g class="st st2">
+    <g transform="rotate(-4)">
+      <rect x="-70" y="-12" width="140" height="24" rx="4" fill="#f85149" fill-opacity="0.12" stroke="#f85149" stroke-opacity="0.8"/>
+      <text class="m" x="0" y="5" font-size="13" font-weight="700" text-anchor="middle" fill="#f85149">entrega dia 30</text>
+      <line x1="-60" y1="1" x2="60" y2="1" stroke="#f85149" stroke-width="2"/>
+    </g>
+  </g>
+</g>
+</svg>

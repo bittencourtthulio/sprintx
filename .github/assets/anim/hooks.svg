@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-label="Hooks: scripts determinísticos que o harness executa. Aviso deixa passar com marca; bloqueio barra. Todo hook de método nasce em aviso.">
+  <title>Hooks da sprintx: aviso deixa passar com marca, bloqueio barra; todo hook de método nasce em aviso</title>
+  <style>
+.t{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif}
+.m{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}
+.anim{animation-duration:14s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.45,0,.2,1)}
+@keyframes hooks-a-move{0%{transform:translate(128px,150px);opacity:1}3.571%{transform:translate(128px,150px)}10%{transform:translate(270px,150px)}13.571%{transform:translate(270px,150px)}18.571%{transform:translate(425px,150px)}21.429%{transform:translate(425px,150px)}26.429%{transform:translate(580px,150px)}28.571%{transform:translate(580px,150px)}33.571%{transform:translate(735px,150px)}35.714%{transform:translate(735px,150px)}40%{transform:translate(872px,150px)}45.714%{transform:translate(872px,150px);opacity:1}49.286%{transform:translate(872px,150px);opacity:0}51.429%{transform:translate(128px,150px);opacity:0}96.429%{transform:translate(128px,150px);opacity:0}100%{transform:translate(128px,150px);opacity:1}}
+@keyframes hooks-a-tag{0%{opacity:0;transform:translate(0px,6px)}10%{opacity:0;transform:translate(0px,6px)}12.857%{opacity:1;transform:translate(0px,0px)}45.714%{opacity:1;transform:translate(0px,0px)}49.286%{opacity:0;transform:translate(0px,0px)}100%{opacity:0;transform:translate(0px,6px)}}
+@keyframes hooks-a-exec{0%{opacity:0;transform:translate(0px,6px)}40%{opacity:0;transform:translate(0px,6px)}42.5%{opacity:1;transform:translate(0px,0px)}45.714%{opacity:1}49.286%{opacity:0}100%{opacity:0;transform:translate(0px,6px)}}
+@keyframes hooks-a-rect{0%{stroke:#30363d}40%{stroke:#30363d}42.5%{stroke:#3fb950}49.286%{stroke:#3fb950}51.429%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes hooks-b-move{0%{transform:translate(128px,150px);opacity:0}32.857%{transform:translate(128px,150px);opacity:0}35.714%{transform:translate(128px,150px);opacity:1}41.429%{transform:translate(270px,150px)}44.286%{transform:translate(270px,150px)}49.286%{transform:translate(425px,150px)}51.429%{transform:translate(425px,150px);animation-timing-function:cubic-bezier(.5,0,1,.6)}56.429%{transform:translate(480px,150px);animation-timing-function:cubic-bezier(0,.6,.3,1)}57.857%{transform:translate(464px,150px);animation-timing-function:ease-in-out}59.286%{transform:translate(470px,150px);opacity:1;animation-timing-function:cubic-bezier(.5,0,.25,1)}62.5%{transform:translate(128px,150px);opacity:1}64.643%{transform:translate(128px,150px);opacity:0}100%{transform:translate(128px,150px);opacity:0}}
+@keyframes hooks-b-rect{0%{stroke:#30363d;fill:#21262d}56.429%{stroke:#30363d;fill:#21262d}57.5%{stroke:#f85149;fill:#3a1d1f}64.643%{stroke:#f85149;fill:#3a1d1f}66.5%{stroke:#30363d;fill:#21262d}100%{stroke:#30363d;fill:#21262d}}
+@keyframes hooks-b-chip{0%{opacity:0;transform:translate(0px,6px)}56.429%{opacity:0;transform:translate(0px,6px)}58.571%{opacity:1;transform:translate(0px,0px)}64.643%{opacity:1}66.5%{opacity:0}100%{opacity:0;transform:translate(0px,6px)}}
+@keyframes hooks-c-move{0%{transform:translate(128px,150px);opacity:0}64.643%{transform:translate(128px,150px);opacity:0}66.786%{transform:translate(128px,150px);opacity:1}70.357%{transform:translate(270px,150px)}71.786%{transform:translate(270px,150px)}76.071%{transform:translate(425px,150px)}77.5%{transform:translate(425px,150px)}81.786%{transform:translate(580px,150px)}83.214%{transform:translate(580px,150px);animation-timing-function:cubic-bezier(.5,0,1,.6)}87.143%{transform:translate(635px,150px);animation-timing-function:cubic-bezier(0,.6,.3,1)}88.429%{transform:translate(619px,150px);animation-timing-function:ease-in-out}89.643%{transform:translate(625px,150px);opacity:1;animation-timing-function:cubic-bezier(.5,0,.25,1)}92.857%{transform:translate(128px,150px);opacity:1}95%{transform:translate(128px,150px);opacity:0}100%{transform:translate(128px,150px);opacity:0}}
+@keyframes hooks-c-rect{0%{stroke:#30363d;fill:#21262d}87.143%{stroke:#30363d;fill:#21262d}88.214%{stroke:#f85149;fill:#3a1d1f}95%{stroke:#f85149;fill:#3a1d1f}96.5%{stroke:#30363d;fill:#21262d}100%{stroke:#30363d;fill:#21262d}}
+@keyframes hooks-c-chip{0%{opacity:0;transform:translate(0px,6px)}87.143%{opacity:0;transform:translate(0px,6px)}89.286%{opacity:1;transform:translate(0px,0px)}95%{opacity:1}96.5%{opacity:0}100%{opacity:0;transform:translate(0px,6px)}}
+@keyframes hooks-g1-flash{0%{stroke:#30363d;fill:#161b22}10%{stroke:#30363d;fill:#161b22}11.429%{stroke:#d29922;fill:rgba(210,153,34,.16)}15.714%{stroke:#d29922;fill:rgba(210,153,34,.16)}18.571%{stroke:#30363d;fill:#161b22}41.429%{stroke:#30363d;fill:#161b22}42.857%{stroke:#3fb950;fill:rgba(63,185,80,.14)}44.286%{stroke:#3fb950;fill:rgba(63,185,80,.14)}47.143%{stroke:#30363d;fill:#161b22}70.357%{stroke:#30363d;fill:#161b22}71.786%{stroke:#3fb950;fill:rgba(63,185,80,.14)}72.5%{stroke:#3fb950;fill:rgba(63,185,80,.14)}75.357%{stroke:#30363d;fill:#161b22}100%{stroke:#30363d;fill:#161b22}}
+@keyframes hooks-g2-flash{0%{stroke:#30363d;fill:#161b22}18.571%{stroke:#30363d;fill:#161b22}20%{stroke:#3fb950;fill:rgba(63,185,80,.14)}21.429%{stroke:#3fb950;fill:rgba(63,185,80,.14)}24.286%{stroke:#30363d;fill:#161b22}49.286%{stroke:#30363d;fill:#161b22}50.714%{stroke:#3fb950;fill:rgba(63,185,80,.14)}52.143%{stroke:#3fb950;fill:rgba(63,185,80,.14)}55%{stroke:#30363d;fill:#161b22}76.071%{stroke:#30363d;fill:#161b22}77.5%{stroke:#3fb950;fill:rgba(63,185,80,.14)}78.214%{stroke:#3fb950;fill:rgba(63,185,80,.14)}81.071%{stroke:#30363d;fill:#161b22}100%{stroke:#30363d;fill:#161b22}}
+@keyframes hooks-g3-flash{0%{stroke:#30363d;fill:#161b22}26.429%{stroke:#30363d;fill:#161b22}27.857%{stroke:#3fb950;fill:rgba(63,185,80,.14)}29.286%{stroke:#3fb950;fill:rgba(63,185,80,.14)}32.143%{stroke:#30363d;fill:#161b22}52.857%{stroke:#30363d;fill:#161b22}54.286%{stroke:#f85149;fill:rgba(248,81,73,.16)}63.571%{stroke:#f85149;fill:rgba(248,81,73,.16)}66.429%{stroke:#30363d;fill:#161b22}81.786%{stroke:#30363d;fill:#161b22}83.214%{stroke:#3fb950;fill:rgba(63,185,80,.14)}83.929%{stroke:#3fb950;fill:rgba(63,185,80,.14)}86.786%{stroke:#30363d;fill:#161b22}100%{stroke:#30363d;fill:#161b22}}
+@keyframes hooks-g4-flash{0%{stroke:#30363d;fill:#161b22}33.571%{stroke:#30363d;fill:#161b22}35%{stroke:#3fb950;fill:rgba(63,185,80,.14)}36.429%{stroke:#3fb950;fill:rgba(63,185,80,.14)}39.286%{stroke:#30363d;fill:#161b22}83.571%{stroke:#30363d;fill:#161b22}85%{stroke:#f85149;fill:rgba(248,81,73,.16)}93.571%{stroke:#f85149;fill:rgba(248,81,73,.16)}96.429%{stroke:#30363d;fill:#161b22}100%{stroke:#30363d;fill:#161b22}}
+@keyframes hooks-l1{0%{opacity:0;transform:translate(-8px,0px)}41.786%{opacity:0;transform:translate(-8px,0px)}45%{opacity:1;transform:translate(0px,0px)}97.5%{opacity:1;transform:translate(0px,0px)}99.857%{opacity:0;transform:translate(0px,0px)}100%{opacity:0;transform:translate(-8px,0px)}}
+@keyframes hooks-l2{0%{opacity:0;transform:translate(-8px,0px)}58.929%{opacity:0;transform:translate(-8px,0px)}62.143%{opacity:1;transform:translate(0px,0px)}97.5%{opacity:1;transform:translate(0px,0px)}99.857%{opacity:0;transform:translate(0px,0px)}100%{opacity:0;transform:translate(-8px,0px)}}
+@keyframes hooks-l3{0%{opacity:0;transform:translate(-8px,0px)}88.929%{opacity:0;transform:translate(-8px,0px)}92.143%{opacity:1;transform:translate(0px,0px)}97.5%{opacity:1;transform:translate(0px,0px)}99.857%{opacity:0;transform:translate(0px,0px)}100%{opacity:0;transform:translate(-8px,0px)}}
+@keyframes hooks-arrow{0%{stroke-dashoffset:84;opacity:0}2.143%{stroke-dashoffset:84;opacity:1;animation-timing-function:linear}92.143%{stroke-dashoffset:0;opacity:1}97.5%{stroke-dashoffset:0;opacity:1}99.857%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:84;opacity:0}}
+@keyframes hooks-promo{0%{fill-opacity:0.08;stroke:#7a3a37}90.714%{fill-opacity:0.08;stroke:#7a3a37}93.571%{fill-opacity:0.26;stroke:#f85149}97.5%{fill-opacity:0.26;stroke:#f85149}99.857%{fill-opacity:0.08;stroke:#7a3a37}100%{fill-opacity:0.08;stroke:#7a3a37}}
+#hooks-pkgA{animation-name:hooks-a-move}#hooks-pkgA-tag{animation-name:hooks-a-tag}#hooks-pkgA-exec{animation-name:hooks-a-exec}#hooks-pkgA-rect{animation-name:hooks-a-rect}
+#hooks-pkgB{animation-name:hooks-b-move}#hooks-pkgB-rect{animation-name:hooks-b-rect}#hooks-pkgB-chip{animation-name:hooks-b-chip}
+#hooks-pkgC{animation-name:hooks-c-move}#hooks-pkgC-rect{animation-name:hooks-c-rect}#hooks-pkgC-chip{animation-name:hooks-c-chip}
+#hooks-g1-frame{animation-name:hooks-g1-flash}
+#hooks-g2-frame{animation-name:hooks-g2-flash}
+#hooks-g3-frame{animation-name:hooks-g3-flash}
+#hooks-g4-frame{animation-name:hooks-g4-flash}
+#hooks-l1{animation-name:hooks-l1}#hooks-l2{animation-name:hooks-l2}#hooks-l3{animation-name:hooks-l3}
+#hooks-arrow-fill{animation-name:hooks-arrow}#hooks-promo{animation-name:hooks-promo}
+  </style>
+
+  <!-- cartão -->
+  <rect x="0.5" y="0.5" width="999" height="429" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+  <!-- título -->
+  <text class="t" x="28" y="48" font-size="20" font-weight="600" fill="#e6edf3">Hooks — quem executa é o harness, não o modelo</text>
+  <text class="t" x="28" y="72" font-size="13" fill="#8b949e">não criam regra nova; garantem regras que já existem</text>
+  <text class="m" x="972" y="48" font-size="13" fill="#8b949e" text-anchor="end">modo em .expx/hooks.json</text>
+
+  <!-- esteira (estática: só pacotes e portões carregam o movimento) -->
+  <rect x="28" y="145" width="944" height="10" rx="5" fill="#161b22" stroke="#30363d"/>
+  <line x1="40" y1="150" x2="960" y2="150" stroke="#6e7681" stroke-width="2" stroke-dasharray="6 14" stroke-linecap="round" opacity=".8"/>
+  <!-- vagas de entrada e saída: placas opacas, únicos lugares onde um pacote aparece ou some (o trilho nunca atravessa o texto) -->
+  <rect x="28" y="136" width="200" height="28" rx="7" fill="#161b22" stroke="#30363d" stroke-dasharray="4 4"/>
+  <rect x="772" y="136" width="200" height="28" rx="7" fill="#161b22" stroke="#30363d" stroke-dasharray="4 4"/>
+
+  <!-- portões -->
+
+  <!-- portão escopo-da-task -->
+  <text class="m" x="270" y="101" font-size="13" fill="#e6edf3" text-anchor="middle">escopo-da-task</text>
+  <rect id="hooks-g1-frame" class="anim" x="250" y="118" width="40" height="64" rx="8" fill="#161b22" stroke="#30363d"/>
+  <rect x="267" y="122" width="6" height="8" rx="3" fill="#d29922"/>
+  <rect x="234" y="210" width="72" height="22" rx="11" fill="#d29922" fill-opacity=".16" stroke="#d29922" stroke-opacity=".7"/>
+  <text class="m" x="270" y="225" font-size="13" fill="#d29922" text-anchor="middle">aviso</text>
+
+  <!-- portão tdd-teste-antes -->
+  <text class="m" x="425" y="101" font-size="13" fill="#e6edf3" text-anchor="middle">tdd-teste-antes</text>
+  <rect id="hooks-g2-frame" class="anim" x="405" y="118" width="40" height="64" rx="8" fill="#161b22" stroke="#30363d"/>
+  <rect x="422" y="122" width="6" height="8" rx="3" fill="#d29922"/>
+  <rect x="389" y="210" width="72" height="22" rx="11" fill="#d29922" fill-opacity=".16" stroke="#d29922" stroke-opacity=".7"/>
+  <text class="m" x="425" y="225" font-size="13" fill="#d29922" text-anchor="middle">aviso</text>
+
+  <!-- portão segredo -->
+  <text class="m" x="580" y="101" font-size="13" fill="#e6edf3" text-anchor="middle">segredo</text>
+  <rect id="hooks-g3-frame" class="anim" x="560" y="118" width="40" height="64" rx="8" fill="#161b22" stroke="#30363d"/>
+  <rect x="577" y="122" width="6" height="8" rx="3" fill="#f85149"/>
+  <rect x="534" y="210" width="92" height="22" rx="11" fill="#f85149" fill-opacity=".16" stroke="#f85149" stroke-opacity=".7"/>
+  <text class="m" x="580" y="225" font-size="13" fill="#f85149" text-anchor="middle">bloqueio</text>
+
+  <!-- portão git-perigoso -->
+  <text class="m" x="735" y="101" font-size="13" fill="#e6edf3" text-anchor="middle">git-perigoso</text>
+  <rect id="hooks-g4-frame" class="anim" x="715" y="118" width="40" height="64" rx="8" fill="#161b22" stroke="#30363d"/>
+  <rect x="732" y="122" width="6" height="8" rx="3" fill="#f85149"/>
+  <rect x="689" y="210" width="92" height="22" rx="11" fill="#f85149" fill-opacity=".16" stroke="#f85149" stroke-opacity=".7"/>
+  <text class="m" x="735" y="225" font-size="13" fill="#f85149" text-anchor="middle">bloqueio</text>
+
+  <!-- pacotes -->
+
+  <g id="hooks-pkgA" class="anim" transform="translate(128 150)">
+    <rect id="hooks-pkgA-rect" class="anim" x="-100" y="-14" width="200" height="28" rx="7" fill="#21262d" stroke="#30363d"/>
+    <text class="m" x="0" y="4" font-size="12" fill="#e6edf3" text-anchor="middle"><tspan fill="#8b949e">Write</tspan> src/export/csv.ts</text>
+    <g id="hooks-pkgA-tag" class="anim" opacity="0">
+      <rect x="-75" y="-35" width="150" height="20" rx="10" fill="#302919" stroke="#d29922"/>
+      <path d="M-56 -31.5 L-49.5 -20 L-62.5 -20 Z" fill="none" stroke="#d29922" stroke-width="1.4" stroke-linejoin="round"/>
+      <line x1="-56" y1="-27.5" x2="-56" y2="-24" stroke="#d29922" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="-56" cy="-22" r=".9" fill="#d29922"/>
+      <text class="m" x="7" y="-21" font-size="12" fill="#d29922" text-anchor="middle">fora do escopo</text>
+    </g><g id="hooks-pkgA-exec" class="anim" opacity="0">
+      <rect x="-52" y="34" width="104" height="20" rx="10" fill="#162f21" stroke="#3fb950"/>
+      <text class="m" x="0" y="48" font-size="12" fill="#3fb950" text-anchor="middle">executado</text>
+    </g>
+  </g>
+
+  <g id="hooks-pkgB" class="anim" transform="translate(128 150)" opacity="0">
+    <rect id="hooks-pkgB-rect" class="anim" x="-100" y="-14" width="200" height="28" rx="7" fill="#21262d" stroke="#30363d"/>
+    <text class="m" x="0" y="4" font-size="12" fill="#e6edf3" text-anchor="middle"><tspan fill="#8b949e">Write</tspan> .env API_KEY=sk-…</text>
+    <g id="hooks-pkgB-chip" class="anim" opacity="0">
+      <rect x="-52" y="34" width="104" height="20" rx="10" fill="#371d20" stroke="#f85149"/>
+      <text class="m" x="0" y="48" font-size="12" fill="#f85149" text-anchor="middle">bloqueado</text>
+    </g>
+  </g>
+
+  <g id="hooks-pkgC" class="anim" transform="translate(128 150)" opacity="0">
+    <rect id="hooks-pkgC-rect" class="anim" x="-100" y="-14" width="200" height="28" rx="7" fill="#21262d" stroke="#30363d"/>
+    <text class="m" x="0" y="4" font-size="12" fill="#e6edf3" text-anchor="middle"><tspan fill="#8b949e">Bash</tspan> git push --force</text>
+    <g id="hooks-pkgC-chip" class="anim" opacity="0">
+      <rect x="-52" y="34" width="104" height="20" rx="10" fill="#371d20" stroke="#f85149"/>
+      <text class="m" x="0" y="48" font-size="12" fill="#f85149" text-anchor="middle">bloqueado</text>
+    </g>
+  </g>
+  <!-- barras de bloqueio (por cima dos pacotes) -->
+  <rect x="577" y="122" width="6" height="0" rx="3" fill="#f85149">
+    <animate attributeName="height" values="0;0;56;56;0;0" keyTimes="0;0.5286;0.5536;0.6357;0.6643;1" calcMode="spline" keySplines="0 0 1 1;.3 0 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1" dur="14s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="732" y="122" width="6" height="0" rx="3" fill="#f85149">
+    <animate attributeName="height" values="0;0;56;56;0;0" keyTimes="0;0.8357;0.8607;0.9357;0.9607;1" calcMode="spline" keySplines="0 0 1 1;.3 0 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1" dur="14s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- painel: rastro -->
+  <rect x="28" y="246" width="540" height="156" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text class="m" x="46" y="272" font-size="13" fill="#8b949e">docs/eventos/exportacao-csv.jsonl</text>
+  <text class="m" x="550" y="272" font-size="13" fill="#8b949e" text-anchor="end">rastro · append-only</text>
+  <line x1="46" y1="282" x2="550" y2="282" stroke="#30363d"/>
+  <text class="m" x="46" y="308" font-size="12" fill="#6e7681">1</text>
+  <text class="m" x="46" y="340" font-size="12" fill="#6e7681">2</text>
+  <text class="m" x="46" y="372" font-size="12" fill="#6e7681">3</text>
+  <text id="hooks-l1" class="m anim" x="66" y="308" font-size="12" fill="#e6edf3" opacity="0">{<tspan fill="#8b949e">"hook"</tspan>:"escopo-da-task",<tspan fill="#8b949e">"modo"</tspan>:<tspan fill="#d29922">"aviso"</tspan>,<tspan fill="#8b949e">"regra_violada"</tspan>:"escopo"}</text>
+  <text id="hooks-l2" class="m anim" x="66" y="340" font-size="12" fill="#e6edf3" opacity="0">{<tspan fill="#8b949e">"hook"</tspan>:"segredo",<tspan fill="#8b949e">"modo"</tspan>:<tspan fill="#f85149">"bloqueio"</tspan>}</text>
+  <text id="hooks-l3" class="m anim" x="66" y="372" font-size="12" fill="#e6edf3" opacity="0">{<tspan fill="#8b949e">"hook"</tspan>:"git-perigoso",<tspan fill="#8b949e">"modo"</tspan>:<tspan fill="#f85149">"bloqueio"</tspan>}</text>
+
+  <!-- painel: ciclo de vida do hook de método -->
+  <rect x="590" y="246" width="382" height="156" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text class="t" x="608" y="272" font-size="13" fill="#8b949e">ciclo de vida do hook de método</text>
+  <line x1="608" y1="282" x2="954" y2="282" stroke="#30363d"/>
+  <text class="m" x="804" y="305" font-size="12" fill="#e6edf3" text-anchor="middle">doctor.sh promover &lt;hook&gt;</text>
+  <rect x="608" y="316" width="140" height="26" rx="13" fill="#d29922" fill-opacity=".16" stroke="#d29922" stroke-opacity=".7"/>
+  <text class="m" x="678" y="333" font-size="13" fill="#d29922" text-anchor="middle">nasce em aviso</text>
+  <line x1="762" y1="329" x2="846" y2="329" stroke="#30363d" stroke-width="2" stroke-linecap="round"/>
+  <line id="hooks-arrow-fill" class="anim" x1="762" y1="329" x2="846" y2="329" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-dasharray="84" stroke-dashoffset="84" opacity="0"/>
+  <path d="M845 323 L853 329 L845 335 Z" fill="#8b949e"/>
+  <rect id="hooks-promo" class="anim" x="862" y="316" width="92" height="26" rx="13" fill="#f85149" fill-opacity=".08" stroke="#7a3a37"/>
+  <text class="m" x="908" y="333" font-size="13" fill="#f85149" text-anchor="middle">bloqueio</text>
+  <text class="t" x="804" y="362" font-size="12" fill="#8b949e" text-anchor="middle">só com evidência real</text>
+  <text class="t" x="781" y="389" font-size="12" fill="#8b949e" text-anchor="middle">método falha aberta · segurança falha fechada</text>
+</svg>

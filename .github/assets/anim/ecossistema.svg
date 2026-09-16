@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="O ecossistema Expx: prodx decide se há trabalho, sprintx decide como, camadas modificam o comportamento, mergex entrega, buildx orquestra o projeto inteiro.">
+  <title>O ecossistema Expx: prodx decide se há trabalho, sprintx decide como, as camadas modificam o comportamento, mergex entrega e buildx orquestra o projeto inteiro</title>
+  <style>
+    .eco-sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .eco-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+    .eco-title { font-size: 20px; font-weight: 600; fill: #e6edf3; }
+    .eco-sub { font-size: 13px; fill: #8b949e; }
+    .eco-name { font-size: 16px; font-weight: 700; }
+    .eco-lbl { font-size: 13px; fill: #8b949e; }
+    .eco-lbl-strong { font-size: 13px; fill: #e6edf3; }
+    .eco-edge { font-size: 13px; fill: #8b949e; }
+    .eco-chip { font-size: 13px; fill: #e6edf3; }
+    .eco-node { fill: #161b22; stroke-width: 1.5; }
+    .eco-line { fill: none; stroke: #6e7681; stroke-width: 1.5; }
+  </style>
+  <defs>
+    <marker id="eco-ar-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#6e7681"/>
+    </marker>
+    <marker id="eco-ar-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#a371f7"/>
+    </marker>
+    <marker id="eco-ar-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#58a6ff"/>
+    </marker>
+    <marker id="eco-ar-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#3fb950"/>
+    </marker>
+    <!-- trilhos dos pacotes: começam ~6 px e terminam ~14 px por dentro das bordas; os nós ficam por cima no DOM -->
+    <path id="eco-p-briefing" d="M238,290 L400,290"/>
+    <path id="eco-p-l1" d="M319,392 L446,316"/>
+    <path id="eco-p-l2" d="M459,392 L498,316"/>
+    <path id="eco-p-l3" d="M599,392 L552,316"/>
+    <path id="eco-p-pr" d="M604,320 C680,320 823,350 823,412"/>
+    <path id="eco-p-build" d="M500,142 L500,258"/>
+  </defs>
+
+  <!-- cartão -->
+  <rect x="0.5" y="0.5" width="999" height="559" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+  <!-- título -->
+  <text x="44" y="46" class="eco-sans eco-title">O ecossistema Expx</text>
+  <text x="44" y="68" class="eco-sans eco-sub">camadas modificam o comportamento; a ausência de uma irmã nunca quebra o fluxo</text>
+
+  <!-- ===== arestas ===== -->
+  <!-- prodx -> sprintx -->
+  <path d="M244,290 L388,290" class="eco-line" marker-end="url(#eco-ar-dim)"/>
+  <text x="317" y="278" text-anchor="middle" class="eco-mono eco-edge">BRIEFING.md</text>
+
+  <!-- buildx -> sprintx -->
+  <path d="M500,148 L500,242" class="eco-line" stroke="#a371f7" stroke-opacity="0.75" marker-end="url(#eco-ar-purple)"/>
+  <text x="514" y="200" class="eco-sans eco-edge">feature do MAPA · responde a F2</text>
+
+  <!-- sprintx <-> runx (mesmos contratos), cintila devagar -->
+  <g opacity="0.55">
+    <path d="M610,282 L754,282" class="eco-line" stroke="#58a6ff" marker-end="url(#eco-ar-blue)"/>
+    <path d="M756,300 L612,300" class="eco-line" stroke="#58a6ff" marker-end="url(#eco-ar-blue)"/>
+    <animate attributeName="opacity" values="0.55;0.95;0.55" keyTimes="0;0.5;1" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+  </g>
+  <text x="683" y="266" text-anchor="middle" class="eco-sans eco-edge">mesmos contratos</text>
+
+  <!-- camadas -> sprintx (tracejadas) -->
+  <g class="eco-line" stroke="#a371f7" stroke-opacity="0.6" stroke-dasharray="5 4">
+    <path d="M319,398 L444,329" marker-end="url(#eco-ar-purple)"/>
+    <path d="M459,398 L499,330" marker-end="url(#eco-ar-purple)"/>
+    <path d="M599,398 L559,330" marker-end="url(#eco-ar-purple)"/>
+  </g>
+
+  <!-- sprintx -> mergex -->
+  <path d="M610,320 C680,320 823,350 823,396" class="eco-line" stroke="#3fb950" stroke-opacity="0.7" marker-end="url(#eco-ar-green)"/>
+  <text x="746" y="380" text-anchor="middle" class="eco-sans eco-edge">início e fim da F6</text>
+
+  <!-- ===== pacotes em movimento (ciclo de 12 s) — antes dos nós, para entrarem por baixo das caixas ===== -->
+  <!-- BRIEFING.md: prodx -> sprintx, t=0.5 -->
+  <g opacity="0">
+    <circle r="9" fill="#58a6ff" opacity="0.25"/>
+    <circle r="4.5" fill="#58a6ff"/>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.04167;0.14167;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-briefing"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04167;0.05367;0.12367;0.14167;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- camadas: três pulsos rotulados, t=2 / 2.6 / 3.2 -->
+  <g opacity="0">
+    <rect x="-50" y="-11" width="100" height="22" rx="11" fill="#21262d" stroke="#a371f7" stroke-opacity="0.8"/>
+    <text x="0" y="4" text-anchor="middle" class="eco-mono eco-chip">PERFIL.md</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.16667;0.26667;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-l1"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.16667;0.17467;0.24467;0.26667;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <rect x="-65" y="-11" width="130" height="22" rx="11" fill="#21262d" stroke="#a371f7" stroke-opacity="0.8"/>
+    <text x="0" y="4" text-anchor="middle" class="eco-mono eco-chip">CONVENCOES.md</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.21667;0.31667;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-l2"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.21667;0.22467;0.29467;0.31667;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <rect x="-38" y="-11" width="76" height="22" rx="11" fill="#21262d" stroke="#a371f7" stroke-opacity="0.8"/>
+    <text x="0" y="4" text-anchor="middle" class="eco-sans eco-chip">memória</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.26667;0.36667;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-l3"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.26667;0.27467;0.34467;0.36667;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- PR: sprintx -> mergex, t=6 -->
+  <g opacity="0">
+    <rect x="-22" y="-11" width="44" height="22" rx="11" fill="#21262d" stroke="#3fb950" stroke-opacity="0.8"/>
+    <text x="0" y="4" text-anchor="middle" class="eco-mono eco-chip">PR</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;0.61667;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-pr"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.5;0.51167;0.59333;0.61667;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- buildx: feature 1 e feature 2, t=8 e t=10 -->
+  <g opacity="0">
+    <circle r="9" fill="#a371f7" opacity="0.25"/>
+    <circle r="4.5" fill="#a371f7"/>
+    <rect x="-100" y="-11" width="88" height="22" rx="11" fill="#21262d" stroke="#a371f7" stroke-opacity="0.8"/>
+    <text x="-56" y="4" text-anchor="middle" class="eco-sans eco-chip">feature 1</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.66667;0.775;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-build"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.66667;0.6775;0.75117;0.775;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <g opacity="0">
+    <circle r="9" fill="#a371f7" opacity="0.25"/>
+    <circle r="4.5" fill="#a371f7"/>
+    <rect x="-100" y="-11" width="88" height="22" rx="11" fill="#21262d" stroke="#a371f7" stroke-opacity="0.8"/>
+    <text x="-56" y="4" text-anchor="middle" class="eco-sans eco-chip">feature 2</text>
+    <animateMotion dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.83333;0.94167;1" keyPoints="0;0;1;1" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1"><mpath href="#eco-p-build"/></animateMotion>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.83333;0.84417;0.91783;0.94167;1" dur="12s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ===== nós ===== -->
+  <!-- buildx -->
+  <g>
+    <rect x="330" y="96" width="340" height="52" rx="10" class="eco-node" stroke="#a371f7"/>
+    <rect x="330" y="96" width="340" height="52" rx="10" fill="#a371f7" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.22;0;0;0.22;0;0" keyTimes="0;0.65;0.67;0.71667;0.81667;0.83667;0.88333;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/>
+    </rect>
+    <text x="500" y="118" text-anchor="middle" class="eco-sans eco-name" fill="#a371f7">buildx</text>
+    <text x="500" y="137" text-anchor="middle" class="eco-sans eco-lbl">orquestra o projeto inteiro · uma feature por vez</text>
+  </g>
+
+  <!-- prodx -->
+  <g>
+    <rect x="44" y="252" width="200" height="76" rx="10" class="eco-node" stroke="#58a6ff"/>
+    <rect x="44" y="252" width="200" height="76" rx="10" fill="#58a6ff" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.22;0;0" keyTimes="0;0.025;0.045;0.09167;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/>
+    </rect>
+    <text x="144" y="278" text-anchor="middle" class="eco-sans eco-name" fill="#58a6ff">prodx</text>
+    <text x="144" y="299" text-anchor="middle" class="eco-sans eco-lbl">camada de produto</text>
+    <text x="144" y="318" text-anchor="middle" class="eco-sans eco-lbl-strong">decide SE</text>
+  </g>
+
+  <!-- runx -->
+  <g>
+    <rect x="756" y="252" width="200" height="76" rx="10" class="eco-node" stroke="#58a6ff"/>
+    <text x="856" y="278" text-anchor="middle" class="eco-sans eco-name" fill="#58a6ff">runx</text>
+    <text x="856" y="299" text-anchor="middle" class="eco-sans eco-lbl">Run · E1…E5</text>
+    <text x="856" y="318" text-anchor="middle" class="eco-sans eco-lbl">ocorrência em produção</text>
+  </g>
+
+  <!-- sprintx (centro): respira; brilho sustentado enquanto as camadas entram -->
+  <g>
+    <rect x="384" y="238" width="232" height="96" rx="14" fill="none" stroke="#3fb950" stroke-width="1" stroke-opacity="0">
+      <animate attributeName="stroke-opacity" values="0;0.35;0" keyTimes="0;0.5;1" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+    </rect>
+    <rect x="390" y="244" width="220" height="84" rx="12" class="eco-node" stroke="#3fb950" stroke-width="2">
+      <animate attributeName="stroke-width" values="2;3;2" keyTimes="0;0.5;1" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+    </rect>
+    <rect x="390" y="244" width="220" height="84" rx="12" fill="#3fb950" opacity="0.06">
+      <animate attributeName="opacity" values="0.06;0.06;0.24;0.06;0.06;0.24;0.24;0.06;0.06;0.24;0.06;0.06;0.24;0.06;0.06" keyTimes="0;0.125;0.145;0.19167;0.25;0.275;0.375;0.41667;0.75833;0.77833;0.825;0.925;0.945;0.99167;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/>
+    </rect>
+    <text x="500" y="277" text-anchor="middle" class="eco-sans" font-size="22" font-weight="700" fill="#3fb950">sprintx</text>
+    <text x="500" y="298" text-anchor="middle" class="eco-sans eco-lbl-strong">Build · F1…F6</text>
+    <text x="500" y="316" text-anchor="middle" class="eco-sans eco-lbl">decide COMO</text>
+  </g>
+
+  <!-- camadas -->
+  <g>
+    <rect x="244" y="386" width="430" height="114" rx="12" fill="none" stroke="#30363d"/>
+    <g class="eco-node" stroke="#a371f7" stroke-dasharray="5 4">
+      <rect x="254" y="398" width="130" height="62" rx="8"/>
+      <rect x="394" y="398" width="130" height="62" rx="8"/>
+      <rect x="534" y="398" width="130" height="62" rx="8"/>
+    </g>
+    <g fill="#a371f7">
+      <rect x="254" y="398" width="130" height="62" rx="8" opacity="0"><animate attributeName="opacity" values="0;0;0.22;0;0" keyTimes="0;0.15;0.17;0.20833;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/></rect>
+      <rect x="394" y="398" width="130" height="62" rx="8" opacity="0"><animate attributeName="opacity" values="0;0;0.22;0;0" keyTimes="0;0.2;0.22;0.25833;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/></rect>
+      <rect x="534" y="398" width="130" height="62" rx="8" opacity="0"><animate attributeName="opacity" values="0;0;0.22;0;0" keyTimes="0;0.25;0.27;0.30833;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/></rect>
+    </g>
+    <text x="319" y="417" text-anchor="middle" class="eco-sans" font-size="14" font-weight="700" fill="#a371f7">legadox</text>
+    <text x="319" y="434" text-anchor="middle" class="eco-sans eco-lbl">código legado</text>
+    <text x="319" y="451" text-anchor="middle" class="eco-mono eco-lbl-strong">PERFIL.md</text>
+    <text x="459" y="417" text-anchor="middle" class="eco-sans" font-size="14" font-weight="700" fill="#a371f7">stackx</text>
+    <text x="459" y="434" text-anchor="middle" class="eco-sans eco-lbl">convenções</text>
+    <text x="459" y="451" text-anchor="middle" class="eco-mono eco-lbl-strong">CONVENCOES.md</text>
+    <text x="599" y="417" text-anchor="middle" class="eco-sans" font-size="14" font-weight="700" fill="#a371f7">memox</text>
+    <text x="599" y="434" text-anchor="middle" class="eco-sans eco-lbl">memória</text>
+    <text x="599" y="451" text-anchor="middle" class="eco-sans eco-lbl-strong">consulta F1 e F3</text>
+    <text x="459" y="485" text-anchor="middle" class="eco-sans eco-edge">camadas — sozinhas não fazem nada</text>
+  </g>
+
+  <!-- mergex: termina em x=956, alinhado à runx -->
+  <g>
+    <rect x="690" y="398" width="266" height="62" rx="10" class="eco-node" stroke="#238636"/>
+    <rect x="690" y="398" width="266" height="62" rx="10" fill="#3fb950" opacity="0">
+      <animate attributeName="opacity" values="0;0;0.22;0;0" keyTimes="0;0.6;0.62;0.66667;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/>
+    </rect>
+    <text x="823" y="423" text-anchor="middle" class="eco-sans eco-name" fill="#3fb950">mergex</text>
+    <text x="823" y="444" text-anchor="middle" class="eco-sans eco-lbl">branch → commit por task → PR + QA</text>
+  </g>
+
+  <!-- barra inferior -->
+  <text x="500" y="530" text-anchor="middle" class="eco-sans eco-edge"><tspan fill="#e6edf3" font-weight="600">expxdev</tspan> · <tspan class="eco-mono">npx expxdev init</tspan> · instala, atualiza e diagnostica tudo</text>
+</svg>

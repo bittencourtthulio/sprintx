@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-label="expx-schema v1: a máquina lê o YAML do frontmatter, a pessoa lê a prosa. Só a skill escreve.">
+  <title>expx-schema v1: a máquina lê o YAML do frontmatter, a pessoa lê a prosa; o painel só lê, só a skill escreve</title>
+  <style>
+.t{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif}
+.m{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}
+.a{animation-duration:10s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.45,0,.2,1)}
+.k{fill:#58a6ff}
+.d{fill:#6e7681}
+@keyframes schema-hl{0%{opacity:0}9%{opacity:0}11%{opacity:1}23%{opacity:1}26%{opacity:0}100%{opacity:0}}
+@keyframes schema-caret{0%{opacity:0}13.5%{opacity:0}14.5%{opacity:1}23%{opacity:1}26%{opacity:0}100%{opacity:0}}
+@keyframes schema-v1{0%{opacity:1}12%{opacity:1}16%{opacity:0}91%{opacity:0}95%{opacity:1}100%{opacity:1}}
+@keyframes schema-v2{0%{opacity:0}12%{opacity:0}16%{opacity:1}91%{opacity:1}95%{opacity:0}100%{opacity:0}}
+@keyframes schema-suite{0%{fill:#e6edf3}15%{fill:#e6edf3}19%{fill:#3fb950}91%{fill:#3fb950}95%{fill:#e6edf3}100%{fill:#e6edf3}}
+@keyframes schema-py{0%{transform:translateX(0);opacity:0}20%{transform:translateX(0);opacity:0}21%{opacity:1}26%{transform:translateX(260px);opacity:1}27%{transform:translateX(260px);opacity:0}28%{transform:translateX(0);opacity:0}100%{transform:translateX(0);opacity:0}}
+@keyframes schema-ay{0%{stroke:#6e7681}19%{stroke:#6e7681}21%{stroke:#58a6ff}29%{stroke:#58a6ff}36%{stroke:#6e7681}100%{stroke:#6e7681}}
+@keyframes schema-ly{0%{fill:#8b949e}19%{fill:#8b949e}21%{fill:#58a6ff}29%{fill:#58a6ff}36%{fill:#8b949e}100%{fill:#8b949e}}
+@keyframes schema-ring{0%{stroke-dashoffset:42.86}26%{stroke-dashoffset:42.86}33%{stroke-dashoffset:35.71}91%{stroke-dashoffset:35.71}95%{stroke-dashoffset:42.86}100%{stroke-dashoffset:42.86}}
+@keyframes schema-n1{0%{opacity:1}28%{opacity:1}32%{opacity:0}91%{opacity:0}95%{opacity:1}100%{opacity:1}}
+@keyframes schema-n2{0%{opacity:0}28%{opacity:0}32%{opacity:1}91%{opacity:1}95%{opacity:0}100%{opacity:0}}
+@keyframes schema-b1{0%{opacity:1}31%{opacity:1}35%{opacity:0}91%{opacity:0}95%{opacity:1}100%{opacity:1}}
+@keyframes schema-b2{0%{opacity:0}31%{opacity:0}35%{opacity:1}91%{opacity:1}95%{opacity:0}100%{opacity:0}}
+@keyframes schema-pp{0%{transform:translateX(0);opacity:0}40%{transform:translateX(0);opacity:0}41%{opacity:1}46%{transform:translateX(172px);opacity:1}47%{transform:translateX(172px);opacity:0}48%{transform:translateX(0);opacity:0}100%{transform:translateX(0);opacity:0}}
+@keyframes schema-ap{0%{stroke:#6e7681}39%{stroke:#6e7681}41%{stroke:#e6edf3}49%{stroke:#e6edf3}56%{stroke:#6e7681}100%{stroke:#6e7681}}
+@keyframes schema-lp{0%{fill:#8b949e}39%{fill:#8b949e}41%{fill:#e6edf3}49%{fill:#e6edf3}56%{fill:#8b949e}100%{fill:#8b949e}}
+@keyframes schema-person{0%{fill:#8b949e}45%{fill:#8b949e}47%{fill:#e6edf3}91%{fill:#e6edf3}95%{fill:#8b949e}100%{fill:#8b949e}}
+@keyframes schema-balloon{0%{opacity:0;transform:scale(.6)}46%{opacity:0;transform:scale(.6)}48.5%{opacity:1;transform:scale(1.12)}50.5%{opacity:1;transform:scale(1)}91%{opacity:1;transform:scale(1)}95%{opacity:0;transform:scale(.6)}100%{opacity:0;transform:scale(.6)}}
+@keyframes schema-pr{0%{transform:translateX(0);opacity:0}60%{transform:translateX(0);opacity:0}61%{opacity:1}65%{transform:translateX(-118px);opacity:1}66%{transform:translateX(-118px);opacity:0}67%{transform:translateX(0);opacity:0}100%{transform:translateX(0);opacity:0}}
+@keyframes schema-ar{0%{stroke:#6e7681}59%{stroke:#6e7681}61%{stroke:#f85149}71%{stroke:#f85149}79%{stroke:#6e7681}100%{stroke:#6e7681}}
+@keyframes schema-x{0%{transform:scale(1)}65%{transform:scale(1)}66.5%{transform:scale(1.4)}69%{transform:scale(1)}100%{transform:scale(1)}}
+@keyframes schema-xs{0%{stroke:#6e7681}64%{stroke:#6e7681}65.5%{stroke:#f85149}76%{stroke:#f85149}84%{stroke:#6e7681}100%{stroke:#6e7681}}
+@keyframes schema-lr{0%{fill:#8b949e}60%{fill:#8b949e}62%{fill:#f85149}75%{fill:#f85149}82%{fill:#8b949e}100%{fill:#8b949e}}
+.hl{animation-name:schema-hl}
+.caret{animation-name:schema-caret}
+.v1{animation-name:schema-v1}
+.v2{animation-name:schema-v2}
+.suite{animation-name:schema-suite}
+.py{animation-name:schema-py;animation-timing-function:cubic-bezier(.3,0,.7,1)}
+.ay{animation-name:schema-ay}
+.ly{animation-name:schema-ly}
+.ring{animation-name:schema-ring;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+.n1{animation-name:schema-n1}
+.n2{animation-name:schema-n2}
+.b1{animation-name:schema-b1}
+.b2{animation-name:schema-b2}
+.pp{animation-name:schema-pp;animation-timing-function:cubic-bezier(.3,0,.7,1)}
+.ap{animation-name:schema-ap}
+.lp{animation-name:schema-lp}
+.person{animation-name:schema-person}
+.balloon{animation-name:schema-balloon;transform-box:fill-box;transform-origin:20% 100%;animation-timing-function:cubic-bezier(.34,1.3,.64,1)}
+.pr{animation-name:schema-pr;animation-timing-function:cubic-bezier(.3,0,.7,1)}
+.ar{animation-name:schema-ar}
+.x{animation-name:schema-x;transform-box:fill-box;transform-origin:center;animation-timing-function:cubic-bezier(.34,1.4,.64,1)}
+.xs{animation-name:schema-xs}
+.lr{animation-name:schema-lr}
+  </style>
+
+  <!-- cartão -->
+  <rect x="0.5" y="0.5" width="999" height="299" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+  <!-- ===== ESQUERDA: o arquivo sprint-01/tasks.md ===== -->
+  <rect x="30" y="28" width="290" height="244" rx="8" fill="#161b22" stroke="#30363d"/>
+  <!-- cabeçalho do arquivo -->
+  <path d="M46,39 h8 l4,4 v10 h-12 z M54,39 v4 h4" fill="none" stroke="#8b949e" stroke-width="1.2" stroke-linejoin="round"/>
+  <text x="66" y="51" class="m" font-size="13" fill="#e6edf3">sprint-01/tasks.md</text>
+  <line x1="30.5" y1="60" x2="319.5" y2="60" stroke="#30363d"/>
+
+  <!-- zona YAML (frontmatter) -->
+  <text x="306" y="80" class="t" font-size="12" fill="#6e7681" text-anchor="end">frontmatter — para a máquina</text>
+  <rect class="a hl" x="38" y="174" width="274" height="16" rx="3" fill="#58a6ff" fill-opacity=".14"/>
+  <rect class="a hl" x="38" y="174" width="2" height="16" fill="#58a6ff"/>
+  <text class="a hl m" x="306" y="185" font-size="12" fill="#3fb950" text-anchor="end">● skill</text>
+
+  <g class="m" font-size="12.5">
+    <text x="44" y="80" class="d">---</text>
+    <text x="44" y="95"><tspan class="k">expx_schema:</tspan> <tspan fill="#e6edf3">1</tspan></text>
+    <text x="44" y="110"><tspan class="k">expx_tool:</tspan> <tspan fill="#e6edf3">sprintx</tspan></text>
+    <text x="44" y="125"><tspan class="k">kind:</tspan> <tspan fill="#e6edf3">tasks</tspan></text>
+    <text x="44" y="140"><tspan class="k">trabalho_id:</tspan> <tspan fill="#e6edf3">exportacao-csv</tspan></text>
+    <text x="44" y="155" class="k">tasks:</text>
+    <text x="59" y="170"><tspan class="d">-</tspan> <tspan class="k">id:</tspan> <tspan fill="#e6edf3">T-01.02</tspan></text>
+    <!-- a linha que a skill edita: dois valores sobrepostos, o prefixo invisível preserva a largura -->
+    <text x="74" y="185"><tspan class="k">status:</tspan> <tspan class="a v1" fill="#d29922">em_andamento</tspan></text>
+    <text x="74" y="185"><tspan fill="none">status:</tspan> <tspan class="a v2" fill="#3fb950">concluida</tspan></text>
+    <rect class="a caret" x="203.5" y="175" width="1.5" height="13" fill="#58a6ff"/>
+    <text x="74" y="200"><tspan class="k">suite:</tspan> <tspan class="a suite" fill="#e6edf3">parcial</tspan></text>
+    <text x="44" y="215" class="d">---</text>
+  </g>
+
+  <!-- zona prosa -->
+  <line x1="44" y1="226" x2="306" y2="226" stroke="#30363d" stroke-dasharray="3 3"/>
+  <text x="44" y="240" class="t" font-size="12" fill="#6e7681">prosa — para a pessoa</text>
+  <rect x="44" y="246" width="210" height="4" rx="2" fill="#30363d"/>
+  <rect x="44" y="253" width="248" height="4" rx="2" fill="#30363d"/>
+  <rect x="44" y="260" width="160" height="4" rx="2" fill="#30363d"/>
+
+  <!-- ===== SETAS ===== -->
+  <!-- seta proibida: painel -> arquivo (topo) -->
+  <text class="a lr t" x="450" y="106" font-size="12.5" fill="#8b949e" text-anchor="middle">o painel nunca escreve — só a skill</text>
+  <g class="a ar" fill="none" stroke="#6e7681" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="580" y1="120" x2="322" y2="120"/>
+    <path d="M329,115.5 L322,120 L329,124.5"/>
+  </g>
+  <g class="a pr">
+    <circle cx="580" cy="120" r="9" fill="#f85149" opacity=".3"/>
+    <circle cx="580" cy="120" r="4" fill="#f85149"/>
+  </g>
+  <g class="a x">
+    <g class="a xs" stroke="#6e7681" stroke-width="2" stroke-linecap="round">
+      <circle cx="450" cy="120" r="11" fill="#0d1117" stroke-width="1.5"/>
+      <line x1="445.5" y1="115.5" x2="454.5" y2="124.5"/>
+      <line x1="454.5" y1="115.5" x2="445.5" y2="124.5"/>
+    </g>
+  </g>
+
+  <!-- seta YAML -> painel (meio) -->
+  <text class="a ly t" x="450" y="170" font-size="12.5" fill="#8b949e" text-anchor="middle">a máquina lê o YAML</text>
+  <g class="a ay" fill="none" stroke="#6e7681" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="320" y1="181" x2="578" y2="181"/>
+    <path d="M571,176.5 L578,181 L571,185.5"/>
+  </g>
+  <g class="a py">
+    <circle cx="320" cy="181" r="9" fill="#58a6ff" opacity=".3"/>
+    <circle cx="320" cy="181" r="4" fill="#58a6ff"/>
+  </g>
+
+  <!-- seta prosa -> pessoa (base) -->
+  <text class="a lp t" x="404" y="244" font-size="12.5" fill="#8b949e" text-anchor="middle">a pessoa lê a prosa</text>
+  <g class="a ap" fill="none" stroke="#6e7681" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="320" y1="254" x2="488" y2="254"/>
+    <path d="M481,249.5 L488,254 L481,258.5"/>
+  </g>
+  <g class="a pp">
+    <circle cx="320" cy="254" r="9" fill="#e6edf3" opacity=".25"/>
+    <circle cx="320" cy="254" r="4" fill="#e6edf3"/>
+  </g>
+  <!-- pessoa -->
+  <g class="a person" fill="#8b949e">
+    <circle cx="512" cy="243" r="7"/>
+    <path d="M498,268 c0,-11 28,-11 28,0 z"/>
+  </g>
+  <!-- balão ✓ -->
+  <g class="a balloon">
+    <path d="M523,216 h24 a5,5 0 0 1 5,5 v14 a5,5 0 0 1 -5,5 h-17 l-7,6 v-6 a5,5 0 0 1 -5,-5 v-14 a5,5 0 0 1 5,-5 z" fill="#161b22" stroke="#3fb950" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M529.5,228 l4,4 l7.5,-8" fill="none" stroke="#3fb950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ===== DIREITA: painel de operação ===== -->
+  <rect x="580" y="28" width="390" height="244" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="598" y="53" class="t" font-size="14" font-weight="600" fill="#e6edf3">painel</text>
+  <rect x="652" y="38" width="56" height="22" rx="11" fill="#21262d" stroke="#30363d"/>
+  <text x="680" y="53" class="t" font-size="12" fill="#8b949e" text-anchor="middle">só lê</text>
+  <line x1="580.5" y1="68" x2="969.5" y2="68" stroke="#30363d"/>
+
+  <!-- anel de progresso -->
+  <circle cx="642" cy="144" r="31" fill="none" stroke="#21262d" stroke-width="7"/>
+  <circle class="a ring" cx="642" cy="144" r="31" fill="none" stroke="#3fb950" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="100 100" stroke-dashoffset="42.86" transform="rotate(-90 642 144)"/>
+  <text class="a n1 m" x="642" y="149" font-size="14" font-weight="700" fill="#e6edf3" text-anchor="middle">8/14</text>
+  <text class="a n2 m" x="642" y="149" font-size="14" font-weight="700" fill="#e6edf3" text-anchor="middle">9/14</text>
+  <text x="642" y="196" class="t" font-size="12" fill="#8b949e" text-anchor="middle">tasks</text>
+
+  <!-- contador de bloqueios -->
+  <rect x="706" y="112" width="124" height="60" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <text x="720" y="133" class="t" font-size="12" fill="#8b949e">bloqueios</text>
+  <text x="720" y="162" class="t" font-size="24" font-weight="600" fill="#f85149">1</text>
+
+  <!-- pílula de fase -->
+  <rect x="850" y="128" width="100" height="28" rx="14" fill="#238636" fill-opacity=".2" stroke="#3fb950"/>
+  <text x="900" y="147" class="m" font-size="13" fill="#3fb950" text-anchor="middle">fase F6</text>
+
+  <!-- barra de status -->
+  <rect x="596" y="214" width="358" height="30" rx="7" fill="#0d1117" stroke="#30363d"/>
+  <circle cx="612" cy="229" r="3.5" fill="#3fb950"/>
+  <text x="624" y="233.5" class="m" font-size="12.5" fill="#8b949e">estado.json · F6 ·</text>
+  <text class="a b1 m" x="766.5" y="233.5" font-size="12.5" fill="#8b949e">8/14</text>
+  <text class="a b2 m" x="766.5" y="233.5" font-size="12.5" fill="#8b949e">9/14</text>
+</svg>

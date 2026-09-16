@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="300" viewBox="0 0 1000 300" role="img" aria-label="Três agentes de veredito, somente leitura: investigador, auditor-plano e revisor-testes. Apontam, não corrigem.">
+<title>Agentes de veredito da sprintx: investigador, auditor-plano e revisor-testes, somente leitura — apontam, não corrigem</title>
+<style>
+.ag-sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+.ag-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.ag-h1{font-size:20px;font-weight:600;fill:#e6edf3}
+.ag-sub{font-size:13px;fill:#8b949e}
+.ag-name{font-size:14px;font-weight:600;fill:#a371f7}
+.ag-phase{font-size:12px;fill:#8b949e}
+.ag-pill{font-size:12px;font-weight:600;fill:#a371f7}
+.ag-desc{font-size:13px;fill:#8b949e}
+.ag-b1{font-size:12px;fill:#8b949e}
+.ag-b2{font-size:13px;font-weight:600;fill:#e6edf3}
+.ag-b3{font-size:12px;font-weight:600;fill:#a371f7}
+.ag-foot{font-size:14px;fill:#e6edf3;font-weight:600}
+.ag-foot2{font-weight:400;fill:#8b949e}
+.ag-pen2{animation:ag-pen2 9s infinite}
+.ag-pen3{animation:ag-pen3 9s infinite}
+.ag-ink2{animation:ag-ink2 9s infinite}
+.ag-ink3{animation:ag-ink3 9s infinite}
+.ag-x2{animation:ag-x2 9s infinite}
+.ag-x3{animation:ag-x3 9s infinite}
+.ag-bal2{animation:ag-bal2 9s infinite}
+.ag-bal3{animation:ag-bal3 9s infinite}
+.ag-desc2{animation:ag-desc2 9s infinite}
+.ag-desc3{animation:ag-desc3 9s infinite}
+.ag-lock2{animation:ag-lock2 9s infinite}
+.ag-lock3{animation:ag-lock3 9s infinite}
+@keyframes ag-pen2{
+ 0%,25.56%{opacity:0;transform:translate(166px,60px)}
+ 27.78%{opacity:1;transform:translate(166px,60px);animation-timing-function:cubic-bezier(.55,0,1,.45)}
+ 33.33%,34.2%{opacity:1;transform:translate(85px,84px);animation-timing-function:cubic-bezier(0,.6,.25,1)}
+ 37.8%,45.56%{opacity:1;transform:translate(144px,66px)}
+ 48.89%,100%{opacity:0;transform:translate(144px,66px)}
+}
+@keyframes ag-pen3{
+ 0%,58.89%{opacity:0;transform:translate(166px,60px)}
+ 61.11%{opacity:1;transform:translate(166px,60px);animation-timing-function:cubic-bezier(.55,0,1,.45)}
+ 66.67%,67.53%{opacity:1;transform:translate(85px,84px);animation-timing-function:cubic-bezier(0,.6,.25,1)}
+ 71.1%,78.89%{opacity:1;transform:translate(144px,66px)}
+ 82.22%,100%{opacity:0;transform:translate(144px,66px)}
+}
+@keyframes ag-ink2{0%,33.2%{fill:#a371f7}33.33%,100%{fill:#f85149}}
+@keyframes ag-ink3{0%,66.5%{fill:#a371f7}66.67%,100%{fill:#f85149}}
+@keyframes ag-x2{0%,33.6%{opacity:0}35.2%,45.56%{opacity:1}48.89%,100%{opacity:0}}
+@keyframes ag-x3{0%,66.9%{opacity:0}68.5%,78.89%{opacity:1}82.22%,100%{opacity:0}}
+@keyframes ag-bal2{
+ 0%,35%{opacity:0;transform:translate(0,6px)}
+ 37.22%,51.67%{opacity:1;transform:translate(0,0)}
+ 53.89%{opacity:0;transform:translate(0,0)}
+ 54%,100%{opacity:0;transform:translate(0,6px)}
+}
+@keyframes ag-bal3{
+ 0%,68.33%{opacity:0;transform:translate(0,6px)}
+ 70.56%,85%{opacity:1;transform:translate(0,0)}
+ 87.22%{opacity:0;transform:translate(0,0)}
+ 87.3%,100%{opacity:0;transform:translate(0,6px)}
+}
+@keyframes ag-desc2{0%,33.33%{opacity:1}35%,53.89%{opacity:0}56.11%,100%{opacity:1}}
+@keyframes ag-desc3{0%,66.67%{opacity:1}68.33%,87.22%{opacity:0}89.44%,100%{opacity:1}}
+@keyframes ag-lock2{0%,33.33%{transform:translate(0,0)}34.2%{transform:translate(-2px,0)}35.1%{transform:translate(2px,0)}36%,100%{transform:translate(0,0)}}
+@keyframes ag-lock3{0%,66.67%{transform:translate(0,0)}67.5%{transform:translate(-2px,0)}68.4%{transform:translate(2px,0)}69.3%,100%{transform:translate(0,0)}}
+</style>
+<defs>
+ <g id="ag-doc">
+  <rect x="28" y="84" width="46" height="64" rx="4" fill="#21262d" stroke="#30363d"/>
+  <rect x="35" y="92" width="32" height="4" rx="2" fill="#6e7681"/>
+  <rect x="35" y="103" width="24" height="4" rx="2" fill="#6e7681"/>
+  <rect x="35" y="114" width="32" height="4" rx="2" fill="#6e7681"/>
+  <rect x="35" y="125" width="28" height="4" rx="2" fill="#6e7681"/>
+  <rect x="35" y="136" width="18" height="4" rx="2" fill="#6e7681"/>
+ </g>
+ <g id="ag-lock">
+  <circle cx="74" cy="84" r="9.5" fill="#161b22"/>
+  <rect x="69" y="83.5" width="10" height="8" rx="1.5" fill="#a371f7"/>
+  <path d="M71 83.5v-2.5a3 3 0 0 1 6 0v2.5" fill="none" stroke="#a371f7" stroke-width="1.6" stroke-linecap="round"/>
+ </g>
+</defs>
+
+<!-- cartão de fundo -->
+<rect x="0.5" y="0.5" width="999" height="299" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+<!-- título -->
+<text class="ag-sans ag-h1" x="36" y="44">Agentes de veredito</text>
+<text class="ag-sans ag-sub" x="36" y="66">contexto próprio, ferramentas restritas, somente leitura</text>
+
+<!-- cartão 1 · investigador -->
+<g transform="translate(36 82)">
+ <rect x="0.5" y="0.5" width="289" height="169" rx="10" fill="#161b22" stroke="#30363d"/>
+ <text class="ag-mono ag-name" x="28" y="42">investigador</text>
+ <text class="ag-mono ag-phase" x="262" y="42" text-anchor="end">F1 · opcional</text>
+ <rect x="28" y="50" width="106" height="20" rx="10" fill="#a371f7" fill-opacity="0.14" stroke="#a371f7" stroke-opacity="0.45"/>
+ <text class="ag-sans ag-pill" x="81" y="64" text-anchor="middle">somente leitura</text>
+ <use href="#ag-doc"/>
+ <g>
+  <rect x="31" y="90" width="40" height="8" rx="2" fill="#a371f7" fill-opacity="0.22"/>
+  <rect x="31" y="97" width="40" height="1.5" fill="#a371f7" fill-opacity="0.9"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 46" dur="3s" begin="0s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3s" begin="0s" repeatCount="indefinite"/>
+ </g>
+ <use href="#ag-lock"/>
+ <text class="ag-sans ag-desc" x="88" y="97">monta a base de<tspan x="88" dy="16">conhecimento em contexto</tspan><tspan x="88" dy="16">próprio, para não consumir</tspan><tspan x="88" dy="16">o contexto principal</tspan></text>
+</g>
+
+<!-- cartão 2 · auditor-plano -->
+<g transform="translate(355 82)">
+ <rect x="0.5" y="0.5" width="289" height="169" rx="10" fill="#161b22" stroke="#30363d"/>
+ <text class="ag-mono ag-name" x="28" y="42">auditor-plano</text>
+ <text class="ag-mono ag-phase" x="262" y="42" text-anchor="end">F5</text>
+ <rect x="28" y="50" width="106" height="20" rx="10" fill="#a371f7" fill-opacity="0.14" stroke="#a371f7" stroke-opacity="0.45"/>
+ <text class="ag-sans ag-pill" x="81" y="64" text-anchor="middle">somente leitura</text>
+ <use href="#ag-doc"/>
+ <g>
+  <rect x="31" y="90" width="40" height="8" rx="2" fill="#a371f7" fill-opacity="0.22"/>
+  <rect x="31" y="97" width="40" height="1.5" fill="#a371f7" fill-opacity="0.9"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 46" dur="3s" begin="-1.1s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3s" begin="-1.1s" repeatCount="indefinite"/>
+ </g>
+ <g class="ag-lock2"><use href="#ag-lock"/></g>
+ <text class="ag-sans ag-desc ag-desc2" x="88" y="97">fura o plano sem ter<tspan x="88" dy="16">visto o raciocínio</tspan><tspan x="88" dy="16">que o gerou</tspan></text>
+ <g class="ag-bal2" opacity="0">
+  <rect x="88" y="88" width="174" height="58" rx="6" fill="#21262d" stroke="#a371f7" stroke-opacity="0.6"/>
+  <polygon points="88.5,96 81,101 88.5,106" fill="#21262d" stroke="#a371f7" stroke-opacity="0.6"/>
+  <rect x="87" y="95" width="3" height="12" fill="#21262d"/>
+  <text class="ag-sans ag-b1" x="100" y="106">achado</text>
+  <text class="ag-sans ag-b2" x="100" y="122">paralelismo falso</text>
+  <text class="ag-sans ag-b3" x="100" y="138">severidade ALTA</text>
+ </g>
+ <g class="ag-pen2" opacity="0" transform="translate(166 60)">
+  <g transform="rotate(-15) scale(1.1)">
+   <polygon class="ag-ink2" points="0,0 7,-3 7,3" fill="#a371f7"/>
+   <rect class="ag-ink2" x="6" y="-3" width="18" height="6" fill="#a371f7"/>
+   <rect x="24" y="-3" width="5" height="6" rx="1" fill="#6e7681"/>
+   <g class="ag-x2" opacity="0">
+    <circle cx="24" cy="-11" r="6.5" fill="#f85149"/>
+    <path d="M21.5 -13.5l5 5M26.5 -13.5l-5 5" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round"/>
+   </g>
+  </g>
+ </g>
+</g>
+
+<!-- cartão 3 · revisor-testes -->
+<g transform="translate(674 82)">
+ <rect x="0.5" y="0.5" width="289" height="169" rx="10" fill="#161b22" stroke="#30363d"/>
+ <text class="ag-mono ag-name" x="28" y="42">revisor-testes</text>
+ <text class="ag-mono ag-phase" x="262" y="42" text-anchor="end">F5 e F6</text>
+ <rect x="28" y="50" width="106" height="20" rx="10" fill="#a371f7" fill-opacity="0.14" stroke="#a371f7" stroke-opacity="0.45"/>
+ <text class="ag-sans ag-pill" x="81" y="64" text-anchor="middle">somente leitura</text>
+ <use href="#ag-doc"/>
+ <g>
+  <rect x="31" y="90" width="40" height="8" rx="2" fill="#a371f7" fill-opacity="0.22"/>
+  <rect x="31" y="97" width="40" height="1.5" fill="#a371f7" fill-opacity="0.9"/>
+  <animateTransform attributeName="transform" type="translate" values="0 0;0 46" dur="3s" begin="-2.2s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="3s" begin="-2.2s" repeatCount="indefinite"/>
+ </g>
+ <g class="ag-lock3"><use href="#ag-lock"/></g>
+ <text class="ag-sans ag-desc ag-desc3" x="88" y="97">responde a uma<tspan x="88" dy="16">pergunta só: esse teste</tspan><tspan x="88" dy="16">passaria com a</tspan><tspan x="88" dy="16">implementação errada?</tspan></text>
+ <g class="ag-bal3" opacity="0">
+  <rect x="88" y="88" width="174" height="58" rx="6" fill="#21262d" stroke="#a371f7" stroke-opacity="0.6"/>
+  <polygon points="88.5,96 81,101 88.5,106" fill="#21262d" stroke="#a371f7" stroke-opacity="0.6"/>
+  <rect x="87" y="95" width="3" height="12" fill="#21262d"/>
+  <text class="ag-sans ag-b1" x="100" y="106">veredito</text>
+  <text class="ag-sans ag-b2" x="100" y="122">esse teste</text>
+  <text class="ag-sans ag-b3" x="100" y="138">não discrimina</text>
+ </g>
+ <g class="ag-pen3" opacity="0" transform="translate(166 60)">
+  <g transform="rotate(-15) scale(1.1)">
+   <polygon class="ag-ink3" points="0,0 7,-3 7,3" fill="#a371f7"/>
+   <rect class="ag-ink3" x="6" y="-3" width="18" height="6" fill="#a371f7"/>
+   <rect x="24" y="-3" width="5" height="6" rx="1" fill="#6e7681"/>
+   <g class="ag-x3" opacity="0">
+    <circle cx="24" cy="-11" r="6.5" fill="#f85149"/>
+    <path d="M21.5 -13.5l5 5M26.5 -13.5l-5 5" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round"/>
+   </g>
+  </g>
+ </g>
+</g>
+
+<!-- rodapé -->
+<text class="ag-sans ag-foot" x="500" y="283" text-anchor="middle">Aponta, não corrige<tspan class="ag-foot2"> — impossibilidade técnica, não promessa.</tspan></text>
+</svg>

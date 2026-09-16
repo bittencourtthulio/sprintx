@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="340" viewBox="0 0 1000 340" role="img" aria-label="Build e Run: sprintx e runx compartilham os mesmos contratos. Muda o gatilho e o tamanho, nunca o rigor.">
+<title>Build e Run: sprintx e runx compartilham os mesmos contratos</title>
+<style>
+text{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;}
+.br-lane{font-size:13px;font-weight:500;fill:#e6edf3}
+.br-id{font-weight:700}
+.br-ctr{font-size:12px;font-weight:500;fill:#8b949e}
+.br-lbl{font-size:14px;font-weight:700}
+.br-sub{font-size:12px;fill:#8b949e}
+.br-res{font-size:13px;font-weight:600;fill:#8b949e}
+</style>
+<rect x="0.5" y="0.5" width="999" height="339" rx="16" fill="#0d1117" stroke="#30363d"/>
+<rect x="165" y="124" width="807" height="86" rx="12" fill="#161b22" stroke="#30363d"/>
+<line x1="165" y1="78" x2="948" y2="78" stroke="#30363d" stroke-width="2"/>
+<line x1="165" y1="256" x2="948" y2="256" stroke="#30363d" stroke-width="2"/>
+<line x1="165" y1="78" x2="165" y2="78" stroke="#3fb950" stroke-width="2" stroke-linecap="round" opacity="0">
+<animate attributeName="x2" values="165;165;948;948" keyTimes="0;0.04;0.6;1" dur="10s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;.55;.55;0" keyTimes="0;0.04;0.95;1" dur="10s" repeatCount="indefinite"/>
+</line>
+<line x1="165" y1="256" x2="165" y2="256" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" opacity="0">
+<animate attributeName="x2" values="165;165;948;948" keyTimes="0;0.04;0.6;1" dur="10s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;.55;.55;0" keyTimes="0;0.04;0.95;1" dur="10s" repeatCount="indefinite"/>
+</line>
+<line x1="260" y1="78" x2="260" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="374" y1="78" x2="374" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="488" y1="78" x2="488" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="602" y1="78" x2="602" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="716" y1="78" x2="716" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="830" y1="78" x2="830" y2="256" stroke="#30363d" stroke-width="1"/>
+<line x1="260" y1="78" x2="260" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="1.08s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.842;0.892;1"/></line>
+<line x1="374" y1="78" x2="374" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="1.89s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.761;0.811;1"/></line>
+<line x1="488" y1="78" x2="488" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="2.71s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.679;0.729;1"/></line>
+<line x1="602" y1="78" x2="602" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="3.53s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.597;0.647;1"/></line>
+<line x1="716" y1="78" x2="716" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="4.34s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.516;0.566;1"/></line>
+<line x1="830" y1="78" x2="830" y2="256" stroke="#e6edf3" stroke-width="1" opacity="0"><animate attributeName="opacity" begin="5.16s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.434;0.484;1"/></line>
+<text x="28" y="75" class="br-lbl" fill="#3fb950">BUILD · sprintx</text>
+<text x="28" y="93" class="br-sub">gatilho: feature nova</text>
+<text x="28" y="93" class="br-sub" fill="#e6edf3" opacity="0">gatilho: feature nova<animate attributeName="opacity" begin="0.15s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.935;0.985;1"/></text>
+<text x="28" y="163" font-size="13" font-weight="700" fill="#e6edf3">mesmos contratos</text>
+<text x="28" y="181" class="br-sub">sprintx e runx</text>
+<text x="28" y="246" class="br-lbl" fill="#58a6ff">RUN · runx</text>
+<text x="28" y="264" class="br-sub">gatilho: ocorrência</text>
+<text x="28" y="280" class="br-sub">em produção</text>
+<g opacity="0"><text x="28" y="264" class="br-sub" fill="#e6edf3">gatilho: ocorrência</text><text x="28" y="280" class="br-sub" fill="#e6edf3">em produção</text><animate attributeName="opacity" begin="0.15s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.935;0.985;1"/></g>
+<g opacity="0"><animateTransform attributeName="transform" type="translate" values="165 78;165 78;948 78;948 78" keyTimes="0;0.04;0.6;1" dur="10s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.065;0.6;0.63;1" dur="10s" repeatCount="indefinite"/>
+<circle r="13" fill="#3fb950" opacity=".22"/><circle r="7" fill="#3fb950" opacity=".45"/><circle r="4" fill="#e6edf3"/></g>
+<g opacity="0"><animateTransform attributeName="transform" type="translate" values="165 256;165 256;948 256;948 256" keyTimes="0;0.04;0.6;1" dur="10s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.04;0.065;0.6;0.63;1" dur="10s" repeatCount="indefinite"/>
+<circle r="13" fill="#58a6ff" opacity=".22"/><circle r="7" fill="#58a6ff" opacity=".45"/><circle r="4" fill="#e6edf3"/></g>
+<g><rect x="183" y="66" width="104.2" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="235.1" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F1</tspan> ingestão</text></g>
+<g opacity="0"><rect x="183" y="66" width="104.2" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="235.1" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F1</tspan> ingestão</text><animate attributeName="opacity" begin="0.57s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.893;0.943;1"/></g>
+<g><rect x="303.1" y="66" width="124.5" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="365.3" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F2</tspan> descoberta</text></g>
+<g opacity="0"><rect x="303.1" y="66" width="124.5" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="365.3" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F2</tspan> descoberta</text><animate attributeName="opacity" begin="1.43s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.807;0.857;1"/></g>
+<g><rect x="443.4" y="66" width="85.5" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="486.2" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F3</tspan> plano</text></g>
+<g opacity="0"><rect x="443.4" y="66" width="85.5" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="486.2" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F3</tspan> plano</text><animate attributeName="opacity" begin="2.43s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.707;0.757;1"/></g>
+<g><rect x="544.8" y="66" width="136.5" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="613" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F4</tspan> orquestrador</text></g>
+<g opacity="0"><rect x="544.8" y="66" width="136.5" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="613" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F4</tspan> orquestrador</text><animate attributeName="opacity" begin="3.16s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.634;0.684;1"/></g>
+<g><rect x="697.1" y="66" width="108" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="751.1" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F5</tspan> auditoria</text></g>
+<g opacity="0"><rect x="697.1" y="66" width="108" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="751.1" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F5</tspan> auditoria</text><animate attributeName="opacity" begin="4.25s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.525;0.575;1"/></g>
+<g><rect x="821" y="66" width="112" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="877" y="82.5" text-anchor="middle" class="br-lane"><tspan class="br-id">F6</tspan> execução</text></g>
+<g opacity="0"><rect x="821" y="66" width="112" height="24" rx="6" fill="#3fb950" fill-opacity=".14" stroke="#3fb950" stroke-width="1.2"/>
+<text x="877" y="82.5" text-anchor="middle" class="br-lane" fill="#3fb950"><tspan class="br-id">F6</tspan> execução</text><animate attributeName="opacity" begin="5.13s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.437;0.487;1"/></g>
+<g><rect x="183" y="244" width="131.2" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="248.6" y="260.5" text-anchor="middle" class="br-lane"><tspan class="br-id">E1</tspan> investigação</text></g>
+<g opacity="0"><rect x="183" y="244" width="131.2" height="24" rx="6" fill="#58a6ff" fill-opacity=".14" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="248.6" y="260.5" text-anchor="middle" class="br-lane" fill="#58a6ff"><tspan class="br-id">E1</tspan> investigação</text><animate attributeName="opacity" begin="0.57s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.893;0.943;1"/></g>
+<g><rect x="387.5" y="244" width="85.6" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="430.3" y="260.5" text-anchor="middle" class="br-lane"><tspan class="br-id">E2</tspan> plano</text></g>
+<g opacity="0"><rect x="387.5" y="244" width="85.6" height="24" rx="6" fill="#58a6ff" fill-opacity=".14" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="430.3" y="260.5" text-anchor="middle" class="br-lane" fill="#58a6ff"><tspan class="br-id">E2</tspan> plano</text><animate attributeName="opacity" begin="2.03s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.747;0.797;1"/></g>
+<g><rect x="546.5" y="244" width="65.6" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="579.3" y="260.5" text-anchor="middle" class="br-lane"><tspan class="br-id">E3</tspan> fix</text></g>
+<g opacity="0"><rect x="546.5" y="244" width="65.6" height="24" rx="6" fill="#58a6ff" fill-opacity=".14" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="579.3" y="260.5" text-anchor="middle" class="br-lane" fill="#58a6ff"><tspan class="br-id">E3</tspan> fix</text><animate attributeName="opacity" begin="3.17s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.633;0.683;1"/></g>
+<g><rect x="685.4" y="244" width="69" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="719.9" y="260.5" text-anchor="middle" class="br-lane"><tspan class="br-id">E4</tspan> QA</text></g>
+<g opacity="0"><rect x="685.4" y="244" width="69" height="24" rx="6" fill="#58a6ff" fill-opacity=".14" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="719.9" y="260.5" text-anchor="middle" class="br-lane" fill="#58a6ff"><tspan class="br-id">E4</tspan> QA</text><animate attributeName="opacity" begin="4.16s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.534;0.584;1"/></g>
+<g><rect x="827.7" y="244" width="105.3" height="24" rx="6" fill="#21262d" stroke="#30363d"/>
+<text x="880.4" y="260.5" text-anchor="middle" class="br-lane"><tspan class="br-id">E5</tspan> relatório</text></g>
+<g opacity="0"><rect x="827.7" y="244" width="105.3" height="24" rx="6" fill="#58a6ff" fill-opacity=".14" stroke="#58a6ff" stroke-width="1.2"/>
+<text x="880.4" y="260.5" text-anchor="middle" class="br-lane" fill="#58a6ff"><tspan class="br-id">E5</tspan> relatório</text><animate attributeName="opacity" begin="5.18s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.432;0.482;1"/></g>
+<g><rect x="188.5" y="136" width="143" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="260" y="152" text-anchor="middle" class="br-ctr">base antes do plano</text></g>
+<g opacity="0"><rect x="188.5" y="136" width="143" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="260" y="152" text-anchor="middle" class="br-ctr" fill="#e6edf3">base antes do plano</text><animate attributeName="opacity" begin="1.08s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.842;0.892;1"/></g>
+<g><rect x="301.6" y="174" width="144.9" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="374" y="190" text-anchor="middle" class="br-ctr">sprint → fase → task</text></g>
+<g opacity="0"><rect x="301.6" y="174" width="144.9" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="374" y="190" text-anchor="middle" class="br-ctr" fill="#e6edf3">sprint → fase → task</text><animate attributeName="opacity" begin="1.89s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.761;0.811;1"/></g>
+<g><rect x="407.6" y="136" width="160.7" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="488" y="152" text-anchor="middle" class="br-ctr">TDD · 2 testes por task</text></g>
+<g opacity="0"><rect x="407.6" y="136" width="160.7" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="488" y="152" text-anchor="middle" class="br-ctr" fill="#e6edf3">TDD · 2 testes por task</text><animate attributeName="opacity" begin="2.71s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.679;0.729;1"/></g>
+<g><rect x="540.4" y="174" width="123.2" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="602" y="190" text-anchor="middle" class="br-ctr">aceite verificável</text></g>
+<g opacity="0"><rect x="540.4" y="174" width="123.2" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="602" y="190" text-anchor="middle" class="br-ctr" fill="#e6edf3">aceite verificável</text><animate attributeName="opacity" begin="3.53s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.597;0.647;1"/></g>
+<g><rect x="638.5" y="136" width="155" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="716" y="152" text-anchor="middle" class="br-ctr">paralelismo declarado</text></g>
+<g opacity="0"><rect x="638.5" y="136" width="155" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="716" y="152" text-anchor="middle" class="br-ctr" fill="#e6edf3">paralelismo declarado</text><animate attributeName="opacity" begin="4.34s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.516;0.566;1"/></g>
+<g><rect x="729.2" y="174" width="201.6" height="24" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="830" y="190" text-anchor="middle" class="br-ctr">orquestrador guia a execução</text></g>
+<g opacity="0"><rect x="729.2" y="174" width="201.6" height="24" rx="12" fill="#e6edf3" fill-opacity=".1" stroke="#e6edf3"/>
+<text x="830" y="190" text-anchor="middle" class="br-ctr" fill="#e6edf3">orquestrador guia a execução</text><animate attributeName="opacity" begin="5.16s" dur="10s" repeatCount="indefinite" values="0;1;1;.45;.45;0;0" keyTimes="0;0.015;0.08;0.12;0.434;0.484;1"/></g>
+<g transform="translate(948 78)"><circle r="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+<path d="M-4.5 0.5 L-1.5 3.5 L4.5 -3.5" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g opacity="0"><animate attributeName="opacity" begin="6s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.35;0.4;1"/>
+<g><animateTransform attributeName="transform" type="scale" begin="6s" dur="10s" repeatCount="indefinite" values="0.4;1.18;1;1;0.4;0.4" keyTimes="0;0.03;0.05;0.35;0.4;1" calcMode="spline" keySplines="0.2 0.8 0.3 1;0.4 0 0.6 1;0 0 1 1;0.4 0 0.6 1;0 0 1 1" additive="replace"/>
+<circle r="11" fill="#3fb950" opacity=".25"/><circle r="10" fill="#3fb950"/>
+<path d="M-4.5 0.5 L-1.5 3.5 L4.5 -3.5" fill="none" stroke="#0d1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g>
+<text x="972" y="49" text-anchor="end" class="br-res">feature entregue</text>
+<text x="972" y="49" text-anchor="end" class="br-res" fill="#3fb950" opacity="0">feature entregue<animate attributeName="opacity" begin="6s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.35;0.4;1"/></text>
+<g transform="translate(948 256)"><circle r="10" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+<path d="M-4.5 0.5 L-1.5 3.5 L4.5 -3.5" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g opacity="0"><animate attributeName="opacity" begin="6s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.02;0.35;0.4;1"/>
+<g><animateTransform attributeName="transform" type="scale" begin="6s" dur="10s" repeatCount="indefinite" values="0.4;1.18;1;1;0.4;0.4" keyTimes="0;0.03;0.05;0.35;0.4;1" calcMode="spline" keySplines="0.2 0.8 0.3 1;0.4 0 0.6 1;0 0 1 1;0.4 0 0.6 1;0 0 1 1" additive="replace"/>
+<circle r="11" fill="#58a6ff" opacity=".25"/><circle r="10" fill="#58a6ff"/>
+<path d="M-4.5 0.5 L-1.5 3.5 L4.5 -3.5" fill="none" stroke="#0d1117" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g></g></g>
+<text x="972" y="288" text-anchor="end" class="br-res">ocorrência encerrada + 2 relatórios</text>
+<text x="972" y="288" text-anchor="end" class="br-res" fill="#58a6ff" opacity="0">ocorrência encerrada + 2 relatórios<animate attributeName="opacity" begin="6s" dur="10s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.025;0.35;0.4;1"/></text>
+<text x="500" y="316" text-anchor="middle" font-size="16" font-weight="700" fill="#e6edf3" opacity="0">Muda o gatilho e o tamanho. Nunca o rigor.
+<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.7;0.74;0.91;0.95;1" dur="10s" repeatCount="indefinite"/>
+<animateTransform attributeName="transform" type="translate" values="0 6;0 6;0 0;0 0;0 0;0 6" keyTimes="0;0.7;0.74;0.91;0.95;1" dur="10s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1;0 0 1 1;0 0 1 1"/></text>
+</svg>

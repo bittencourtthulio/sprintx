@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-label="Sessões paralelas: worktree por feature, reivindicação de task pelo rastro e árvore limpa antes da suíte inteira.">
+  <title>Sessões paralelas na sprintx: um worktree por feature, reivindicação de task pelo rastro e árvore limpa antes da suíte inteira</title>
+  <style>
+.sp-s{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif}
+.sp-m{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}
+.sp-a{animation-duration:13s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.4,0,.2,1);animation-fill-mode:both}
+.sp-bar{transform-box:fill-box;transform-origin:0% 50%;transform:scaleX(0)}
+.sp-cross{transform-box:fill-box;transform-origin:50% 50%}
+@keyframes sp-a1{0%{transform:scaleX(0)}3.846%{transform:scaleX(0)}17.692%{transform:scaleX(1)}98.692%{transform:scaleX(1)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-a2{0%{transform:scaleX(0)}17.692%{transform:scaleX(0)}35.385%{transform:scaleX(1)}98.692%{transform:scaleX(1)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-a3{0%{transform:scaleX(0)}35.385%{transform:scaleX(0)}53.846%{transform:scaleX(1)}98.692%{transform:scaleX(1)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-a1b{0%{stroke:#30363d}2.308%{stroke:#30363d}4.615%{stroke:#d97757}15.385%{stroke:#d97757}17.692%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-a2b{0%{stroke:#30363d}16.154%{stroke:#30363d}18.462%{stroke:#d97757}33.077%{stroke:#d97757}35.385%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-a3b{0%{stroke:#30363d}33.846%{stroke:#30363d}36.154%{stroke:#d97757}51.538%{stroke:#d97757}53.846%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-a1f{0%{fill:#d97757}15.385%{fill:#d97757}17.692%{fill:#3fb950}98.692%{fill:#3fb950}98.846%{fill:#d97757}100%{fill:#d97757}}
+@keyframes sp-a2f{0%{fill:#d97757}33.077%{fill:#d97757}35.385%{fill:#3fb950}98.692%{fill:#3fb950}98.846%{fill:#d97757}100%{fill:#d97757}}
+@keyframes sp-a3f{0%{fill:#d97757}51.538%{fill:#d97757}53.846%{fill:#3fb950}98.692%{fill:#3fb950}98.846%{fill:#d97757}100%{fill:#d97757}}
+@keyframes sp-b1{0%{transform:scaleX(0)}4.615%{transform:scaleX(0)}15.385%{transform:scaleX(0.62)}22.308%{transform:scaleX(0.62)}29.231%{transform:scaleX(1)}98.692%{transform:scaleX(1)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-b2{0%{transform:scaleX(0)}30%{transform:scaleX(0)}38.462%{transform:scaleX(0.2)}51.538%{transform:scaleX(0.2)}73.846%{transform:scaleX(0.82)}98.692%{transform:scaleX(0.82)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-b1b{0%{stroke:#30363d}3.077%{stroke:#30363d}5.385%{stroke:#58a6ff}26.923%{stroke:#58a6ff}29.231%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-b2b{0%{stroke:#30363d}28.462%{stroke:#30363d}30.769%{stroke:#58a6ff}94.615%{stroke:#58a6ff}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-b3b{0%{stroke:#30363d}36.923%{stroke:#30363d}39.231%{stroke:#58a6ff}47.692%{stroke:#58a6ff}50%{stroke:#30363d}94.615%{stroke:#30363d}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-b1f{0%{fill:#58a6ff}26.923%{fill:#58a6ff}29.231%{fill:#3fb950}98.692%{fill:#3fb950}98.846%{fill:#58a6ff}100%{fill:#58a6ff}}
+@keyframes sp-stash{0%{opacity:0;transform:translateY(4px)}15.385%{opacity:0;transform:translateY(4px)}17.692%{opacity:1;transform:translateY(0px)}22.308%{opacity:1;transform:translateY(0px)}25%{opacity:0;transform:translateY(4px)}100%{opacity:0;transform:translateY(4px)}}
+@keyframes sp-arrow-line{0%{stroke-dashoffset:62}38.462%{stroke-dashoffset:62}42.308%{stroke-dashoffset:0}48.462%{stroke-dashoffset:0}51.538%{stroke-dashoffset:62}100%{stroke-dashoffset:62}}
+@keyframes sp-arrow-head{0%{transform:translateY(62px)}38.462%{transform:translateY(62px)}42.308%{transform:translateY(0px)}48.462%{transform:translateY(0px)}51.538%{transform:translateY(62px)}100%{transform:translateY(62px)}}
+@keyframes sp-arrow-op{0%{opacity:0}38.077%{opacity:0}38.846%{opacity:1}51.154%{opacity:1}51.923%{opacity:0}100%{opacity:0}}
+@keyframes sp-cross{0%{opacity:0;transform:scale(.4)}42.308%{opacity:0;transform:scale(.4)}43.462%{opacity:1;transform:scale(1)}47.692%{opacity:1;transform:scale(1)}49.231%{opacity:0;transform:scale(1)}100%{opacity:0;transform:scale(.4)}}
+@keyframes sp-claim{0%{opacity:0;transform:translateY(6px)}43.462%{opacity:0;transform:translateY(6px)}45.769%{opacity:1;transform:translateY(0px)}53.077%{opacity:1;transform:translateY(0px)}56.154%{opacity:0;transform:translateY(6px)}100%{opacity:0;transform:translateY(6px)}}
+@keyframes sp-chevA{0%{stroke:#30363d}53.077%{stroke:#30363d}55.385%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-ok1{0%{fill-opacity:0}56.923%{fill-opacity:0}59.231%{fill-opacity:1}94.615%{fill-opacity:1}98.462%{fill-opacity:0}100%{fill-opacity:0}}
+@keyframes sp-ok2{0%{fill-opacity:0}60.769%{fill-opacity:0}63.077%{fill-opacity:1}94.615%{fill-opacity:1}98.462%{fill-opacity:0}100%{fill-opacity:0}}
+@keyframes sp-doorL{0%{transform:translateX(0px)}63.846%{transform:translateX(0px)}68.462%{transform:translateX(-50px)}94.615%{transform:translateX(-50px)}98.462%{transform:translateX(0px)}100%{transform:translateX(0px)}}
+@keyframes sp-doorR{0%{transform:translateX(0px)}63.846%{transform:translateX(0px)}68.462%{transform:translateX(50px)}94.615%{transform:translateX(50px)}98.462%{transform:translateX(0px)}100%{transform:translateX(0px)}}
+@keyframes sp-frame{0%{stroke:#30363d}63.846%{stroke:#30363d}66.154%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-gate{0%{stroke:#30363d}65.385%{stroke:#30363d}67.692%{stroke:#238636}94.615%{stroke:#238636}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-pillS{0%{stroke:#30363d}66.923%{stroke:#30363d}69.231%{stroke:#3fb950}94.615%{stroke:#3fb950}98.462%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes sp-pillF{0%{fill:#21262d}66.923%{fill:#21262d}69.231%{fill:#1a3a24}94.615%{fill:#1a3a24}98.462%{fill:#21262d}100%{fill:#21262d}}
+@keyframes sp-txt1{0%{opacity:1}66.923%{opacity:1}68.077%{opacity:0}96.538%{opacity:0}98.462%{opacity:1}100%{opacity:1}}
+@keyframes sp-txt2{0%{opacity:0}68.077%{opacity:0}69.231%{opacity:1}94.615%{opacity:1}96.538%{opacity:0}100%{opacity:0}}
+@keyframes sp-type{0%{transform:scaleX(0)}73.846%{transform:scaleX(0);animation-timing-function:steps(84,end)}83.077%{transform:scaleX(1)}98.692%{transform:scaleX(1)}98.846%{transform:scaleX(0)}100%{transform:scaleX(0)}}
+@keyframes sp-dyn{0%{opacity:1}94.615%{opacity:1}98.462%{opacity:0}99.231%{opacity:0}100%{opacity:1}}
+  </style>
+  <defs>
+    <clipPath id="sp-clip-gate"><rect x="806" y="162" width="98" height="40" rx="5"/></clipPath>
+    <clipPath id="sp-clip-type"><rect class="sp-a sp-bar" x="30" y="368" width="640" height="26" style="animation-name:sp-type"/></clipPath>
+  </defs>
+
+  <!-- cartão -->
+  <rect x="0.5" y="0.5" width="999" height="419" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+  <!-- cabeçalho -->
+  <text class="sp-s" x="30" y="50" font-size="20" font-weight="600" fill="#e6edf3">Sessões paralelas</text>
+  <text class="sp-s" x="30" y="71" font-size="13" fill="#8b949e">regra 21: uma feature por worktree, num diretório irmão</text>
+  <text class="sp-s" x="970" y="50" font-size="13" text-anchor="end" fill="#8b949e">harnesses diferentes ao mesmo tempo</text>
+  <text class="sp-m" x="970" y="71" font-size="13" text-anchor="end" fill="#8b949e">sessao: &lt;harness&gt;@&lt;id&gt;</text>
+
+  <!-- checkout principal -->
+  <rect x="30" y="167" width="130" height="90" rx="10" fill="#161b22" stroke="#30363d"/>
+  <path transform="translate(84,180)" fill="#6e7681" d="M1,2 h6 l2.5,2.5 H20 a1.5,1.5 0 0 1 1.5,1.5 v10 a1.5,1.5 0 0 1 -1.5,1.5 H1.5 A1.5,1.5 0 0 1 0,16 V3 a1,1 0 0 1 1,-1 z"/>
+  <text class="sp-m" x="95" y="222" font-size="13" text-anchor="middle" fill="#e6edf3">meu-projeto/</text>
+  <text class="sp-m" x="95" y="241" font-size="12" text-anchor="middle" fill="#8b949e">(main)</text>
+
+  <!-- ramificações -->
+  <path d="M160,197 C182,197 174,152 195,152" fill="none" stroke="#d97757" stroke-width="1.5" stroke-opacity=".75"/>
+  <path d="M160,227 C182,227 174,272 195,272" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-opacity=".75"/>
+  <circle cx="160" cy="197" r="2.5" fill="#d97757"/>
+  <circle cx="160" cy="227" r="2.5" fill="#58a6ff"/>
+
+  <!-- worktree a -->
+  <rect x="195" y="112" width="250" height="80" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text class="sp-m" x="209" y="134" font-size="12" fill="#e6edf3">../meu-projeto-exportacao-csv/</text>
+  <g transform="translate(209,143)" fill="none" stroke="#6e7681" stroke-width="1.3">
+      <circle cx="2.5" cy="2.5" r="1.8"/><circle cx="2.5" cy="10.5" r="1.8"/><circle cx="10" cy="4" r="1.8"/>
+      <path d="M2.5,4.3 V8.7 M10,5.8 C10,8.5 3,7 2.5,8.7"/></g>
+  <text class="sp-m" x="227" y="153" font-size="12" fill="#8b949e">feature/exportacao-csv</text>
+  <rect x="209" y="163" width="216" height="20" rx="10" fill="#d97757" fill-opacity=".12" stroke="#d97757" stroke-opacity=".55"/>
+  <circle cx="222" cy="173" r="3.5" fill="#d97757"/>
+  <text class="sp-s" x="233" y="178" font-size="13" font-weight="600" fill="#d97757">Claude Code · claude@a1</text>
+
+  <!-- worktree b -->
+  <rect x="195" y="232" width="250" height="80" rx="10" fill="#161b22" stroke="#30363d"/>
+  <text class="sp-m" x="209" y="254" font-size="12" fill="#e6edf3">../meu-projeto-webhooks/</text>
+  <g transform="translate(209,263)" fill="none" stroke="#6e7681" stroke-width="1.3">
+      <circle cx="2.5" cy="2.5" r="1.8"/><circle cx="2.5" cy="10.5" r="1.8"/><circle cx="10" cy="4" r="1.8"/>
+      <path d="M2.5,4.3 V8.7 M10,5.8 C10,8.5 3,7 2.5,8.7"/></g>
+  <text class="sp-m" x="227" y="273" font-size="12" fill="#8b949e">feature/webhooks</text>
+  <rect x="209" y="283" width="216" height="20" rx="10" fill="#58a6ff" fill-opacity=".12" stroke="#58a6ff" stroke-opacity=".55"/>
+  <circle cx="222" cy="293" r="3.5" fill="#58a6ff"/>
+  <text class="sp-s" x="233" y="298" font-size="13" font-weight="600" fill="#58a6ff">OpenCode · opencode@b7</text>
+
+  <!-- stash na sessão de baixo -->
+  <g class="sp-a" style="animation-name:sp-stash;opacity:0">
+    <rect x="370" y="221" width="68" height="20" rx="10" fill="#0d1117" stroke="#58a6ff" stroke-opacity=".7"/>
+    <text class="sp-m" x="404" y="235" font-size="13" text-anchor="middle" fill="#58a6ff">stash</text>
+  </g>
+
+  <!-- tasks -->
+  <g class="sp-a" style="animation-name:sp-dyn">
+
+  <rect class="sp-a" x="468" y="130" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-a1b"/>
+  <text class="sp-m" x="505" y="149" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.01</text>
+  <rect x="478" y="159" width="54" height="5" rx="2.5" fill="#21262d"/>
+  <rect class="sp-a sp-bar" x="478" y="159" width="54" height="5" rx="2.5" fill="#d97757" style="animation-name:sp-a1,sp-a1f"/>
+  <rect class="sp-a" x="550" y="130" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-a2b"/>
+  <text class="sp-m" x="587" y="149" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.02</text>
+  <rect x="560" y="159" width="54" height="5" rx="2.5" fill="#21262d"/>
+  <rect class="sp-a sp-bar" x="560" y="159" width="54" height="5" rx="2.5" fill="#d97757" style="animation-name:sp-a2,sp-a2f"/>
+  <rect class="sp-a" x="632" y="130" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-a3b"/>
+  <text class="sp-m" x="669" y="149" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.03</text>
+  <rect x="642" y="159" width="54" height="5" rx="2.5" fill="#21262d"/>
+  <rect class="sp-a sp-bar" x="642" y="159" width="54" height="5" rx="2.5" fill="#d97757" style="animation-name:sp-a3,sp-a3f"/>
+
+  <rect class="sp-a" x="468" y="250" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-b1b"/>
+  <text class="sp-m" x="505" y="269" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.01</text>
+  <rect x="478" y="279" width="54" height="5" rx="2.5" fill="#21262d"/>
+  <rect class="sp-a sp-bar" x="478" y="279" width="54" height="5" rx="2.5" fill="#58a6ff" style="animation-name:sp-b1,sp-b1f"/>
+  <rect class="sp-a" x="550" y="250" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-b2b"/>
+  <text class="sp-m" x="587" y="269" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.02</text>
+  <rect x="560" y="279" width="54" height="5" rx="2.5" fill="#21262d"/>
+  <rect class="sp-a sp-bar" x="560" y="279" width="54" height="5" rx="2.5" fill="#58a6ff" style="animation-name:sp-b2"/>
+  <rect class="sp-a" x="632" y="250" width="74" height="44" rx="8" fill="#161b22" stroke="#30363d" style="animation-name:sp-b3b"/>
+  <text class="sp-m" x="669" y="269" font-size="12" text-anchor="middle" fill="#e6edf3">T-02.03</text>
+  <rect x="642" y="279" width="54" height="5" rx="2.5" fill="#21262d"/>
+  </g>
+
+  <!-- conectores até o portão -->
+  <g fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path class="sp-a" d="M716,152 H730 M724,146 L730,152 L724,158" stroke="#30363d" style="animation-name:sp-chevA"/>
+    <path d="M716,272 H730 M724,266 L730,272 L724,278" stroke="#30363d"/>
+  </g>
+
+  <!-- seta de reivindicação + cruzamento + hook -->
+  <g class="sp-a" style="animation-name:sp-arrow-op;opacity:0">
+    <line class="sp-a" x1="698" y1="246" x2="698" y2="184" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="62" style="animation-name:sp-arrow-line"/>
+    <polygon class="sp-a" points="698,177 693,186 703,186" fill="#58a6ff" style="animation-name:sp-arrow-head"/>
+  </g>
+  <g class="sp-a sp-cross" style="animation-name:sp-cross;opacity:0">
+    <circle cx="698" cy="194" r="7" fill="#0d1117" stroke="#d29922" stroke-width="1.5"/>
+    <path d="M695,191 L701,197 M701,191 L695,197" stroke="#d29922" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+  <g class="sp-a" style="animation-name:sp-claim;opacity:0">
+    <rect x="418" y="201" width="270" height="22" rx="11" fill="#d29922" fill-opacity=".14" stroke="#d29922" stroke-opacity=".7"/>
+    <text class="sp-s" x="553" y="216" font-size="12" font-weight="600" text-anchor="middle" fill="#d29922">⚠ task reivindicada por claude@a1</text>
+  </g>
+
+  <!-- portão: fechar sprint -->
+  <rect class="sp-a" x="740" y="112" width="230" height="200" rx="12" fill="#161b22" stroke="#30363d" style="animation-name:sp-gate"/>
+  <text class="sp-s" x="855" y="134" font-size="13" font-weight="600" text-anchor="middle" fill="#e6edf3">fechar sprint</text>
+  <text class="sp-m" x="855" y="151" font-size="12" text-anchor="middle" fill="#8b949e">arvore-limpa-antes-da-suite</text>
+  <rect class="sp-a" x="805" y="161" width="100" height="42" rx="6" fill="#238636" fill-opacity=".28" stroke="#30363d" style="animation-name:sp-frame"/>
+  <text class="sp-s" x="855" y="188" font-size="17" font-weight="700" text-anchor="middle" fill="#3fb950">✓</text>
+  <g clip-path="url(#sp-clip-gate)">
+    <g class="sp-a" style="animation-name:sp-doorL">
+      <rect x="806.5" y="162.5" width="48.5" height="39" fill="#21262d" stroke="#30363d"/>
+      <rect x="848" y="177" width="2" height="10" rx="1" fill="#8b949e"/>
+    </g>
+    <g class="sp-a" style="animation-name:sp-doorR">
+      <rect x="855" y="162.5" width="48.5" height="39" fill="#21262d" stroke="#30363d"/>
+      <rect x="860" y="177" width="2" height="10" rx="1" fill="#8b949e"/>
+    </g>
+  </g>
+  <text class="sp-s" x="855" y="226" font-size="13" text-anchor="middle" fill="#8b949e">árvore limpa? <tspan class="sp-a" font-weight="600" fill="#3fb950" style="animation-name:sp-ok1;fill-opacity:0">✓ sim</tspan></text>
+  <text class="sp-s" x="855" y="244" font-size="13" text-anchor="middle" fill="#8b949e">task de outra sessão</text>
+  <text class="sp-s" x="855" y="262" font-size="13" text-anchor="middle" fill="#8b949e">em andamento? <tspan class="sp-a" font-weight="600" fill="#3fb950" style="animation-name:sp-ok2;fill-opacity:0">nenhuma</tspan></text>
+  <rect class="sp-a" x="770" y="276" width="170" height="22" rx="11" fill="#21262d" stroke="#30363d" style="animation-name:sp-pillF,sp-pillS"/>
+  <text class="sp-a sp-s" x="855" y="291" font-size="13" font-weight="600" text-anchor="middle" fill="#8b949e" style="animation-name:sp-txt1">suíte inteira</text>
+  <text class="sp-a sp-s" x="855" y="291" font-size="13" font-weight="600" text-anchor="middle" fill="#3fb950" style="animation-name:sp-txt2;opacity:0">suíte inteira · verde</text>
+
+  <!-- rastro -->
+  <line x1="30" y1="336" x2="970" y2="336" stroke="#21262d"/>
+  <text class="sp-m" x="30" y="360" font-size="12" fill="#8b949e">rastro · docs/eventos/exportacao-csv.jsonl</text>
+  <g class="sp-a" style="animation-name:sp-dyn" clip-path="url(#sp-clip-type)">
+    <text class="sp-m" x="30" y="386" font-size="12" fill="#e6edf3">{"evento":"task_concluida","task":"T-02.03","sessao":"<tspan fill="#d97757">claude@a1</tspan>","harness":"claude"}</text>
+  </g>
+</svg>

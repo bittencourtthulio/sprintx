@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="470" viewBox="0 0 1000 470" role="img" aria-label="F6: a execução nunca para. Paralelismo declarado no plano, dúvida vira bloqueio registrado, e o agente segue para a próxima task.">
+<title>F6 · execução autônoma — a execução nunca para</title>
+<style>
+.ea-a{animation-duration:14s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.4,0,.2,1);animation-fill-mode:both}
+.ea-sans{font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif}
+.ea-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace}
+.ea-box-n01{animation-name:ea-box-n01}
+.ea-fill-n01{animation-name:ea-fill-n01}
+.ea-st-p-n01{animation-name:ea-st-p-n01}
+.ea-st-r-n01{animation-name:ea-st-r-n01}
+.ea-st-d-n01{animation-name:ea-st-d-n01}
+.ea-box-n02{animation-name:ea-box-n02}
+.ea-fill-n02{animation-name:ea-fill-n02}
+.ea-st-p-n02{animation-name:ea-st-p-n02}
+.ea-st-r-n02{animation-name:ea-st-r-n02}
+.ea-st-d-n02{animation-name:ea-st-d-n02}
+.ea-box-n03{animation-name:ea-box-n03}
+.ea-fill-n03{animation-name:ea-fill-n03}
+.ea-st-p-n03{animation-name:ea-st-p-n03}
+.ea-st-r-n03{animation-name:ea-st-r-n03}
+.ea-st-d-n03{animation-name:ea-st-d-n03}
+.ea-box-n05{animation-name:ea-box-n05}
+.ea-fill-n05{animation-name:ea-fill-n05}
+.ea-st-p-n05{animation-name:ea-st-p-n05}
+.ea-st-r-n05{animation-name:ea-st-r-n05}
+.ea-st-d-n05{animation-name:ea-st-d-n05}
+.ea-box-n04{animation-name:ea-box-n04}
+.ea-fill-n04{animation-name:ea-fill-n04}
+.ea-st-p-n04{animation-name:ea-st-p-n04}
+.ea-st-r-n04{animation-name:ea-st-r-n04}
+.ea-st-d-n04{animation-name:ea-st-d-n04}
+.ea-agent{animation-name:ea-agent}
+.ea-agent-lbl{animation-name:ea-agent-lbl}
+.ea-read{animation-name:ea-read}
+.ea-par{animation-name:ea-par}
+.ea-blk{animation-name:ea-blk}
+.ea-blk-ph{animation-name:ea-blk-ph}
+.ea-nq{animation-name:ea-nq}
+.ea-jump{animation-name:ea-jump}
+.ea-dash{animation-name:ea-dash;animation-timing-function:linear;animation-duration:1.4s;animation-iteration-count:infinite;animation-fill-mode:both}
+.ea-rep{animation-name:ea-rep}
+.ea-ghost{animation-name:ea-ghost}
+@keyframes ea-box-n01{0%{stroke:#30363d}3.57%{stroke:#30363d}4.86%{stroke:#d29922}17.86%{stroke:#d29922}19.14%{stroke:#3fb950}97.14%{stroke:#3fb950}98.57%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes ea-fill-n01{0%{fill:#d29922;opacity:1}17.86%{fill:#d29922;opacity:1}19.14%{fill:#3fb950;opacity:1}96.43%{fill:#3fb950;opacity:1}97.5%{fill:#3fb950;opacity:0}97.5%{fill:#3fb950;opacity:0}98.21%{fill:#d29922;opacity:0}98.57%{fill:#d29922;opacity:1}100%{fill:#d29922;opacity:1}}
+@keyframes ea-st-p-n01{0%{opacity:1}3.57%{opacity:1}4.86%{opacity:0}98.57%{opacity:0}99.64%{opacity:1}100%{opacity:1}}
+@keyframes ea-st-r-n01{0%{opacity:0}3.57%{opacity:0}4.86%{opacity:1}17.86%{opacity:1}19.14%{opacity:0}100%{opacity:0}}
+@keyframes ea-st-d-n01{0%{opacity:0}17.86%{opacity:0}19.14%{opacity:1}96.43%{opacity:1}97.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-box-n02{0%{stroke:#30363d}18.57%{stroke:#30363d}19.86%{stroke:#d29922}46.43%{stroke:#d29922}47.71%{stroke:#3fb950}97.14%{stroke:#3fb950}98.57%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes ea-fill-n02{0%{fill:#d29922;opacity:1}46.43%{fill:#d29922;opacity:1}47.71%{fill:#3fb950;opacity:1}96.43%{fill:#3fb950;opacity:1}97.5%{fill:#3fb950;opacity:0}97.5%{fill:#3fb950;opacity:0}98.21%{fill:#d29922;opacity:0}98.57%{fill:#d29922;opacity:1}100%{fill:#d29922;opacity:1}}
+@keyframes ea-st-p-n02{0%{opacity:1}18.57%{opacity:1}19.86%{opacity:0}98.57%{opacity:0}99.64%{opacity:1}100%{opacity:1}}
+@keyframes ea-st-r-n02{0%{opacity:0}18.57%{opacity:0}19.86%{opacity:1}46.43%{opacity:1}47.71%{opacity:0}100%{opacity:0}}
+@keyframes ea-st-d-n02{0%{opacity:0}46.43%{opacity:0}47.71%{opacity:1}96.43%{opacity:1}97.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-box-n03{0%{stroke:#30363d}18.57%{stroke:#30363d}19.86%{stroke:#d29922}35.71%{stroke:#d29922}37%{stroke:#f85149}97.14%{stroke:#f85149}98.57%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes ea-fill-n03{0%{fill:#d29922;opacity:1}35.71%{fill:#d29922;opacity:1}37%{fill:#f85149;opacity:1}96.43%{fill:#f85149;opacity:1}97.5%{fill:#f85149;opacity:0}97.5%{fill:#f85149;opacity:0}98.21%{fill:#d29922;opacity:0}98.57%{fill:#d29922;opacity:1}100%{fill:#d29922;opacity:1}}
+@keyframes ea-st-p-n03{0%{opacity:1}18.57%{opacity:1}19.86%{opacity:0}98.57%{opacity:0}99.64%{opacity:1}100%{opacity:1}}
+@keyframes ea-st-r-n03{0%{opacity:0}18.57%{opacity:0}19.86%{opacity:1}35.71%{opacity:1}37%{opacity:0}100%{opacity:0}}
+@keyframes ea-st-d-n03{0%{opacity:0}35.71%{opacity:0}37%{opacity:1}96.43%{opacity:1}97.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-box-n05{0%{stroke:#30363d}18.57%{stroke:#30363d}19.86%{stroke:#d29922}57.14%{stroke:#d29922}58.43%{stroke:#3fb950}97.14%{stroke:#3fb950}98.57%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes ea-fill-n05{0%{fill:#d29922;opacity:1}57.14%{fill:#d29922;opacity:1}58.43%{fill:#3fb950;opacity:1}96.43%{fill:#3fb950;opacity:1}97.5%{fill:#3fb950;opacity:0}97.5%{fill:#3fb950;opacity:0}98.21%{fill:#d29922;opacity:0}98.57%{fill:#d29922;opacity:1}100%{fill:#d29922;opacity:1}}
+@keyframes ea-st-p-n05{0%{opacity:1}18.57%{opacity:1}19.86%{opacity:0}98.57%{opacity:0}99.64%{opacity:1}100%{opacity:1}}
+@keyframes ea-st-r-n05{0%{opacity:0}18.57%{opacity:0}19.86%{opacity:1}57.14%{opacity:1}58.43%{opacity:0}100%{opacity:0}}
+@keyframes ea-st-d-n05{0%{opacity:0}57.14%{opacity:0}58.43%{opacity:1}96.43%{opacity:1}97.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-box-n04{0%{stroke:#30363d}58.57%{stroke:#30363d}59.86%{stroke:#d29922}71.43%{stroke:#d29922}72.71%{stroke:#3fb950}97.14%{stroke:#3fb950}98.57%{stroke:#30363d}100%{stroke:#30363d}}
+@keyframes ea-fill-n04{0%{fill:#d29922;opacity:1}71.43%{fill:#d29922;opacity:1}72.71%{fill:#3fb950;opacity:1}96.43%{fill:#3fb950;opacity:1}97.5%{fill:#3fb950;opacity:0}97.5%{fill:#3fb950;opacity:0}98.21%{fill:#d29922;opacity:0}98.57%{fill:#d29922;opacity:1}100%{fill:#d29922;opacity:1}}
+@keyframes ea-st-p-n04{0%{opacity:1}58.57%{opacity:1}59.86%{opacity:0}98.57%{opacity:0}99.64%{opacity:1}100%{opacity:1}}
+@keyframes ea-st-r-n04{0%{opacity:0}58.57%{opacity:0}59.86%{opacity:1}71.43%{opacity:1}72.71%{opacity:0}100%{opacity:0}}
+@keyframes ea-st-d-n04{0%{opacity:0}71.43%{opacity:0}72.71%{opacity:1}96.43%{opacity:1}97.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-agent{0%{transform:translate(226px,233px);opacity:1}18.21%{transform:translate(226px,233px)}21.07%{transform:translate(478px,276px)}48.57%{transform:translate(478px,276px)}52.14%{transform:translate(478px,104px)}57.86%{transform:translate(478px,104px)}60.71%{transform:translate(738px,190px)}74.29%{transform:translate(738px,190px)}77.5%{transform:translate(972px,160px);opacity:1}92.86%{transform:translate(972px,160px);opacity:1}94.29%{transform:translate(972px,160px);opacity:0;animation-timing-function:step-end}95%{transform:translate(226px,233px);opacity:0}98.57%{transform:translate(226px,233px);opacity:0}100%{transform:translate(226px,233px);opacity:1}}
+@keyframes ea-agent-lbl{0%{opacity:1}17.5%{opacity:1}18.57%{opacity:0}21.07%{opacity:0}22.5%{opacity:1}47.5%{opacity:1}48.57%{opacity:0}52.14%{opacity:0}53.57%{opacity:1}57.14%{opacity:1}58.21%{opacity:0}60.71%{opacity:0}62.14%{opacity:1}73.57%{opacity:1}74.64%{opacity:0}77.5%{opacity:0}78.93%{opacity:1}92.86%{opacity:1}93.93%{opacity:0}98.5%{opacity:0}98.57%{opacity:1}100%{opacity:1}}
+@keyframes ea-read{0%{transform:translateY(0px);opacity:.2}1.79%{transform:translateY(0px);opacity:.2}15.71%{transform:translateY(16px);opacity:.2}17.86%{transform:translateY(16px);opacity:0}60.71%{transform:translateY(0px);opacity:0}61.79%{transform:translateY(0px);opacity:.2}67.86%{transform:translateY(16px);opacity:.2}70%{transform:translateY(16px);opacity:0}97.86%{transform:translateY(0px);opacity:0}99.64%{transform:translateY(0px);opacity:.2}100%{transform:translateY(0px);opacity:.2}}
+@keyframes ea-par{0%{opacity:0}18.57%{opacity:0}21.07%{opacity:1}35.71%{opacity:1}37.86%{opacity:0}100%{opacity:0}}
+@keyframes ea-blk{0%{opacity:0}35.71%{opacity:0}37.86%{opacity:1}92.86%{opacity:1}95%{opacity:0}100%{opacity:0}}
+@keyframes ea-blk-ph{0%{opacity:1}35.36%{opacity:1}36.79%{opacity:0}95%{opacity:0}96.43%{opacity:1}100%{opacity:1}}
+@keyframes ea-nq{0%{opacity:0;transform:translateY(6px)}41.79%{opacity:0;transform:translateY(6px)}43.57%{opacity:1;transform:translateY(0px)}45.71%{opacity:.4;transform:translateY(0px)}47.86%{opacity:1;transform:translateY(0px)}55.71%{opacity:1;transform:translateY(0px)}58.57%{opacity:0;transform:translateY(0px)}100%{opacity:0;transform:translateY(6px)}}
+@keyframes ea-jump{0%{opacity:0}47.14%{opacity:0}48.57%{opacity:1}55.71%{opacity:1}57.14%{opacity:0}100%{opacity:0}}
+@keyframes ea-dash{0%{stroke-dashoffset:16}100%{stroke-dashoffset:0}}
+@keyframes ea-rep{0%{opacity:0}76.43%{opacity:0}78.21%{opacity:1}92.86%{opacity:1}95%{opacity:0}100%{opacity:0}}
+@keyframes ea-ghost{0%{opacity:1}75%{opacity:1}76.43%{opacity:0}95%{opacity:0}96.43%{opacity:1}100%{opacity:1}}
+</style>
+<defs>
+  <marker id="ea-mk-g" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3fb950"/></marker>
+  <marker id="ea-mk-d" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6e7681"/></marker>
+  <marker id="ea-mk-p" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 0L10 5L0 10z" fill="#a371f7"/></marker>
+  <clipPath id="ea-clip-typ"><rect x="310" y="376" width="0" height="18"><animate attributeName="width" values="0;0;650;650;0;0" keyTimes="0;0.3714;0.4143;0.9679;0.9714;1" calcMode="spline" keySplines="0 0 1 1;.3 0 .7 1;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect></clipPath>
+</defs>
+
+<!-- cartão -->
+<rect x="0.5" y="0.5" width="999" height="469" rx="16" fill="#0d1117" stroke="#30363d"/>
+
+<!-- topo: ORQUESTRADOR.md sendo lido -->
+<g>
+  <rect x="28" y="18" width="190" height="56" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text class="ea-mono" x="40" y="35" font-size="12" fill="#e6edf3">ORQUESTRADOR.md</text>
+  <rect x="40" y="44" width="120" height="4" rx="2" fill="#30363d"/>
+  <rect x="40" y="52" width="150" height="4" rx="2" fill="#30363d"/>
+  <rect x="40" y="60" width="96" height="4" rx="2" fill="#30363d"/>
+  <rect class="ea-a ea-read" x="36" y="41" width="166" height="9" rx="3" fill="#3fb950" opacity="0.2"/>
+  <text class="ea-sans" x="230" y="51" font-size="12" fill="#8b949e">← lê o mapa</text>
+</g>
+
+<!-- título -->
+<text class="ea-sans" x="500" y="43" font-size="20" font-weight="600" text-anchor="middle" fill="#e6edf3">F6 · execução autônoma</text>
+<text class="ea-sans" x="500" y="65" font-size="13" text-anchor="middle" fill="#8b949e">só corre em paralelo o que o plano declarou</text>
+
+<!-- chip sprintx -->
+<rect x="882" y="33" width="90" height="26" rx="13" fill="#161b22" stroke="#30363d"/>
+<text class="ea-mono" x="927" y="50" font-size="12" text-anchor="middle" fill="#3fb950">sprintx</text>
+
+<!-- raia paralelizável -->
+<text class="ea-sans" x="44" y="136" font-size="12" fill="#8b949e">paralelizável · sem dependência</text>
+<line x1="44" y1="175" x2="540" y2="175" stroke="#30363d" stroke-dasharray="4 5"/>
+
+<!-- arestas -->
+<path d="M226 261 C266 261 256 218 296 218" fill="none" stroke="#3fb950" stroke-width="3" marker-end="url(#ea-mk-g)"/>
+<path d="M226 261 C266 261 256 304 296 304" fill="none" stroke="#6e7681" stroke-width="1.5" marker-end="url(#ea-mk-d)"/>
+<path d="M478 218 H556" fill="none" stroke="#3fb950" stroke-width="3" marker-end="url(#ea-mk-g)"/>
+<path class="ea-a ea-rep" d="M738 218 H790" fill="none" stroke="#238636" stroke-width="2" marker-end="url(#ea-mk-g)" opacity="0"/>
+
+<!-- rótulo paralelo -->
+<text class="ea-sans ea-a ea-par" x="372" y="265" font-size="12" text-anchor="middle" fill="#d29922" opacity="0">paralelo</text>
+
+<!-- nós -->
+
+  <g>
+    <rect class="ea-a ea-box-n01" x="44" y="233" width="182" height="56" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.25"/>
+    <text class="ea-mono" x="56" y="252" font-size="12" fill="#8b949e">T-01.01</text>
+    <text class="ea-sans ea-a ea-st-p-n01" x="214" y="252" font-size="12" text-anchor="end" fill="#6e7681">pendente</text>
+    <text class="ea-sans ea-a ea-st-r-n01" x="214" y="252" font-size="12" text-anchor="end" fill="#d29922" opacity="0">em_andamento</text>
+    <text class="ea-sans ea-a ea-st-d-n01" x="214" y="252" font-size="12" text-anchor="end" fill="#3fb950" opacity="0">✓ concluida</text>
+    <text class="ea-sans" x="56" y="269" font-size="13" font-weight="500" fill="#e6edf3">config e fixtures</text>
+    <rect x="56" y="276" width="158" height="5" rx="2.5" fill="#30363d"/>
+    <rect class="ea-a ea-fill-n01" x="56" y="276" width="0" height="5" rx="2.5" fill="#d29922"><animate attributeName="width" values="0;0;158;158;0;0" keyTimes="0;0.0357;0.1786;0.975;0.9821;1" calcMode="spline" keySplines="0 0 1 1;.45 .05 .55 .95;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect>
+  </g>
+  <g>
+    <rect class="ea-a ea-box-n02" x="296" y="190" width="182" height="56" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.25"/>
+    <text class="ea-mono" x="308" y="209" font-size="12" fill="#8b949e">T-01.02</text>
+    <text class="ea-sans ea-a ea-st-p-n02" x="466" y="209" font-size="12" text-anchor="end" fill="#6e7681">pendente</text>
+    <text class="ea-sans ea-a ea-st-r-n02" x="466" y="209" font-size="12" text-anchor="end" fill="#d29922" opacity="0">em_andamento</text>
+    <text class="ea-sans ea-a ea-st-d-n02" x="466" y="209" font-size="12" text-anchor="end" fill="#3fb950" opacity="0">✓ concluida</text>
+    <text class="ea-sans" x="308" y="226" font-size="13" font-weight="500" fill="#e6edf3">client CSV</text>
+    <rect x="308" y="233" width="158" height="5" rx="2.5" fill="#30363d"/>
+    <rect class="ea-a ea-fill-n02" x="308" y="233" width="0" height="5" rx="2.5" fill="#d29922"><animate attributeName="width" values="0;0;158;158;0;0" keyTimes="0;0.1857;0.4643;0.975;0.9821;1" calcMode="spline" keySplines="0 0 1 1;.45 .05 .55 .95;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect>
+  </g>
+  <g>
+    <rect class="ea-a ea-box-n03" x="296" y="276" width="182" height="56" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.25"/>
+    <text class="ea-mono" x="308" y="295" font-size="12" fill="#8b949e">T-01.03</text>
+    <text class="ea-sans ea-a ea-st-p-n03" x="466" y="295" font-size="12" text-anchor="end" fill="#6e7681">pendente</text>
+    <text class="ea-sans ea-a ea-st-r-n03" x="466" y="295" font-size="12" text-anchor="end" fill="#d29922" opacity="0">em_andamento</text>
+    <text class="ea-sans ea-a ea-st-d-n03" x="466" y="295" font-size="12" text-anchor="end" fill="#f85149" opacity="0">bloqueada</text>
+    <text class="ea-sans" x="308" y="312" font-size="13" font-weight="500" fill="#e6edf3">formatação de datas</text>
+    <rect x="308" y="319" width="158" height="5" rx="2.5" fill="#30363d"/>
+    <rect class="ea-a ea-fill-n03" x="308" y="319" width="0" height="5" rx="2.5" fill="#d29922"><animate attributeName="width" values="0;0;88;88;0;0" keyTimes="0;0.1857;0.3571;0.975;0.9821;1" calcMode="spline" keySplines="0 0 1 1;.45 .05 .55 .95;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect>
+  </g>
+  <g>
+    <rect class="ea-a ea-box-n05" x="296" y="104" width="182" height="56" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.25"/>
+    <text class="ea-mono" x="308" y="123" font-size="12" fill="#8b949e">T-01.05</text>
+    <text class="ea-sans ea-a ea-st-p-n05" x="466" y="123" font-size="12" text-anchor="end" fill="#6e7681">pendente</text>
+    <text class="ea-sans ea-a ea-st-r-n05" x="466" y="123" font-size="12" text-anchor="end" fill="#d29922" opacity="0">em_andamento</text>
+    <text class="ea-sans ea-a ea-st-d-n05" x="466" y="123" font-size="12" text-anchor="end" fill="#3fb950" opacity="0">✓ concluida</text>
+    <text class="ea-sans" x="308" y="140" font-size="13" font-weight="500" fill="#e6edf3">docs do endpoint</text>
+    <rect x="308" y="147" width="158" height="5" rx="2.5" fill="#30363d"/>
+    <rect class="ea-a ea-fill-n05" x="308" y="147" width="0" height="5" rx="2.5" fill="#d29922"><animate attributeName="width" values="0;0;158;158;0;0" keyTimes="0;0.1857;0.5714;0.975;0.9821;1" calcMode="spline" keySplines="0 0 1 1;.45 .05 .55 .95;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect>
+  </g>
+  <g>
+    <rect class="ea-a ea-box-n04" x="556" y="190" width="182" height="56" rx="8" fill="#21262d" stroke="#30363d" stroke-width="1.25"/>
+    <text class="ea-mono" x="568" y="209" font-size="12" fill="#8b949e">T-01.04</text>
+    <text class="ea-sans ea-a ea-st-p-n04" x="726" y="209" font-size="12" text-anchor="end" fill="#6e7681">pendente</text>
+    <text class="ea-sans ea-a ea-st-r-n04" x="726" y="209" font-size="12" text-anchor="end" fill="#d29922" opacity="0">em_andamento</text>
+    <text class="ea-sans ea-a ea-st-d-n04" x="726" y="209" font-size="12" text-anchor="end" fill="#3fb950" opacity="0">✓ concluida</text>
+    <text class="ea-sans" x="568" y="226" font-size="13" font-weight="500" fill="#e6edf3">tela chama o client</text>
+    <rect x="568" y="233" width="158" height="5" rx="2.5" fill="#30363d"/>
+    <rect class="ea-a ea-fill-n04" x="568" y="233" width="0" height="5" rx="2.5" fill="#d29922"><animate attributeName="width" values="0;0;158;158;0;0" keyTimes="0;0.5857;0.7143;0.975;0.9821;1" calcMode="spline" keySplines="0 0 1 1;.45 .05 .55 .95;0 0 1 1;0 0 1 1;0 0 1 1" dur="14s" repeatCount="indefinite"/></rect>
+  </g>
+
+<!-- pulo para a próxima paralelizável -->
+<g class="ea-a ea-jump" opacity="0">
+  <path class="ea-dash" d="M494 300 V140" fill="none" stroke="#a371f7" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#ea-mk-p)"/>
+  <text class="ea-sans" x="506" y="136" font-size="12" fill="#a371f7">pula para a próxima paralelizável</text>
+</g>
+
+<!-- nunca pergunta -->
+<g class="ea-a ea-nq" opacity="0">
+  <circle cx="522" cy="304" r="11" fill="none" stroke="#f85149" stroke-width="2"/>
+  <text class="ea-sans" x="522" y="309" font-size="14" font-weight="700" text-anchor="middle" fill="#f85149">?</text>
+  <line x1="514" y1="296" x2="530" y2="312" stroke="#f85149" stroke-width="2"/>
+  <text class="ea-sans" x="541" y="308" font-size="12" font-weight="600" fill="#f85149">nunca pergunta</text>
+</g>
+
+<!-- 00-BLOQUEIOS.md: cartão vazio desde t=0, ganha a linha B-01 aos 5 s -->
+<g>
+  <rect x="296" y="350" width="676" height="52" rx="6" fill="#161b22" stroke="#30363d"/>
+  <text class="ea-mono" x="312" y="368" font-size="12" fill="#6e7681">00-BLOQUEIOS.md</text>
+  <text class="ea-mono ea-a ea-blk-ph" x="312" y="390" font-size="12" fill="#6e7681">B-NN | task | descrição | o que destravaria</text>
+</g>
+<g class="ea-a ea-blk" opacity="0">
+  <line x1="387" y1="332" x2="387" y2="350" stroke="#f85149" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect x="296" y="356" width="3" height="40" fill="#f85149"/>
+  <text class="ea-mono" x="312" y="368" font-size="12" fill="#e6edf3">00-BLOQUEIOS.md</text>
+  <text class="ea-mono" x="312" y="390" font-size="12" fill="#8b949e" clip-path="url(#ea-clip-typ)"><tspan fill="#f85149">B-01</tspan> | T-01.03 | formato de data não decidido | decisão D-NN</text>
+</g>
+
+<!-- relatório final (fantasma, estado inicial) -->
+<rect x="790" y="160" width="182" height="116" rx="8" fill="none" stroke="#30363d" stroke-dasharray="4 5"/>
+<g class="ea-a ea-ghost">
+  <text class="ea-sans" x="804" y="182" font-size="13" font-weight="600" fill="#6e7681">relatório final</text>
+  <text class="ea-sans" x="804" y="206" font-size="13" fill="#6e7681">concluídas</text>
+  <text class="ea-sans" x="804" y="226" font-size="13" fill="#6e7681">bloqueios</text>
+  <text class="ea-sans" x="804" y="246" font-size="13" fill="#6e7681">saída da suíte</text>
+  <text class="ea-mono" x="804" y="266" font-size="12" fill="#6e7681">FECHAMENTO.md</text>
+</g>
+
+<!-- relatório final -->
+<g class="ea-a ea-rep" opacity="0">
+  <rect x="790" y="160" width="182" height="116" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text class="ea-sans" x="804" y="182" font-size="13" font-weight="600" fill="#e6edf3">relatório final</text>
+  <text class="ea-sans" x="804" y="206" font-size="13" fill="#3fb950">4 concluídas</text>
+  <text class="ea-sans" x="804" y="226" font-size="13" fill="#f85149">1 bloqueio</text>
+  <text class="ea-sans" x="804" y="246" font-size="13" fill="#3fb950">suíte verde</text>
+  <text class="ea-mono" x="804" y="266" font-size="12" fill="#8b949e">FECHAMENTO.md</text>
+</g>
+
+<!-- marcador do agente -->
+<g class="ea-a ea-agent">
+  <text class="ea-sans ea-a ea-agent-lbl" x="-12" y="-9" font-size="12" text-anchor="end" fill="#a371f7">agente</text>
+  <circle r="8" fill="#a371f7" stroke="#0d1117" stroke-width="2"/>
+  <circle r="2.5" fill="#0d1117"/>
+</g>
+
+<!-- rodapé -->
+<line x1="28" y1="420" x2="972" y2="420" stroke="#21262d"/>
+<text class="ea-sans" x="28" y="447" font-size="13" fill="#8b949e"><tspan fill="#e6edf3">Nunca para.</tspan> Dúvida vira bloqueio, não pergunta.</text>
+<text class="ea-sans" x="972" y="447" font-size="12" text-anchor="end" fill="#8b949e"><tspan fill="#6e7681">●</tspan> pendente<tspan dx="14" fill="#d29922">●</tspan> em_andamento<tspan dx="14" fill="#3fb950">●</tspan> concluida<tspan dx="14" fill="#f85149">●</tspan> bloqueada</text>
+</svg>

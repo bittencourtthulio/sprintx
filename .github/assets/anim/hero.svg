@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="320" viewBox="0 0 1000 320" role="img" aria-label="sprintx: a metade Build do método Expx. Seis fases, da ingestão à execução autônoma.">
+  <title>sprintx — a metade Build do método Expx: seis fases, da ingestão à execução autônoma</title>
+  <defs>
+    <clipPath id="hero-clip"><rect x="1" y="1" width="998" height="318" rx="15"/></clipPath>
+    <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="hero-wash" gradientUnits="userSpaceOnUse" x1="120" y1="0" x2="880" y2="320">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#3fb950" stop-opacity="1"/>
+      <stop offset="1" stop-color="#3fb950" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="hero-pulse">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0.9"/>
+      <stop offset="0.4" stop-color="#3fb950" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#3fb950" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="hero-blur" x="-25%" y="-70%" width="150%" height="240%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- cartão -->
+  <rect x="0.5" y="0.5" width="999" height="319" rx="16" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+  <g clip-path="url(#hero-clip)">
+    <rect x="0" y="0" width="1000" height="320" fill="url(#hero-grid)"/>
+    <rect x="0" y="0" width="1000" height="320" fill="url(#hero-wash)" opacity="0.08">
+      <animate attributeName="opacity" values="0.08;0.16;0.08" keyTimes="0;0.5;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1;0.45 0 0.55 1"/>
+    </rect>
+  </g>
+
+  <!-- cabeçalho -->
+  <text x="40" y="96" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="56" font-weight="700" fill="#e6edf3">sprint<tspan fill="#3fb950">x</tspan></text>
+  <rect x="292" y="65" width="116" height="26" rx="13" fill="none" stroke="#3fb950" stroke-width="1"/>
+  <text x="350" y="82.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13" fill="#3fb950">método Expx</text>
+  <text x="40" y="130" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" fill="#8b949e">Planejamento e execução autônoma de features novas</text>
+
+    <text x="960" y="83" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" fill="#8b949e">A metade <tspan fill="#3fb950" font-weight="600">Build</tspan> do método Expx<animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.5042;0.5333;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.5375;0.5917;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0 8;0 8;0 0;0 0;0 0;0 8" keyTimes="0;0.5375;0.5917;0.9167;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+      <text x="960" y="70" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" fill="#e6edf3">Todo o esforço vai para o planejamento;</text>
+      <text x="960" y="90" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#3fb950">a execução é autônoma.</text>
+    </g>
+
+  <!-- esteira das fases -->
+  <g>
+    <path d="M93 214 H817" fill="none" stroke="#30363d" stroke-width="2"/>
+    <line x1="93" y1="214" x2="93" y2="214" stroke="#3fb950" stroke-width="2" stroke-linecap="round">
+      <animate attributeName="x2" values="93;93;221;221;339;339;464;464;600;600;724;724;817;817;93;93" keyTimes="0;0.0958;0.175;0.1958;0.2667;0.2875;0.3667;0.3875;0.475;0.4958;0.575;0.5958;0.6417;0.975;0.9792;1" dur="12s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1"/>
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.9167;0.975;0.9792;1" dur="12s" repeatCount="indefinite"/>
+    </line>
+
+    <g>
+      <path d="M389 214 V244" fill="none" stroke="#30363d" stroke-width="1.5" stroke-dasharray="3 3">
+        <animate attributeName="stroke" values="#30363d;#30363d;#8b949e;#8b949e;#30363d;#30363d" keyTimes="0;0.2917;0.3125;0.35;0.3708;1" dur="12s" repeatCount="indefinite"/>
+      </path>
+      <rect x="284" y="244" width="210" height="24" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1" stroke-dasharray="4 3">
+        <animate attributeName="stroke" values="#30363d;#30363d;#8b949e;#8b949e;#30363d;#30363d" keyTimes="0;0.2917;0.3125;0.35;0.3708;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="389" y="260.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#6e7681"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700">F3.5</tspan> estimativa · opcional<animate attributeName="fill" values="#6e7681;#6e7681;#8b949e;#8b949e;#6e7681;#6e7681" keyTimes="0;0.2917;0.3125;0.35;0.3708;1" dur="12s" repeatCount="indefinite"/></text>
+    </g>
+
+    <g>
+      <rect x="40" y="196" width="106" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.075;0.095;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="93" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F1<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.075;0.095;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> ingestão<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.075;0.095;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(139,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.075;0.095;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.075;0.095;0.107;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g>
+      <rect x="160" y="196" width="122" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.175;0.195;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="221" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F2<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.175;0.195;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> descoberta<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.175;0.195;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(275,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.175;0.195;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.175;0.195;0.207;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g>
+      <rect x="296" y="196" width="86" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.2667;0.2867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="339" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F3<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.2667;0.2867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> plano<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.2667;0.2867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(375,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2667;0.2867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.2667;0.2867;0.2987;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g>
+      <rect x="396" y="196" width="136" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.3667;0.3867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="464" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F4<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.3667;0.3867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> orquestrador<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.3667;0.3867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(525,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3667;0.3867;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.3667;0.3867;0.3987;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g>
+      <rect x="546" y="196" width="108" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.475;0.495;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="600" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F5<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.475;0.495;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> auditoria<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.475;0.495;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(647,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.475;0.495;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.475;0.495;0.507;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+    <g>
+      <rect x="668" y="196" width="112" height="36" rx="18" fill="#21262d" stroke="#30363d" stroke-width="1">
+        <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.575;0.595;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <text x="724" y="218.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#8b949e"><tspan font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-weight="700" fill="#6e7681">F6<animate attributeName="fill" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.575;0.595;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></tspan> execução<animate attributeName="fill" values="#8b949e;#8b949e;#e6edf3;#e6edf3;#8b949e;#8b949e" keyTimes="0;0.575;0.595;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      <g transform="translate(773,201)" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.575;0.595;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        <g>
+          <animateTransform attributeName="transform" type="scale" values="0.4;0.4;1.18;1;1;0.4" keyTimes="0;0.575;0.595;0.607;0.975;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+          <circle r="8" fill="#3fb950" stroke="#0d1117" stroke-width="1.5"/>
+          <path d="M-3.4 0.3 L-1 2.7 L3.6 -2.3" fill="none" stroke="#0d1117" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(221,194)" opacity="0">
+      <animate attributeName="opacity" values="0;0;1;1;1;0;0" keyTimes="0;0.175;0.19;0.1967;0.2583;0.275;1" dur="12s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="scale" values="0.5;0.5;1.08;1;1;0.9;0.5" keyTimes="0;0.175;0.19;0.1967;0.2583;0.275;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1;0.4 0 0.6 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+        <g transform="translate(0,-18)">
+          <path d="M-6 -12 H6 A7 7 0 0 1 13 -5 V5 A7 7 0 0 1 6 12 H4 L0 18 L-4 12 H-6 A7 7 0 0 1 -13 5 V-5 A7 7 0 0 1 -6 -12 Z" fill="#21262d" stroke="#3fb950" stroke-width="1.2" stroke-linejoin="round"/>
+          <text x="0" y="5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="15" font-weight="700" fill="#3fb950">?</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(878,214)">
+      <rect x="-90" y="-24" width="180" height="48" rx="24" fill="#3fb950" filter="url(#hero-blur)" opacity="0">
+        <animate attributeName="opacity" values="0;0;0.55;0.28;0.28;0;0" keyTimes="0;0.6417;0.6667;0.7417;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+      </rect>
+      <g>
+        <animateTransform attributeName="transform" type="scale" values="1;1;1.09;1;1" keyTimes="0;0.6417;0.6637;0.6917;1" calcMode="spline" keySplines="0 0 1 1;0.2 0 0.2 1;0.4 0 0.6 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+        <rect x="-84" y="-18" width="168" height="36" rx="18" fill="#161b22" stroke="#30363d" stroke-width="1">
+          <animate attributeName="stroke" values="#30363d;#30363d;#3fb950;#3fb950;#30363d;#30363d" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        </rect>
+        <rect x="-84" y="-18" width="168" height="36" rx="18" fill="#238636" opacity="0">
+          <animate attributeName="opacity" values="0;0;0.28;0.28;0;0" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        </rect>
+        <circle cx="-61" cy="0" r="8" fill="#161b22" stroke="#6e7681" stroke-width="1.5">
+          <animate attributeName="fill" values="#161b22;#161b22;#3fb950;#3fb950;#161b22;#161b22" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+          <animate attributeName="stroke" values="#6e7681;#6e7681;#3fb950;#3fb950;#6e7681;#6e7681" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        </circle>
+        <path d="M-64.4 0.3 L-62 2.7 L-57.4 -2.3" fill="none" stroke="#6e7681" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <animate attributeName="stroke" values="#6e7681;#6e7681;#0d1117;#0d1117;#6e7681;#6e7681" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/>
+        </path>
+        <text x="10" y="4.5" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500" fill="#6e7681">feature entregue<animate attributeName="fill" values="#6e7681;#6e7681;#e6edf3;#e6edf3;#6e7681;#6e7681" keyTimes="0;0.6417;0.6617;0.9167;0.975;1" dur="12s" repeatCount="indefinite"/></text>
+      </g>
+    </g>
+    <g opacity="0" style="mix-blend-mode:screen">
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.0708;0.1083;0.6417;0.6667;1" dur="12s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="93 214;93 214;221 214;221 214;339 214;339 214;464 214;464 214;600 214;600 214;724 214;724 214;817 214;817 214;93 214;93 214" keyTimes="0;0.0958;0.175;0.1958;0.2667;0.2875;0.3667;0.3875;0.475;0.4958;0.575;0.5958;0.6417;0.975;0.9792;1" calcMode="spline" keySplines="0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1;0 0 1 1" dur="12s" repeatCount="indefinite"/>
+      <circle r="12" fill="url(#hero-pulse)" opacity="0.6"/>
+      <circle r="4.5" fill="#3fb950"/>
+      <circle r="1.8" fill="#e6edf3" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- rodapé -->
+  <text x="960" y="288" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="12" fill="#8b949e">Claude Code + OpenCode</text>
+</svg>

@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400" role="img" aria-label="A skill descobre em que fase está inspecionando o disco, nunca perguntando.">
+<title>Máquina de estados da sprintx: a fase é detectada pelo disco, nunca perguntada</title>
+<style>
+.mq-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace}
+.mq-sans{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+@keyframes mq-veil{0.000%{opacity:1} 95.714%{opacity:1} 97.857%{opacity:0} 98.000%{opacity:0} 100.000%{opacity:1}}
+.mq-veil{animation:mq-veil 14.0s ease-in-out infinite}
+@keyframes mq-lupa{0.000%{transform:translateY(0px)} 3.929%{transform:translateY(0px)} 7.143%{transform:translateY(26px)} 19.643%{transform:translateY(26px)} 22.857%{transform:translateY(95px)} 35.357%{transform:translateY(95px)} 38.571%{transform:translateY(118px)} 51.071%{transform:translateY(118px)} 54.286%{transform:translateY(210px)} 66.786%{transform:translateY(210px)} 70.000%{transform:translateY(233px)} 82.500%{transform:translateY(233px)} 85.714%{transform:translateY(256px)} 97.857%{transform:translateY(256px)} 98.000%{transform:translateY(0px)} 100.000%{transform:translateY(0px)}}
+.mq-lupa{animation:mq-lupa 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e1{0.000%{opacity:0.34;transform:translateX(-6px)} 7.143%{opacity:0.34;transform:translateX(-6px)} 10.357%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e1{animation:mq-e1 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e2{0.000%{opacity:0.7;transform:translateX(-6px)} 8.000%{opacity:0.7;transform:translateX(-6px)} 11.214%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.7;transform:translateX(-6px)} 100.000%{opacity:0.7;transform:translateX(-6px)}}
+.mq-e2{animation:mq-e2 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e3{0.000%{opacity:0.7;transform:translateX(-6px)} 8.857%{opacity:0.7;transform:translateX(-6px)} 12.071%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.7;transform:translateX(-6px)} 100.000%{opacity:0.7;transform:translateX(-6px)}}
+.mq-e3{animation:mq-e3 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e4{0.000%{opacity:0.34;transform:translateX(-6px)} 22.857%{opacity:0.34;transform:translateX(-6px)} 26.071%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e4{animation:mq-e4 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e5{0.000%{opacity:0.34;transform:translateX(-6px)} 38.571%{opacity:0.34;transform:translateX(-6px)} 41.786%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e5{animation:mq-e5 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e6{0.000%{opacity:0.7;transform:translateX(-6px)} 39.429%{opacity:0.7;transform:translateX(-6px)} 42.643%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.7;transform:translateX(-6px)} 100.000%{opacity:0.7;transform:translateX(-6px)}}
+.mq-e6{animation:mq-e6 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e7{0.000%{opacity:0.7;transform:translateX(-6px)} 40.286%{opacity:0.7;transform:translateX(-6px)} 43.500%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.7;transform:translateX(-6px)} 100.000%{opacity:0.7;transform:translateX(-6px)}}
+.mq-e7{animation:mq-e7 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e8{0.000%{opacity:0.7;transform:translateX(-6px)} 41.143%{opacity:0.7;transform:translateX(-6px)} 44.357%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.7;transform:translateX(-6px)} 100.000%{opacity:0.7;transform:translateX(-6px)}}
+.mq-e8{animation:mq-e8 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e9{0.000%{opacity:0.34;transform:translateX(-6px)} 54.286%{opacity:0.34;transform:translateX(-6px)} 57.500%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e9{animation:mq-e9 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e10{0.000%{opacity:0.34;transform:translateX(-6px)} 70.000%{opacity:0.34;transform:translateX(-6px)} 73.214%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e10{animation:mq-e10 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e10s{0.000%{opacity:0.5;transform:translateX(-6px)} 70.000%{opacity:0.5;transform:translateX(-6px)} 73.214%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.5;transform:translateX(-6px)} 100.000%{opacity:0.5;transform:translateX(-6px)}}
+.mq-e10s{animation:mq-e10s 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-e11{0.000%{opacity:0.34;transform:translateX(-6px)} 85.714%{opacity:0.34;transform:translateX(-6px)} 88.929%{opacity:1;transform:translateX(0)} 97.857%{opacity:1;transform:translateX(0)} 98.000%{opacity:0.34;transform:translateX(-6px)} 100.000%{opacity:0.34;transform:translateX(-6px)}}
+.mq-e11{animation:mq-e11 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r0{0.000%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 11.429%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 13.571%{fill:#21262d;stroke:#30363d} 97.857%{fill:#21262d;stroke:#30363d} 98.000%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 100.000%{fill:rgba(63,185,80,0.09);stroke:#3fb950}}
+@keyframes mq-rn0{0.000%{fill:#e6edf3} 11.429%{fill:#e6edf3} 13.571%{fill:#8b949e} 97.857%{fill:#8b949e} 98.000%{fill:#e6edf3} 100.000%{fill:#e6edf3}}
+@keyframes mq-ru0{0.000%{fill:#3fb950} 11.429%{fill:#3fb950} 13.571%{fill:#6e7681} 97.857%{fill:#6e7681} 98.000%{fill:#3fb950} 100.000%{fill:#3fb950}}
+.mq-r0{animation:mq-r0 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn0{animation:mq-rn0 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru0{animation:mq-ru0 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-ck0{0.000%{opacity:0} 12.143%{opacity:0} 14.286%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-ck0{animation:mq-ck0 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r1{0.000%{fill:#161b22;stroke:#30363d} 11.429%{fill:#161b22;stroke:#30363d} 13.571%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 27.143%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 29.286%{fill:#21262d;stroke:#30363d} 97.857%{fill:#21262d;stroke:#30363d} 98.000%{fill:#161b22;stroke:#30363d} 100.000%{fill:#161b22;stroke:#30363d}}
+@keyframes mq-rn1{0.000%{fill:#8b949e} 11.429%{fill:#8b949e} 13.571%{fill:#e6edf3} 27.143%{fill:#e6edf3} 29.286%{fill:#8b949e} 97.857%{fill:#8b949e} 98.000%{fill:#8b949e} 100.000%{fill:#8b949e}}
+@keyframes mq-ru1{0.000%{fill:#6e7681} 11.429%{fill:#6e7681} 13.571%{fill:#3fb950} 27.143%{fill:#3fb950} 29.286%{fill:#6e7681} 97.857%{fill:#6e7681} 98.000%{fill:#6e7681} 100.000%{fill:#6e7681}}
+.mq-r1{animation:mq-r1 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn1{animation:mq-rn1 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru1{animation:mq-ru1 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-ck1{0.000%{opacity:0} 27.857%{opacity:0} 30.000%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-ck1{animation:mq-ck1 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r2{0.000%{fill:#161b22;stroke:#30363d} 27.143%{fill:#161b22;stroke:#30363d} 29.286%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 42.857%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 45.000%{fill:#21262d;stroke:#30363d} 97.857%{fill:#21262d;stroke:#30363d} 98.000%{fill:#161b22;stroke:#30363d} 100.000%{fill:#161b22;stroke:#30363d}}
+@keyframes mq-rn2{0.000%{fill:#8b949e} 27.143%{fill:#8b949e} 29.286%{fill:#e6edf3} 42.857%{fill:#e6edf3} 45.000%{fill:#8b949e} 97.857%{fill:#8b949e} 98.000%{fill:#8b949e} 100.000%{fill:#8b949e}}
+@keyframes mq-ru2{0.000%{fill:#6e7681} 27.143%{fill:#6e7681} 29.286%{fill:#3fb950} 42.857%{fill:#3fb950} 45.000%{fill:#6e7681} 97.857%{fill:#6e7681} 98.000%{fill:#6e7681} 100.000%{fill:#6e7681}}
+.mq-r2{animation:mq-r2 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn2{animation:mq-rn2 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru2{animation:mq-ru2 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-ck2{0.000%{opacity:0} 43.571%{opacity:0} 45.714%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-ck2{animation:mq-ck2 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r3{0.000%{fill:#161b22;stroke:#30363d} 42.857%{fill:#161b22;stroke:#30363d} 45.000%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 58.571%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 60.714%{fill:#21262d;stroke:#30363d} 97.857%{fill:#21262d;stroke:#30363d} 98.000%{fill:#161b22;stroke:#30363d} 100.000%{fill:#161b22;stroke:#30363d}}
+@keyframes mq-rn3{0.000%{fill:#8b949e} 42.857%{fill:#8b949e} 45.000%{fill:#e6edf3} 58.571%{fill:#e6edf3} 60.714%{fill:#8b949e} 97.857%{fill:#8b949e} 98.000%{fill:#8b949e} 100.000%{fill:#8b949e}}
+@keyframes mq-ru3{0.000%{fill:#6e7681} 42.857%{fill:#6e7681} 45.000%{fill:#3fb950} 58.571%{fill:#3fb950} 60.714%{fill:#6e7681} 97.857%{fill:#6e7681} 98.000%{fill:#6e7681} 100.000%{fill:#6e7681}}
+.mq-r3{animation:mq-r3 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn3{animation:mq-rn3 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru3{animation:mq-ru3 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-ck3{0.000%{opacity:0} 59.286%{opacity:0} 61.429%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-ck3{animation:mq-ck3 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r4{0.000%{fill:#161b22;stroke:#30363d} 58.571%{fill:#161b22;stroke:#30363d} 60.714%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 74.286%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 76.429%{fill:#21262d;stroke:#30363d} 97.857%{fill:#21262d;stroke:#30363d} 98.000%{fill:#161b22;stroke:#30363d} 100.000%{fill:#161b22;stroke:#30363d}}
+@keyframes mq-rn4{0.000%{fill:#8b949e} 58.571%{fill:#8b949e} 60.714%{fill:#e6edf3} 74.286%{fill:#e6edf3} 76.429%{fill:#8b949e} 97.857%{fill:#8b949e} 98.000%{fill:#8b949e} 100.000%{fill:#8b949e}}
+@keyframes mq-ru4{0.000%{fill:#6e7681} 58.571%{fill:#6e7681} 60.714%{fill:#3fb950} 74.286%{fill:#3fb950} 76.429%{fill:#6e7681} 97.857%{fill:#6e7681} 98.000%{fill:#6e7681} 100.000%{fill:#6e7681}}
+.mq-r4{animation:mq-r4 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn4{animation:mq-rn4 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru4{animation:mq-ru4 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-ck4{0.000%{opacity:0} 75.000%{opacity:0} 77.143%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-ck4{animation:mq-ck4 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-r5{0.000%{fill:#161b22;stroke:#30363d} 74.286%{fill:#161b22;stroke:#30363d} 76.429%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 87.500%{fill:rgba(63,185,80,0.09);stroke:#3fb950} 89.643%{fill:rgba(63,185,80,0.16);stroke:#3fb950} 97.857%{fill:rgba(63,185,80,0.16);stroke:#3fb950} 98.000%{fill:#161b22;stroke:#30363d} 100.000%{fill:#161b22;stroke:#30363d}}
+@keyframes mq-rn5{0.000%{fill:#8b949e} 74.286%{fill:#8b949e} 76.429%{fill:#e6edf3} 97.857%{fill:#e6edf3} 98.000%{fill:#8b949e} 100.000%{fill:#8b949e}}
+@keyframes mq-ru5{0.000%{fill:#6e7681} 74.286%{fill:#6e7681} 76.429%{fill:#3fb950} 97.857%{fill:#3fb950} 98.000%{fill:#6e7681} 100.000%{fill:#6e7681}}
+.mq-r5{animation:mq-r5 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-rn5{animation:mq-rn5 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-ru5{animation:mq-ru5 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-mark{0.000%{transform:translateY(0px)} 9.643%{transform:translateY(0px)} 13.214%{transform:translateY(40px)} 25.357%{transform:translateY(40px)} 28.929%{transform:translateY(80px)} 41.071%{transform:translateY(80px)} 44.643%{transform:translateY(144px)} 56.786%{transform:translateY(144px)} 60.357%{transform:translateY(184px)} 72.500%{transform:translateY(184px)} 76.071%{transform:translateY(224px)} 97.857%{transform:translateY(224px)} 98.000%{transform:translateY(0px)} 100.000%{transform:translateY(0px)}}
+.mq-mark{animation:mq-mark 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+@keyframes mq-here{0.000%{opacity:1} 87.500%{opacity:1} 89.643%{opacity:0} 97.857%{opacity:0} 98.000%{opacity:1} 100.000%{opacity:1}}
+@keyframes mq-done{0.000%{opacity:0} 87.500%{opacity:0} 89.643%{opacity:1} 97.857%{opacity:1} 98.000%{opacity:0} 100.000%{opacity:0}}
+.mq-here{animation:mq-here 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+.mq-done{animation:mq-done 14.0s cubic-bezier(.3,.1,.2,1) infinite}
+</style>
+<rect x="0.5" y="0.5" width="999" height="399" rx="16" fill="#0d1117" stroke="#30363d"/>
+<rect x="28" y="28" width="408" height="316" rx="10" fill="#161b22" stroke="#30363d"/>
+<rect x="452" y="28" width="520" height="316" rx="10" fill="#161b22" stroke="#30363d"/>
+<text class="mq-mono" x="52" y="54" font-size="13" fill="#8b949e">docs/sprintx/features/exportacao-csv/</text>
+<g class="mq-veil">
+<g class="mq-lupa">
+  <rect x="38" y="39" width="388" height="22" rx="5" fill="#58a6ff" opacity="0.08"/>
+  <g transform="translate(410 48)" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linecap="round">
+    <circle cx="0" cy="0" r="7.5"/>
+    <path d="M5.5 5.5 L12 12" stroke-width="2.6"/>
+  </g>
+</g>
+<g class="mq-e1"><path d="M52 71.5a1.5 1.5 0 0 1 1.5-1.5h3l1.5 1.5h4.5a1.5 1.5 0 0 1 1.5 1.5v5.5a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.5-1.5z" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="80" font-size="13" fill="#e6edf3">base/</text></g>
+<g class="mq-e2"><path d="M77 92h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M82 92v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="95" y="103" font-size="13" fill="#6e7681">00-INDICE.md</text></g>
+<g class="mq-e3"><path d="M77 115h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M82 115v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="95" y="126" font-size="13" fill="#6e7681">00-LACUNAS.md</text></g>
+<g class="mq-e4"><path d="M53 138h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M58 138v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="149" font-size="13" fill="#e6edf3">00-DECISOES.md</text></g>
+<g class="mq-e5"><path d="M52 163.5a1.5 1.5 0 0 1 1.5-1.5h3l1.5 1.5h4.5a1.5 1.5 0 0 1 1.5 1.5v5.5a1.5 1.5 0 0 1-1.5 1.5h-9a1.5 1.5 0 0 1-1.5-1.5z" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="172" font-size="13" fill="#e6edf3">sprint-01/</text></g>
+<g class="mq-e6"><path d="M77 184h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M82 184v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="95" y="195" font-size="13" fill="#6e7681">sprint.md</text></g>
+<g class="mq-e7"><path d="M77 207h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M82 207v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="95" y="218" font-size="13" fill="#6e7681">fases.md</text></g>
+<g class="mq-e8"><path d="M77 230h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M82 230v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="95" y="241" font-size="13" fill="#6e7681">tasks.md</text></g>
+<g class="mq-e9"><path d="M53 253h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M58 253v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="264" font-size="13" fill="#e6edf3">ORQUESTRADOR.md</text></g>
+<g class="mq-e10"><path d="M53 276h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M58 276v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="287" font-size="13" fill="#e6edf3">00-AUDITORIA.md</text></g>
+<g class="mq-e10s"><text class="mq-mono" x="204" y="287" font-size="13" font-weight="600" fill="#3fb950">VEREDITO: SIM</text></g>
+<g class="mq-e11"><path d="M53 299h5l3 3v8a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-10a1 1 0 0 1 1-1z M58 299v3h3" fill="none" stroke="#6e7681" stroke-width="1.2" stroke-linejoin="round"/><text class="mq-mono" x="71" y="310" font-size="13" fill="#e6edf3">FECHAMENTO.md</text></g>
+<g class="mq-e1"><path d="M58 86V122" stroke="#30363d" stroke-width="1"/></g>
+<g class="mq-e5"><path d="M58 178V237" stroke="#30363d" stroke-width="1"/></g>
+</g>
+<text class="mq-sans" x="476" y="54" font-size="12" font-weight="600" letter-spacing="1.2" fill="#8b949e">FASE DETECTADA PELO DISCO</text>
+<g class="mq-veil">
+<rect class="mq-r0" x="476" y="70" width="472" height="36" rx="8" fill="rgba(63,185,80,0.09)" stroke="#3fb950" stroke-width="1.5"/>
+<text class="mq-mono mq-ru0" x="490" y="84" font-size="12" font-weight="700" fill="#3fb950">F1</text>
+<text class="mq-sans mq-rn0" x="516" y="84" font-size="14" font-weight="600" fill="#e6edf3">INGESTÃO</text>
+<text class="mq-sans" x="490" y="99" font-size="13" fill="#8b949e">base/ não existe</text>
+<path class="mq-ck0" d="M919 88.0l3.5 3.5 7-7" opacity="0" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="mq-r1" x="476" y="110" width="472" height="36" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text class="mq-mono mq-ru1" x="490" y="124" font-size="12" font-weight="700" fill="#6e7681">F2</text>
+<text class="mq-sans mq-rn1" x="516" y="124" font-size="14" font-weight="600" fill="#8b949e">DESCOBERTA</text>
+<text class="mq-sans" x="490" y="139" font-size="13" fill="#8b949e">base/ existe, 00-DECISOES.md não</text>
+<path class="mq-ck1" d="M919 128.0l3.5 3.5 7-7" opacity="0" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="mq-r2" x="476" y="150" width="472" height="36" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text class="mq-mono mq-ru2" x="490" y="164" font-size="12" font-weight="700" fill="#6e7681">F3</text>
+<text class="mq-sans mq-rn2" x="516" y="164" font-size="14" font-weight="600" fill="#8b949e">PLANO</text>
+<text class="mq-sans" x="490" y="179" font-size="13" fill="#8b949e">00-DECISOES.md existe, sprint-01/ não</text>
+<path class="mq-ck2" d="M919 168.0l3.5 3.5 7-7" opacity="0" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="mq-r3" x="476" y="214" width="472" height="36" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text class="mq-mono mq-ru3" x="490" y="228" font-size="12" font-weight="700" fill="#6e7681">F4</text>
+<text class="mq-sans mq-rn3" x="516" y="228" font-size="14" font-weight="600" fill="#8b949e">ORQUESTRADOR</text>
+<text class="mq-sans" x="490" y="243" font-size="13" fill="#8b949e">sprint-01/ existe, ORQUESTRADOR.md não</text>
+<path class="mq-ck3" d="M919 232.0l3.5 3.5 7-7" opacity="0" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="mq-r4" x="476" y="254" width="472" height="36" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text class="mq-mono mq-ru4" x="490" y="268" font-size="12" font-weight="700" fill="#6e7681">F5</text>
+<text class="mq-sans mq-rn4" x="516" y="268" font-size="14" font-weight="600" fill="#8b949e">AUDITORIA</text>
+<text class="mq-sans" x="490" y="283" font-size="13" fill="#8b949e">ORQUESTRADOR.md existe, sem auditoria aprovada</text>
+<path class="mq-ck4" d="M919 272.0l3.5 3.5 7-7" opacity="0" fill="none" stroke="#6e7681" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect class="mq-r5" x="476" y="294" width="472" height="36" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+<text class="mq-mono mq-ru5" x="490" y="308" font-size="12" font-weight="700" fill="#6e7681">F6</text>
+<text class="mq-sans mq-rn5" x="516" y="308" font-size="14" font-weight="600" fill="#8b949e">EXECUÇÃO</text>
+<text class="mq-sans" x="490" y="323" font-size="13" fill="#8b949e">00-AUDITORIA.md com VEREDITO: SIM</text>
+<g>
+  <rect x="516" y="191" width="260" height="18" rx="9" fill="none" stroke="#6e7681" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="mq-sans" x="646.0" y="204" font-size="12" text-anchor="middle" fill="#6e7681">F3.5 estimativa · opcional · não é estado</text>
+</g>
+<g class="mq-mark">
+  <path d="M462 82.0l9 6-9 6z" fill="#3fb950"/>
+  <g class="mq-here">
+    <rect x="826" y="78.0" width="112" height="20" rx="10" fill="#238636"/>
+    <text class="mq-sans" x="882.0" y="92.0" font-size="12" font-weight="600" text-anchor="middle" fill="#e6edf3">você está aqui</text>
+  </g>
+  <g class="mq-done" opacity="0">
+    <rect x="842" y="78.0" width="96" height="20" rx="10" fill="#238636"/>
+    <path d="M854 88.0l3.5 3.5 7-7" fill="none" stroke="#e6edf3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="mq-sans" x="900" y="92.0" font-size="12" font-weight="600" text-anchor="middle" fill="#e6edf3">entregue</text>
+  </g>
+</g>
+</g>
+<text class="mq-sans" x="500" y="372" font-size="13" text-anchor="middle" fill="#8b949e">A skill descobre a fase inspecionando o disco — você nunca precisa dizer em que fase está.</text>
+</svg>
